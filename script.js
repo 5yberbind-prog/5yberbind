@@ -22,10 +22,3 @@ apps.forEach(app => {
   `;
   container.appendChild(card);
 });
-// Background click se band karo
-popup.addEventListener('click', (e) => {
-  if (e.target === popup) {
-    popup.style.display = 'none';
-    document.body.style.overflow = 'auto';
-  }
-});
