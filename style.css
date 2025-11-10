@@ -11,7 +11,7 @@ body {
 }
 
 /* 🔹 Navbar */
-/* 🌈 Premium Navbar for 5yberBind */
+/* 🌈 Ultra Premium Navbar (5yberBind Style) */
 header {
   position: sticky;
   top: 0;
@@ -20,20 +20,22 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 12px 40px;
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 10, 0.3);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   z-index: 1000;
+  animation: glowShift 6s linear infinite alternate;
 }
 
-/* Logo Styling */
+/* Logo */
 .logo h1 {
-  font-size: 26px;
-  font-weight: 700;
-  background: linear-gradient(90deg, #00ffff, #ff00ff, #ffae00);
+  font-size: 28px;
+  font-weight: 800;
+  background: linear-gradient(90deg, #00ffff, #ff00ff, #ffae00, #00ffff);
+  background-size: 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradientShift 3s infinite alternate;
+  animation: gradientShift 4s ease infinite;
 }
 
 /* Navbar Links */
@@ -43,26 +45,44 @@ nav a {
   font-size: 15px;
   color: #b0b0b0;
   text-decoration: none;
+  transition: 0.3s ease;
   position: relative;
-  transition: 0.3s;
 }
 
-/* Hover Neon Effect */
+/* Neon hover */
 nav a:hover {
   color: #00ffff;
-  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 25px #00ffff;
 }
 
-/* Active Link Highlight (optional) */
+/* Active link (optional) */
 nav a.active {
   color: #ffae00;
-  text-shadow: 0 0 10px #ffae00;
+  text-shadow: 0 0 12px #ffae00;
 }
 
-/* Gradient Animation for Logo */
+/* Animated Glow Border under navbar */
+header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #00ffff, #ff00ff, #ffae00);
+  animation: gradientShift 4s linear infinite;
+}
+
+/* Animation for moving gradient */
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
+}
+
+@keyframes glowShift {
+  0% { box-shadow: 0 0 15px #00ffff; }
+  50% { box-shadow: 0 0 15px #ff00ff; }
+  100% { box-shadow: 0 0 15px #ffae00; }
 }
 
 /* 🌈 Animated 5yberBind Logo */
