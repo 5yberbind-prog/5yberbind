@@ -66,3 +66,31 @@ document.querySelectorAll('.btn,.card').forEach(el=>{
   text-shadow: 0 0 15px var(--neon1), 0 0 25px var(--neon2);
   transition: text-shadow 0.4s ease-in-out;
 }
+// === Neon Parallax Light Follow Effect ===
+const parallaxLayers = document.createElement('div');
+parallaxLayers.className = 'parallax-layer';
+document.body.appendChild(parallaxLayers);
+
+// Create soft moving circles (react to cursor)
+for (let i = 0; i < 8; i++) {
+  const particle = document.createElement('div');
+  particle.classList.add('neon-particle');
+  particle.style.setProperty('--x', Math.random() * 100 + '%');
+  particle.style.setProperty('--y', Math.random() * 100 + '%');
+  parallaxLayers.appendChild(particle);
+}
+
+// Parallax motion
+document.addEventListener('mousemove', (e) => {
+  const x = (e.clientX / window.innerWidth - 0.5) * 2;
+  const y = (e.clientY / window.innerHeight - 0.5) * 2;
+  parallaxLayers.style.transform = `translate(${x * 30}px, ${y * 30}px)`;
+});
+
+// Mobile touch move support
+document.addEventListener('touchmove', (e) => {
+  const touch = e.touches[0];
+  const x = (touch.clientX / window.innerWidth - 0.5) * 2;
+  const y = (touch.clientY / window.innerHeight - 0.5) * 2;
+  parallaxLayers.style.transform = `translate(${x * 30}px, ${y * 30}px)`;
+});
