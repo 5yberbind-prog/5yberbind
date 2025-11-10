@@ -614,35 +614,3 @@ header, nav, .navbar {
   background: none !important;
   text-shadow: 0 0 10px rgba(0, 180, 255, 0.7); /* light neon glow only around text */
 }
-
-/* Remove bottom highlight line overflow */
-header::after, nav::after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, #00f0ff, #ff00ff);
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}/* ---- Remove blue rectangle / box behind 5yberBind logo ---- */
-.logo {
-  background: none !important;
-  box-shadow: none !important;
-  filter: none !important;
-  backdrop-filter: none !important;
-}
-
-/* agar logo text pe glow chahiye to sirf text-shadow use karo  */
-.logo h1, .logo span {
-  color: #5bc6ff;                /* apne theme ke hisab se */
-  text-shadow: 0 0 10px #00c8ff; /* sirf glow effect */
-  background: none !important;
-}
-
-/* navbar full dark & consistent */
-header, nav, .navbar {
-  background: #071822 !important;
-  border: none !important;
-  box-shadow: none !important;
-}
