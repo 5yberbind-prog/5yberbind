@@ -5,16 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>5yberBind</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" />
 </head>
 <body>
-  <!-- 🌈 Navbar -->
+
+  <!-- ===== NAVBAR ===== -->
   <header>
-    <div class="logo">
-      <h1>5<span>yberBind</span></h1>
-    </div>
+    <h1 class="logo">5<span>yberBind</span></h1>
     <nav>
-      <a href="#home" class="active">Home</a>
       <a href="#apps">Apps</a>
       <a href="#blog">Blog</a>
       <a href="#youtube">YouTube</a>
@@ -22,56 +19,56 @@
     </nav>
   </header>
 
-  <!-- 🌟 Hero Section -->
-  <section id="home" class="hero">
-    <div class="neon-orb"></div>
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero">
+    <div class="neon-bg"></div>
     <div class="hero-content">
-      <h2>Welcome to <span class="gradient-text">5yberBind</span></h2>
-      <p>Your Ultimate Hub for Free Tech Apps, Editing Packs & Online Earning Tools 🚀</p>
-      <a href="#apps" class="glow-btn">Explore Now</a>
+      <h2>Welcome to <span>5yberBind</span></h2>
+      <p>Your ultimate hub for Tech Apps, Editing Packs & Earning Tools 🚀</p>
+      <a href="#apps" class="btn">Explore Now</a>
     </div>
   </section>
 
-  <!-- 🔥 Apps Section -->
+  <!-- ===== APPS SECTION ===== -->
   <section id="apps" class="section">
     <h3>🔥 Latest Apps & Editing Packs</h3>
     <div class="grid">
       <div class="card">
         <h4>🎨 Alight Motion XML Pack</h4>
-        <p>Professional presets for smooth edits</p>
+        <p>Best presets for smooth edits</p>
         <a href="#" class="download-btn">Download</a>
       </div>
       <div class="card">
         <h4>🎯 Free Fire Headshot Config</h4>
-        <p>Perfect headshot setup for all devices</p>
+        <p>Instant pro-level aiming setup</p>
         <a href="#" class="download-btn">Download</a>
       </div>
       <div class="card">
         <h4>📸 CapCut Template Pack</h4>
-        <p>Trending templates for creators</p>
+        <p>Trending video templates</p>
         <a href="#" class="download-btn">Download</a>
       </div>
     </div>
   </section>
 
-  <!-- 🧠 Blog Section -->
+  <!-- ===== BLOG ===== -->
   <section id="blog" class="section">
     <h3>🧠 Tech Blog</h3>
     <div class="grid">
       <div class="card">
         <h4>💸 Top 5 Earning Apps 2025</h4>
-        <p>Earn money using trending apps easily.</p>
-        <a href="#" class="read-btn">Read More</a>
+        <p>Earn money using trending Android apps easily.</p>
+        <a href="#" class="btn">Read More</a>
       </div>
       <div class="card">
-        <h4>🤖 Best Free AI Tools</h4>
-        <p>Boost productivity with AI-powered tools.</p>
-        <a href="#" class="read-btn">Read More</a>
+        <h4>🤖 Best AI Tools</h4>
+        <p>Discover free AI tools for creators.</p>
+        <a href="#" class="btn">Read More</a>
       </div>
     </div>
   </section>
 
-  <!-- 🎬 YouTube Section -->
+  <!-- ===== YOUTUBE ===== -->
   <section id="youtube" class="section">
     <h3>🎬 Latest from YouTube</h3>
     <div class="videos">
@@ -80,48 +77,15 @@
     </div>
   </section>
 
-  <!-- 📩 Contact Section -->
+  <!-- ===== FOOTER ===== -->
   <footer id="contact">
-    <h3>📩 Contact Us</h3>
     <p>Follow us on 
       <a href="https://youtube.com/@5yberbind" target="_blank">YouTube</a> | 
       <a href="#">Instagram</a> | 
       <a href="#">Telegram</a>
     </p>
-    <p class="credit">© 2025 5yberBind | Designed with ❤️ by Ashwani Kumar Bind</p>
+    <p class="credit">© 2025 5yberBind | Made with ❤️ by Ashwani</p>
   </footer>
 
-  <!-- ✨ Scroll Animation Script -->
-  <script>
-    const revealSections = document.querySelectorAll(".section");
-    window.addEventListener("scroll", () => {
-      revealSections.forEach(sec => {
-        const pos = sec.getBoundingClientRect().top;
-        if (pos < window.innerHeight * 0.85) sec.classList.add("show");
-      });
-    });
-<script>
-  <!-- 🌈 Neon Click Animation Script -->
-<script>
-  document.addEventListener("click", function(e) {
-    const ripple = document.createElement("span");
-    ripple.className = "ripple";
-    document.body.appendChild(ripple);
-
-    const colors = ["#00ffff", "#ff00ff", "#ff0090", "#00ff80", "#ffd500", "#00b4ff"];
-    const color = colors[Math.floor(Math.random() * colors.length)];
-
-    ripple.style.borderColor = color;
-    ripple.style.boxShadow = `0 0 15px ${color}, 0 0 40px ${color}`;
-    ripple.style.left = e.pageX + "px";
-    ripple.style.top = e.pageY + "px";
-
-    setTimeout(() => {
-      ripple.remove();
-    }, 1000);
-  });
-</script>
-</body>
-</html>
 </body>
 </html>
