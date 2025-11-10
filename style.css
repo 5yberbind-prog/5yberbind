@@ -11,18 +11,58 @@ body {
 }
 
 /* 🔹 Navbar */
+/* 🌈 Premium Navbar for 5yberBind */
 header {
+  position: sticky;
+  top: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 28px;
-  background: rgba(10, 25, 47, 0.85);
+  padding: 12px 40px;
+  background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(12px);
-  position: sticky;
-  top: 0;
-  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
-  z-index: 10;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+}
+
+/* Logo Styling */
+.logo h1 {
+  font-size: 26px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #00ffff, #ff00ff, #ffae00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 3s infinite alternate;
+}
+
+/* Navbar Links */
+nav a {
+  margin: 0 15px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #b0b0b0;
+  text-decoration: none;
+  position: relative;
+  transition: 0.3s;
+}
+
+/* Hover Neon Effect */
+nav a:hover {
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+}
+
+/* Active Link Highlight (optional) */
+nav a.active {
+  color: #ffae00;
+  text-shadow: 0 0 10px #ffae00;
+}
+
+/* Gradient Animation for Logo */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
 
 /* 🌈 Animated 5yberBind Logo */
