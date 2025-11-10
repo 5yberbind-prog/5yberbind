@@ -86,6 +86,16 @@
     </p>
     <p class="credit">© 2025 5yberBind | Made with ❤️ by Ashwani</p>
   </footer>
-
+<script>
+  const sections=document.querySelectorAll(".section");
+  window.addEventListener("scroll",()=>{
+    sections.forEach(sec=>{
+      const pos=sec.getBoundingClientRect().top;
+      if(pos<window.innerHeight*0.8){sec.classList.add("show");}
+    });
+  });
+</script>
+</body>
+</html>
 </body>
 </html>
