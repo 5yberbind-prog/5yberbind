@@ -379,6 +379,102 @@ const scenes = [
   "linear-gradient(-45deg, #1a0000, #ff0000, #ff6600, #ffcc00)",
   "linear-gradient(-45deg, #001a00, #00ff99, #00ffff, #0077ff)"
 ];
+<script>
+(() => {
+  // CONFIG: adjust to taste (longer interval = rarer stars)
+  const MIN_INTERVAL = 8000; // ms
+  const MAX_INTERVAL = 16000; // ms
+  const MIN_DURATION = 900; // ms (star travel time)
+  const MAX_DURATION = 1500; // ms
 
+  // Utility
+  const rand = (min, max) => Math.random() * (max - min) + min;
+
+  function spawnShootingStar() {
+    const star = document.createElement('div');
+    star.className = 'shooting-star';
+
+    // random start off-screen (top-left quadrant) and angle to bottom-right-ish
+    const startX = rand(-0.2, 0.3) * window.innerWidth; // can start slightly left
+    const startY = rand(0.05, 0.45) * window.innerHeight;
+
+    // length / angle randomization
+    const angle = rand(18, 38); // degrees (tilt)
+    const travel = rand(0.6, 1.6) * Math.max(window.innerWidth, window.innerHeight);
+
+    // duration
+    const dur = rand(MIN_DURATION, MAX_DURATION);
+
+    // initial placement
+    star.style.left = `${startX}px`;
+    star.style.top = `${startY}px`;
+    star.style.width = '2px';
+    star.style.height = '2px';
+    star.style.transform = `rotate(${angle}deg)`;
+    star.style.opacity = '0';
+
+    // Append to body
+    document.body.appendChild(star);
+
+    // animate using requestAnimationFrame + CSS transition for smoother control
+    const start = performance.now();
+    const rad = angle * Math.PI / 180;
+    const vx = Math.cos(rad) * (travel / dur);
+    const vy = Math.sin(rad) * (travel / dur);
+
+    function step(now) {
+      const t = (now - start) / dur;
+      if (t >= 1) {
+        // finish: fade + remove
+        star.style.opacity = '0';
+        setTimeout(() => star.remove(), 200);
+        return;
+      }
+      // position update
+      const curX = startX + vx * (now - start);
+      const curY = startY + vy * (now - start);
+      star.style.transform = `translate3d(${curX}px, ${curY}px, 0) rotate(${angle}deg)`;
+      star.style.opacity = (t < 0.08) ? (t / 0.08) : ((t > 0.85) ? ((1 - t)/0.15) : 1);
+      requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+
+    // also add CSS animation for subtle trail appearance
+    star.style.animation = `starMove ${dur}ms linear`;
+  }
+
+  // schedule loop
+  let timer = null;
+  function scheduleNext() {
+    const time = rand(MIN_INTERVAL, MAX_INTERVAL);
+    timer = setTimeout(() => {
+      // spawn 1 or sometimes 2 in quick succession
+      spawnShootingStar();
+      if (Math.random() < 0.25) setTimeout(spawnShootingStar, rand(150, 500));
+      scheduleNext();
+    }, time);
+  }
+
+  // start after small delay
+  setTimeout(scheduleNext, 2000);
+
+  // pause when tab hidden
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      clearTimeout(timer);
+      timer = null;
+    } else if (!timer) {
+      scheduleNext();
+    }
+  });
+
+  // optional global toggle (call window.toggleShooting(false) to stop)
+  window.toggleShooting = function(enabled) {
+    if (!enabled) clearTimeout(timer), timer = null;
+    else if (!timer) scheduleNext();
+  };
+
+})();
+</script>
 </body>
 </html>
