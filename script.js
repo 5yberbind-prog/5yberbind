@@ -52,3 +52,13 @@ document.querySelectorAll('.btn, .card, .click-glow').forEach(el => {
   el.classList.add('click-glow');
   el.addEventListener('click', (e) => addGlowEffect(el));
 });
+// Neon click pop effect
+function addGlow(el){
+  if(!el.classList.contains('click-glow'))return;
+  el.classList.add('active','pop-effect');
+  setTimeout(()=>{el.classList.remove('active','pop-effect');},700);
+}
+document.querySelectorAll('.btn,.card').forEach(el=>{
+  el.classList.add('click-glow');
+  el.addEventListener('click',()=>addGlow(el));
+});
