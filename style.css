@@ -391,3 +391,81 @@ body.light {
   box-shadow: 0 0 30px rgba(0,255,255,0.6),
               0 0 60px rgba(255,0,255,0.3);
 }
+/* ---------- 3D Pro Universe Mode Styles ---------- */
+#universe { position: fixed; inset: 0; z-index: -1; overflow: hidden;
+  background: radial-gradient(ellipse at center, rgba(10,10,20,1) 0%, #070617 60%, #000 100%);
+}
+
+/* Planets container (interaction layer) */
+.universe-layer { position: absolute; inset: 0; pointer-events: none; }
+
+/* planet base */
+.planet {
+  position: absolute;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  pointer-events: auto;
+  transform-style: preserve-3d;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6), inset 0 -6px 18px rgba(0,0,0,0.4);
+  transition: transform 0.4s cubic-bezier(.2,.9,.2,1), box-shadow 0.4s;
+  will-change: transform;
+}
+
+/* planet images (use background-image) */
+.planet .surface {
+  width:100%; height:100%; border-radius:50%;
+  background-size: cover; background-position: center;
+  transform: translateZ(20px);
+}
+
+/* slight glow rings */
+.planet::after {
+  content:""; position:absolute; inset:-12px; border-radius:50%;
+  background: radial-gradient(circle, rgba(0,255,255,0.07), transparent 40%);
+  filter: blur(8px); pointer-events:none;
+}
+
+/* initial positions (change as needed) */
+.planet.p1 { width:160px; height:160px; left:8%; top:18%; z-index:3; }
+.planet.p2 { width:110px; height:110px; right:12%; top:25%; z-index:4; }
+.planet.p3 { width:130px; height:130px; left:45%; bottom:10%; z-index:2; }
+.planet.p4 { width:90px; height:90px; right:30%; bottom:22%; z-index:1; }
+
+/* hover & active effects */
+.planet:hover { transform: scale(1.12) translateZ(30px) rotateY(15deg); box-shadow: 0 18px 60px rgba(0,255,255,0.12); }
+.planet.active { transform: scale(1.6) translateZ(80px) !important; z-index:9999; }
+
+/* Info panel (right slide-in) */
+.info-panel {
+  position: fixed; right: -420px; top: 60px; width: 380px; max-width:calc(100% - 40px);
+  height: calc(100% - 120px);
+  background: linear-gradient(180deg, rgba(12,12,20,0.98), rgba(5,5,10,0.95));
+  border-left: 1px solid rgba(255,255,255,0.06);
+  box-shadow: -20px 30px 70px rgba(0,0,0,0.6);
+  padding: 22px; border-radius: 12px 0 0 12px;
+  color: #fff; transition: right 0.6s cubic-bezier(.2,.9,.2,1);
+  z-index: 2000; overflow:auto;
+}
+.info-panel.show { right: 20px; }
+
+/* Info content styling */
+.info-panel .close-info { position:absolute; left:12px; top:12px; background:transparent; border:none; color:#fff; font-size:18px; cursor:pointer; }
+.info-panel h3 { margin-top: 6px; font-size:20px; letter-spacing:0.4px; }
+.info-panel p { color: #d0d8e0; line-height:1.5; margin:12px 0 18px; }
+.info-panel .planet-thumb { width:100%; height:160px; border-radius:8px; background-size:cover; background-position:center; margin-bottom:12px; }
+
+/* music control widget */
+.universe-music {
+  position: fixed; left: 20px; bottom: 20px; z-index:2000;
+  background: rgba(6,6,10,0.6); padding:10px 12px; border-radius:12px; display:flex; gap:10px; align-items:center;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.universe-music button { background:transparent; border:none; color:#fff; cursor:pointer; font-size:16px; }
+
+/* performance: reduce effects on small screens */
+@media (max-width: 800px) {
+  .planet { transition: transform 0.2s; }
+  .planet.active { transform: scale(1.25) translateZ(30px) !important; }
+  .info-panel { width: 92%; right: -100%; top: 40px; left: 4%; border-radius: 10px; }
+  .info-panel.show { right: 4%; left:4%; }
+}
