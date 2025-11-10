@@ -36,3 +36,19 @@ window.addEventListener('load', ()=>{
   i = Math.floor(Math.random() * palettes.length);
   applyPalette(palettes[i]);
 });
+// Neon Click Pop Animation
+function addGlowEffect(el) {
+  if (!el.classList.contains('click-glow')) return;
+  el.classList.add('active');
+  el.classList.add('pop-effect');
+  setTimeout(() => {
+    el.classList.remove('active');
+    el.classList.remove('pop-effect');
+  }, 700);
+}
+
+// Add effect to all clickable elements
+document.querySelectorAll('.btn, .card, .click-glow').forEach(el => {
+  el.classList.add('click-glow');
+  el.addEventListener('click', (e) => addGlowEffect(el));
+});
