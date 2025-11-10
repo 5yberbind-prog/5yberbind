@@ -344,6 +344,151 @@
     });
   }
 </script>
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>5yberBind — Infinite Neon Theme</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg1:#05111a; --bg2:#071225;
+    --neon-a:#00e6ff; --neon-b:#8a54ff; --neon-c:#00f39a;
+    --card-bg: rgba(255,255,255,0.025);
+    --glass-border: rgba(120,200,255,0.06);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;}
+  body{
+    min-height:100vh;
+    background:linear-gradient(180deg,var(--bg1),var(--bg2));
+    color:#e6f3ff; overflow-x:hidden;
+    transition: background 2s linear;
+  }
+  .top-neon{
+    height:8px;width:100%;
+    background:linear-gradient(90deg,var(--neon-a),var(--neon-b),var(--neon-c));
+    position:fixed;top:0;left:0;z-index:1500;
+    filter:blur(8px) saturate(120%);
+    transition:background 1.5s linear;
+  }
+  header{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;position:sticky;top:8px;z-index:1200}
+  .logo{display:flex;align-items:center;gap:10px}
+  .logo .box{width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--neon-a),var(--neon-b));display:grid;place-items:center;font-weight:800;color:#02111a;transition:background 1.5s linear;}
+  nav a{color:rgba(255,255,255,0.72);margin-left:16px;text-decoration:none;font-weight:600}
+  nav a:hover{color:white}
+  main{position:relative;z-index:10;max-width:1100px;margin:84px auto;padding:0 18px;}
+  .hero{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.008));border-radius:14px;padding:44px;text-align:center;backdrop-filter: blur(6px);border:1px solid rgba(255,255,255,0.02);box-shadow: 0 8px 40px rgba(0,0,0,0.6)}
+  .hero h1{font-size:34px;margin-bottom:10px}
+  .hero .neon{background:linear-gradient(90deg,var(--neon-a),var(--neon-b));-webkit-background-clip:text;background-clip:text;color:transparent;transition:background 1.5s linear;}
+  .btn{padding:12px 22px;border-radius:999px;border:0;font-weight:700;background:linear-gradient(90deg,var(--neon-c),var(--neon-a));color:#02111a;margin:6px;cursor:pointer;transition:background 1.5s linear;}
+  .section{margin-top:34px}
+  .section h2{display:flex;align-items:center;gap:10px;color:#bfefff;margin-bottom:14px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .card{padding:16px;border-radius:12px;background:var(--card-bg);border:1px solid var(--glass-border);box-shadow:0 6px 28px rgba(0,0,0,0.6)}
+  footer{color:rgba(255,255,255,0.6);text-align:center;margin:32px 0;font-size:13px}
+</style>
+</head>
+<body>
 
+<div class="top-neon"></div>
+
+<header>
+  <div class="logo">
+    <div class="box">5y</div>
+    <div style="line-height:1;">
+      <div style="font-weight:800;color:#cfffff;">5yberBind</div>
+      <small style="color:rgba(235,255,255,0.45);font-size:12px">Tech Apps • Editing Packs</small>
+    </div>
+  </div>
+  <nav>
+    <a href="#apps">Apps</a>
+    <a href="#blog">Blog</a>
+    <a href="#youtube">YouTube</a>
+    <a href="#tools">Tools</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" role="banner">
+    <h1>Welcome to <span class="neon">5yberBind</span></h1>
+    <p>Your ultimate hub for free Tech Apps, Editing Packs & Online Earning Tools 🚀</p>
+    <div style="margin-top:12px;">
+      <button class="btn" onclick="scrollToSection('apps')">Explore Now</button>
+      <button class="btn" onclick="scrollToSection('blog')">Latest Packs</button>
+    </div>
+  </section>
+
+  <section id="apps" class="section">
+    <h2>🔥 Latest Apps & Editing Packs</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Alight Motion XML Pack</h3>
+        <p>Best presets for smooth edits.</p>
+        <button class="btn">Download</button>
+      </div>
+      <div class="card">
+        <h3>Free Fire Headshot Config</h3>
+        <p>Pro-level aiming config setup.</p>
+        <button class="btn">Download</button>
+      </div>
+      <div class="card">
+        <h3>CapCut Template Pack</h3>
+        <p>Trending templates for creators.</p>
+        <button class="btn">Download</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>© <strong>5yberBind</strong> — Infinite neon theme demo.</footer>
+</main>
+
+<script>
+  // Scroll helper
+  function scrollToSection(id){
+    const el = document.getElementById(id);
+    if(el) el.scrollIntoView({behavior:'smooth'});
+  }
+
+  // All colour palettes to loop through
+  const palettes = [
+    ['#00e6ff','#8a54ff','#00f39a'], // cyan-purple-green
+    ['#ff7aa2','#ffd166','#9b8cff'], // pink-yellow-violet
+    ['#00f2b8','#47b8ff','#a05dff'], // aqua-blue-lavender
+    ['#ff9d00','#ff005c','#9000ff'], // orange-pink-violet
+    ['#29f19c','#00eaff','#ff6ac1']  // mint-cyan-pink
+  ];
+  let i = 0;
+
+  function applyPalette(p){
+    document.documentElement.style.setProperty('--neon-a', p[0]);
+    document.documentElement.style.setProperty('--neon-b', p[1]);
+    document.documentElement.style.setProperty('--neon-c', p[2]);
+    // background slight change
+    document.documentElement.style.setProperty('--bg1', p[1] + "15");
+    document.documentElement.style.setProperty('--bg2', p[2] + "10");
+  }
+
+  // Change colours automatically every 5 seconds
+  setInterval(()=>{
+    i = (i + 1) % palettes.length;
+    applyPalette(palettes[i]);
+  }, 5000);
+
+  // Also change on every tap or click
+  document.body.addEventListener('click', ()=>{
+    i = (i + 1) % palettes.length;
+    applyPalette(palettes[i]);
+  });
+
+  // On load, random start colour
+  window.addEventListener('load', ()=>{
+    i = Math.floor(Math.random() * palettes.length);
+    applyPalette(palettes[i]);
+  });
+</script>
+
+</body>
+</html>
 </body>
 </html>
