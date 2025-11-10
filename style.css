@@ -26,6 +26,7 @@ header {
 }
 
 /* 🌈 Animated 5yberBind Logo */
+.logo,
 .logo h1 {
   font-size: 26px;
   font-weight: 700;
@@ -35,6 +36,7 @@ header {
   -webkit-text-fill-color: transparent;
   animation: glowflow 3s linear infinite;
   text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+  display: inline-block;
 }
 
 /* 💫 Animation Effect */
