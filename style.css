@@ -216,3 +216,44 @@ body.light {
   background: linear-gradient(135deg, #ffffff, #e6f1ff);
   color: #0a192f;
 }
+.section h2 {
+  color: #00ffff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+.section {
+  padding: 60px 0;
+  text-align: center;
+}
+/* 💎 Card Design */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.4);
+}
+
+/* ⚡ Gradient Buttons */
+.gradient-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background: linear-gradient(90deg, #00ffff, #8a2be2);
+  color: #fff;
+  text-decoration: none;
+  transition: 0.4s ease;
+  font-weight: 600;
+}
+
+.gradient-btn:hover {
+  background: linear-gradient(90deg, #8a2be2, #00ffff);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+}
