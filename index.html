@@ -193,3 +193,28 @@
 </body>
 <div class="neon-ring"></div>
 </html>
+<script>
+  // 🌈 Array of Neon Colors (tu chahe to aur add kar sakta hai)
+  const neonColors = [
+    "#00FFFF", // Cyan
+    "#FF00FF", // Magenta
+    "#00FF00", // Neon Green
+    "#FF4500", // Orange Red
+    "#FFD700", // Gold
+    "#1E90FF", // Dodger Blue
+    "#FF1493", // Deep Pink
+    "#ADFF2F"  // Green Yellow
+  ];
+
+  // 📅 Get current day number (0–365)
+  const now = new Date();
+  const dayOfYear = Math.floor(
+    (now - new Date(now.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24)
+  );
+
+  // 🧠 Pick color based on day (loop through array)
+  const todayColor = neonColors[dayOfYear % neonColors.length];
+
+  // 🎨 Apply the color as CSS variable for global use
+  document.documentElement.style.setProperty('--neon-color', todayColor);
+</script>
