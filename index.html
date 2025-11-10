@@ -25,6 +25,52 @@
     
   <!-- 🔹 Hero Section -->
   <section class="hero">
+/* === Neon Snake Animation === */
+.neon-snake {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 220px; /* hero height ke hisab se adjust kar lo */
+  overflow: hidden;
+  z-index: 0;
+}
+
+.neon-snake::before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,255,255,0.6), transparent 60%);
+  filter: blur(25px);
+  animation: snakeMove 8s linear infinite;
+}
+
+/* smooth glowing snake movement */
+@keyframes snakeMove {
+  0%   { top: 10%; left: 5%; }
+  25%  { top: 20%; left: 80%; }
+  50%  { top: 70%; left: 60%; }
+  75%  { top: 50%; left: 15%; }
+  100% { top: 10%; left: 5%; }
+}
+
+/* keep hero content above snake */
+.hero {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* optional subtle glow under hero background */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,255,255,0.05), rgba(255,0,255,0.05));
+  z-index: 0;
+}
     <h2>Welcome to <span class="gradient-text">5yberBind</span></h2>
     <p>Your ultimate hub for free Tech Apps, Editing Packs & Online Earning Tools 🚀</p>
     <a href="#" class="gradient-btn">Explore Now</a>
