@@ -469,3 +469,76 @@ body.light {
   .info-panel { width: 92%; right: -100%; top: 40px; left: 4%; border-radius: 10px; }
   .info-panel.show { right: 4%; left:4%; }
 }
+/* 🌌 Universe Base Layer */
+#universe {
+  position: fixed;
+  inset: 0;
+  z-index: 0; /* visible behind content */
+  overflow: hidden;
+  background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1f1c2c);
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
+}
+
+/* ✨ Particles */
+#particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* 🪐 Planets */
+.planet {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, #00ffff, #000);
+  opacity: 0.8;
+  animation: rotatePlanet 20s linear infinite;
+  transition: transform 0.5s ease;
+}
+.planet1 { width:120px; height:120px; top:10%; left:10%; background: radial-gradient(circle, #00ffff, #002244); }
+.planet2 { width:90px; height:90px; top:50%; right:10%; background: radial-gradient(circle, #ff00ff, #220022); }
+.planet3 { width:150px; height:150px; bottom:10%; left:40%; background: radial-gradient(circle, #ffaa00, #331a00); }
+.planet4 { width:100px; height:100px; bottom:25%; right:35%; background: radial-gradient(circle, #00ff99, #001a10); }
+
+/* Hover 3D pop */
+.planet:hover { transform: scale(1.2); }
+
+/* 🔄 Rotation */
+@keyframes rotatePlanet {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 🌈 Background color animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 🎧 Music control bar */
+.universe-music {
+  position: fixed;
+  left: 15px;
+  bottom: 15px;
+  z-index: 10;
+  background: rgba(6,6,10,0.6);
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.universe-music button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+.universe-music input[type="range"] {
+  accent-color: #00ffff;
+}
