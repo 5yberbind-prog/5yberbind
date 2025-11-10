@@ -408,5 +408,162 @@ document.addEventListener('mousemove', (e) => {
   });
 });
 </script>
+
+<!-- ========== 3D Pro Universe Elements (paste before </body>) ========== -->
+<div id="universe" class="universe-layer">
+  <!-- planets (background images set below) -->
+  <div class="planet p1" data-id="p1"><div class="surface" style="background-image:url('assets/planet1.jpg')"></div></div>
+  <div class="planet p2" data-id="p2"><div class="surface" style="background-image:url('assets/planet2.jpg')"></div></div>
+  <div class="planet p3" data-id="p3"><div class="surface" style="background-image:url('assets/planet3.jpg')"></div></div>
+  <div class="planet p4" data-id="p4"><div class="surface" style="background-image:url('assets/planet4.jpg')"></div></div>
+</div>
+
+<!-- Info panel -->
+<div id="infoPanel" class="info-panel" aria-hidden="true">
+  <button class="close-info" id="closeInfo">✕</button>
+  <div class="planet-thumb" id="infoThumb" style="background-image:url('assets/planet1.jpg')"></div>
+  <h3 id="infoTitle">Planet Title</h3>
+  <p id="infoText">Planet description will appear here. You can add links, images and more content for each planet.</p>
+  <a id="infoLink" href="#" target="_blank" style="color:#aeefff; text-decoration:underline;">Learn more</a>
+</div>
+
+<!-- Music control -->
+<div class="universe-music" id="musicWidget">
+  <button id="musicToggle">▶️</button>
+  <input id="musicVol" type="range" min="0" max="1" step="0.05" value="0.25" />
+  <small style="color:#cfeefe">Space Ambience</small>
+</div>
+
+<audio id="bgMusic" loop src="assets/space-bg.mp3" preload="auto"></audio>
+
+<script>
+/* ---------- 3D Pro Universe JS ---------- */
+(function(){
+  const planets = document.querySelectorAll('.planet');
+  const infoPanel = document.getElementById('infoPanel');
+  const infoThumb = document.getElementById('infoThumb');
+  const infoTitle = document.getElementById('infoTitle');
+  const infoText = document.getElementById('infoText');
+  const infoLink = document.getElementById('infoLink');
+  const closeInfo = document.getElementById('closeInfo');
+
+  // Planet content map (customize text, title, link, thumb)
+  const planetData = {
+    p1: { title: 'Aurora Node', text: 'Aurora Node — content, features, tools and links. Add your custom HTML here.', link:'#', thumb:'assets/planet1.jpg' },
+    p2: { title: 'Neon Core', text: 'Neon Core — this can describe your channel, app, services or project.', link:'#', thumb:'assets/planet2.jpg' },
+    p3: { title: 'Prism Station', text: 'Prism Station — add affiliate links, download links or portfolio entries.', link:'#', thumb:'assets/planet3.jpg' },
+    p4: { title: 'Solar Forge', text: 'Solar Forge — special tools, blog highlights or quick links.', link:'#', thumb:'assets/planet4.jpg' }
+  };
+
+  // Mouse parallax variables
+  let mouseX = 0, mouseY = 0;
+  const centerX = window.innerWidth / 2, centerY = window.innerHeight / 2;
+
+  // Add interactions
+  planets.forEach(p => {
+    // click -> open info
+    p.addEventListener('click', (e) => {
+      const id = p.dataset.id;
+      openInfo(id, p);
+    });
+
+    // small auto rotation for visual life
+    let rot = 0;
+    (function spin() {
+      rot += 0.2;
+      p.style.transform = `rotate(${rot}deg)`;
+      requestAnimationFrame(spin);
+    })();
+  });
+
+  // Open info function
+  function openInfo(id, planetEl) {
+    const data = planetData[id] || {};
+    infoThumb.style.backgroundImage = `url('${data.thumb || 'assets/planet1.jpg'}')`;
+    infoTitle.textContent = data.title || 'Planet';
+    infoText.textContent = data.text || '';
+    infoLink.href = data.link || '#';
+    // mark active planet
+    planets.forEach(x => x.classList.remove('active'));
+    planetEl.classList.add('active');
+    // show panel smoothly
+    infoPanel.classList.add('show');
+    infoPanel.setAttribute('aria-hidden', 'false');
+    // zoom animation handled by CSS active class
+  }
+
+  // Close info
+  closeInfo.addEventListener('click', closePanel);
+  function closePanel() {
+    infoPanel.classList.remove('show');
+    planets.forEach(x => x.classList.remove('active'));
+    infoPanel.setAttribute('aria-hidden', 'true');
+  }
+
+  // Close panel when clicking outside (escape)
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePanel(); });
+
+  // Mouse move parallax effect (affects planets transform)
+  document.addEventListener('mousemove', (e) => {
+    mouseX = (e.clientX - centerX) / centerX;
+    mouseY = (e.clientY - centerY) / centerY;
+    planets.forEach((p, i) => {
+      // depth factor: farther planets move less
+      const depth = (i + 1) * 6;
+      const tx = mouseX * (10 / depth);
+      const ty = mouseY * (10 / depth);
+      // apply translate + gentle rotate
+      p.style.transform = `translate3d(${tx}px, ${ty}px, 0) rotateY(${mouseX * 10}deg) rotateX(${mouseY * 6}deg)`;
+    });
+  });
+
+  // Scroll-based parallax (vertical translate)
+  window.addEventListener('scroll', () => {
+    const sy = window.scrollY;
+    planets.forEach((p, i) => {
+      const depth = (i + 1) * 80;
+      const translateY = sy / depth;
+      p.style.transform = p.style.transform + ` translateY(${translateY}px)`;
+    });
+  });
+
+  /* ---------- Music controls ---------- */
+  const bgMusic = document.getElementById('bgMusic');
+  const musicToggle = document.getElementById('musicToggle');
+  const musicVol = document.getElementById('musicVol');
+
+  // initial volume
+  bgMusic.volume = parseFloat(musicVol.value);
+  musicToggle.textContent = '▶️';
+
+  musicToggle.addEventListener('click', () => {
+    if (bgMusic.paused) {
+      bgMusic.play().catch(()=>{ /* autoplay blocked */ });
+      musicToggle.textContent = '⏸️';
+    } else {
+      bgMusic.pause();
+      musicToggle.textContent = '▶️';
+    }
+  });
+  musicVol.addEventListener('input', () => { bgMusic.volume = parseFloat(musicVol.value); });
+
+  // Auto-play try (may be blocked by browsers without user gesture)
+  setTimeout(()=> {
+    bgMusic.play().then(()=> { musicToggle.textContent = '⏸️'; }).catch(()=> { /* ignore */ });
+  }, 1200);
+
+  /* ---------- Mobile / performance fallback ---------- */
+  function reduceEffectsForMobile() {
+    if (window.innerWidth < 800) {
+      planets.forEach(p => p.style.transition = 'transform 0.2s');
+      // disable heavy continuous rotations
+      // remove spinning loops if needed (we used transform over and over, but it's light)
+    }
+  }
+  window.addEventListener('resize', reduceEffectsForMobile);
+  reduceEffectsForMobile();
+
+})();
+</script>
 </body>
 </html>
