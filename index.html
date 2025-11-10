@@ -5,10 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>5yberBind</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" />
 </head>
 <body>
+  <!-- 🌈 Navbar -->
   <header>
-    <div class="logo"><h1>5<span>yberBind</span></h1></div>
+    <div class="logo">
+      <h1>5<span>yberBind</span></h1>
+    </div>
     <nav>
       <a href="#home" class="active">Home</a>
       <a href="#apps">Apps</a>
@@ -18,84 +22,84 @@
     </nav>
   </header>
 
+  <!-- 🌟 Hero Section -->
   <section id="home" class="hero">
-    <div class="neon-snake"></div>
+    <div class="neon-orb"></div>
     <div class="hero-content">
       <h2>Welcome to <span class="gradient-text">5yberBind</span></h2>
-      <p>Your ultimate hub for free Tech Apps, Editing Packs & Online Earning Tools 🚀</p>
-      <a href="#apps" class="gradient-btn">Explore Now</a>
+      <p>Your Ultimate Hub for Free Tech Apps, Editing Packs & Online Earning Tools 🚀</p>
+      <a href="#apps" class="glow-btn">Explore Now</a>
     </div>
   </section>
 
+  <!-- 🔥 Apps Section -->
   <section id="apps" class="section">
     <h3>🔥 Latest Apps & Editing Packs</h3>
-    <div class="card-container">
+    <div class="grid">
       <div class="card">
-        <h4>Alight Motion XML Pack</h4>
-        <p>Best presets for smooth edits</p>
-        <a href="#" class="btn">Download</a>
+        <h4>🎨 Alight Motion XML Pack</h4>
+        <p>Professional presets for smooth edits</p>
+        <a href="#" class="download-btn">Download</a>
       </div>
       <div class="card">
-        <h4>Free Fire Headshot Config</h4>
-        <p>Instant pro-level aiming setup</p>
-        <a href="#" class="btn">Download</a>
+        <h4>🎯 Free Fire Headshot Config</h4>
+        <p>Perfect headshot setup for all devices</p>
+        <a href="#" class="download-btn">Download</a>
       </div>
       <div class="card">
-        <h4>CapCut Template Pack</h4>
-        <p>Trending video templates for creators</p>
-        <a href="#" class="btn">Download</a>
-      </div>
-      <div class="card">
-        <h4>Snapchat Template Pack</h4>
-        <p>Trending video templates for creators</p>
-        <a href="#" class="btn">Download</a>
+        <h4>📸 CapCut Template Pack</h4>
+        <p>Trending templates for creators</p>
+        <a href="#" class="download-btn">Download</a>
       </div>
     </div>
   </section>
 
+  <!-- 🧠 Blog Section -->
   <section id="blog" class="section">
     <h3>🧠 Tech Blog</h3>
-    <div class="card-container">
+    <div class="grid">
       <div class="card">
-        <h4>Top 5 Earning Apps 2025</h4>
-        <p>Earn money using trending Android apps easily.</p>
-        <a href="#" class="btn">Read More</a>
+        <h4>💸 Top 5 Earning Apps 2025</h4>
+        <p>Earn money using trending apps easily.</p>
+        <a href="#" class="read-btn">Read More</a>
       </div>
       <div class="card">
-        <h4>AI Tools for Creators</h4>
-        <p>Discover the best free AI tools to supercharge productivity.</p>
-        <a href="#" class="btn">Read More</a>
+        <h4>🤖 Best Free AI Tools</h4>
+        <p>Boost productivity with AI-powered tools.</p>
+        <a href="#" class="read-btn">Read More</a>
       </div>
     </div>
   </section>
 
+  <!-- 🎬 YouTube Section -->
   <section id="youtube" class="section">
     <h3>🎬 Latest from YouTube</h3>
-    <div class="video-container">
-      <iframe width="300" height="170" src="https://www.youtube.com/embed/CODE1" frameborder="0" allowfullscreen></iframe>
-      <iframe width="300" height="170" src="https://www.youtube.com/embed/CODE2" frameborder="0" allowfullscreen></iframe>
-      <iframe width="300" height="170" src="https://www.youtube.com/embed/CODE3" frameborder="0" allowfullscreen></iframe>
+    <div class="videos">
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4" allowfullscreen></iframe>
     </div>
   </section>
 
-  <section id="contact" class="section">
+  <!-- 📩 Contact Section -->
+  <footer id="contact">
     <h3>📩 Contact Us</h3>
-    <p>Follow us on <a href="https://youtube.com/@5yberbind" target="_blank">YouTube</a> |
-      <a href="#">Instagram</a> | <a href="#">Telegram</a></p>
-  </section>
+    <p>Follow us on 
+      <a href="https://youtube.com/@5yberbind" target="_blank">YouTube</a> | 
+      <a href="#">Instagram</a> | 
+      <a href="#">Telegram</a>
+    </p>
+    <p class="credit">© 2025 5yberBind | Designed with ❤️ by Ashwani Kumar Bind</p>
+  </footer>
 
+  <!-- ✨ Scroll Animation Script -->
   <script>
-    // Smooth scroll pop effect on scroll
-    const sections = document.querySelectorAll('.section');
-    const revealOnScroll = () => {
-      const trigger = window.innerHeight * 0.85;
-      sections.forEach(sec => {
-        const top = sec.getBoundingClientRect().top;
-        if (top < trigger) sec.classList.add('visible');
+    const revealSections = document.querySelectorAll(".section");
+    window.addEventListener("scroll", () => {
+      revealSections.forEach(sec => {
+        const pos = sec.getBoundingClientRect().top;
+        if (pos < window.innerHeight * 0.85) sec.classList.add("show");
       });
-    };
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
+    });
   </script>
 </body>
 </html>
