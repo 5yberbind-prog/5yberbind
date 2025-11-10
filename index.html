@@ -72,7 +72,6 @@
   <section id="youtube" class="section">
     <h3>🎬 Latest from YouTube</h3>
     <div class="video-container">
-      <!-- replace CODE1,CODE2 with real video IDs later -->
       <iframe width="300" height="170" src="https://www.youtube.com/embed/CODE1" frameborder="0" allowfullscreen></iframe>
       <iframe width="300" height="170" src="https://www.youtube.com/embed/CODE2" frameborder="0" allowfullscreen></iframe>
       <iframe width="300" height="170" src="https://www.youtube.com/embed/CODE3" frameborder="0" allowfullscreen></iframe>
@@ -84,5 +83,19 @@
     <p>Follow us on <a href="https://youtube.com/@5yberbind" target="_blank">YouTube</a> |
       <a href="#">Instagram</a> | <a href="#">Telegram</a></p>
   </section>
+
+  <script>
+    // Smooth scroll pop effect on scroll
+    const sections = document.querySelectorAll('.section');
+    const revealOnScroll = () => {
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < trigger) sec.classList.add('visible');
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+  </script>
 </body>
 </html>
