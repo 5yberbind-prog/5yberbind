@@ -1,39 +1,381 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="hi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5yberBind</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>5yberBind — Neon Landing (Demo)</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg1:#06121a;
+    --bg2:#0e0f1a;
+    --neon-a:#00e6ff;
+    --neon-b:#8a54ff;
+    --neon-c:#00f39a;
+    --card-bg: rgba(255,255,255,0.03);
+    --glass-border: rgba(120,200,255,0.08);
+    --muted: rgba(255,255,255,0.6);
+  }
+  /* Reset */
+  *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+  html,body{height:100%}
+  body{
+    background:
+      radial-gradient(1200px 600px at 10% 10%, rgba(138,84,255,0.06), transparent 8%),
+      radial-gradient(800px 400px at 90% 90%, rgba(0,227,255,0.05), transparent 6%),
+      linear-gradient(180deg,var(--bg1),var(--bg2));
+    color:#e6f3ff;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    overflow-y:scroll;
+    padding-bottom:80px;
+  }
+
+  /* Neon top border strip */
+  .top-neon{
+    height:8px;
+    width:100%;
+    background: linear-gradient(90deg,var(--neon-a),var(--neon-b),var(--neon-c));
+    position:fixed; top:0; left:0; z-index:1200;
+    filter:blur(8px) saturate(140%);
+    opacity:.9;
+  }
+
+  header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 28px;
+    position:sticky; top:8px; z-index:1000;
+    backdrop-filter: blur(6px);
+  }
+  .brand{
+    display:flex; gap:12px; align-items:center;
+  }
+  .logo{
+    width:44px; height:44px; border-radius:8px;
+    background:linear-gradient(135deg,var(--neon-a),var(--neon-b));
+    box-shadow:0 6px 24px rgba(138,84,255,0.12), 0 0 20px rgba(0,230,255,0.06) inset;
+    display:grid; place-items:center; font-weight:800; color:#02111a;
+    font-size:18px;
+  }
+  nav a{
+    color:var(--muted); text-decoration:none; margin-left:18px; font-weight:600;
+    transition:color .18s ease, transform .15s;
+  }
+  nav a:hover{ color:#fff; transform:translateY(-2px); }
+
+  /* Hero */
+  .hero{
+    max-width:1100px; margin:80px auto 36px; padding:54px 28px; text-align:center;
+    position:relative;
+  }
+  .hero-inner{
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.008));
+    border-radius:16px; padding:48px; box-shadow: 0 8px 40px rgba(2,6,10,0.6);
+    border:1px solid rgba(255,255,255,0.03);
+    overflow:hidden;
+  }
+  .hero h1{
+    font-size:34px; letter-spacing:0.2px; margin-bottom:12px;
+    color: #eaffff;
+    text-shadow: 0 2px 16px rgba(138,84,255,0.08), 0 0 12px rgba(0,230,255,0.06);
+  }
+  .hero h1 .neon{
+    background:linear-gradient(90deg,var(--neon-a),var(--neon-b));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    text-shadow: 0 6px 30px rgba(138,84,255,0.18);
+  }
+  .hero p{ color:rgba(230,243,255,0.7); margin-bottom:22px; font-size:15px; }
+  .btn-row{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:6px;}
+  .btn{
+    padding:12px 22px; border-radius:28px; cursor:pointer; font-weight:700; border:0;
+    background:linear-gradient(90deg,#00d9ff,#8a54ff); color:#02111a;
+    box-shadow: 0 10px 40px rgba(138,84,255,0.12);
+    transition:transform .18s ease, box-shadow .18s;
+  }
+  .btn:active{ transform:translateY(2px); box-shadow:0 6px 20px rgba(0,0,0,0.5); }
+
+  /* Section title */
+  .section{
+    max-width:1100px; margin:36px auto; padding:0 22px 22px;
+  }
+  .section h2{
+    display:flex; align-items:center; gap:10px; color:#bfefff; margin-bottom:14px;
+    text-shadow:0 6px 20px rgba(0,0,0,0.6);
+  }
+  .flame{
+    width:36px; height:36px; border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, rgba(255,255,255,0.12), transparent 20%),
+               linear-gradient(180deg,var(--neon-a),var(--neon-b));
+    box-shadow:0 6px 30px rgba(138,84,255,0.12);
+  }
+
+  /* Cards grid */
+  .grid{
+    display:grid; gap:18px;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  }
+  .card{
+    padding:18px; border-radius:12px; background:var(--card-bg);
+    border:1px solid var(--glass-border); position:relative; overflow:hidden;
+    box-shadow: 0 6px 28px rgba(2,6,10,0.6);
+    transition:transform .22s ease, box-shadow .22s;
+  }
+  .card:hover{ transform:translateY(-8px); box-shadow:0 20px 60px rgba(2,6,20,0.6); }
+  .card h3{ font-size:16px; margin-bottom:8px; color:#e8f9ff; font-weight:700;}
+  .card p{ color:rgba(230,243,255,0.65); font-size:13px; margin-bottom:12px }
+
+  .download{
+    display:inline-block; padding:8px 14px; border-radius:999px; font-weight:700; cursor:pointer;
+    background:linear-gradient(90deg,var(--neon-c),var(--neon-a)); color:#02111a; border:0;
+    box-shadow: 0 8px 28px rgba(0,243,154,0.08);
+  }
+
+  /* Neon glow outlines inside cards */
+  .card::after{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    box-shadow: inset 0 0 40px rgba(138,84,255,0.02), 0 0 60px rgba(0,230,255,0.01);
+    border-radius:12px;
+  }
+
+  /* Tech Blog row special style */
+  .blog-grid .card{ min-height:120px; display:flex; flex-direction:column; justify-content:space-between; }
+
+  /* YouTube grid */
+  .yt-grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap:14px; margin-top:10px;}
+  .yt-thumb{
+    background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.45));
+    border-radius:10px; padding:0; aspect-ratio:16/9; display:grid; place-items:center;
+    border:2px solid rgba(255,255,255,0.03);
+    position:relative; overflow:hidden;
+  }
+  .yt-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .yt-play{
+    width:56px;height:56px;border-radius:50%; display:grid; place-items:center;
+    background:linear-gradient(90deg,#ff3d3d,#ff2a8a); box-shadow:0 10px 30px rgba(255,40,138,0.12);
+  }
+
+  /* Floating animated neon elements */
+  .float-blob{
+    position:absolute; width:220px; height:220px; right:-40px; top:20%;
+    background:radial-gradient(circle at 20% 20%, rgba(138,84,255,0.18), transparent 20%),
+               radial-gradient(circle at 80% 80%, rgba(0,230,255,0.12), transparent 20%);
+    filter:blur(22px); z-index:0; transform:translateY(0);
+    animation:floaty 8s ease-in-out infinite;
+    pointer-events:none;
+  }
+  @keyframes floaty{
+    0%{ transform:translateY(0) rotate(0deg); }
+    50%{ transform:translateY(-18px) rotate(6deg); }
+    100%{ transform:translateY(0) rotate(0deg); }
+  }
+
+  /* small footer */
+  footer{ max-width:1100px;margin:40px auto;color:rgba(230,243,255,0.6); padding:18px; text-align:center; font-size:13px; }
+
+  /* small screens */
+  @media (max-width:640px){
+    .hero h1{ font-size:24px; }
+    header{ padding:12px 14px; }
+    .brand .logo{ width:40px; height:40px; font-size:16px; }
+  }
+
+  /* Decorative moving stars but subtle */
+  .stars{
+    position:fixed; inset:0; pointer-events:none; z-index:0;
+    background-image:
+      radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.06) 50%, transparent 51%),
+      radial-gradient(1px 1px at 30% 70%, rgba(255,255,255,0.04) 50%, transparent 51%),
+      radial-gradient(1px 1px at 70% 40%, rgba(255,255,255,0.03) 50%, transparent 51%),
+      radial-gradient(1px 1px at 85% 85%, rgba(255,255,255,0.02) 50%, transparent 51%);
+    opacity:.6; transform: translateZ(0);
+    animation: drift 30s linear infinite;
+  }
+  @keyframes drift{ from{ transform:translateY(0);} to{ transform:translateY(-300px);} }
+
+  /* tiny animated underline for section titles */
+  .section h2::after{
+    content:""; display:block; height:3px; width:120px; margin-left:12px; margin-top:8px;
+    background:linear-gradient(90deg,var(--neon-a),var(--neon-b));
+    filter:blur(8px); border-radius:999px; opacity:.95;
+    animation:glow 2.2s linear infinite;
+  }
+  @keyframes glow{
+    0%{ filter:blur(3px) drop-shadow(0 0 6px rgba(0,230,255,0.18)); }
+    50%{ filter:blur(8px) drop-shadow(0 0 18px rgba(138,84,255,0.26)); }
+    100%{ filter:blur(3px) drop-shadow(0 0 6px rgba(0,230,255,0.18)); }
+  }
+
+  /* small hover neon highlight using CSS variables toggled with JS */
+  .neon-accent{ color:var(--neon-a); text-shadow:0 8px 26px rgba(0,230,255,0.12); }
+</style>
 </head>
 <body>
-  <!-- 🌠 Calm Neon Universe Background -->
-  <div id="calmUniverse">
-    <img src="assets/stars.png" class="layer stars" alt="stars">
-    <img src="assets/moon.png" class="layer moon" alt="moon">
-    <img src="assets/astronaut.png" class="layer astronaut" alt="astronaut">
-    <img src="assets/robot.png" class="layer robot" alt="robot">
+
+<div class="top-neon" aria-hidden="true"></div>
+<div class="stars" aria-hidden="true"></div>
+
+<header>
+  <div class="brand">
+    <div class="logo">5y</div>
+    <div style="display:flex;flex-direction:column;line-height:1;">
+      <div style="font-weight:800;color:#cfffff;">5yberBind</div>
+      <small style="color:rgba(230,243,255,0.45);font-size:12px">Tech Apps • Editing Packs • Earning Tools</small>
+    </div>
   </div>
 
-  <!-- 🌐 Your Website Content -->
-  <header>
-    <div class="logo">
-      <h1><span style="color:#00ffff;">5yber</span>Bind</h1>
-    </div>
-    <nav>
-      <a href="#">Apps</a>
-      <a href="#">Blog</a>
-      <a href="#">YouTube</a>
-      <a href="#">Tools</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
+  <nav>
+    <a href="#apps">Apps</a>
+    <a href="#blog">Blog</a>
+    <a href="#youtube">YouTube</a>
+    <a href="#tools">Tools</a>
+  </nav>
+</header>
 
-  <section class="hero">
-    <h2>Welcome to <span class="gradient-text">5yberBind</span></h2>
-    <p>Your ultimate hub for free Tech Apps, Editing Packs & Online Earning Tools 🚀</p>
-    <a href="#" class="gradient-btn">Explore Now</a>
+<main>
+  <section class="hero" role="banner">
+    <div class="hero-inner">
+      <div style="position:relative; z-index:2;">
+        <h1>Welcome to <span class="neon">5yberBind</span></h1>
+        <p>Your ultimate hub for free Tech Apps, Editing Packs & Online Earning Tools 🚀</p>
+        <div class="btn-row">
+          <button class="btn" onclick="pulseClick()">Explore Now</button>
+          <button class="btn" onclick="document.getElementById('apps').scrollIntoView({behavior:'smooth'})">Latest Packs</button>
+        </div>
+      </div>
+
+      <div class="float-blob" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- Latest Apps & Editing Packs -->
+  <section id="apps" class="section" aria-labelledby="apps-title">
+    <h2 id="apps-title"><span class="flame" aria-hidden="true"></span> Latest Apps & Editing Packs</h2>
+
+    <div class="grid" role="list">
+      <article class="card" role="listitem">
+        <h3>Alight Motion XML Pack</h3>
+        <p>Best presets for smooth edits and transitions — ready to use.</p>
+        <button class="download" onclick="fakeDownload('Alight_Motion_XML_Pack.zip')">Download</button>
+      </article>
+
+      <article class="card" role="listitem">
+        <h3>Free Fire Headshot Config</h3>
+        <p>Instant pro-level aiming setup — headshot sensitivity configs.</p>
+        <button class="download" onclick="fakeDownload('FreeFire_Headshot_Config.cfg')">Download</button>
+      </article>
+
+      <article class="card" role="listitem">
+        <h3>CapCut Template Pack</h3>
+        <p>Trending templates for creators — easy to edit and repost.</p>
+        <button class="download" onclick="fakeDownload('CapCut_Templates.zip')">Download</button>
+      </article>
+    </div>
+  </section>
+
+  <!-- Tech Blog -->
+  <section id="blog" class="section">
+    <h2><span class="flame"></span> Tech Blog</h2>
+
+    <div class="grid blog-grid" style="margin-top:10px;">
+      <article class="card">
+        <div>
+          <h3>Top 5 Earning Apps 2025</h3>
+          <p>Earn money using trending Android apps easily.</p>
+        </div>
+        <div><button class="download" onclick="openRead('Top 5 Earning Apps 2025')">Read More</button></div>
+      </article>
+
+      <article class="card">
+        <div>
+          <h3>AI Tools for Creators</h3>
+          <p>Discover the best free AI tools to supercharge productivity.</p>
+        </div>
+        <div><button class="download" onclick="openRead('AI Tools for Creators')">Read More</button></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- YouTube -->
+  <section id="youtube" class="section">
+    <h2><span class="flame"></span> Latest from YouTube</h2>
+
+    <div class="yt-grid" aria-live="polite">
+      <!-- Example thumbnails (replace src with real thumbnails or iframe) -->
+      <div class="yt-thumb"><img src="https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Video 1"><div style="position:absolute;right:8px;bottom:8px" class="yt-play">▶</div></div>
+      <div class="yt-thumb"><img src="https://via.placeholder.com/320x180/222/111?text=Preview" alt="Video 2"></div>
+      <div class="yt-thumb"><div style="width:60%;height:60%;background:rgba(255,255,255,0.03);display:grid;place-items:center;border-radius:6px;">No Thumb</div></div>
+      <div class="yt-thumb"><img src="https://i.ytimg.com/vi/ysz5S6PUM-U/hqdefault.jpg" alt="Video 3"></div>
+      <div class="yt-thumb"><img src="https://via.placeholder.com/320x180/333/222?text=Video" alt="Video 4"></div>
+      <div class="yt-thumb"><img src="https://i.ytimg.com/vi/tVj0ZTS4WF4/hqdefault.jpg" alt="Video 5"></div>
+      <div class="yt-thumb"><img src="https://via.placeholder.com/320x180/111/000?text=More" alt="Video 6"></div>
+      <div class="yt-thumb"><img src="https://i.ytimg.com/vi/6_b7RDuLwcI/hqdefault.jpg" alt="Video 7"></div>
+    </div>
   </section>
 
   <footer>
-    <
+    © <strong>5yberBind</strong> • Built with ❤️ — Neon demo. Modify buttons to link to real files or set up server endpoints.
+  </footer>
+</main>
+
+<script>
+  // Simple visual pulse on Explore
+  function pulseClick(){
+    const el = document.querySelector('.hero-inner');
+    el.animate([
+      { boxShadow: '0 8px 40px rgba(2,6,10,0.6)' },
+      { boxShadow: '0 20px 80px rgba(138,84,255,0.18)' },
+      { boxShadow: '0 8px 40px rgba(2,6,10,0.6)' }
+    ], { duration: 700, easing:'ease-out' });
+  }
+
+  // Fake download toast example
+  function fakeDownload(name){
+    // create a transient toast
+    const t = document.createElement('div');
+    t.textContent = `Starting download: ${name}`;
+    Object.assign(t.style, {
+      position:'fixed', right:'18px', bottom:'18px',
+      background:'linear-gradient(90deg,#00f39a,#00e6ff)', color:'#02111a',
+      padding:'10px 14px', borderRadius:'12px', fontWeight:700, zIndex:9999,
+      boxShadow:'0 10px 30px rgba(0,230,255,0.06)'
+    });
+    document.body.appendChild(t);
+    setTimeout(()=> t.style.opacity='0.0', 1500);
+    setTimeout(()=> t.remove(), 2100);
+    // In real site you would set window.location = '/path/to/file' or fetch a signed URL
+  }
+
+  function openRead(title){
+    alert('Open article: ' + title);
+  }
+
+  // Optional: change accent colors on click for variety
+  const colors = [
+    ['#00e6ff','#8a54ff','#00f39a'],
+    ['#ff7aa2','#ffd166','#9b8cff'],
+    ['#00f2b8','#47b8ff','#a05dff'],
+  ];
+  let idx = 0;
+  document.body.addEventListener('click', (e)=>{
+    // only change when clicking on background or header buttons (not inputs)
+    if(e.target.tagName === 'BUTTON' || e.target.tagName === 'A') return;
+    idx = (idx+1) % colors.length;
+    const c = colors[idx];
+    document.documentElement.style.setProperty('--neon-a', c[0]);
+    document.documentElement.style.setProperty('--neon-b', c[1]);
+    document.documentElement.style.setProperty('--neon-c', c[2]);
+  });
+
+  // Accessibility: keyboard nav focus ring style (simple)
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Tab') document.documentElement.classList.add('show-focus');
+  });
+
+</script>
+</body>
+</html>
