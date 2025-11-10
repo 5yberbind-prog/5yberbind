@@ -281,6 +281,46 @@
   setTimeout(() => {
     popup.classList.add('show');
   }, 5000);
+<!-- 🌌 MULTI-LAYER TECH BACKGROUND SYSTEM -->
+<div id="universe">
+  <canvas id="particles"></canvas>
+
+  <!-- 🌍 Rotating Planets -->
+  <div class="planet planet1"></div>
+  <div class="planet planet2"></div>
+  <div class="planet planet3"></div>
+
+  <!-- 🔷 Floating Tech Lines -->
+  <svg class="tech-lines" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path fill="none" stroke="#00ffff" stroke-width="2"
+      d="M0,160 C480,240 960,80 1440,160" opacity="0.4">
+      <animate attributeName="d" dur="5s" repeatCount="indefinite"
+        values="
+        M0,160 C480,240 960,80 1440,160;
+        M0,120 C480,80 960,240 1440,100;
+        M0,160 C480,240 960,80 1440,160
+        " />
+    </path>
+  </svg>
+</div>
+
+<!-- 🧠 Scroll-triggered animation -->
+<script>
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  const universe = document.getElementById('universe');
+
+  // Scroll par gradient color change
+  universe.style.background = `linear-gradient(45deg,
+    rgb(${(scrollY/4)%255}, 0, 255),
+    rgb(0, ${(scrollY/2)%255}, 255),
+    rgb(255, 0, ${(scrollY/3)%255}))`;
+
+  // Planets rotate faster on scroll
+  document.querySelectorAll('.planet').forEach((p, i) => {
+    p.style.animationDuration = (20 - (scrollY / 200) + i * 2) + "s";
+  });
+});
 </script>
 
 </body>
