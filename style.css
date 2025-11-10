@@ -317,3 +317,73 @@ body.light {
   transform: scale(1.05);
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
 }
+/* 🌌 Universe Base Layer */
+#universe {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1f1c2c);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+}
+
+/* ✨ Particle Canvas */
+#particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* 🌍 Planets */
+.planet {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: spin infinite linear;
+}
+.planet1 {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, #00ffff 0%, #000 80%);
+  top: 20%;
+  left: 15%;
+  animation-duration: 18s;
+}
+.planet2 {
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, #ff00ff 0%, #000 70%);
+  top: 60%;
+  right: 20%;
+  animation-duration: 25s;
+}
+.planet3 {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, #ffae00 0%, #000 75%);
+  bottom: 10%;
+  left: 50%;
+  animation-duration: 30s;
+}
+
+/* 🌀 Rotation animation */
+@keyframes spin {
+  from { transform: rotate(0deg) translateX(40px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(40px) rotate(-360deg); }
+}
+
+/* 🔷 Tech Lines */
+.tech-lines {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+}
+
+/* 🌈 Animated Gradient */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
