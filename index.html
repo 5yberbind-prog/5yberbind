@@ -585,6 +585,81 @@ document.addEventListener('mousemove', (e) => {
 
   <audio id="bgMusic" loop src="assets/space-bg.mp3" preload="auto"></audio>
 </div>
+<script>
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+const bgMusic = document.getElementById('bgMusic');
+const toggleBtn = document.getElementById('musicToggle');
+const volControl = document.getElementById('musicVol');
+const planets = document.querySelectorAll('.planet');
 
+let w, h, particles = [];
+
+function resize() {
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resize);
+resize();
+
+// 🌠 Particles generator
+class Particle {
+  constructor() {
+    this.x = Math.random() * w;
+    this.y = Math.random() * h;
+    this.size = Math.random() * 2;
+    this.speedX = Math.random() * 0.5 - 0.25;
+    this.speedY = Math.random() * 0.5 - 0.25;
+  }
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    if (this.x < 0 || this.x > w || this.y < 0 || this.y > h) {
+      this.x = Math.random() * w;
+      this.y = Math.random() * h;
+    }
+  }
+  draw() {
+    ctx.fillStyle = 'rgba(0,255,255,0.4)';
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+for (let i = 0; i < 100; i++) particles.push(new Particle());
+
+function animateParticles() {
+  ctx.clearRect(0, 0, w, h);
+  particles.forEach(p => { p.update(); p.draw(); });
+  requestAnimationFrame(animateParticles);
+}
+animateParticles();
+
+// 🖱️ Mouse-based 3D movement
+document.addEventListener('mousemove', (e) => {
+  const moveX = (e.clientX / w - 0.5) * 20;
+  const moveY = (e.clientY / h - 0.5) * 20;
+  planets.forEach((p, i) => {
+    const depth = (i + 1) * 5;
+    p.style.transform = `translate(${moveX * depth}px, ${moveY * depth}px) scale(1.1)`;
+  });
+});
+
+// 🎧 Music Control
+bgMusic.volume = parseFloat(volControl.value);
+toggleBtn.addEventListener('click', () => {
+  if (bgMusic.paused) {
+    bgMusic.play().then(() => toggleBtn.textContent = '⏸️').catch(()=>{});
+  } else {
+    bgMusic.pause();
+    toggleBtn.textContent = '▶️';
+  }
+});
+volControl.addEventListener('input', () => bgMusic.volume = parseFloat(volControl.value));
+
+// Try autoplay after 2 seconds
+setTimeout(() => bgMusic.play().then(() => toggleBtn.textContent = '⏸️').catch(()=>{}), 2000);
+</script>
 </body>
 </html>
