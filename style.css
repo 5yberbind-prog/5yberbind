@@ -540,3 +540,52 @@ body {
   background-attachment: fixed;
   background-size: cover;
 }
+/* ====== Force full-screen dark background & hide any right gap ====== */
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* hide horizontal scroll or gap */
+  background-color: #071822 !important; /* force dark background — change if your theme uses another dark color */
+}
+
+/* add a fixed full-screen background layer so strip never shows */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;               /* top:0; right:0; bottom:0; left:0; */
+  z-index: -9999;         /* behind everything */
+  background: linear-gradient(135deg, #071822 0%, #0b2030 100%); /* gentle dark gradient */
+  pointer-events: none;
+}
+
+/* ensure wrappers don't overflow viewport */
+.container, .wrapper, .site, main, header, section {
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding-right: 0;
+  overflow-x: hidden;
+}
+
+/* remove any right-border or subtle outline that may create a light strip */
+header, nav, .container, .site-wrapper, .hero, footer {
+  border-right: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* fix if any element uses 100vw (100vw can cause horizontal overflow when scrollbar present) */
+[style*="100vw"], .full-width, .hero {
+  max-width: 100%;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+/* safety: prevent any pseudo-element from creating vertical strip */
+*::before, *::after {
+  box-sizing: border-box;
+  max-width: 100%;
+}
