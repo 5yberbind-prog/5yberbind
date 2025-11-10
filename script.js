@@ -62,3 +62,7 @@ document.querySelectorAll('.btn,.card').forEach(el=>{
   el.classList.add('click-glow');
   el.addEventListener('click',()=>addGlow(el));
 });
+.section h2:hover {
+  text-shadow: 0 0 15px var(--neon1), 0 0 25px var(--neon2);
+  transition: text-shadow 0.4s ease-in-out;
+}
