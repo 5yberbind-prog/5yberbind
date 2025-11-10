@@ -55,25 +55,6 @@
       <a href="#" class="gradient-btn">Download</a>
     </div>
 
-<div class="card">
-      <h3>My2dapp</h3>
-      <p>Trending game</p>
-      <a href="<button id="download-app" class="download-btn">Download App</button>
-
-<script>
-document.getElementById('download-app').addEventListener('click', async function(){
-  const url = 'https://ind-prog.github.io/assets/apps/myapp.apk';
-  const resp = await fetch(url);
-  const blob = await resp.blob();
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'myapp.apk';
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  URL.revokeObjectURL(a.href);
-});
-</script>" class="gradient-btn">Download</a>
     </div>
 <h2>Latest Apps</h2>
 <div class="app-card">
