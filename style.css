@@ -667,3 +667,15 @@ header, nav, .container, .site-wrapper, .hero, footer {
   75%  { top: 50%; left: 15%; }
   100% { top: 10%; left: 5%; }
 }
+/* === Fix section scroll cut when using fixed header === */
+:target::before {
+  content: "";
+  display: block;
+  height: 90px; /* apne navbar ke height ke hisab se */
+  margin-top: -90px;
+}
+
+/* Smooth scroll for links */
+html {
+  scroll-behavior: smooth;
+}
