@@ -1,11 +1,11 @@
 :root{
-  --bg1:#05111a;
-  --bg2:#071225;
+  --bg1:#020611;
+  --bg2:#040b16;
   --neon-a:#00e6ff;
   --neon-b:#8a54ff;
   --neon-c:#00f39a;
-  --card-bg: rgba(255,255,255,0.025);
-  --glass-border: rgba(120,200,255,0.06);
+  --card-bg: rgba(255,255,255,0.03);
+  --glass-border: rgba(120,200,255,0.08);
 }
 
 *{
@@ -17,10 +17,12 @@
 
 body{
   min-height:100vh;
-  background:linear-gradient(180deg,var(--bg1),var(--bg2));
+  background:radial-gradient(1000px 800px at 10% 10%, rgba(138,84,255,0.07), transparent 8%),
+             radial-gradient(800px 400px at 90% 90%, rgba(0,227,255,0.05), transparent 6%),
+             linear-gradient(180deg,var(--bg1),var(--bg2));
   color:#e6f3ff;
   overflow-x:hidden;
-  transition: background 2s linear;
+  transition:background 6s ease-in-out;
 }
 
 .top-neon{
@@ -32,7 +34,7 @@ body{
   left:0;
   z-index:1500;
   filter:blur(8px) saturate(120%);
-  transition:background 1.5s linear;
+  transition:background 6s ease-in-out;
 }
 
 header{
@@ -60,14 +62,15 @@ header{
   place-items:center;
   font-weight:800;
   color:#02111a;
-  transition:background 1.5s linear;
+  transition:background 6s ease-in-out;
 }
 
 nav a{
-  color:rgba(255,255,255,0.72);
+  color:rgba(255,255,255,0.75);
   margin-left:16px;
   text-decoration:none;
   font-weight:600;
+  transition:color .3s;
 }
 nav a:hover{color:white;}
 
@@ -80,12 +83,12 @@ main{
 }
 
 .hero{
-  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.008));
+  background:rgba(255,255,255,0.03);
   border-radius:14px;
   padding:44px;
   text-align:center;
   backdrop-filter: blur(6px);
-  border:1px solid rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.05);
   box-shadow: 0 8px 40px rgba(0,0,0,0.6);
 }
 
@@ -99,7 +102,7 @@ main{
   -webkit-background-clip:text;
   background-clip:text;
   color:transparent;
-  transition:background 1.5s linear;
+  transition:background 6s ease-in-out;
 }
 
 .btn{
@@ -111,18 +114,13 @@ main{
   color:#02111a;
   margin:6px;
   cursor:pointer;
-  transition:background 1.5s linear;
+  box-shadow:0 4px 18px rgba(0,230,255,0.2);
+  transition:background 6s ease-in-out, transform .2s;
 }
+.btn:hover{transform:scale(1.05);}
 
 .section{margin-top:34px;}
-
-.section h2{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  color:#bfefff;
-  margin-bottom:14px;
-}
+.section h2{color:#bfefff;margin-bottom:14px;}
 
 .grid{
   display:grid;
