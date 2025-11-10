@@ -363,3 +363,7 @@ button:hover {
 button {
   animation: neonFlow 6s infinite alternate;
 }
+body {
+  background: linear-gradient(180deg, #050505, #0a0a0a);
+  background-attachment: fixed;
+}
