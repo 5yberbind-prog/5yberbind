@@ -13,29 +13,25 @@ const palettes = [
 ];
 
 let i = 0;
-
-// Smooth apply
 function applyPalette(p){
   document.documentElement.style.setProperty('--neon-a', p[0]);
   document.documentElement.style.setProperty('--neon-b', p[1]);
   document.documentElement.style.setProperty('--neon-c', p[2]);
-  document.documentElement.style.setProperty('--bg1', "#020611");
-  document.documentElement.style.setProperty('--bg2', "#040b16");
 }
 
-// Auto smooth colour change
+// Smooth infinite transition every 10 seconds
 setInterval(()=>{
   i = (i + 1) % palettes.length;
   applyPalette(palettes[i]);
-}, 10000); // every 10 sec smooth
+}, 10000);
 
-// Tap or click to instantly shift
+// Tap or click instantly change
 document.body.addEventListener('click', ()=>{
   i = (i + 1) % palettes.length;
   applyPalette(palettes[i]);
 });
 
-// Random start
+// Start random color
 window.addEventListener('load', ()=>{
   i = Math.floor(Math.random() * palettes.length);
   applyPalette(palettes[i]);
