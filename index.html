@@ -321,6 +321,50 @@ window.addEventListener('scroll', () => {
     p.style.animationDuration = (20 - (scrollY / 200) + i * 2) + "s";
   });
 });
+<script>
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let w, h, particles = [];
+
+function resize() {
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resize);
+resize();
+
+class Particle {
+  constructor() {
+    this.x = Math.random() * w;
+    this.y = Math.random() * h;
+    this.size = Math.random() * 2;
+    this.speedX = Math.random() * 0.6 - 0.3;
+    this.speedY = Math.random() * 0.6 - 0.3;
+  }
+  update() {
+    this.x += this.speedX;
+    this.y += this.speedY;
+    if (this.x < 0 || this.x > w || this.y < 0 || this.y > h) {
+      this.x = Math.random() * w;
+      this.y = Math.random() * h;
+    }
+  }
+  draw() {
+    ctx.fillStyle = 'rgba(0, 255, 255, 0.5)';
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+for (let i = 0; i < 100; i++) particles.push(new Particle());
+
+function animate() {
+  ctx.clearRect(0, 0, w, h);
+  particles.forEach(p => { p.update(); p.draw(); });
+  requestAnimationFrame(animate);
+}
+animate();
 </script>
 
 </body>
