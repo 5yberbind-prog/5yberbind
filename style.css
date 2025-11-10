@@ -517,4 +517,7 @@ body.light {
 /* helper: reduced motion for prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   .shooting-star, .shooting-star::after { animation: none !important; opacity: 0; }
+}section, div {
+  margin-right: 0 !important;
+  padding-right: 0 !important;
 }
