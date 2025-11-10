@@ -165,3 +165,40 @@ footer .social a:hover {
   font-size: 13px;
   color: #94a3b8;
 }
+/* 🎬 YouTube Videos Grid (4×4 Layout) */
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  justify-items: center;
+  margin-top: 30px;
+}
+
+.videos-grid iframe {
+  width: 100%;
+  max-width: 320px;
+  height: 180px;
+  border-radius: 10px;
+  border: 2px solid rgba(0, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.videos-grid iframe:hover {
+  transform: scale(1.04);
+  border-color: rgba(0, 255, 255, 0.5);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+}
+
+/* 📱 Responsive layout */
+@media (max-width: 900px) {
+  .videos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .videos-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
