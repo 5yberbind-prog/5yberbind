@@ -589,3 +589,39 @@ header, nav, .container, .site-wrapper, .hero, footer {
   box-sizing: border-box;
   max-width: 100%;
 }
+/* ===== Neon Snake Animation (subtle glow) ===== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.neon-snake {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 220px;          /* hero height ke hisab se adjust karo */
+  overflow: hidden;
+  z-index: 0;
+}
+
+.neon-snake::before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,255,255,0.6), transparent 60%);
+  filter: blur(25px);
+  animation: snakeMove 8s linear infinite;
+}
+
+/* glowing ball ka smooth movement */
+@keyframes snakeMove {
+  0%   { top: 10%; left: 5%; }
+  25%  { top: 20%; left: 80%; }
+  50%  { top: 70%; left: 60%; }
+  75%  { top: 50%; left: 15%; }
+  100% { top: 10%; left: 5%; }
+}
