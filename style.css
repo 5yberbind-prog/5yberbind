@@ -387,3 +387,7 @@ body.light {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+.planet1, .planet2, .planet3 {
+  box-shadow: 0 0 30px rgba(0,255,255,0.6),
+              0 0 60px rgba(255,0,255,0.3);
+}
