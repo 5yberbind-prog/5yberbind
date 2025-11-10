@@ -151,3 +151,45 @@ footer{text-align:center;color:var(--text-dim);margin:40px 0;font-size:14px;}
     transform: scale(1);
   }
 }
+:root {
+  --neon1: #00e6ff;
+  --neon2: #8a54ff;
+  --neon3: #00f39a;
+  --bg1: #030718;
+  --bg2: #050a22;
+}
+
+/* Smooth infinite neon gradient animation */
+@keyframes neonShift {
+  0% {
+    --neon1: #00e6ff;
+    --neon2: #8a54ff;
+    --neon3: #00f39a;
+  }
+  25% {
+    --neon1: #ff6ac1;
+    --neon2: #ffd166;
+    --neon3: #9b8cff;
+  }
+  50% {
+    --neon1: #00f2b8;
+    --neon2: #47b8ff;
+    --neon3: #a05dff;
+  }
+  75% {
+    --neon1: #ff9d00;
+    --neon2: #ff005c;
+    --neon3: #9000ff;
+  }
+  100% {
+    --neon1: #00e6ff;
+    --neon2: #8a54ff;
+    --neon3: #00f39a;
+  }
+}
+
+/* Apply slow animation globally */
+html, body {
+  animation: neonShift 60s linear infinite;
+  transition: background 10s ease-in-out;
+}
