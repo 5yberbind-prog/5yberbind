@@ -520,18 +520,4 @@ body.light {
 }section, div {
   margin-right: 0 !important;
   padding-right: 0 !important;
-}/* Full width layout fix */
-body, html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden; /* prevents horizontal scroll */
-}
-
-/* Main container full width ho */
-.container, .main, section {
-  max-width: 100%;
-  width: 100%;
-  margin: 0 auto;
-  box-sizing: border-box;
 }
