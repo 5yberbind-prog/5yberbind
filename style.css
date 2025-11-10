@@ -193,3 +193,6 @@ h2 {
 .download-btn:hover::before {
   opacity: 1;
 }
+.download-btn {
+  -webkit-text-stroke: 0.2px rgba(255,255,255,0.3);
+}
