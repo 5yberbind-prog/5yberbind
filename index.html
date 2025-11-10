@@ -121,6 +121,122 @@
     </div>
     <p class="copy">© 2025 5yberBind | All Rights Reserved</p>
   </footer>
+</footer>
+
+<!-- 🔔 Add This Popup Code -->
+<div id="socialPopup" class="popup">
+  <div class="popup-content">
+    <h2>Stay Connected 🔔</h2>
+    <p>Follow us for latest updates!</p>
+    <div class="buttons">
+      <a href="https://www.instagram.com/5yberbind" target="_blank" class="insta">📸 Follow on Instagram</a>
+      <a href="https://www.youtube.com/@5yberbind" target="_blank" class="yt">▶️ Subscribe on YouTube</a>
+    </div>
+    <button onclick="closePopup()" class="close-btn">Close</button>
+  </div>
+</div>
+
+<!-- Floating Button -->
+<button id="openPopupBtn" class="floating-btn">🔔 Follow / Subscribe</button>
+
+<!-- 🌈 CSS STYLE -->
+<style>
+  .floating-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #ff0057, #ff7b00);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+  }
+  .floating-btn:hover {
+    transform: scale(1.1);
+  }
+
+  .popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.4s ease;
+  }
+
+  .popup-content {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    transform: scale(0.8);
+    opacity: 0;
+    animation: popUp 0.4s forwards ease;
+  }
+
+  .buttons a {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+  }
+  .buttons .insta { background-color: #E1306C; }
+  .buttons .yt { background-color: #FF0000; }
+  .buttons a:hover { transform: scale(1.05); }
+
+  .close-btn {
+    margin-top: 10px;
+    background: #333;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .close-btn:hover { background: #555; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes popUp {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+</style>
+
+<script>
+  const popup = document.getElementById('socialPopup');
+  const btn = document.getElementById('openPopupBtn');
+
+  btn.onclick = () => {
+    popup.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePopup() {
+    popup.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+
+  // Auto show popup after 5 sec
+  setTimeout(() => popup.style.display = 'flex', 5000);
+</script>
+<!-- 🔔 End of Popup Code -->
 
 </body>
 </html>
