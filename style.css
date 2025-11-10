@@ -1,0 +1,28 @@
+:root {
+  --neon-color: #00ffff; /* default (overridden by JS) */
+}
+
+/* Button glow */
+button {
+  color: #fff;
+  border: 1px solid var(--neon-color);
+  box-shadow: 0 0 10px var(--neon-color);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: var(--neon-color);
+  color: #000;
+  box-shadow: 0 0 25px var(--neon-color);
+}
+
+/* Headings, titles, icons etc. */
+h1, h2, h3, .icon {
+  color: var(--neon-color);
+  text-shadow: 0 0 12px var(--neon-color);
+}
+
+/* Section hover glow */
+section:hover {
+  box-shadow: 0 0 20px var(--neon-color);
+}
