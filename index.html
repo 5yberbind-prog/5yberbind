@@ -123,14 +123,14 @@
   </footer>
 </footer>
 
-<!-- 🔔 Add This Popup Code -->
+<!-- 🌐 Animated Follow/Subscribe Popup -->
 <div id="socialPopup" class="popup">
   <div class="popup-content">
     <h2>Stay Connected 🔔</h2>
     <p>Follow us for latest updates!</p>
     <div class="buttons">
-      <a href="https://www.instagram.com/5yberbind" target="_blank" class="insta">📸 Follow on Instagram</a>
-      <a href="https://www.youtube.com/@5yberbind" target="_blank" class="yt">▶️ Subscribe on YouTube</a>
+      <a href="https://www.instagram.com/5yberbind" target="_blank" class="insta">📸 Instagram</a>
+      <a href="https://www.youtube.com/@5yberbind" target="_blank" class="yt">▶️ YouTube</a>
     </div>
     <button onclick="closePopup()" class="close-btn">Close</button>
   </div>
@@ -139,47 +139,62 @@
 <!-- Floating Button -->
 <button id="openPopupBtn" class="floating-btn">🔔 Follow / Subscribe</button>
 
-<!-- 🌈 CSS STYLE -->
+<!-- 🌈 Popup CSS -->
 <style>
   .floating-btn {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: linear-gradient(45deg, #ff0057, #ff7b00);
+    background: linear-gradient(90deg, #00ffff, #ff00ff, #ffae00);
+    background-size: 300%;
     color: white;
     border: none;
-    padding: 12px 18px;
-    border-radius: 30px;
+    padding: 12px 20px;
+    border-radius: 40px;
     cursor: pointer;
     font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    animation: gradientShift 5s infinite;
     transition: transform 0.3s ease;
   }
-  .floating-btn:hover {
-    transform: scale(1.1);
-  }
+  .floating-btn:hover { transform: scale(1.1); }
 
   .popup {
     display: none;
     position: fixed;
     inset: 0;
-    background-color: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px);
     z-index: 999;
     justify-content: center;
     align-items: center;
-    animation: fadeIn 0.4s ease;
+  }
+
+  .popup.show {
+    display: flex;
+    animation: fadeIn 0.4s ease forwards;
+  }
+
+  .popup.hide {
+    animation: fadeOut 0.5s ease forwards;
   }
 
   .popup-content {
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
+    background: rgba(10,10,20,0.85);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px;
     text-align: center;
     width: 300px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    transform: scale(0.8);
-    opacity: 0;
-    animation: popUp 0.4s forwards ease;
+    padding: 25px;
+    color: white;
+    box-shadow: 0 0 25px rgba(0,255,255,0.3);
+    transform: translateY(0);
+    opacity: 1;
+    animation: popUp 0.4s ease forwards;
+  }
+
+  .popup.hide .popup-content {
+    animation: slideDown 0.5s ease forwards;
   }
 
   .buttons a {
@@ -190,53 +205,83 @@
     color: white;
     text-decoration: none;
     font-weight: bold;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s;
   }
-  .buttons .insta { background-color: #E1306C; }
-  .buttons .yt { background-color: #FF0000; }
-  .buttons a:hover { transform: scale(1.05); }
+  .buttons .insta {
+    background: linear-gradient(90deg, #ff00ff, #ffae00);
+    box-shadow: 0 0 15px rgba(255,0,255,0.3);
+  }
+  .buttons .yt {
+    background: linear-gradient(90deg, #ff0000, #ff7b00);
+    box-shadow: 0 0 15px rgba(255,0,0,0.3);
+  }
+  .buttons a:hover { transform: scale(1.08); }
 
   .close-btn {
-    margin-top: 10px;
-    background: #333;
-    color: white;
+    background: linear-gradient(90deg, #00ffff, #ff00ff);
     border: none;
+    color: white;
+    border-radius: 10px;
     padding: 8px 16px;
-    border-radius: 8px;
+    margin-top: 10px;
     cursor: pointer;
-    transition: background 0.3s ease;
   }
-  .close-btn:hover { background: #555; }
 
   @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
   }
-
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
   @keyframes popUp {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes slideDown {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(60px); opacity: 0; }
+  }
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
   }
 </style>
 
+<!-- ⚙️ Popup JS -->
 <script>
   const popup = document.getElementById('socialPopup');
   const btn = document.getElementById('openPopupBtn');
 
+  // Open popup
   btn.onclick = () => {
-    popup.style.display = 'flex';
+    popup.classList.remove('hide');
+    popup.classList.add('show');
     document.body.style.overflow = 'hidden';
-  }
+  };
 
+  // Close popup
   function closePopup() {
-    popup.style.display = 'none';
-    document.body.style.overflow = 'auto';
+    popup.classList.remove('show');
+    popup.classList.add('hide');
+    setTimeout(() => {
+      popup.style.display = 'none';
+      popup.classList.remove('hide');
+      document.body.style.overflow = 'auto';
+    }, 500); // wait for slideDown animation
   }
 
-  // Auto show popup after 5 sec
-  setTimeout(() => popup.style.display = 'flex', 5000);
+  // Background click se close
+  popup.addEventListener('click', (e) => {
+    if (e.target === popup) closePopup();
+  });
+
+  // Auto open after 5s
+  setTimeout(() => {
+    popup.classList.add('show');
+  }, 5000);
 </script>
-<!-- 🔔 End of Popup Code -->
 
 </body>
 </html>
