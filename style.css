@@ -625,3 +625,45 @@ header, nav, .container, .site-wrapper, .hero, footer {
   75%  { top: 50%; left: 15%; }
   100% { top: 10%; left: 5%; }
 }
+/* ===== Neon Snake Animation ===== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.neon-snake {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.neon-snake::before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,255,255,0.5), transparent 60%);
+  filter: blur(25px);
+  animation: snakeMove 8s ease-in-out infinite;
+}
+
+@keyframes snakeMove {
+  0%   { top: 10%; left: 5%; }
+  25%  { top: 20%; left: 80%; }
+  50%  { top: 70%; left: 60%; }
+  75%  { top: 50%; left: 15%; }
+  100% { top: 10%; left: 5%; }
+}
