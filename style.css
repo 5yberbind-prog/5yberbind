@@ -112,3 +112,45 @@ section h2 {
   background: var(--neon-color);
   color: #000;
 }
+body {
+  background: #0a0a0a;
+  color: #eaeaea;
+}
+h2 {
+  color: var(--neon-color);
+  text-shadow: 0 0 10px var(--neon-color);
+}
+p {
+  color: #bdbdbd;
+}
+.download-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 18px;
+  border-radius: 8px;
+}
+.cards {
+  gap: 20px;
+  padding: 10px;
+}
+section {
+  margin: 60px auto;
+  padding: 25px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+.site-header {
+  text-align: center;
+  padding: 70px 20px 40px;
+}
+@media (max-width: 600px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+section {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+h2 {
+  text-shadow: 0 0 8px var(--neon-color);
+}
