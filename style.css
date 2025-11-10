@@ -321,7 +321,7 @@ body.light {
 #universe {
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 1;
   overflow: hidden;
   background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1f1c2c);
   background-size: 400% 400%;
