@@ -21,4 +21,5 @@ apps.forEach(app => {
     <a href="${app.link}" class="download-btn" target="_blank">Download</a>
   `;
   container.appendChild(card);
-});
+});document.querySelectorAll('a, button').forEach(btn => {
+  btn.addEventListener('click', function(e) {
