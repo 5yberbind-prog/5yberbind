@@ -681,3 +681,64 @@ html {
 }
 height: 100px;
 margin-top: -100px;
+/* === Smooth Scroll + Neon Navbar Highlight === */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  background: transparent;
+}
+
+nav a {
+  position: relative;
+  color: #aaa;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 0;
+  transition: color 0.3s;
+}
+
+/* Hover glow */
+nav a:hover {
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+/* Neon underline animation */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #00ffff, #ff00ff);
+  box-shadow: 0 0 10px #00ffff;
+  transition: width 0.4s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Active link highlight */
+nav a.active {
+  color: #00ffff;
+}
+nav a.active::after {
+  width: 100%;
+}
+
+/* Fix for navbar covering section top */
+:target::before {
+  content: "";
+  display: block;
+  height: 80px;
+  margin-top: -80px;
+}
