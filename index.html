@@ -7,17 +7,13 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- 🔹 Navbar -->
-  <body>
   <!-- ✅ Navbar -->
   <header>
     <div class="logo">
       <h1>5<span>yberBind</span></h1>
     </div>
-
     <nav>
-      <a href="#home">Home</a>
+      <a href="#home" class="active">Home</a>
       <a href="#apps">Apps</a>
       <a href="#blog">Blog</a>
       <a href="#tools">Tools</a>
@@ -25,418 +21,36 @@
     </nav>
   </header>
 
-  <!-- ✅ Hero Section -->
-  <section class="hero" id="home">
-    <div class="neon-snake"></div>
+  <!-- 🌟 Hero Section -->
+  <section id="home" class="hero">
     <div class="hero-content">
       <h2>Welcome to <span class="gradient-text">5yberBind</span></h2>
       <p>Your ultimate hub for free Tech Apps, Editing Packs & Online Earning Tools 🚀</p>
-      <a href="#" class="gradient-btn">Explore Now</a>
+      <a href="#apps" class="gradient-btn">Explore Now</a>
     </div>
   </section>
 
-  <!-- ✅ Apps Section -->
-  <section id="apps">
+  <!-- 🔥 Apps Section -->
+  <section id="apps" class="section">
     <h3>🔥 Latest Apps & Editing Packs</h3>
-    <!-- yahan apne app cards ka code rahega -->
   </section>
 
-  <!-- ✅ Blog Section -->
-  <section id="blog">
+  <!-- 🧠 Blog Section -->
+  <section id="blog" class="section">
     <h3>🧠 Tech Blog</h3>
-    <!-- yahan blog cards ka code -->
   </section>
 
-  <!-- ✅ Tools Section -->
-  <section id="tools">
-    <h3>⚙️ Free Earning Tools</h3>
-    <!-- yahan tools ka content -->
+  <!-- 💎 Tools Section -->
+  <section id="tools" class="section">
+    <h3>💎 Free Earning Tools</h3>
   </section>
 
-  <!-- ✅ Contact Section -->
-  <footer id="contact">
+  <!-- 📩 Contact Section -->
+  <section id="contact" class="section">
     <h3>📩 Contact Us</h3>
-    <p>Follow us on YouTube | Instagram | Telegram</p>
-  </footer>
-
-  <!-- ✅ Scroll Spy Script -->
-  <script>
-    const sections = document.querySelectorAll("section[id], footer[id]");
-    const navLinks = document.querySelectorAll("nav a");
-
-    window.addEventListener("scroll", () => {
-      let scrollPos = window.scrollY + 100;
-      sections.forEach(section => {
-        const id = section.getAttribute("id");
-        const offsetTop = section.offsetTop;
-        const offsetHeight = section.offsetHeight;
-
-        if (scrollPos >= offsetTop && scrollPos < offsetTop + offsetHeight) {
-          navLinks.forEach(link => {
-            link.classList.remove("active");
-            if (link.getAttribute("href") === "#" + id) {
-              link.classList.add("active");
-            }
-          });
-        }
-      });
-    });
-  </script>
-</body>
-</html>
-
-<!-- 🌐 Animated Follow/Subscribe Popup -->
-<div id="socialPopup" class="popup">
-  <div class="popup-content">
-    <h2>Stay Connected 🔔</h2>
-    <p>Follow us for latest updates!</p>
-    <div class="buttons">
-      <a href="https://www.instagram.com/5yberbind" target="_blank" class="insta">📸 Instagram</a>
-      <a href="https://www.youtube.com/@5yberbind" target="_blank" class="yt">▶️ YouTube</a>
-    </div>
-    <button onclick="closePopup()" class="close-btn">Close</button>
-  </div>
-</div>
-
-<!-- Floating Button -->
-<button id="openPopupBtn" class="floating-btn">🔔 Follow / Subscribe</button>
-
-<!-- 🌈 Popup CSS -->
-<style>
-  .floating-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: linear-gradient(90deg, #00ffff, #ff00ff, #ffae00);
-    background-size: 300%;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 40px;
-    cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0 0 15px rgba(0,0,0,0.4);
-    animation: gradientShift 5s infinite;
-    transition: transform 0.3s ease;
-  }
-  .floating-btn:hover { transform: scale(1.1); }
-
-  .popup {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(8px);
-    z-index: 999;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .popup.show {
-    display: flex;
-    animation: fadeIn 0.4s ease forwards;
-  }
-
-  .popup.hide {
-    animation: fadeOut 0.5s ease forwards;
-  }
-
-  .popup-content {
-    background: rgba(10,10,20,0.85);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 16px;
-    text-align: center;
-    width: 300px;
-    padding: 25px;
-    color: white;
-    box-shadow: 0 0 25px rgba(0,255,255,0.3);
-    transform: translateY(0);
-    opacity: 1;
-    animation: popUp 0.4s ease forwards;
-  }
-
-  .popup.hide .popup-content {
-    animation: slideDown 0.5s ease forwards;
-  }
-
-  .buttons a {
-    display: block;
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 10px;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: transform 0.3s ease, box-shadow 0.3s;
-  }
-  .buttons .insta {
-    background: linear-gradient(90deg, #ff00ff, #ffae00);
-    box-shadow: 0 0 15px rgba(255,0,255,0.3);
-  }
-  .buttons .yt {
-    background: linear-gradient(90deg, #ff0000, #ff7b00);
-    box-shadow: 0 0 15px rgba(255,0,0,0.3);
-  }
-  .buttons a:hover { transform: scale(1.08); }
-
-  .close-btn {
-    background: linear-gradient(90deg, #00ffff, #ff00ff);
-    border: none;
-    color: white;
-    border-radius: 10px;
-    padding: 8px 16px;
-    margin-top: 10px;
-    cursor: pointer;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  @keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
-  }
-  @keyframes popUp {
-    from { transform: translateY(40px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
-  @keyframes slideDown {
-    from { transform: translateY(0); opacity: 1; }
-    to { transform: translateY(60px); opacity: 0; }
-  }
-  @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
-  }
-</style>
-
-<!-- ⚙️ Popup JS -->
-<script>
-  const popup = document.getElementById('socialPopup');
-  const btn = document.getElementById('openPopupBtn');
-
-  // Open popup
-  btn.onclick = () => {
-    popup.classList.remove('hide');
-    popup.classList.add('show');
-    document.body.style.overflow = 'hidden';
-  };
-
-  // Close popup
-  function closePopup() {
-    popup.classList.remove('show');
-    popup.classList.add('hide');
-    setTimeout(() => {
-      popup.style.display = 'none';
-      popup.classList.remove('hide');
-      document.body.style.overflow = 'auto';
-    }, 500); // wait for slideDown animation
-  }
-
-  // Background click se close
-  popup.addEventListener('click', (e) => {
-    if (e.target === popup) closePopup();
-  });
-
-  // Auto open after 5s
-  setTimeout(() => {
-    popup.classList.add('show');
-  }, 5000);
-<!-- 🌌 MULTI-LAYER TECH BACKGROUND SYSTEM -->
-<div id="universe">
-  <canvas id="particles"></canvas>
-
-  <!-- 🌍 Rotating Planets -->
-  <div class="planet planet1"></div>
-  <div class="planet planet2"></div>
-  <div class="planet planet3"></div>
-
-  <!-- 🔷 Floating Tech Lines -->
-  <svg class="tech-lines" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-    <path fill="none" stroke="#00ffff" stroke-width="2"
-      d="M0,160 C480,240 960,80 1440,160" opacity="0.4">
-      <animate attributeName="d" dur="5s" repeatCount="indefinite"
-        values="
-        M0,160 C480,240 960,80 1440,160;
-        M0,120 C480,80 960,240 1440,100;
-        M0,160 C480,240 960,80 1440,160
-        " />
-    </path>
-  </svg>
-</div>
-
-<!-- 🧠 Scroll-triggered animation -->
-<script>
-window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY;
-  const universe = document.getElementById('universe');
-
-  // Scroll par gradient color change
-  universe.style.background = `linear-gradient(45deg,
-    rgb(${(scrollY/4)%255}, 0, 255),
-    rgb(0, ${(scrollY/2)%255}, 255),
-    rgb(255, 0, ${(scrollY/3)%255}))`;
-
-  // Planets rotate faster on scroll
-  document.querySelectorAll('.planet').forEach((p, i) => {
-    p.style.animationDuration = (20 - (scrollY / 200) + i * 2) + "s";
-  });
-});
-<script>
-const canvas = document.getElementById('particles');
-const ctx = canvas.getContext('2d');
-let w, h, particles = [];
-
-function resize() {
-  w = canvas.width = window.innerWidth;
-  h = canvas.height = window.innerHeight;
-}
-window.addEventListener('resize', resize);
-resize();
-
-class Particle {
-  constructor() {
-    this.x = Math.random() * w;
-    this.y = Math.random() * h;
-    this.size = Math.random() * 2;
-    this.speedX = Math.random() * 0.6 - 0.3;
-    this.speedY = Math.random() * 0.6 - 0.3;
-  }
-  update() {
-    this.x += this.speedX;
-    this.y += this.speedY;
-    if (this.x < 0 || this.x > w || this.y < 0 || this.y > h) {
-      this.x = Math.random() * w;
-      this.y = Math.random() * h;
-    }
-  }
-  draw() {
-    ctx.fillStyle = 'rgba(0, 255, 255, 0.5)';
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fill();
-  }
-}
-
-for (let i = 0; i < 100; i++) particles.push(new Particle());
-
-function animate() {
-  ctx.clearRect(0, 0, w, h);
-  particles.forEach(p => { p.update(); p.draw(); });
-  requestAnimationFrame(animate);
-}
-animate();
-</script>
-<!-- 🌌 SCROLL SCENE + PARALLAX SYSTEM -->
-<script>
-const universe = document.getElementById('universe');
-const planets = document.querySelectorAll('.planet');
-let currentScene = 0;
-
-// 🌈 SCENE COLORS (change on scroll)
-const scenes = [
-  "linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1f1c2c)",
-  "linear-gradient(-45deg, #001f3f, #0074D9, #7FDBFF, #39CCCC)",
-  "linear-gradient(-45deg, #1a0000, #ff0000, #ff6600, #ffcc00)",
-  "linear-gradient(-45deg, #001a00, #00ff99, #00ffff, #0077ff)"
-];
-<script>
-(() => {
-  // CONFIG: adjust to taste (longer interval = rarer stars)
-  const MIN_INTERVAL = 8000; // ms
-  const MAX_INTERVAL = 16000; // ms
-  const MIN_DURATION = 900; // ms (star travel time)
-  const MAX_DURATION = 1500; // ms
-
-  // Utility
-  const rand = (min, max) => Math.random() * (max - min) + min;
-
-  function spawnShootingStar() {
-    const star = document.createElement('div');
-    star.className = 'shooting-star';
-
-    // random start off-screen (top-left quadrant) and angle to bottom-right-ish
-    const startX = rand(-0.2, 0.3) * window.innerWidth; // can start slightly left
-    const startY = rand(0.05, 0.45) * window.innerHeight;
-
-    // length / angle randomization
-    const angle = rand(18, 38); // degrees (tilt)
-    const travel = rand(0.6, 1.6) * Math.max(window.innerWidth, window.innerHeight);
-
-    // duration
-    const dur = rand(MIN_DURATION, MAX_DURATION);
-
-    // initial placement
-    star.style.left = `${startX}px`;
-    star.style.top = `${startY}px`;
-    star.style.width = '2px';
-    star.style.height = '2px';
-    star.style.transform = `rotate(${angle}deg)`;
-    star.style.opacity = '0';
-
-    // Append to body
-    document.body.appendChild(star);
-
-    // animate using requestAnimationFrame + CSS transition for smoother control
-    const start = performance.now();
-    const rad = angle * Math.PI / 180;
-    const vx = Math.cos(rad) * (travel / dur);
-    const vy = Math.sin(rad) * (travel / dur);
-
-    function step(now) {
-      const t = (now - start) / dur;
-      if (t >= 1) {
-        // finish: fade + remove
-        star.style.opacity = '0';
-        setTimeout(() => star.remove(), 200);
-        return;
-      }
-      // position update
-      const curX = startX + vx * (now - start);
-      const curY = startY + vy * (now - start);
-      star.style.transform = `translate3d(${curX}px, ${curY}px, 0) rotate(${angle}deg)`;
-      star.style.opacity = (t < 0.08) ? (t / 0.08) : ((t > 0.85) ? ((1 - t)/0.15) : 1);
-      requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-
-    // also add CSS animation for subtle trail appearance
-    star.style.animation = `starMove ${dur}ms linear`;
-  }
-
-  // schedule loop
-  let timer = null;
-  function scheduleNext() {
-    const time = rand(MIN_INTERVAL, MAX_INTERVAL);
-    timer = setTimeout(() => {
-      // spawn 1 or sometimes 2 in quick succession
-      spawnShootingStar();
-      if (Math.random() < 0.25) setTimeout(spawnShootingStar, rand(150, 500));
-      scheduleNext();
-    }, time);
-  }
-
-  // start after small delay
-  setTimeout(scheduleNext, 2000);
-
-  // pause when tab hidden
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      clearTimeout(timer);
-      timer = null;
-    } else if (!timer) {
-      scheduleNext();
-    }
-  });
-
-  // optional global toggle (call window.toggleShooting(false) to stop)
-  window.toggleShooting = function(enabled) {
-    if (!enabled) clearTimeout(timer), timer = null;
-    else if (!timer) scheduleNext();
-  };
-
-})();
-</script>
+    <p>Follow us on <a href="https://youtube.com/@5yberbind" target="_blank">YouTube</a> | 
+       <a href="#">Instagram</a> | 
+       <a href="#">Telegram</a></p>
+  </section>
 </body>
 </html>
