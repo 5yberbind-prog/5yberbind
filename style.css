@@ -469,3 +469,52 @@ body.light {
   .info-panel { width: 92%; right: -100%; top: 40px; left: 4%; border-radius: 10px; }
   .info-panel.show { right: 4%; left:4%; }
 }
+/* ===== Neon glow for calm universe layers ===== */
+#calmUniverse .layer {
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 12px 28px rgba(0,255,255,0.04));
+  /* subtle colored glow by layer (override per class if needed) */
+}
+
+#calmUniverse .moon { filter: drop-shadow(0 18px 40px rgba(255,234,127,0.06)); }
+#calmUniverse .astronaut { filter: drop-shadow(0 18px 40px rgba(255,138,255,0.05)); }
+#calmUniverse .robot { filter: drop-shadow(0 18px 40px rgba(142,255,255,0.04)); }
+
+/* ===== Shooting star element ===== */
+.shooting-star {
+  position: fixed;
+  z-index: 1;
+  pointer-events: none;
+  width: 2px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.95), rgba(180,240,255,0.6));
+  box-shadow: 0 0 12px rgba(255,255,255,0.6), 0 0 24px rgba(180,240,255,0.2);
+  transform-origin: left center;
+  border-radius: 2px;
+}
+
+/* trail effect using pseudo element */
+.shooting-star::after {
+  content: "";
+  position: absolute;
+  left: -140px; top: 50%;
+  height: 2px;
+  width: 140px;
+  background: linear-gradient(90deg, rgba(180,240,255,0.0), rgba(180,240,255,0.12), rgba(255,255,255,0.25));
+  filter: blur(6px);
+  transform: translateY(-50%);
+  border-radius: 2px;
+}
+
+/* gentle fade-in/out while moving */
+@keyframes starMove {
+  0% { opacity: 0; transform: translate3d(0,0,0) scaleX(0.2); }
+  10% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; transform: translate3d(0,0,0) scaleX(1); }
+}
+
+/* helper: reduced motion for prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .shooting-star, .shooting-star::after { animation: none !important; opacity: 0; }
+}
