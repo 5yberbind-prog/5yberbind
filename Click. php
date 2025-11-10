@@ -1,0 +1,10 @@
+<?php
+$file = 'https://s3.amazonaws.com/yourbucket/teenpatti.apk'; // external URL
+$counterFile = __DIR__ . '/counters/teenpatti.count';
+$count = file_exists($counterFile) ? (int)file_get_contents($counterFile) : 0;
+file_put_contents($counterFile, $count + 1);
+
+// Redirect to file (user downloads from external)
+header("Location: $file");
+exit;
+?>
