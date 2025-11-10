@@ -518,3 +518,15 @@ body.light {
 @media (prefers-reduced-motion: reduce) {
   .shooting-star, .shooting-star::after { animation: none !important; opacity: 0; }
 }
+/* === Fix unwanted right space on mobile === */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* hide horizontal scroll / right gap */
+}
+
+/* ensure containers don’t go beyond screen width */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
