@@ -124,3 +124,64 @@ footer{text-align:center;color:var(--text-dim);margin:40px 0;font-size:14px;}
   50% { background-position: 100% center; opacity: 0.8; }
   100% { background-position: 0% center; opacity: 0.3; }
 }
+/* === Neon Gradient Animation for Buttons === */
+
+/* Smooth gradient move on button background */
+.btn {
+  background: linear-gradient(90deg, var(--neon1), var(--neon2), var(--neon3));
+  background-size: 200% auto;
+  animation: neonBtnMove 10s linear infinite;
+  color: #fff;
+  border: none;
+  outline: none;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  box-shadow: 0 0 15px rgba(0,230,255,0.3);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+/* Button hover glow pop */
+.btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 25px rgba(0,230,255,0.4), 0 0 50px rgba(138,84,255,0.3);
+}
+
+/* Moving gradient animation */
+@keyframes neonBtnMove {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+/* === Gradient Text Effect for Button Label === */
+.btn span, .btn {
+  background: linear-gradient(90deg, var(--neon1), var(--neon2), var(--neon3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: neonTextShift 12s linear infinite;
+}
+
+@keyframes neonTextShift {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+/* Optional: subtle glow when clicked */
+.btn:active {
+  box-shadow: 0 0 40px rgba(0,243,154,0.4), 0 0 60px rgba(138,84,255,0.3);
+  transform: scale(1.02);
+  transition: 0.1s ease;
+}
+
+/* Add glowing ring for Download buttons */
+.card .btn {
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-weight: 600;
+  box-shadow: inset 0 0 15px rgba(0,243,154,0.2),
+              0 0 15px rgba(0,230,255,0.2);
+}
