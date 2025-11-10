@@ -79,3 +79,48 @@ footer{text-align:center;color:var(--text-dim);margin:40px 0;font-size:14px;}
   40%{box-shadow:0 0 20px 4px rgba(0,230,255,.6);}
   100%{box-shadow:0 0 0 0 rgba(0,230,255,0);}
 }
+/* === Smooth Neon Gradient Headings === */
+.section h2 {
+  position: relative;
+  font-weight: 700;
+  display: inline-block;
+  background: linear-gradient(90deg, var(--neon1), var(--neon2), var(--neon3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: neonTitleMove 12s linear infinite;
+  text-shadow: 0 0 10px rgba(0,230,255,0.3), 0 0 20px rgba(138,84,255,0.2);
+}
+
+@keyframes neonTitleMove {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+/* Add subtle glow underline */
+.section h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--neon1), var(--neon2), var(--neon3));
+  background-size: 200% auto;
+  border-radius: 4px;
+  animation: neonUnderline 8s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes neonUnderline {
+  0% { background-position: 0% center; opacity: 0.3; }
+  50% { background-position: 100% center; opacity: 0.8; }
+  100% { background-position: 0% center; opacity: 0.3; }
+}
