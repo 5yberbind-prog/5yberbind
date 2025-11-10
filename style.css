@@ -1,81 +1,57 @@
-/* ===== Global ===== */
+/* General */
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#020617;color:#fff;overflow-x:hidden;}
-a{text-decoration:none}
+body{background:#0f172a;color:#fff;scroll-behavior:smooth;}
+a{text-decoration:none;}
 
-/* ===== Navbar ===== */
-.navbar{
-  position:fixed;top:0;left:0;width:100%;
+/* Navbar */
+header{
   display:flex;justify-content:space-between;align-items:center;
-  background:rgba(10,25,47,0.85);backdrop-filter:blur(10px);
-  padding:15px 25px;z-index:999;
-  box-shadow:0 0 20px rgba(0,255,255,0.1);
+  padding:15px 25px;background:#00000080;backdrop-filter:blur(10px);
+  position:sticky;top:0;z-index:999;
 }
 .logo{display:flex;align-items:center;gap:10px;}
 .logo img{height:40px;}
-.logo h1{color:#fff;font-size:22px;}
-.logo span{color:#00ffff;}
-.navbar nav a{
-  color:#ccc;margin:0 10px;font-weight:500;transition:0.3s;
-}
-.navbar nav a:hover{color:#00ffff;}
+.logo h1{color:#00ffff;font-size:24px;}
+nav a{color:#ccc;margin:0 10px;transition:.3s;}
+nav a:hover{color:#00ffff;}
 
-/* ===== Hero ===== */
+/* Hero */
 .hero{
-  height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
-  background:radial-gradient(circle at top left,#0f172a,#020617);
-  text-align:center;padding:0 20px;
+  text-align:center;padding:100px 20px;background:linear-gradient(135deg,#0f172a,#1e293b);
 }
 .hero h2{font-size:32px;margin-bottom:10px;}
 .hero span{color:#00ffff;}
-.hero p{color:#cbd5e1;max-width:500px;}
-.hero-btn{
-  margin-top:20px;background:#00ffff;color:#000;padding:10px 25px;
-  border-radius:8px;font-weight:600;transition:0.3s;
-  box-shadow:0 0 15px rgba(0,255,255,0.5);
+.hero p{color:#cbd5e1;margin-bottom:20px;}
+.btn{
+  display:inline-block;background:#00ffff;color:#000;
+  font-weight:600;padding:10px 20px;border-radius:8px;
+  transition:.3s;box-shadow:0 0 15px rgba(0,255,255,.3);
 }
-.hero-btn:hover{background:#06b6d4;box-shadow:0 0 25px rgba(0,255,255,0.8);}
+.btn:hover{background:#06b6d4;box-shadow:0 0 25px rgba(0,255,255,.5);}
+.small{padding:8px 16px;font-size:14px;}
 
-/* ===== Sections ===== */
-.section{text-align:center;padding:80px 20px;}
-.section h2{color:#00ffff;margin-bottom:40px;font-size:26px;}
+/* Sections */
+.section{text-align:center;padding:60px 20px;}
+.section h2{color:#00ffff;margin-bottom:30px;font-size:24px;}
 
-/* ===== Cards ===== */
-.grid{
-  display:flex;flex-wrap:wrap;justify-content:center;gap:25px;
+/* Cards */
+.grid{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;}
+.card{
+  background:#1e293b;padding:20px;border-radius:15px;width:230px;
+  box-shadow:0 0 10px rgba(0,255,255,0.1);transition:.3s;
 }
-.app-card,.tool-card{
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.1);
-  padding:25px;border-radius:16px;width:220px;
-  backdrop-filter:blur(10px);
-  transition:0.3s;
-}
-.app-card:hover,.tool-card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 0 25px rgba(0,255,255,0.25);
-}
-.app-icon{
-  width:80px;height:80px;border-radius:12px;margin-bottom:12px;
-  box-shadow:0 0 10px rgba(0,255,255,0.2);
-}
-.download-btn{
-  display:inline-block;margin-top:10px;background:#00ffff;color:#000;
-  font-weight:700;padding:8px 16px;border-radius:8px;
-  box-shadow:0 0 15px rgba(0,255,255,0.4);transition:0.3s;
-}
-.download-btn:hover{background:#06b6d4;box-shadow:0 0 25px rgba(0,255,255,0.8);}
+.card:hover{transform:translateY(-5px);box-shadow:0 0 25px rgba(0,255,255,0.3);}
+.card h3{color:#00ffff;margin-bottom:10px;}
+.card p{color:#cbd5e1;font-size:14px;margin-bottom:10px;}
 
-/* ===== About ===== */
-.about p{
-  max-width:700px;margin:auto;color:#cbd5e1;
-  line-height:1.7;
-}
+/* Videos */
+.videos{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;}
 
-/* ===== Footer ===== */
+/* Footer */
 footer{
-  background:#0f172a;padding:20px;text-align:center;margin-top:50px;
+  background:#000;padding:25px;text-align:center;
   border-top:1px solid rgba(255,255,255,0.1);
 }
-footer .socials a{color:#00ffff;margin:0 5px;transition:0.3s;}
-footer .socials a:hover{color:#06b6d4;}
+footer .social a{color:#00ffff;margin:0 8px;transition:.3s;}
+footer .social a:hover{color:#06b6d4;}
+.copy{margin-top:15px;color:#888;font-size:13px;}
