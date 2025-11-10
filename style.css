@@ -1,171 +1,88 @@
-/* === Base === */
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+/* === General === */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{
-  background: radial-gradient(circle at top left,#050b16,#090f1f);
-  color:#fff;overflow-x:hidden;
+  background:#060b16;color:#fff;overflow-x:hidden;
 }
 
 /* === Navbar === */
 header{
-  position:sticky;top:0;z-index:999;
   display:flex;justify-content:space-between;align-items:center;
-  padding:15px 8%;
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(12px);
+  padding:15px 8%;background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(10px);position:sticky;top:0;z-index:1000;
   border-bottom:1px solid rgba(255,255,255,0.1);
 }
-.logo h1{font-size:1.5rem;color:#00ffff}
-.logo span{color:#b400ff}
+.logo{color:#00ffff;font-size:1.6rem;}
+.logo span{color:#b400ff;}
 nav a{
-  color:#ccc;text-decoration:none;margin:0 12px;
-  position:relative;transition:.3s;
+  color:#ccc;margin:0 12px;text-decoration:none;position:relative;transition:.3s;
 }
 nav a::after{
-  content:"";position:absolute;bottom:-3px;left:0;
-  width:0;height:2px;background:linear-gradient(90deg,#00ffff,#ff00ff);
-  transition:.3s;
+  content:'';position:absolute;bottom:-3px;left:0;width:0;height:2px;
+  background:linear-gradient(90deg,#00ffff,#b400ff);transition:.3s;
 }
-nav a:hover,nav a.active{color:#00ffff}
-nav a:hover::after,nav a.active::after{width:100%}
+nav a:hover{color:#00ffff;}
+nav a:hover::after{width:100%;}
 
-/* === Hero === */
+/* === Hero Section === */
 .hero{
-  text-align:center;padding:140px 20px 100px;
-  background:linear-gradient(135deg,#081020,#0f1933);
-  position:relative;overflow:hidden;
+  position:relative;text-align:center;padding:120px 20px;
+  background:linear-gradient(135deg,#080e1a,#0f1530);
+  overflow:hidden;
 }
-.neon-orb{
-  position:absolute;top:0;left:50%;transform:translateX(-50%);
+.neon-bg{
+  position:absolute;top:-50px;left:50%;transform:translateX(-50%);
   width:400px;height:400px;border-radius:50%;
   background:radial-gradient(circle,rgba(0,255,255,0.4),transparent 70%);
-  filter:blur(100px);animation:moveOrb 10s ease-in-out infinite alternate;
+  filter:blur(100px);animation:move 8s ease-in-out infinite alternate;
 }
-@keyframes moveOrb{
-  0%{transform:translate(-50%,0)}
-  100%{transform:translate(-50%,40px)}
+@keyframes move{
+  0%{transform:translate(-50%,0);}
+  100%{transform:translate(-50%,40px);}
 }
-.gradient-text{
-  background:linear-gradient(90deg,#00ffff,#ff00ff);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-}
-.glow-btn{
+.hero-content span{background:linear-gradient(90deg,#00ffff,#b400ff);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero .btn{
   display:inline-block;margin-top:25px;padding:12px 30px;
   border-radius:30px;color:#fff;text-decoration:none;
-  background:linear-gradient(90deg,#00ffff,#ff00ff);
-  box-shadow:0 0 15px #00ffffaa;transition:.4s;
+  background:linear-gradient(90deg,#00ffff,#b400ff);
+  animation:glow 2s infinite alternate;transition:.4s;
 }
-.glow-btn:hover{transform:scale(1.05);box-shadow:0 0 25px #ff00ffaa}
+@keyframes glow{
+  from{box-shadow:0 0 10px #00ffff;}
+  to{box-shadow:0 0 25px #b400ff;}
+}
+.hero .btn:hover{transform:scale(1.05);}
 
 /* === Section === */
-.section{
-  padding:80px 20px;text-align:center;
-  opacity:0;transform:translateY(40px);
-  transition:all .8s ease-out;
-}
-.section.show{opacity:1;transform:translateY(0)}
-.section h3{color:#00ffff;font-size:1.6rem;margin-bottom:35px}
+.section{text-align:center;padding:80px 20px;opacity:0;transform:translateY(40px);
+transition:all .7s ease-out;}
+.section.show{opacity:1;transform:translateY(0);}
+.section h3{color:#00ffff;margin-bottom:35px;}
 
 /* === Cards === */
 .grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;margin-top:20px;
 }
 .card{
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:15px;
-  padding:25px;
-  transition:.4s;
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+  border-radius:15px;padding:25px;transition:.4s;
 }
-.card:hover{transform:translateY(-5px);box-shadow:0 0 20px #00ffff33}
-.card h4{margin-bottom:10px;color:#fff}
-.card p{color:#bbb;margin-bottom:15px}
-.download-btn,.read-btn{
-  display:inline-block;
-  background:linear-gradient(90deg,#00ffff,#ff00ff);
-  color:#fff;text-decoration:none;padding:8px 20px;
-  border-radius:20px;transition:.3s;
-  position:relative;overflow:hidden;
+.card:hover{transform:translateY(-5px);box-shadow:0 0 20px #00ffff55;}
+.download-btn,.btn{
+  display:inline-block;margin-top:10px;padding:8px 22px;border-radius:25px;
+  background:linear-gradient(90deg,#00ffff,#b400ff);color:#fff;text-decoration:none;
+  transition:.3s;
 }
-.download-btn::after,.read-btn::after{
-  content:"";position:absolute;top:0;left:-100%;
-  width:100%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
-  transition:.4s;
-}
-.download-btn:active::after,.read-btn:active::after{left:100%}
-.download-btn:hover,.read-btn:hover{transform:scale(1.05)}
+.download-btn:hover{transform:scale(1.08);box-shadow:0 0 20px #b400ff77;}
 
 /* === YouTube === */
-.videos{
-  display:flex;justify-content:center;flex-wrap:wrap;
-  gap:20px;
-}
-iframe{
-  width:300px;height:170px;border:none;
-  border-radius:12px;box-shadow:0 0 10px #00ffff33;
-}
+.videos{display:flex;justify-content:center;flex-wrap:wrap;gap:20px;}
+iframe{width:300px;height:170px;border:none;border-radius:12px;}
 
 /* === Footer === */
-footer{
-  text-align:center;padding:40px 20px;
-  background:rgba(255,255,255,0.05);
-  border-top:1px solid rgba(255,255,255,0.1);
-}
-footer a{color:#ff00ff;text-decoration:none}
-footer a:hover{text-decoration:underline}
-.credit{margin-top:10px;color:#aaa;font-size:.9rem}
-
-/* === Neon Ripple Animation Effect === */
-.ripple {
-  position: fixed;
-  width: 30px;
-  height: 30px;
-  border: 3px solid #00ffff;
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  animation: rippleSpread 1s ease-out forwards;
-  z-index: 9999;
-}
-
-@keyframes rippleSpread {
-  0% {
-    opacity: 0.8;
-    transform: translate(-50%, -50%) scale(0.5);
-  }
-  70% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(8);
-  }
-}/* === Neon Ripple Click Effect === */
-.ripple {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  border: 3px solid #00ffff;
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%) scale(0);
-  animation: ripple-anim 1s ease-out forwards;
-  z-index: 9999;
-}
-
-@keyframes ripple-anim {
-  0% {
-    transform: translate(-50%, -50%) scale(0.2);
-    opacity: 0.9;
-  }
-  80% {
-    transform: translate(-50%, -50%) scale(6);
-    opacity: 0.3;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(8);
-    opacity: 0;
-  }
-}
+footer{text-align:center;padding:40px 20px;background:rgba(255,255,255,0.05);
+border-top:1px solid rgba(255,255,255,0.1);}
+footer a{color:#b400ff;text-decoration:none;}
+footer a:hover{text-decoration:underline;}
+.credit{color:#aaa;margin-top:10px;font-size:.9rem;}
