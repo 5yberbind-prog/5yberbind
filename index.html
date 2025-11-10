@@ -366,6 +366,47 @@ function animate() {
 }
 animate();
 </script>
+<!-- 🌌 SCROLL SCENE + PARALLAX SYSTEM -->
+<script>
+const universe = document.getElementById('universe');
+const planets = document.querySelectorAll('.planet');
+let currentScene = 0;
 
+// 🌈 SCENE COLORS (change on scroll)
+const scenes = [
+  "linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1f1c2c)",
+  "linear-gradient(-45deg, #001f3f, #0074D9, #7FDBFF, #39CCCC)",
+  "linear-gradient(-45deg, #1a0000, #ff0000, #ff6600, #ffcc00)",
+  "linear-gradient(-45deg, #001a00, #00ff99, #00ffff, #0077ff)"
+];
+
+// 🌌 Scroll Event - Scene Transition
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  const sectionHeight = window.innerHeight;
+  const sceneIndex = Math.floor(scrollY / sectionHeight);
+
+  if (sceneIndex !== currentScene && scenes[sceneIndex]) {
+    currentScene = sceneIndex;
+    universe.style.transition = "background 2s ease-in-out";
+    universe.style.background = scenes[sceneIndex];
+  }
+
+  // Scroll se planets ka depth parallax
+  planets.forEach((planet, i) => {
+    const depth = (i + 1) * 40;
+    planet.style.transform = `translateY(${scrollY / depth}px) rotate(${scrollY / 5}deg)`;
+  });
+});
+
+// 🖱️ Mouse move par parallax motion
+document.addEventListener('mousemove', (e) => {
+  const x = (e.clientX / window.innerWidth - 0.5) * 20;
+  const y = (e.clientY / window.innerHeight - 0.5) * 20;
+  planets.forEach((p, i) => {
+    p.style.transform += `translate(${x * (i+1)}px, ${y * (i+1)}px)`;
+  });
+});
+</script>
 </body>
 </html>
