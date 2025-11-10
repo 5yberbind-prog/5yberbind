@@ -101,5 +101,28 @@
       });
     });
   </script>
+<script>
+  // === Neon Ripple Effect on Tap/Click ===
+  document.addEventListener('click', function(e) {
+    const ripple = document.createElement('span');
+    ripple.classList.add('ripple');
+    document.body.appendChild(ripple);
+
+    // Random neon colours
+    const colors = ['#00ffff', '#ff00ff', '#ff0090', '#00ff80', '#ffd500', '#00b4ff'];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    ripple.style.borderColor = randomColor;
+    ripple.style.boxShadow = `0 0 25px ${randomColor}, 0 0 60px ${randomColor}`;
+    
+    // Ripple position
+    ripple.style.left = e.clientX + 'px';
+    ripple.style.top = e.clientY + 'px';
+
+    // Animation remove after done
+    setTimeout(() => {
+      ripple.remove();
+    }, 1000);
+  });
+</script>
 </body>
 </html>
