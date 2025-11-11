@@ -358,4 +358,21 @@
     <a href="#contact">📩 Contact</a>
   </nav>
 </header>
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const menu = document.getElementById('menu');
+
+  menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('active');
+    menu.classList.toggle('active');
+  });
+
+  // Close menu when clicking link
+  document.querySelectorAll('.menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuBtn.classList.remove('active');
+      menu.classList.remove('active');
+    });
+  });
+</script>
 </body>
