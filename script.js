@@ -99,3 +99,33 @@ window.addEventListener('scroll', () => {
     popup.classList.add("active");
   }
 });
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const sideMenu = document.getElementById('side-menu');
+
+  // Toggle Menu
+  menuBtn.addEventListener('click', () => {
+    const isOpen = sideMenu.classList.toggle('open');
+    document.body.classList.toggle('menu-open', isOpen);
+    menuBtn.textContent = isOpen ? '✕' : '☰'; // Change icon
+  });
+
+  // Close menu when link is clicked
+  const menuLinks = sideMenu.querySelectorAll('a');
+  menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      sideMenu.classList.remove('open');
+      document.body.classList.remove('menu-open');
+      menuBtn.textContent = '☰';
+    });
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!sideMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+      sideMenu.classList.remove('open');
+      document.body.classList.remove('menu-open');
+      menuBtn.textContent = '☰';
+    }
+  });
+</script>
