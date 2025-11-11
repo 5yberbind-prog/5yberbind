@@ -94,3 +94,8 @@ document.addEventListener('touchmove', (e) => {
   const y = (touch.clientY / window.innerHeight - 0.5) * 2;
   parallaxLayers.style.transform = `translate(${x * 30}px, ${y * 30}px)`;
 });
+window.addEventListener('scroll', () => {
+  if (window.scrollY > document.body.scrollHeight * 0.7) {
+    popup.classList.add("active");
+  }
+});
