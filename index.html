@@ -336,7 +336,7 @@
     if (e.target === popup) popup.classList.remove("active");
   });
 </script>
-<!-- 🌟 Footer Section -->
+ <!-- 🌟 Footer Section -->
 <footer class="site-footer">
   <div class="footer-content">
     <h3>✨ Thank You for Visiting <span class="highlight">5yberBind</span></h3>
@@ -375,18 +375,28 @@
 </div>
 
 <script>
-  // 📅 Dynamic Year
+  // 📅 Auto year update
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // 🔘 Popup Script
   const popupBtn = document.getElementById("socialPopupBtn");
   const popup = document.getElementById("socialPopup");
   const closeBtn = document.querySelector(".close-btn");
 
+  // 🔘 Manual open/close
   popupBtn.addEventListener("click", () => popup.classList.add("active"));
   closeBtn.addEventListener("click", () => popup.classList.remove("active"));
   popup.addEventListener("click", (e) => {
     if (e.target === popup) popup.classList.remove("active");
+  });
+
+  // 🧠 Auto popup after 80% scroll
+  let popupShown = false;
+  window.addEventListener("scroll", () => {
+    const scrollPercent = (window.scrollY + window.innerHeight) / document.body.scrollHeight;
+    if (scrollPercent > 0.8 && !popupShown) {
+      popup.classList.add("active");
+      popupShown = true;
+    }
   });
 </script>
 </body>
