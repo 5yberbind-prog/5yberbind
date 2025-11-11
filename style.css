@@ -494,3 +494,91 @@ body {
   transform: translateX(5px) scale(1.05);
   text-shadow: 0 0 8px #ffcc00;
 }
+/* ✅ Header Bar */
+.header {
+  width: 100%;
+  height: 60px;
+  background: #000;
+  border-bottom: 2px solid #ffcc00;
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffcc00;
+  text-shadow: 0 0 8px #ffcc00;
+}
+
+.menu-btn {
+  font-size: 28px;
+  color: #ffcc00;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.menu-btn:hover {
+  transform: scale(1.1);
+}
+
+/* ✅ Sidebar Menu */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -270px;
+  width: 260px;
+  height: 100%;
+  background: rgba(15, 15, 15, 0.97);
+  border-left: 2px solid #ffcc00;
+  box-shadow: -2px 0 15px rgba(255, 204, 0, 0.3);
+  transition: right 0.4s ease;
+  z-index: 9998;
+  padding-top: 80px;
+}
+
+.side-menu.open {
+  right: 0;
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-menu ul li {
+  padding: 12px 25px;
+  border-bottom: 1px solid rgba(255, 204, 0, 0.15);
+}
+
+.side-menu ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+  display: block;
+}
+.side-menu ul li a:hover {
+  color: #ffcc00;
+  transform: translateX(8px);
+}
+
+/* ✅ Background Blur when Menu Open */
+body.menu-open::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9997;
+}
