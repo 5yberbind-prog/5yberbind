@@ -1,3 +1,9 @@
+<style>
+  body {
+    background: linear-gradient(to bottom, var(--top-color), var(--mid-color), var(--bottom-color));
+    transition: background 1s ease-in-out;
+  }
+</style>
 <!-- 🌟 Navigation Bar -->
 <header class="navbar">
   <div class="logo">5yberBind</div>
@@ -321,8 +327,6 @@
     </div>
   </section>
 
-  <footer>© <strong>5yberBind</strong>
-      Developed BY-Ashwani Kumar.</footer>
 </main>
 <footer class="site-footer">
   <div class="footer-content">
@@ -374,5 +378,26 @@
   popup.addEventListener("click", (e) => {
     if (e.target === popup) popup.classList.remove("active");
   });
+</script>
+<script>
+  // Define 7 sets of color themes (one for each day)
+  const colorThemes = [
+    { top: "#ff0040", mid: "#ff9900", bottom: "#ffff00" }, // Monday - Red to Yellow
+    { top: "#00ffcc", mid: "#0099ff", bottom: "#3300ff" }, // Tuesday - Aqua to Blue
+    { top: "#ff00ff", mid: "#cc00ff", bottom: "#6600ff" }, // Wednesday - Purple
+    { top: "#00ff00", mid: "#99ff00", bottom: "#ffff00" }, // Thursday - Green to Yellow
+    { top: "#ff6600", mid: "#ff3300", bottom: "#cc0000" }, // Friday - Orange to Red
+    { top: "#00ffff", mid: "#00ccff", bottom: "#0066ff" }, // Saturday - Cyan Blue
+    { top: "#ff99cc", mid: "#ff66ff", bottom: "#cc00cc" }  // Sunday - Pink to Violet
+  ];
+
+  // Get today's theme
+  const today = new Date().getDay(); // 0=Sunday, 1=Monday, ...
+  const theme = colorThemes[today];
+
+  // Apply the theme colors
+  document.documentElement.style.setProperty("--top-color", theme.top);
+  document.documentElement.style.setProperty("--mid-color", theme.mid);
+  document.documentElement.style.setProperty("--bottom-color", theme.bottom);
 </script>
 </body>
