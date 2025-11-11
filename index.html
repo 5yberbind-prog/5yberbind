@@ -305,4 +305,35 @@
   // Automatic year update
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
+<!-- 🌐 Social Media Popup Button -->
+<button id="socialPopupBtn" class="popup-btn">🌟 Follow Us</button>
+
+<!-- 🔮 Popup Window -->
+<div id="socialPopup" class="popup-overlay">
+  <div class="popup-box">
+    <span class="close-btn">&times;</span>
+    <h3>Connect with <span class="highlight">5yberBind</span> 🔗</h3>
+    <p>Follow us for latest Tech Apps, Editing Packs & Earning Tools!</p>
+
+    <div class="social-links">
+      <a href="https://www.youtube.com/@5yberBind" target="_blank">🎬 YouTube</a>
+      <a href="https://instagram.com/5yberbind" target="_blank">📸 Instagram</a>
+      <a href="https://github.com/5yberbind-prog" target="_blank">💻 GitHub</a>
+      <a href="https://t.me/techbinders" target="_blank">✈️ Telegram</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Popup open/close script
+  const popupBtn = document.getElementById("socialPopupBtn");
+  const popup = document.getElementById("socialPopup");
+  const closeBtn = document.querySelector(".close-btn");
+
+  popupBtn.addEventListener("click", () => popup.classList.add("active"));
+  closeBtn.addEventListener("click", () => popup.classList.remove("active"));
+  popup.addEventListener("click", (e) => {
+    if (e.target === popup) popup.classList.remove("active");
+  });
+</script>
 </body>
