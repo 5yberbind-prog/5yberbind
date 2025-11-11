@@ -519,6 +519,43 @@
   };
 })();
 </script>
+<script>
+// 🌈 Daily Dynamic Color System — every section, every day new colors!
+
+const sectionColors = [
+  // 🔸 Day 1: Fire Theme
+  ['#FF4500', '#FF8C00', '#FFD700', '#FF6347', '#FFA500', '#FFB347'],
+  // 🔹 Day 2: Ocean Blue Theme
+  ['#00FFFF', '#1E90FF', '#4682B4', '#5F9EA0', '#00CED1', '#20B2AA'],
+  // 🔸 Day 3: Neon Pink Theme
+  ['#FF1493', '#FF69B4', '#FFB6C1', '#FF85A2', '#FF3366', '#F08080'],
+  // 🔹 Day 4: Nature Green Theme
+  ['#32CD32', '#00FF7F', '#7FFF00', '#ADFF2F', '#90EE90', '#00FA9A'],
+  // 🔸 Day 5: Electric Purple Theme
+  ['#A020F0', '#9932CC', '#8A2BE2', '#BA55D3', '#DA70D6', '#DDA0DD'],
+  // 🔹 Day 6: Cyber Blue Theme
+  ['#00BFFF', '#1E90FF', '#4169E1', '#6495ED', '#5F9EA0', '#87CEEB'],
+  // 🔸 Day 7: Sunset Red-Orange
+  ['#FF7F50', '#FF6347', '#FF4500', '#FF8C00', '#FFA07A', '#FFD700']
+];
+
+// Get today's index (0–6)
+const today = new Date().getDay(); // 0 = Sunday, 6 = Saturday
+const colors = sectionColors[today % sectionColors.length];
+
+const sections = document.querySelectorAll('.section');
+
+sections.forEach((section, index) => {
+  const color = colors[index % colors.length];
+  section.style.setProperty('--neon-color', color);
+});
+
+// Optional: Smooth transition effect on color change
+document.body.style.transition = 'background-color 1s ease';
+
+// 💡 You can also apply these colors to particle or menu glow:
+document.documentElement.style.setProperty('--neon-color', colors[0]);
+</script>
 </body>
 <section id="gaming" class="section"> ... </section>
 <section id="editing" class="section"> ... </section>
