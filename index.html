@@ -336,4 +336,57 @@
     if (e.target === popup) popup.classList.remove("active");
   });
 </script>
+<!-- 🌟 Footer Section -->
+<footer class="site-footer">
+  <div class="footer-content">
+    <h3>✨ Thank You for Visiting <span class="highlight">5yberBind</span></h3>
+    <p>Your ultimate hub for Free Tech Apps, Editing Packs & Online Earning Tools 🚀</p>
+
+    <div class="footer-links">
+      <a href="#top">⬆ Back to Top</a>
+      <a href="https://www.youtube.com/@5yberBind" target="_blank">🎬 YouTube</a>
+      <a href="https://github.com/5yberbind-prog" target="_blank">💻 GitHub</a>
+      <a href="mailto:contact@5yberbind.com">📧 Contact</a>
+    </div>
+
+    <p class="copyright">
+      © <span id="year"></span> <b>5yberBind</b> • Created with ❤️ by <b>Ashwani Kumar Bind</b>
+    </p>
+  </div>
+</footer>
+
+<!-- 🌐 Floating Social Popup Button -->
+<button id="socialPopupBtn" class="popup-btn">🌟 Follow Us</button>
+
+<!-- 🔮 Popup Overlay -->
+<div id="socialPopup" class="popup-overlay">
+  <div class="popup-box">
+    <span class="close-btn">&times;</span>
+    <h3>Connect with <span class="highlight">5yberBind</span> 🔗</h3>
+    <p>Follow us for latest updates, tech tools & tutorials!</p>
+
+    <div class="social-links">
+      <a href="https://www.youtube.com/@5yberBind" target="_blank">🎬 YouTube</a>
+      <a href="https://instagram.com/5yberbind" target="_blank">📸 Instagram</a>
+      <a href="https://github.com/5yberbind-prog" target="_blank">💻 GitHub</a>
+      <a href="https://t.me/techbinders" target="_blank">✈️ Telegram</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // 📅 Dynamic Year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // 🔘 Popup Script
+  const popupBtn = document.getElementById("socialPopupBtn");
+  const popup = document.getElementById("socialPopup");
+  const closeBtn = document.querySelector(".close-btn");
+
+  popupBtn.addEventListener("click", () => popup.classList.add("active"));
+  closeBtn.addEventListener("click", () => popup.classList.remove("active"));
+  popup.addEventListener("click", (e) => {
+    if (e.target === popup) popup.classList.remove("active");
+  });
+</script>
 </body>
