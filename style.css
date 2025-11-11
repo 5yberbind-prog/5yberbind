@@ -409,3 +409,18 @@ body {
   50% { filter: brightness(120%); }
   100% { filter: brightness(100%); }
 }
+#side-menu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background: rgba(20, 20, 20, 0.95);
+  box-shadow: -2px 0 10px rgba(255, 255, 0, 0.3);
+  transition: right 0.4s ease-in-out;
+  z-index: 999;
+}
+
+#side-menu.open {
+  right: 0;
+}
