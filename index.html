@@ -402,17 +402,6 @@
   const menuToggle = document.getElementById('menu-toggle');
   const sideMenu = document.getElementById('side-menu');
   const menuLinks = sideMenu.querySelectorAll('a');
-
-  // Toggle open/close when button is clicked
-  menuToggle.addEventListener('click', () => {
-    sideMenu.classList.toggle('open');
-  });
-
-  // Close menu automatically when any link is clicked
-  menuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      sideMenu.classList.remove('open');
-    });
   });
 </script>
 </body>
