@@ -400,3 +400,12 @@ h2 {
   color: var(--neon-color);
   text-shadow: 0 0 10px var(--neon-color);
 }
+body {
+  animation: smoothGlow 15s ease-in-out infinite alternate;
+}
+
+@keyframes smoothGlow {
+  0% { filter: brightness(100%); }
+  50% { filter: brightness(120%); }
+  100% { filter: brightness(100%); }
+}
