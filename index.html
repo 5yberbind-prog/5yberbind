@@ -414,4 +414,28 @@
     </ul>
   </nav>
 </header>
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const sideMenu = document.getElementById("sideMenu");
+const closeBtn = document.getElementById("closeBtn");
+let overlay;
+
+menuBtn.addEventListener("click", () => {
+  sideMenu.classList.add("active");
+
+  // Overlay add karo
+  overlay = document.createElement("div");
+  overlay.classList.add("overlay");
+  document.body.appendChild(overlay);
+
+  overlay.addEventListener("click", closeMenu);
+});
+
+closeBtn.addEventListener("click", closeMenu);
+
+function closeMenu() {
+  sideMenu.classList.remove("active");
+  if (overlay) overlay.remove();
+}
+</script>
 </body>
