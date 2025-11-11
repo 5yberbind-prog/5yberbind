@@ -1,3 +1,42 @@
+<!-- 🌟 Navigation Bar -->
+<header class="navbar">
+  <div class="logo">5yberBind</div>
+
+  <!-- 3 Dot Menu Button -->
+  <div class="menu-btn" id="menuBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Sliding Menu -->
+  <nav class="menu" id="menu">
+    <a href="#home">🏠 Home</a>
+    <a href="#gaming">🎮 Gaming Tools</a>
+    <a href="#editing">🎬 Editing Packs</a>
+    <a href="#apps">📱 Utility Apps</a>
+    <a href="#earning">💰 Earning Tools</a>
+    <a href="#music">🎧 Music Tools</a>
+    <a href="#contact">📩 Contact</a>
+  </nav>
+</header>
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const menu = document.getElementById('menu');
+
+  menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('active');
+    menu.classList.toggle('active');
+  });
+
+  // Close menu when clicking link
+  document.querySelectorAll('.menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuBtn.classList.remove('active');
+      menu.classList.remove('active');
+    });
+  });
+</script>
 <script src="script.js"></script>
 </body>
 <div class="neon-ring"></div>
@@ -292,9 +331,8 @@
       <a href="#top">Back to Top ↑</a>
       <a href="https://www.youtube.com/@5yberBind" target="_blank">YouTube</a>
       <a href="https://github.com/5yberbind-prog" target="_blank">GitHub</a>
-      <a href="mailto:contact@5yberbind.com">Contact</a>
+      
     </div>
-
     <p class="copyright">
       © <span id="year"></span> 5yberBind • Created with ❤️ by <b>Ashwani Kumar</b>
     </p>
@@ -318,7 +356,6 @@
     <div class="social-links">
       <a href="https://www.youtube.com/@5yberBind" target="_blank">🎬 YouTube</a>
       <a href="https://instagram.com/5yberbind" target="_blank">📸 Instagram</a>
-      <a href="https://github.com/5yberbind-prog" target="_blank">💻 GitHub</a>
       <a href="https://t.me/techbinders" target="_blank">✈️ Telegram</a>
     </div>
   </div>
@@ -334,45 +371,6 @@
   closeBtn.addEventListener("click", () => popup.classList.remove("active"));
   popup.addEventListener("click", (e) => {
     if (e.target === popup) popup.classList.remove("active");
-  });
-</script>
-<!-- 🌟 Navigation Bar -->
-<header class="navbar">
-  <div class="logo">5yberBind</div>
-
-  <!-- 3 Dot Menu Button -->
-  <div class="menu-btn" id="menuBtn">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-
-  <!-- Sliding Menu -->
-  <nav class="menu" id="menu">
-    <a href="#home">🏠 Home</a>
-    <a href="#gaming">🎮 Gaming Tools</a>
-    <a href="#editing">🎬 Editing Packs</a>
-    <a href="#apps">📱 Utility Apps</a>
-    <a href="#earning">💰 Earning Tools</a>
-    <a href="#music">🎧 Music Tools</a>
-    <a href="#contact">📩 Contact</a>
-  </nav>
-</header>
-<script>
-  const menuBtn = document.getElementById('menuBtn');
-  const menu = document.getElementById('menu');
-
-  menuBtn.addEventListener('click', () => {
-    menuBtn.classList.toggle('active');
-    menu.classList.toggle('active');
-  });
-
-  // Close menu when clicking link
-  document.querySelectorAll('.menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      menuBtn.classList.remove('active');
-      menu.classList.remove('active');
-    });
   });
 </script>
 </body>
