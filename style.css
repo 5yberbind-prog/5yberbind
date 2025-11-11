@@ -195,3 +195,17 @@ h2 {
   font-size: 0.9rem;
   color: #999;
 }
+.site-footer::before {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, #ff5500, #ff8800, #ffaa33, #ff5500);
+  background-size: 400% 100%;
+  animation: neonMove 6s linear infinite;
+}
+
+@keyframes neonMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
