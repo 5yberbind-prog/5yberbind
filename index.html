@@ -436,6 +436,28 @@
 <div id="social-popup" class="social-popup">
   <a href="https://youtube.com/@5yberBind" target="_blank">🎥 YouTube</a>
   <a href="https://instagram.com/5yberBind" target="_blank">📸 Instagram</a>
-  <a href="https://github.com/5yberbind-prog" target="_blank">💻 GitHub</a>
   <a href="mailto:contact@5yberbind.com">📧 Email</a>
 </div>
+<script>
+  const btn = document.getElementById('social-btn');
+  const popup = document.getElementById('social-popup');
+
+  btn.addEventListener('click', (e) => {
+    const rect = btn.getBoundingClientRect();
+    popup.style.top = rect.top - 180 + "px";
+    popup.style.left = rect.left - 100 + "px";
+    popup.style.display = popup.style.display === "flex" ? "none" : "flex";
+
+    // Animation reset
+    if (popup.style.display === "flex") {
+      popup.style.animation = "fadeIn 0.4s ease forwards";
+    }
+  });
+
+  // Close when clicked outside
+  document.addEventListener("click", (e) => {
+    if (!btn.contains(e.target) && !popup.contains(e.target)) {
+      popup.style.display = "none";
+    }
+  });
+</script>
