@@ -99,4 +99,3 @@ window.addEventListener('scroll', () => {
     popup.classList.add("active");
   }
 });
-config.baseColor = colors[0].match(/\d+/g)?.map(Number) || [255,120,50];
