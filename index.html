@@ -556,4 +556,52 @@ document.body.style.transition = 'background-color 1s ease';
 // 💡 You can also apply these colors to particle or menu glow:
 document.documentElement.style.setProperty('--neon-color', colors[0]);
 </script>
+<script>
+// 🌈 5yberBind – Daily Multi-Color Neon Theme System 💫
+
+// 🔸 Professional 7-Day Color Palettes (mix of all tones)
+const colorThemes = [
+  // Day 1 – Fiery Orange + Cyan Mix
+  ['#FF4500', '#FF8C00', '#FFD700', '#00FFFF', '#1E90FF', '#00CED1'],
+  // Day 2 – Electric Blue + Violet
+  ['#00BFFF', '#1E90FF', '#8A2BE2', '#6A5ACD', '#9370DB', '#7FFFD4'],
+  // Day 3 – Green Nature + Yellow
+  ['#32CD32', '#00FF7F', '#ADFF2F', '#9ACD32', '#90EE90', '#FFD700'],
+  // Day 4 – Pink + Sky Blue + Silver
+  ['#FF69B4', '#FFB6C1', '#87CEFA', '#B0E0E6', '#E0FFFF', '#F5F5F5'],
+  // Day 5 – Purple + Aqua Glow
+  ['#BA55D3', '#9400D3', '#00FFFF', '#20B2AA', '#00CED1', '#AFEEEE'],
+  // Day 6 – Neon Rainbow Set
+  ['#FF0000', '#FFA500', '#FFFF00', '#00FF00', '#00BFFF', '#8A2BE2'],
+  // Day 7 – White Glow + Ice Blue
+  ['#FFFFFF', '#E0FFFF', '#AFEEEE', '#B0C4DE', '#ADD8E6', '#87CEEB']
+];
+
+// 📅 Get today's palette
+const today = new Date().getDay(); // Sunday=0 → Saturday=6
+const activePalette = colorThemes[today % colorThemes.length];
+
+// 🎨 Apply to all sections
+const sections = document.querySelectorAll('.section');
+sections.forEach((section, i) => {
+  const color = activePalette[i % activePalette.length];
+  section.style.setProperty('--neon-color', color);
+});
+
+// 🔁 Optional: auto-fade colors every few hours (makes website alive)
+let currentThemeIndex = today % colorThemes.length;
+setInterval(() => {
+  currentThemeIndex = (currentThemeIndex + 1) % colorThemes.length;
+  const nextPalette = colorThemes[currentThemeIndex];
+  sections.forEach((section, i) => {
+    const color = nextPalette[i % nextPalette.length];
+    section.style.transition = 'all 1.5s ease';
+    section.style.setProperty('--neon-color', color);
+  });
+  document.documentElement.style.setProperty('--neon-color', nextPalette[0]);
+}, 6 * 60 * 60 * 1000); // change every 6 hours automatically
+
+// 🧠 Sync main theme color (particles, footer, buttons)
+document.documentElement.style.setProperty('--neon-color', activePalette[0]);
+</script>
 </body>
