@@ -154,3 +154,44 @@ section {
 h2 {
   text-shadow: 0 0 8px var(--neon-color);
 }
+.site-footer {
+  background: #0a0a0a;
+  text-align: center;
+  padding: 50px 20px 30px;
+  border-top: 1px solid rgba(255, 90, 0, 0.2);
+  box-shadow: 0 0 25px rgba(255, 90, 0, 0.1);
+}
+
+.site-footer h3 {
+  color: var(--neon-color);
+  font-size: 1.4rem;
+  text-shadow: 0 0 8px var(--neon-color);
+  margin-bottom: 10px;
+}
+
+.site-footer p {
+  color: #c9c9c9;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: #ffae7f;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--neon-color);
+  text-shadow: 0 0 6px var(--neon-color);
+}
+
+.copyright {
+  font-size: 0.9rem;
+  color: #999;
+}
