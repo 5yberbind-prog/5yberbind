@@ -409,4 +409,63 @@
     <a href="mailto:contact@5yberbind.com" title="Email">📧</a>
   </div>
 </div>
+<script>
+  const orb = document.getElementById("socialOrb");
+  const orbBtn = document.getElementById("orbBtn");
+
+  // 🌈 Toggle open/close
+  orbBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    orb.classList.toggle("active");
+    orbBtn.textContent = orb.classList.contains("active") ? "✕" : "☰";
+  });
+
+  // 🌀 Random starting position
+  function randomPosition() {
+    const maxTop = window.innerHeight - 100;
+    const maxLeft = window.innerWidth - 100;
+    orb.style.top = Math.floor(Math.random() * maxTop) + "px";
+    orb.style.left = Math.floor(Math.random() * maxLeft) + "px";
+  }
+  window.addEventListener("load", randomPosition);
+
+  // ✋ Drag functionality
+  let isDragging = false;
+  let offsetX, offsetY;
+
+  const startDrag = (e) => {
+    isDragging = true;
+    offsetX = (e.touches ? e.touches[0].clientX : e.clientX) - orb.offsetLeft;
+    offsetY = (e.touches ? e.touches[0].clientY : e.clientY) - orb.offsetTop;
+    orbBtn.style.cursor = "grabbing";
+  };
+
+  const dragMove = (e) => {
+    if (!isDragging) return;
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    orb.style.left = `${clientX - offsetX}px`;
+    orb.style.top = `${clientY - offsetY}px`;
+  };
+
+  const stopDrag = () => {
+    isDragging = false;
+    orbBtn.style.cursor = "grab";
+  };
+
+  orbBtn.addEventListener("mousedown", startDrag);
+  document.addEventListener("mousemove", dragMove);
+  document.addEventListener("mouseup", stopDrag);
+  orbBtn.addEventListener("touchstart", startDrag);
+  document.addEventListener("touchmove", dragMove);
+  document.addEventListener("touchend", stopDrag);
+
+  // 🚫 Auto close when click outside
+  document.addEventListener("click", (e) => {
+    if (!orb.contains(e.target)) {
+      orb.classList.remove("active");
+      orbBtn.textContent = "☰";
+    }
+  });
+</script>
 </body>
