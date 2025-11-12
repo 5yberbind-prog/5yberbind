@@ -742,4 +742,81 @@ body.menu-open::before {
     background-position: 0% 50%;
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.15));
   }
+}/* 🔘 Animated Menu Button */
+.menu-btn {
+  position: fixed;
+  top: 18px;
+  right: 25px;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  z-index: 10001;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-btn span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: #ffcc00;
+  border-radius: 4px;
+  transition: all 0.4s ease;
+}
+
+/* ✖️ Change to X on active */
+.menu-btn.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(10px);
+}
+.menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-10px);
+}
+
+/* 📜 Sidebar Menu */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  width: 260px;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(15px);
+  border-left: 2px solid #ffcc00;
+  box-shadow: -2px 0 20px rgba(255, 204, 0, 0.2);
+  transition: right 0.5s ease;
+  padding-top: 100px;
+  z-index: 10000;
+}
+
+.side-menu.open {
+  right: 0;
+}
+
+/* Menu Links */
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-menu ul li {
+  padding: 14px 25px;
+  text-align: left;
+}
+
+.side-menu ul li a {
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.side-menu ul li a:hover {
+  color: #ffcc00;
+  transform: translateX(10px);
 }
