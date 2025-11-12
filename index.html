@@ -414,4 +414,36 @@
   <div class="cyber-item" id="git" title="GitHub">💻</div>
   <div class="cyber-item" id="mail" title="Email">📧</div>
 </div>
+<script>
+  const cyberBtn = document.getElementById('main-cyber');
+  const cyberContainer = document.querySelector('.cyber-motion');
+  const sound = document.getElementById('tapSound');
+
+  cyberBtn.addEventListener('click', () => {
+    cyberContainer.classList.toggle('active');
+    sound.currentTime = 0;
+    sound.play();
+    cyberBtn.innerHTML = cyberContainer.classList.contains('active')
+      ? '✕'
+      : '<span class="cyber-ring"></span>⚡';
+  });
+
+  // 🌐 Redirects
+  document.getElementById('yt').onclick = () =>
+    window.open('https://youtube.com/@5yberBind', '_blank');
+  document.getElementById('insta').onclick = () =>
+    window.open('https://instagram.com/5yberBind', '_blank');
+  document.getElementById('git').onclick = () =>
+    window.open('https://github.com/5yberbind-prog', '_blank');
+  document.getElementById('mail').onclick = () =>
+    window.location.href = 'mailto:contact@5yberbind.com';
+
+  // ✨ Auto Close Outside
+  document.addEventListener('click', (e) => {
+    if (!cyberContainer.contains(e.target)) {
+      cyberContainer.classList.remove('active');
+      cyberBtn.innerHTML = '<span class="cyber-ring"></span>⚡';
+    }
+  });
+</script>
 </body>
