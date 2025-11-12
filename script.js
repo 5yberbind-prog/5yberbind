@@ -1,120 +1,147 @@
-// Sidebar control
-const menuBtn=document.getElementById("menuBtn");
-const sidebar=document.getElementById("sidebar");
-const closeBtn=document.getElementById("closeBtn");
-menuBtn.addEventListener("click",()=>sidebar.classList.add("active"));
-closeBtn.addEventListener("click",()=>sidebar.classList.remove("active"));
-window.addEventListener("click",e=>{
-  if(!sidebar.contains(e.target)&&!menuBtn.contains(e.target)){
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5yberBind</title>
+<style>
+body {
+  margin: 0;
+  font-family: Poppins, sans-serif;
+  background-color: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 25px;
+  background: #000;
+  border-bottom: 2px solid #ffbf00;
+}
+header h1 {
+  font-size: 22px;
+  color: #ffbf00;
+}
+
+/* Neon Menu Button */
+.menu-btn {
+  width: 40px;
+  height: 40px;
+  background: cyan;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 0 20px cyan;
+  transition: 0.3s;
+}
+.menu-btn:hover {
+  box-shadow: 0 0 30px cyan;
+}
+.menu-btn span {
+  font-size: 28px;
+  color: black;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  width: 220px;
+  background: rgba(15, 15, 15, 0.9);
+  border: 1px solid #ffbf00;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #ffbf00;
+  display: none;
+  flex-direction: column;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.sidebar.active {
+  display: flex;
+}
+
+.sidebar a {
+  color: #fff;
+  padding: 12px 15px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: 0.3s;
+}
+.sidebar a:hover {
+  background: #ffbf00;
+  color: #000;
+}
+
+/* Close Button */
+.close-btn {
+  align-self: flex-end;
+  background: red;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <h1>5yberBind</h1>
+  <div class="menu-btn" id="menuBtn"><span>≡</span></div>
+</header>
+
+<div class="sidebar" id="sidebar">
+  <div class="close-btn" id="closeBtn">✕ Close</div>
+  <a href="#">🏠 Home</a>
+  <a href="#">🎮 Gaming Tools</a>
+  <a href="#">🧩 Editing Packs</a>
+  <a href="#">🛠 Utility Apps</a>
+  <a href="#">💰 Earning Tools</a>
+  <a href="#">🎧 Music Tools</a>
+  <a href="#">📞 Contact</a>
+</div>
+
+<main style="padding:40px; text-align:center;">
+  <h2>Welcome to <span style="color:#ffbf00;">5yberBind</span></h2>
+  <p>Your ultimate hub for Tech Apps, Editing Packs & Online Tools 🚀</p>
+</main>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const sidebar = document.getElementById("sidebar");
+const closeBtn = document.getElementById("closeBtn");
+
+menuBtn.addEventListener("click", () => {
+  sidebar.classList.add("active");
+});
+
+closeBtn.addEventListener("click", () => {
+  sidebar.classList.remove("active");
+});
+
+window.addEventListener("click", (e) => {
+  if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
     sidebar.classList.remove("active");
   }
 });
+</script>
 
-// Auto cards generator
-const sections={
-  gaming:["Free Fire Config","BGMI Lag Fix","COD Pro HUD"],
-  editing:["CapCut Pack","Lightroom Presets","Alight Motion XML"],
-  utility:["File Splitter","FPS Booster","Battery Saver"],
-  earning:["Teen Patti 3F","Rummy Gold","TaskBucks"],
-  music:["FL Studio Pack","DJ Remix App","Sound Loops"],
-  photo:["Snapseed Mod","Pixellab Pack","Remini Pro"],
-  ai:["ChatGPT Clone","AI Image Maker","VoiceOver AI"],
-  capcut:["Trending Templates","Velocity Pack","Cinematic FX"],
-  tech:["APK Decompiler","GitHub Tools","Link Shortener"]
-};
-Object.keys(sections).forEach(id=>{
-  const container=document.getElementById(id+"Cards");
-  if(container){
-    sections[id].forEach(name=>{
-      const div=document.createElement("div");
-      div.className="card";
-      div.innerHTML=`<h3>${name}</h3><p>Download the latest version for Android.</p><a href="#" class="download-btn">Download</a>`;
-      container.appendChild(div);
-    });
-  }
-});
-
-// Mouse Glow Animation (Professional)
-const canvas=document.getElementById("mouseCanvas");
-const ctx=canvas.getContext("2d");
-let width=canvas.width=window.innerWidth;
-let height=canvas.height=window.innerHeight;
-const dots=[];
-for(let i=0;i<40;i++){
-  dots.push({x:Math.random()*width,y:Math.random()*height,r:Math.random()*2+1,dx:(Math.random()-.5)*.5,dy:(Math.random()-.5)*.5});
-}
-let mouse={x:null,y:null};
-window.addEventListener("mousemove",e=>{mouse.x=e.x;mouse.y=e.y;});
-
-function draw(){
-  ctx.clearRect(0,0,width,height);
-  dots.forEach(d=>{
-    ctx.beginPath();
-    ctx.arc(d.x,d.y,d.r,0,Math.PI*2);
-    ctx.fillStyle="rgba(0,255,255,0.4)";
-    ctx.fill();
-    d.x+=d.dx;d.y+=d.dy;
-    if(d.x<0||d.x>width)d.dx*=-1;
-    if(d.y<0||d.y>height)d.dy*=-1;
-    if(mouse.x && Math.hypot(d.x-mouse.x,d.y-mouse.y)<100){
-      ctx.beginPath();
-      ctx.moveTo(d.x,d.y);
-      ctx.lineTo(mouse.x,mouse.y);
-      ctx.strokeStyle="rgba(255,191,0,0.1)";
-      ctx.stroke();
-    }
-  });
-  requestAnimationFrame(draw);
-}
-draw();
-window.addEventListener("resize",()=>{width=canvas.width=window.innerWidth;height=canvas.height=window.innerHeight;});
-
-// 🌈 Daily Neon Theme Changer
-const root=document.documentElement;
-const neonColors=["#00ffff","#ff00ff","#ffbf00","#00ff88","#007bff","#ff3ec9"];
-function applyTheme(){
-  const day=new Date().getDay();
-  const color=neonColors[day%neonColors.length];
-  root.style.setProperty("--neon",color);
-}
-applyTheme();
-setInterval(applyTheme,3600000);
- 
-// === FOLLOW POPUP (Animated + Cookie + Glow) ===
-const followBtn=document.getElementById("followBtn");
-const popupBox=document.getElementById("popupBox");
-const popupClose=document.getElementById("popupClose");
-const dontShowCheckbox=document.getElementById("dontShowAgain");
-const glassBox=document.querySelector(".popup-content.glass");
-const glow=document.querySelector(".popup-glow");
-
-function showPopup(){
-  const dontShow=localStorage.getItem("hideFollowPopup");
-  if(!dontShow) popupBox.classList.add("active");
-}
-setTimeout(showPopup,5000);
-
-followBtn.addEventListener("click",()=>popupBox.classList.add("active"));
-popupClose.addEventListener("click",()=>{
-  if(dontShowCheckbox.checked){
-    localStorage.setItem("hideFollowPopup",true);
-  }
-  popupBox.classList.remove("active");
-});
-window.addEventListener("click",(e)=>{
-  if(e.target===popupBox){
-    if(dontShowCheckbox.checked){
-      localStorage.setItem("hideFollowPopup",true);
-    }
-    popupBox.classList.remove("active");
-  }
-});
-
-// === Parallax Light Reflection ===
-glassBox.addEventListener("mousemove",(e)=>{
-  const rect=glassBox.getBoundingClientRect();
-  const x=e.clientX-rect.left;
-  const y=e.clientY-rect.top;
-  glow.style.setProperty("--x",`${(x/rect.width)*100}%`);
-  glow.style.setProperty("--y",`${(y/rect.height)*100}%`);
-});
+</body>
+</html>
