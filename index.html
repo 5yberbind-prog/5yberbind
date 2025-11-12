@@ -482,4 +482,29 @@
     <li><a href="#contact">📩 Contact</a></li>
   </ul>
 </nav>
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const sideMenu = document.getElementById('side-menu');
+
+  menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('active');
+    sideMenu.classList.toggle('open');
+  });
+
+  // Close menu when link clicked
+  document.querySelectorAll('.side-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuBtn.classList.remove('active');
+      sideMenu.classList.remove('open');
+    });
+  });
+
+  // Click outside to close
+  document.addEventListener('click', (e) => {
+    if (!sideMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+      menuBtn.classList.remove('active');
+      sideMenu.classList.remove('open');
+    }
+  });
+</script>
 </body>
