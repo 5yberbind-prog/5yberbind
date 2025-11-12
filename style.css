@@ -700,64 +700,6 @@ body.menu-open::before {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
 }
-/* 🔥 Multi-color Animated Download Buttons */
-.download-btn {
-  position: relative;
-  display: inline-block;
-  padding: 12px 32px;
-  color: #fff;
-  font-weight: 600;
-  font-size: 16px;
-  border-radius: 50px;
-  background: linear-gradient(270deg, #ff00cc, #3333ff, #00ffff, #ffcc00);
-  background-size: 400%;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 0 25px rgba(0, 255, 255, 0.25);
-  animation: gradientMove 6s linear infinite;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.download-btn:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 40px rgba(255, 255, 255, 0.4),
-              0 0 25px rgba(0, 255, 255, 0.3);
-}
-
-.download-btn::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50px;
-  padding: 2px;
-  background: linear-gradient(90deg, #00ffff, #ff00cc, #ffff00, #00ff88);
-  background-size: 400%;
-  z-index: -1;
-  animation: borderShift 4s linear infinite;
-  opacity: 0.7;
-}
-
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 400% 50%; }
-}
-
-@keyframes borderShift {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 400% 50%; }
-}
-
-/* 💫 Optional glow pulse animation */
-@keyframes pulse {
-  0%, 100% { box-shadow: 0 0 25px rgba(0,255,255,0.3); }
-  50% { box-shadow: 0 0 45px rgba(0,255,255,0.6); }
-}
-.download-btn.glow {
-  animation: gradientMove 6s linear infinite, pulse 2s ease-in-out infinite;
-}
 /* 🌈 Smooth Neon Flow Download Button */
 .download-btn {
   position: relative;
