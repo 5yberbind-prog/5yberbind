@@ -79,17 +79,37 @@ function applyTheme(){
 }
 applyTheme();
 setInterval(applyTheme,3600000);
-// FOLLOW POPUP
+// FOLLOW POPUP - Auto + Cookie Based
 const followBtn=document.getElementById("followBtn");
 const popupBox=document.getElementById("popupBox");
 const popupClose=document.getElementById("popupClose");
+const dontShowCheckbox=document.getElementById("dontShowAgain");
 
-followBtn.addEventListener("click",()=>{
-  popupBox.classList.add("active");
-});
+function showPopup(){
+  const dontShow=localStorage.getItem("hideFollowPopup");
+  if(!dontShow){ popupBox.classList.add("active"); }
+}
+
+// Auto open after 5 seconds
+setTimeout(showPopup,5000);
+
+// Manual open via button
+followBtn.addEventListener("click",()=>popupBox.classList.add("active"));
+
+// Close popup
 popupClose.addEventListener("click",()=>{
+  if(dontShowCheckbox.checked){
+    localStorage.setItem("hideFollowPopup",true);
+  }
   popupBox.classList.remove("active");
 });
+
+// Close when click outside
 window.addEventListener("click",(e)=>{
-  if(e.target===popupBox) popupBox.classList.remove("active");
+  if(e.target===popupBox){
+    if(dontShowCheckbox.checked){
+      localStorage.setItem("hideFollowPopup",true);
+    }
+    popupBox.classList.remove("active");
+  }
 });
