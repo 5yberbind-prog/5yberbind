@@ -1,102 +1,504 @@
- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5yberBind - Tech & Gaming Tools</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+</style>
+<!-- 🌟 Navigation Bar -->
+<header class="navbar">
+  <div class="logo">5yberBind</div>
 
-  <!-- HEADER -->
-  <header>
-    <div class="logo">5yberBind</div>
-    <div class="menu-btn" id="menuBtn"><span>≡</span></div>
+ <!-- 3 Dot Menu Button -->
+  <div class="menu-btn" id="menuBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Sliding Menu -->
+  <nav class="menu" id="menu">
+    <a href="#home">🏠 Home</a>
+    <a href="#gaming">🎮 Gaming Tools</a>
+    <a href="#editing">🎬 Editing Packs</a>
+    <a href="#apps">📱 Utility Apps</a>
+    <a href="#earning">💰 Earning Tools</a>
+    <a href="#music">🎧 Music Tools</a>
+    <a href="#contact">📩 Contact</a>
+  </nav>
+</header>
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const menu = document.getElementById('menu');
+
+  menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('active');
+    menu.classList.toggle('active');
+  });
+
+  // Close menu when clicking link
+  document.querySelectorAll('.menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuBtn.classList.remove('active');
+      menu.classList.remove('active');
+    });
+  });
+</script>
+<script src="script.js"></script>
+</body>
+<div class="neon-ring"></div>
+</html>
+<script>
+  // 🌈 Array of Neon Colors (tu chahe to aur add kar sakta hai)
+  const neonColors = [
+    "#00FFFF", // Cyan
+    "#FF00FF", // Magenta
+    "#00FF00", // Neon Green
+    "#FF4500", // Orange Red
+    "#FFD700", // Gold
+    "#1E90FF", // Dodger Blue
+    "#FF1493", // Deep Pink
+    "#ADFF2F"  // Green Yellow
+  ];
+
+  // 📅 Get current day number (0–365)
+  const now = new Date();
+  const dayOfYear = Math.floor(
+    (now - new Date(now.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24)
+  );
+
+  // 🧠 Pick color based on day (loop through array)
+  const todayColor = neonColors[dayOfYear % neonColors.length];
+
+  // 🎨 Apply the color as CSS variable for global use
+  document.documentElement.style.setProperty('--neon-color', todayColor);
+</script>
+<body>
+  <!-- 🌟 HEADER -->
+  <header class="site-header">
+    <h1>Welcome to <span class="brand">5yberBind</span></h1>
+    <p>Your ultimate hub for Tech Apps, Editing Packs & Online Earning Tools 🚀</p>
+    <div class="buttons">
+      <a href="#latest" class="btn">Explore Now</a>
+      <a href="#packs" class="btn secondary">Latest Packs</a>
+    </div>
   </header>
 
-  <!-- SIDEBAR -->
-  <div class="sidebar" id="sidebar">
-    <div class="close-btn" id="closeBtn">✕ Close</div>
-    <div class="menu-options">
-      <a href="#home">🏠 Home</a>
-      <a href="#gaming">🎮 Gaming</a>
-      <a href="#editing">🧩 Editing</a>
-      <a href="#utility">🛠 Utility</a>
-      <a href="#earning">💰 Earning</a>
-      <a href="#music">🎧 Music</a>
-      <a href="#photo">📸 Photo</a>
-      <a href="#ai">🤖 AI Tools</a>
-      <a href="#capcut">🎬 CapCut</a>
-      <a href="#tech">💻 Tech</a>
-      <a href="#contact">📞 Contact</a>
-    </div>
-  </div>
-
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <h1>Welcome to 5yberBind</h1>
-    <p>Your ultimate neon hub for Tech, Gaming & Earning tools 🚀</p>
-    <div class="buttons">
-      <a href="#gaming">Explore</a>
-      <a href="#tech">All Tools</a>
+  <!-- 🎮 GAMING SECTION -->
+  <section id="gaming">
+    <h2>🎮 Gaming Tools & Configs</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Free Fire Headshot Config V2</h3>
+        <p>Advanced sensitivity and DPI tuning.</p>
+        <a href="#" class="download-btn">Download</a>
+      </div>
+      <div class="card">
+        <h3>BGMI Lag Fix Tool</h3>
+        <p>Optimize FPS and reduce lag instantly.</p>
+        <a href="#" class="download-btn">Download</a>
+      </div>
+      <div class="card">
+        <h3>Call of Duty Pro HUD</h3>
+        <p>Custom controller layout for accuracy.</p>
+        <a href="#" class="download-btn">Download</a>
+      </div>
     </div>
   </section>
 
-  <!-- APP SECTIONS -->
-  <section id="gaming" class="app-section"><h2>🎮 Gaming Tools</h2><div class="cards" id="gamingCards"></div></section>
-  <section id="editing" class="app-section"><h2>🧩 Editing Tools</h2><div class="cards" id="editingCards"></div></section>
-  <section id="utility" class="app-section"><h2>🛠 Utility</h2><div class="cards" id="utilityCards"></div></section>
-  <section id="earning" class="app-section"><h2>💰 Earning</h2><div class="cards" id="earningCards"></div></section>
-  <section id="music" class="app-section"><h2>🎧 Music</h2><div class="cards" id="musicCards"></div></section>
-  <section id="photo" class="app-section"><h2>📸 Photo</h2><div class="cards" id="photoCards"></div></section>
-  <section id="ai" class="app-section"><h2>🤖 AI</h2><div class="cards" id="aiCards"></div></section>
-  <section id="capcut" class="app-section"><h2>🎬 CapCut</h2><div class="cards" id="capcutCards"></div></section>
-  <section id="tech" class="app-section"><h2>💻 Tech</h2><div class="cards" id="techCards"></div></section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="app-section">
-    <h2>📞 Contact</h2>
-    <p>Email: <b>5yberbind@gmail.com</b></p>
+  <!-- 🎬 EDITING SECTION -->
+  <section id="editing">
+    <h2>🎬 Editing Templates & Packs</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>My2dGame</h3>
+<p>2D racing game</p>
+<a href="https://github.com/5yberbind-prog/5yberbind/blob/main/My2dGame-debug.apk"
+  <button class="download-btn">Download</button>
+</a>
+      </div>
+      <div class="card">
+        <h3>VN Video LUT Pack</h3>
+        <p>Color-grading filters for cinematic looks.</p>
+        <a href="#" class="download-btn">Download</a>
+      </div>
+      <div class="card">
+        <h3>Alight Motion 3D Shake Presets</h3>
+        <p>Professional 3D shake & glow presets.</p>
+        <a href="#" class="download-btn">Download</a>
+      </div>
+    </div>
   </section>
-<!-- FOLLOW POPUP BUTTON -->
-<div class="follow-btn" id="followBtn">🔔 Follow</div>
 
-<!-- FOLLOW POPUP -->
-<div class="popup" id="popupBox">
-  <div class="popup-content">
-    <span class="popup-close" id="popupClose">✖</span>
-    <h2>Follow 5yberBind 💫</h2>
-    <p>Stay connected for latest tools, configs & earning updates!</p>
-    <div class="social-links">
-      <a href="https://www.youtube.com/@5yberBind" target="_blank" class="yt">YouTube</a>
-      <a href="https://www.instagram.com/5yberBind" target="_blank" class="ig">Instagram</a>
-      <a href="https://t.me/5yberBind" target="_blank" class="tg">Telegram</a>
+  <!-- 📱 ANDROID TOOLS -->
+  <section id="android">
+    <h2>📱 Android Utility Apps</h2>
+    <div class="cards">
+      <div class="card"><h3>File Splitter Pro</h3><p>Split or merge large files easily.</p><a href="#" class="download-btn">Download</a></div>
+      <div class="card"><h3>VPN Lite</h3><p>Secure and fast VPN for free users.</p><a href="#" class="download-btn">Download</a></div>
+      <div class="card"><h3>Screen Recorder HD</h3><p>1080p screen recording with watermark-free mode.</p><a href="#" class="download-btn">Download</a></div>
     </div>
-    <label class="dont-show">
-      <input type="checkbox" id="dontShowAgain"> Don’t show again
-    </label>
+  </section>
+
+  <!-- 💰 EARNING SECTION -->
+  <section id="earning">
+    <h2>💰 Earning & Finance Apps</h2>
+    <div class="cards">
+      <div class="card"><h3>TaskEarn</h3><p>Earn coins for completing small online tasks.</p><a href="#" class="download-btn">Download</a></div>
+      <div class="card"><h3>AdCash</h3><p>Watch ads and redeem instant Paytm cash.</p><a href="#" class="download-btn">Download</a></div>
+      <div class="card"><h3>SurveyKing</h3><p>Get paid for giving your opinion on trending products.</p><a href="#" class="download-btn">Download</a></div>
+    </div>
+  </section>
+
+<!-- 🎵 MUSIC SECTION -->
+  <section id="music">
+    <h2>🎵 Music & Sound Tools</h2>
+    <div class="cards">
+      <div class="card"><h3>FL Studio Mobile Preset Pack</h3><p>Top-quality synth & beat presets for mobile producers.</p><a href="#" class="download-btn">Download</a></div>
+      <div class="card"><h3>AudioLab Editor</h3><p>Cut, mix and enhance sound with AI mastering.</p><a href="#" class="download-btn">Download</a></div>
+      <div class="card"><h3>VoiceTune FX</h3><p>Auto-tune and voice effects for singers.</p><a href="#" class="download-btn">Download</a></div>
+    </div>
+  </section>
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>5yberBind — Neon Dark Theme</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<body>
+  </div>
+<main>
+
+  <section id="apps" class="card">
+<!-- ===== More App Sections ===== -->
+
+<section class="section">
+  <h2>🎮 Gaming Tools & Configs</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Free Fire Headshot Config V2</h3>
+      <p>Advanced sensitivity and DPI tuning.</p>
+      <button class="btn">Download</button>
+    </div>
+    <div class="card">
+      <h3>BGMI Lag Fix Tool</h3>
+      <p>Optimize FPS and reduce lag instantly.</p>
+      <button class="btn">Download</button>
+    </div>
+    <div class="card">
+      <h3>Call of Duty Pro HUD</h3>
+      <p>Custom controller layout for accuracy.</p>
+      <button class="btn">Download</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>🎬 Editing Templates & Packs</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>CapCut Transition Pack</h3>
+      <p>30 smooth transitions with 3D effects.</p>
+      <button class="btn">Download</button>
+    </div>
+    <div class="card">
+      <h3>VN Video LUT Pack</h3>
+      <p>Color-grading filters for cinematic looks.</p>
+      <button class="btn">Download</button>
+    </div>
+    <div class="card">
+      <h3>Alight Motion 3D Shake Presets</h3>
+      <p>Professional 3D shake & glow presets.</p>
+      <button class="btn">Download</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>📱 Android Utility Apps</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>File Splitter Pro</h3>
+      <p>Split or merge large files easily.</p>
+      <button class="btn">Download</button>
+    </div>
+    <div class="card">
+      <h3>VPN Lite</h3>
+      <p>Secure and fast VPN for free users.</p>
+      <button class="btn">Download</button>
+    </div>
+    <div class="card">
+      <h3>Screen Recorder HD</h3>
+      <p>1080p screen recording with watermark-free mode.</p>
+      <button class="btn">Download</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>💰 Earning & Finance Apps</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>TaskEarn</h3>
+      <p>Earn coins for completing small online tasks.</p>
+      <button class="btn">Download</button>
+    </div>
+    <div class="card">
+      <h3>AdCash</h3>
+      <p>Watch ads and redeem instant Paytm cash.</p>
+      <button class="btn">Download</button>
+    </div>
+    <div class="card">
+      <h3>SurveyKing</h3>
+      <p>Get paid for giving your opinion on trending products.</p>
+      <button class="btn">Download</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>🎧 Music & Sound Tools</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>FL Studio Mobile Preset Pack</h3>
+      <p>Top-quality synth & beat presets for mobile producers.</p>
+      <button class="btn">Download</button>
+    </div>
+    <div class="card">
+      <h3>AudioLab Editor</h3>
+      <p>Cut, mix and enhance sound with AI mastering.</p>
+      <button class="btn">Download</button>
+    </div>
+    <div class="card">
+      <h3>VoiceTune FX</h3>
+      <p>Auto-tune and voice effects for singers.</p>
+      <button class="btn">Download</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>🧠 AI Tools & Creator Utilities</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Thumbnail Maker AI</h3>
+      <p>Generate stunning YouTube thumbnails in one tap.</p>
+      <button class="btn">Download</button>
+    </div>
+    <div class="card">
+      <h3>ScriptGen Pro</h3>
+      <p>AI-powered script writer for YouTube videos.</p>
+      <button class="btn">Download</button>
+    </div>
+    <div class="card">
+      <h3>VoiceClone Studio</h3>
+      <p>Clone your voice with realistic sound quality.</p>
+      <button class="btn">Download</button>
+    </div>
+  </div>
+</section>
+    <h2>🔥 Latest Apps & Editing Packs</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Alight Motion XML Pack</h3>
+        <p>Best presets for smooth edits.</p>
+        <button class="btn">Download</button>
+      </div>
+      <div class="card">
+        <h3>Free Fire Headshot Config</h3>
+        <p>Pro-level aiming config setup.</p>
+        <button class="downloadbtnglow">Download</button>
+      </div>
+      <div class="card">
+        <h3>CapCut Template Pack</h3>
+        <p>Trending templates for creators.</p>
+        <button class="btn">Download</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+<footer class="site-footer">
+  <div class="footer-content">
+    <h3>✨ Thank You for Visiting 5yberBind</h3>
+    <p>Your one-stop hub for Free Tech Apps, Editing Packs & Online Earning Tools 💻</p>
+
+    <div class="footer-links">
+      <a href="#top">Back to Top ↑</a>
+      <a href="https://www.youtube.com/@5yberBind" target="_blank">YouTube</a>
+      <a href="https://github.com/5yberbind-prog" target="_blank">GitHub</a>
+      
+    </div>
+    <p class="copyright">
+      © <span id="year"></span> 5yberBind • Created with ❤️ by <b>Ashwani Kumar</b>
+    </p>
+  </div>
+</footer>
+
+<script>
+  // Automatic year update
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</div>
+<script>
+  // Popup open/close script
+  const popupBtn = document.getElementById("socialPopupBtn");
+  const popup = document.getElementById("socialPopup");
+  const closeBtn = document.querySelector(".close-btn");
+
+  popupBtn.addEventListener("click", () => popup.classList.add("active"));
+  closeBtn.addEventListener("click", () => popup.classList.remove("active"));
+  popup.addEventListener("click", (e) => {
+    if (e.target === popup) popup.classList.remove("active");
+  });
+</script>
+<script>
+  // Define 7 sets of color themes (one for each day)
+  const colorThemes = [
+    { top: "#ff0040", mid: "#ff9900", bottom: "#ffff00" }, // Monday - Red to Yellow
+    { top: "#00ffcc", mid: "#0099ff", bottom: "#3300ff" }, // Tuesday - Aqua to Blue
+    { top: "#ff00ff", mid: "#cc00ff", bottom: "#6600ff" }, // Wednesday - Purple
+    { top: "#00ff00", mid: "#99ff00", bottom: "#ffff00" }, // Thursday - Green to Yellow
+    { top: "#ff6600", mid: "#ff3300", bottom: "#cc0000" }, // Friday - Orange to Red
+    { top: "#00ffff", mid: "#00ccff", bottom: "#0066ff" }, // Saturday - Cyan Blue
+    { top: "#ff99cc", mid: "#ff66ff", bottom: "#cc00cc" }  // Sunday - Pink to Violet
+  ];
+
+  // Get today's theme
+  const today = new Date().getDay(); // 0=Sunday, 1=Monday, ...
+  const theme = colorThemes[today];
+
+<header>
+  <div class="navbar">
+    <h2 class="logo">5yberBind</h2>
+    <div class="menu-btn" id="menuBtn">&#9776;</div>
+  </div>
+
+  <nav id="sideMenu" class="side-menu">
+    <div class="close-btn" id="closeBtn">&times;</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#gaming">Gaming Tools</a></li>
+      <li><a href="#editing">Editing Packs</a></li>
+      <li><a href="#utility">Utility Apps</a></li>
+      <li><a href="#earning">Earning Tools</a></li>
+      <li><a href="#music">Music Tools</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+</script>
+<!-- 🌐 Floating Social Orb -->
+<div id="socialOrb" class="social-orb">
+  <div id="orbBtn" class="orb-btn">Follow</div>
+  <div class="orb-links">
+    <a href="https://youtube.com/@5yberBind" target="_blank" title="YouTube">♥️</a>
+    <a href="https://instagram.com/5yberBind" target="_blank" title="Instagram">🔊</a>
+    <a href="mailto:contact@5yberbind.com" title="Email">💌</a>
   </div>
 </div>
-  <!-- FOOTER -->
-  <footer><p>© 2025 5yberBind. All rights reserved.</p></footer>
+<script>
+  const orb = document.getElementById("socialOrb");
+  const orbBtn = document.getElementById("orbBtn");
 
-<!-- FOLLOW POPUP BUTTON -->
-<div class="follow-btn" id="followBtn">🔔 Follow</div>
+  // 🌈 Toggle open/close
+  orbBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    orb.classList.toggle("active");
+    orbBtn.textContent = orb.classList.contains("active") ? "✕" : "☰";
+  });
 
-<!-- POPUP BOX -->
-<div class="popup" id="popupBox">
-  <div class="popup-content">
-    <span class="popup-close" id="popupClose">✖</span>
-    <h2>Follow 5yberBind 💫</h2>
-    <p>Stay connected for latest tools, configs, and tech updates!</p>
-    <div class="social-links">
-      <a href="https://www.youtube.com/@5yberBind" target="_blank" class="yt">YouTube</a>
-      <a href="https://www.instagram.com/5yberBind" target="_blank" class="ig">Instagram</a>
-      <a href="https://t.me/5yberBind" target="_blank" class="tg">Telegram</a>
-    </div>
+  // 🌀 Random starting position
+  function randomPosition() {
+    const maxTop = window.innerHeight - 100;
+    const maxLeft = window.innerWidth - 100;
+    orb.style.top = Math.floor(Math.random() * maxTop) + "px";
+    orb.style.left = Math.floor(Math.random() * maxLeft) + "px";
+  }
+  window.addEventListener("load", randomPosition);
+
+  // ✋ Drag functionality
+  let isDragging = false;
+  let offsetX, offsetY;
+
+  const startDrag = (e) => {
+    isDragging = true;
+    offsetX = (e.touches ? e.touches[0].clientX : e.clientX) - orb.offsetLeft;
+    offsetY = (e.touches ? e.touches[0].clientY : e.clientY) - orb.offsetTop;
+    orbBtn.style.cursor = "grabbing";
+  };
+
+  const dragMove = (e) => {
+    if (!isDragging) return;
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    orb.style.left = `${clientX - offsetX}px`;
+    orb.style.top = `${clientY - offsetY}px`;
+  };
+
+  const stopDrag = () => {
+    isDragging = false;
+    orbBtn.style.cursor = "grab";
+  };
+
+  orbBtn.addEventListener("mousedown", startDrag);
+  document.addEventListener("mousemove", dragMove);
+  document.addEventListener("mouseup", stopDrag);
+  orbBtn.addEventListener("touchstart", startDrag);
+  document.addEventListener("touchmove", dragMove);
+  document.addEventListener("touchend", stopDrag);
+
+  // 🚫 Auto close when click outside
+  document.addEventListener("click", (e) => {
+    if (!orb.contains(e.target)) {
+      orb.classList.remove("active");
+      orbBtn.textContent = "☰";
+    }
+  });
+</script>
+ <header>
+  <div class="logo">5yberBind</div>
+
+  <!-- Animated Menu Button -->
+  <div id="menu-btn" class="menu-btn">
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
-</div>
-  <canvas id="mouseCanvas"></canvas>
-  <script src="script.js"></script>
+</header>
+
+<!-- Sidebar Menu -->
+<nav id="side-menu" class="side-menu">
+  <ul>
+    <li><a href="#home">🏠 Home</a></li>
+    <li><a href="#gaming">🎮 Gaming Tools</a></li>
+    <li><a href="#editing">🎬 Editing Packs</a></li>
+    <li><a href="#utility-apps">🛠️ Utility Apps</a></li>
+    <li><a href="#earning">💰 Earning Tools</a></li>
+    <li><a href="#contact">📩 Contact</a></li>
+  </ul>
+</nav>
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const sideMenu = document.getElementById('side-menu');
+
+  menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('active');
+    sideMenu.classList.toggle('open');
+  });
+
+  // Close menu when link clicked
+  document.querySelectorAll('.side-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuBtn.classList.remove('active');
+      sideMenu.classList.remove('open');
+    });
+  });
+
+  // Click outside to close
+  document.addEventListener('click', (e) => {
+    if (!sideMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+      menuBtn.classList.remove('active');
+      sideMenu.classList.remove('open');
+    }
+  });
+</script>
 </body>
-</html>
