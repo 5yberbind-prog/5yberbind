@@ -399,51 +399,14 @@
   </nav>
 </header>
 </script>
-<!-- 🌐 Cyber Motion Social Button -->
-<div class="cyber-motion">
-  <audio id="tapSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_d12c142a96.mp3?filename=button-124476.mp3"></audio>
-
-  <div id="main-cyber" class="main-cyber">
-    <span class="cyber-ring"></span>
-    ⚡
+<!-- 🌐 Floating Social Orb -->
+<div id="socialOrb" class="social-orb">
+  <div id="orbBtn" class="orb-btn">☰</div>
+  <div class="orb-links">
+    <a href="https://youtube.com/@5yberBind" target="_blank" title="YouTube">🎥</a>
+    <a href="https://instagram.com/5yberBind" target="_blank" title="Instagram">📸</a>
+    <a href="https://github.com/5yberbind-prog" target="_blank" title="GitHub">💻</a>
+    <a href="mailto:contact@5yberbind.com" title="Email">📧</a>
   </div>
-
-  <!-- Icons -->
-  <div class="cyber-item" id="yt" title="YouTube">🎥</div>
-  <div class="cyber-item" id="insta" title="Instagram">📸</div>
-  <div class="cyber-item" id="git" title="GitHub">💻</div>
-  <div class="cyber-item" id="mail" title="Email">📧</div>
 </div>
-<script>
-  const cyberBtn = document.getElementById('main-cyber');
-  const cyberContainer = document.querySelector('.cyber-motion');
-  const sound = document.getElementById('tapSound');
-
-  cyberBtn.addEventListener('click', () => {
-    cyberContainer.classList.toggle('active');
-    sound.currentTime = 0;
-    sound.play();
-    cyberBtn.innerHTML = cyberContainer.classList.contains('active')
-      ? '✕'
-      : '<span class="cyber-ring"></span>⚡';
-  });
-
-  // 🌐 Redirects
-  document.getElementById('yt').onclick = () =>
-    window.open('https://youtube.com/@5yberBind', '_blank');
-  document.getElementById('insta').onclick = () =>
-    window.open('https://instagram.com/5yberBind', '_blank');
-  document.getElementById('git').onclick = () =>
-    window.open('https://github.com/5yberbind-prog', '_blank');
-  document.getElementById('mail').onclick = () =>
-    window.location.href = 'mailto:contact@5yberbind.com';
-
-  // ✨ Auto Close Outside
-  document.addEventListener('click', (e) => {
-    if (!cyberContainer.contains(e.target)) {
-      cyberContainer.classList.remove('active');
-      cyberBtn.innerHTML = '<span class="cyber-ring"></span>⚡';
-    }
-  });
-</script>
 </body>
