@@ -582,3 +582,117 @@ body.menu-open::before {
   background: rgba(0, 0, 0, 0.5);
   z-index: 9997;
 }
+.cyber-motion {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 70px;
+  height: 70px;
+  z-index: 99999;
+  perspective: 500px;
+}
+
+/* ⚡ Main Button */
+.main-cyber {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #00ffe1, #ffcc00, #ff005e, #7a00ff, #00ffe1);
+  background-size: 400%;
+  color: #000;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 35px #00ffe1;
+  animation: floatMotion 6s ease-in-out infinite, colorShift 6s linear infinite;
+  transform-style: preserve-3d;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+@keyframes colorShift {
+  0% { background-position: 0%; }
+  100% { background-position: 400%; }
+}
+
+@keyframes floatMotion {
+  0%, 100% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
+  25% { transform: translateY(-8px) rotateX(5deg) rotateY(-5deg); }
+  50% { transform: translateY(6px) rotateX(-3deg) rotateY(3deg); }
+  75% { transform: translateY(-4px) rotateX(2deg) rotateY(-2deg); }
+}
+
+/* 💫 Aura Glow Ring */
+.cyber-ring {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 255, 255, 0.3);
+  animation: ringWave 3s ease-in-out infinite;
+}
+
+@keyframes ringWave {
+  0% { transform: scale(0.6); opacity: 0.8; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* 🎯 Popup Icons */
+.cyber-item {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(20,20,20,0.95);
+  color: #fff;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.15);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: all 0.7s cubic-bezier(0.68,-0.55,0.27,1.55);
+  pointer-events: none;
+  box-shadow: 0 0 20px rgba(0,255,255,0.2);
+}
+
+.cyber-item:hover {
+  background: #00ffe1;
+  color: #000;
+  transform: scale(1.2);
+  box-shadow: 0 0 30px #00ffe1;
+}
+
+/* 🌐 Position Around */
+#yt { top: -100px; right: 10px; }
+#insta { top: -60px; right: 100px; }
+#git { top: 60px; right: 100px; }
+#mail { top: 100px; right: 10px; }
+
+.cyber-motion.active .cyber-item {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+/* 🌈 Extra floating pulse light */
+.main-cyber::after {
+  content: "";
+  position: absolute;
+  width: 250%;
+  height: 250%;
+  top: -75%;
+  left: -75%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,255,255,0.3), transparent);
+  animation: pulseLight 4s ease-out infinite;
+}
+
+@keyframes pulseLight {
+  0% { transform: scale(0.6); opacity: 0.6; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
