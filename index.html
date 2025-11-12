@@ -1,504 +1,449 @@
-</style>
-<!-- 🌟 Navigation Bar -->
-<header class="navbar">
-  <div class="logo">5yberBind</div>
-
- <!-- 3 Dot Menu Button -->
-  <div class="menu-btn" id="menuBtn">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-
-  <!-- Sliding Menu -->
-  <nav class="menu" id="menu">
-    <a href="#home">🏠 Home</a>
-    <a href="#gaming">🎮 Gaming Tools</a>
-    <a href="#editing">🎬 Editing Packs</a>
-    <a href="#apps">📱 Utility Apps</a>
-    <a href="#earning">💰 Earning Tools</a>
-    <a href="#music">🎧 Music Tools</a>
-    <a href="#contact">📩 Contact</a>
-  </nav>
-</header>
-<script>
-  const menuBtn = document.getElementById('menuBtn');
-  const menu = document.getElementById('menu');
-
-  menuBtn.addEventListener('click', () => {
-    menuBtn.classList.toggle('active');
-    menu.classList.toggle('active');
-  });
-
-  // Close menu when clicking link
-  document.querySelectorAll('.menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      menuBtn.classList.remove('active');
-      menu.classList.remove('active');
-    });
-  });
-</script>
-<script src="script.js"></script>
-</body>
-<div class="neon-ring"></div>
-</html>
-<script>
-  // 🌈 Array of Neon Colors (tu chahe to aur add kar sakta hai)
-  const neonColors = [
-    "#00FFFF", // Cyan
-    "#FF00FF", // Magenta
-    "#00FF00", // Neon Green
-    "#FF4500", // Orange Red
-    "#FFD700", // Gold
-    "#1E90FF", // Dodger Blue
-    "#FF1493", // Deep Pink
-    "#ADFF2F"  // Green Yellow
-  ];
-
-  // 📅 Get current day number (0–365)
-  const now = new Date();
-  const dayOfYear = Math.floor(
-    (now - new Date(now.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24)
-  );
-
-  // 🧠 Pick color based on day (loop through array)
-  const todayColor = neonColors[dayOfYear % neonColors.length];
-
-  // 🎨 Apply the color as CSS variable for global use
-  document.documentElement.style.setProperty('--neon-color', todayColor);
-</script>
-<body>
-  <!-- 🌟 HEADER -->
-  <header class="site-header">
-    <h1>Welcome to <span class="brand">5yberBind</span></h1>
-    <p>Your ultimate hub for Tech Apps, Editing Packs & Online Earning Tools 🚀</p>
-    <div class="buttons">
-      <a href="#latest" class="btn">Explore Now</a>
-      <a href="#packs" class="btn secondary">Latest Packs</a>
-    </div>
-  </header>
-
-  <!-- 🎮 GAMING SECTION -->
-  <section id="gaming">
-    <h2>🎮 Gaming Tools & Configs</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Free Fire Headshot Config V2</h3>
-        <p>Advanced sensitivity and DPI tuning.</p>
-        <a href="#" class="download-btn">Download</a>
-      </div>
-      <div class="card">
-        <h3>BGMI Lag Fix Tool</h3>
-        <p>Optimize FPS and reduce lag instantly.</p>
-        <a href="#" class="download-btn">Download</a>
-      </div>
-      <div class="card">
-        <h3>Call of Duty Pro HUD</h3>
-        <p>Custom controller layout for accuracy.</p>
-        <a href="#" class="download-btn">Download</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 🎬 EDITING SECTION -->
-  <section id="editing">
-    <h2>🎬 Editing Templates & Packs</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>My2dGame</h3>
-<p>2D racing game</p>
-<a href="https://github.com/5yberbind-prog/5yberbind/blob/main/My2dGame-debug.apk"
-  <button class="download-btn">Download</button>
-</a>
-      </div>
-      <div class="card">
-        <h3>VN Video LUT Pack</h3>
-        <p>Color-grading filters for cinematic looks.</p>
-        <a href="#" class="download-btn">Download</a>
-      </div>
-      <div class="card">
-        <h3>Alight Motion 3D Shake Presets</h3>
-        <p>Professional 3D shake & glow presets.</p>
-        <a href="#" class="download-btn">Download</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 📱 ANDROID TOOLS -->
-  <section id="android">
-    <h2>📱 Android Utility Apps</h2>
-    <div class="cards">
-      <div class="card"><h3>File Splitter Pro</h3><p>Split or merge large files easily.</p><a href="#" class="download-btn">Download</a></div>
-      <div class="card"><h3>VPN Lite</h3><p>Secure and fast VPN for free users.</p><a href="#" class="download-btn">Download</a></div>
-      <div class="card"><h3>Screen Recorder HD</h3><p>1080p screen recording with watermark-free mode.</p><a href="#" class="download-btn">Download</a></div>
-    </div>
-  </section>
-
-  <!-- 💰 EARNING SECTION -->
-  <section id="earning">
-    <h2>💰 Earning & Finance Apps</h2>
-    <div class="cards">
-      <div class="card"><h3>TaskEarn</h3><p>Earn coins for completing small online tasks.</p><a href="#" class="download-btn">Download</a></div>
-      <div class="card"><h3>AdCash</h3><p>Watch ads and redeem instant Paytm cash.</p><a href="#" class="download-btn">Download</a></div>
-      <div class="card"><h3>SurveyKing</h3><p>Get paid for giving your opinion on trending products.</p><a href="#" class="download-btn">Download</a></div>
-    </div>
-  </section>
-
-<!-- 🎵 MUSIC SECTION -->
-  <section id="music">
-    <h2>🎵 Music & Sound Tools</h2>
-    <div class="cards">
-      <div class="card"><h3>FL Studio Mobile Preset Pack</h3><p>Top-quality synth & beat presets for mobile producers.</p><a href="#" class="download-btn">Download</a></div>
-      <div class="card"><h3>AudioLab Editor</h3><p>Cut, mix and enhance sound with AI mastering.</p><a href="#" class="download-btn">Download</a></div>
-      <div class="card"><h3>VoiceTune FX</h3><p>Auto-tune and voice effects for singers.</p><a href="#" class="download-btn">Download</a></div>
-    </div>
-  </section>
 <!doctype html>
 <html lang="hi">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>5yberBind — Neon Dark Theme</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>5yberBind - Tech Tools</title>
+  <style>
+    :root{
+      --bg:#050405;
+      --panel:#0b0b0b;
+      --accent:#ffd23f;
+      --neon-cyan:#00e6ff; /* Download button neon color */
+      --glow: 0 10px 30px rgba(0,230,255,0.08), 0 0 18px rgba(0,230,255,0.06);
+      --card-border: rgba(255,183,0,0.12);
+      --text:#f2c94c;
+      --muted: #bdbdbd;
+      --red:#ff2b2b;
+    }
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    html,body{
+      height:100%;
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(ellipse at top left, rgba(255,200,0,0.02), transparent 20%),
+                  radial-gradient(ellipse at bottom right, rgba(0,230,255,0.02), transparent 20%),
+                  var(--bg);
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+    }
+
+    /* Header */
+    .site-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:18px 26px;
+      border-bottom: 2px solid rgba(255,183,0,0.05);
+      position:relative;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .brand h1{
+      margin:0;
+      color:var(--text);
+      font-size:22px;
+      letter-spacing:0.6px;
+    }
+    /* neon top line */
+    .neon-line{
+      height:6px;
+      background: linear-gradient(90deg, rgba(255,183,0,0.18), rgba(0,230,255,0.06));
+      border-radius:10px;
+      margin: -6px 26px 0 26px;
+      box-shadow: 0 6px 30px rgba(255,183,0,0.04);
+    }
+
+    /* Menu bubble button */
+    .menu-btn{
+      width:50px;
+      height:50px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      cursor:pointer;
+      position:relative;
+      background: radial-gradient(circle at 30% 20%, rgba(0,230,255,0.25), rgba(0,230,255,0.12)),
+                  linear-gradient(180deg, rgba(0,200,220,0.12), rgba(0,150,180,0.04));
+      box-shadow: 0 6px 26px rgba(0,230,255,0.15), 0 1px 0 rgba(255,255,255,0.02) inset;
+      border: 1px solid rgba(0,255,255,0.12);
+    }
+    .menu-icon{
+      width:20px; height:2px; background:#021012; position:relative;
+      box-shadow: 0 -6px 0 0 rgba(2,16,18,0.6), 0 6px 0 0 rgba(2,16,18,0.6);
+      border-radius:2px;
+    }
+
+    /* Right-side menu panel */
+    .side-menu{
+      position:fixed;
+      right:28px;
+      top:88px;
+      width:320px;
+      max-width:88%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:14px;
+      padding:12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      border: 2px solid rgba(255,183,0,0.12);
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      transform: translateY(-10px) scale(0.98);
+      opacity:0;
+      transition: all 240ms cubic-bezier(.2,.9,.2,1);
+      z-index:1100;
+      backdrop-filter: blur(6px);
+    }
+    .side-menu.open{
+      transform: translateY(0) scale(1);
+      opacity:1;
+    }
+
+    .close-btn{
+      margin-left:auto;
+      background:linear-gradient(180deg,var(--red), #d40a0a);
+      color:#fff;
+      padding:8px 12px;
+      border-radius:10px;
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      border:0;
+      cursor:pointer;
+      font-weight:600;
+      box-shadow: 0 6px 18px rgba(212,10,10,0.18);
+    }
+
+    .menu-list{
+      list-style:none;
+      padding:8px 4px;
+      margin:0;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .menu-list li{
+      padding:12px 14px;
+      border-radius:8px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+      display:flex;
+      gap:12px;
+      align-items:center;
+      color:var(--muted);
+      cursor:pointer;
+      border-left:3px solid transparent;
+      transition: all 160ms ease;
+    }
+    .menu-list li:hover{
+      background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(0,230,255,0.02));
+      color:#fff;
+      border-left-color: rgba(0,230,255,0.18);
+      transform: translateX(-4px);
+    }
+    .menu-list li .emoji{ font-size:18px; width:28px; text-align:center; }
+
+    /* Main content area */
+    .container{
+      padding:30px 30px 90px 30px;
+      max-width:1200px;
+      margin:0 auto;
+    }
+    .hero{
+      text-align:center;
+      padding:40px 8px 20px 8px;
+    }
+    .hero h2{
+      font-size:32px;
+      color:var(--text);
+      margin:6px 0;
+    }
+    .hero p{ color:var(--muted); margin:0 0 12px 0; }
+
+    /* grid for app cards */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+      gap:18px;
+      margin-top:20px;
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.008));
+      border-radius:14px;
+      padding:18px;
+      min-height:140px;
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(255,183,0,0.06);
+      box-shadow: var(--glow);
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .card:hover{ transform: translateY(-6px); box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
+
+    .card h3{ margin:0 0 8px 0; color:var(--accent); font-size:20px; }
+    .card p{ margin:0 0 14px 0; color:var(--muted); font-size:14px; }
+
+    .download{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:10px;
+      border:0;
+      cursor:pointer;
+      font-weight:700;
+      background: linear-gradient(180deg, rgba(0,230,255,0.14), rgba(0,200,220,0.06));
+      color: #001016;
+      box-shadow: 0 8px 30px rgba(0,230,255,0.12), 0 2px 0 rgba(255,255,255,0.02) inset;
+      border: 1px solid rgba(0,230,255,0.22);
+    }
+
+    /* section titles */
+    .section-title{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-top:26px;
+      margin-bottom:6px;
+    }
+    .section-title h3{ margin:0; color:var(--text); font-size:18px; }
+
+    /* small footers */
+    footer{ text-align:center; color:var(--muted); padding:30px 10px 80px 10px; }
+
+    /* floating tiny particles */
+    .particles{
+      pointer-events:none;
+      position:fixed;
+      inset:0;
+      z-index:0;
+      overflow:hidden;
+    }
+    .dot{
+      position:absolute;
+      width:8px;height:8px;border-radius:999px;
+      background:var(--neon-cyan);
+      opacity:0.12;
+      box-shadow: 0 0 14px rgba(0,230,255,0.18);
+      animation: float 8s linear infinite;
+    }
+    @keyframes float{
+      0%{ transform: translateY(0) translateX(0) scale(0.9); }
+      50%{ transform: translateY(-60px) translateX(40px) scale(1.1); }
+      100%{ transform: translateY(0) translateX(0) scale(0.9); }
+    }
+
+    /* responsiveness */
+    @media (max-width:600px){
+      .site-header{ padding:12px 16px; }
+      .neon-line{ margin-left:16px; margin-right:16px; }
+      .side-menu{ right:14px; top:76px; width:86%; }
+      .hero h2{ font-size:24px; }
+    }
+  </style>
+</head>
 <body>
-  </div>
-<main>
-
-  <section id="apps" class="card">
-<!-- ===== More App Sections ===== -->
-
-<section class="section">
-  <h2>🎮 Gaming Tools & Configs</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Free Fire Headshot Config V2</h3>
-      <p>Advanced sensitivity and DPI tuning.</p>
-      <button class="btn">Download</button>
-    </div>
-    <div class="card">
-      <h3>BGMI Lag Fix Tool</h3>
-      <p>Optimize FPS and reduce lag instantly.</p>
-      <button class="btn">Download</button>
-    </div>
-    <div class="card">
-      <h3>Call of Duty Pro HUD</h3>
-      <p>Custom controller layout for accuracy.</p>
-      <button class="btn">Download</button>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <h2>🎬 Editing Templates & Packs</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>CapCut Transition Pack</h3>
-      <p>30 smooth transitions with 3D effects.</p>
-      <button class="btn">Download</button>
-    </div>
-    <div class="card">
-      <h3>VN Video LUT Pack</h3>
-      <p>Color-grading filters for cinematic looks.</p>
-      <button class="btn">Download</button>
-    </div>
-    <div class="card">
-      <h3>Alight Motion 3D Shake Presets</h3>
-      <p>Professional 3D shake & glow presets.</p>
-      <button class="btn">Download</button>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <h2>📱 Android Utility Apps</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>File Splitter Pro</h3>
-      <p>Split or merge large files easily.</p>
-      <button class="btn">Download</button>
-    </div>
-    <div class="card">
-      <h3>VPN Lite</h3>
-      <p>Secure and fast VPN for free users.</p>
-      <button class="btn">Download</button>
-    </div>
-    <div class="card">
-      <h3>Screen Recorder HD</h3>
-      <p>1080p screen recording with watermark-free mode.</p>
-      <button class="btn">Download</button>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <h2>💰 Earning & Finance Apps</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>TaskEarn</h3>
-      <p>Earn coins for completing small online tasks.</p>
-      <button class="btn">Download</button>
-    </div>
-    <div class="card">
-      <h3>AdCash</h3>
-      <p>Watch ads and redeem instant Paytm cash.</p>
-      <button class="btn">Download</button>
-    </div>
-    <div class="card">
-      <h3>SurveyKing</h3>
-      <p>Get paid for giving your opinion on trending products.</p>
-      <button class="btn">Download</button>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <h2>🎧 Music & Sound Tools</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>FL Studio Mobile Preset Pack</h3>
-      <p>Top-quality synth & beat presets for mobile producers.</p>
-      <button class="btn">Download</button>
-    </div>
-    <div class="card">
-      <h3>AudioLab Editor</h3>
-      <p>Cut, mix and enhance sound with AI mastering.</p>
-      <button class="btn">Download</button>
-    </div>
-    <div class="card">
-      <h3>VoiceTune FX</h3>
-      <p>Auto-tune and voice effects for singers.</p>
-      <button class="btn">Download</button>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <h2>🧠 AI Tools & Creator Utilities</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Thumbnail Maker AI</h3>
-      <p>Generate stunning YouTube thumbnails in one tap.</p>
-      <button class="btn">Download</button>
-    </div>
-    <div class="card">
-      <h3>ScriptGen Pro</h3>
-      <p>AI-powered script writer for YouTube videos.</p>
-      <button class="btn">Download</button>
-    </div>
-    <div class="card">
-      <h3>VoiceClone Studio</h3>
-      <p>Clone your voice with realistic sound quality.</p>
-      <button class="btn">Download</button>
-    </div>
-  </div>
-</section>
-    <h2>🔥 Latest Apps & Editing Packs</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Alight Motion XML Pack</h3>
-        <p>Best presets for smooth edits.</p>
-        <button class="btn">Download</button>
-      </div>
-      <div class="card">
-        <h3>Free Fire Headshot Config</h3>
-        <p>Pro-level aiming config setup.</p>
-        <button class="downloadbtnglow">Download</button>
-      </div>
-      <div class="card">
-        <h3>CapCut Template Pack</h3>
-        <p>Trending templates for creators.</p>
-        <button class="btn">Download</button>
-      </div>
-    </div>
-  </section>
-
-</main>
-<footer class="site-footer">
-  <div class="footer-content">
-    <h3>✨ Thank You for Visiting 5yberBind</h3>
-    <p>Your one-stop hub for Free Tech Apps, Editing Packs & Online Earning Tools 💻</p>
-
-    <div class="footer-links">
-      <a href="#top">Back to Top ↑</a>
-      <a href="https://www.youtube.com/@5yberBind" target="_blank">YouTube</a>
-      <a href="https://github.com/5yberbind-prog" target="_blank">GitHub</a>
-      
-    </div>
-    <p class="copyright">
-      © <span id="year"></span> 5yberBind • Created with ❤️ by <b>Ashwani Kumar</b>
-    </p>
-  </div>
-</footer>
-
-<script>
-  // Automatic year update
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-</div>
-<script>
-  // Popup open/close script
-  const popupBtn = document.getElementById("socialPopupBtn");
-  const popup = document.getElementById("socialPopup");
-  const closeBtn = document.querySelector(".close-btn");
-
-  popupBtn.addEventListener("click", () => popup.classList.add("active"));
-  closeBtn.addEventListener("click", () => popup.classList.remove("active"));
-  popup.addEventListener("click", (e) => {
-    if (e.target === popup) popup.classList.remove("active");
-  });
-</script>
-<script>
-  // Define 7 sets of color themes (one for each day)
-  const colorThemes = [
-    { top: "#ff0040", mid: "#ff9900", bottom: "#ffff00" }, // Monday - Red to Yellow
-    { top: "#00ffcc", mid: "#0099ff", bottom: "#3300ff" }, // Tuesday - Aqua to Blue
-    { top: "#ff00ff", mid: "#cc00ff", bottom: "#6600ff" }, // Wednesday - Purple
-    { top: "#00ff00", mid: "#99ff00", bottom: "#ffff00" }, // Thursday - Green to Yellow
-    { top: "#ff6600", mid: "#ff3300", bottom: "#cc0000" }, // Friday - Orange to Red
-    { top: "#00ffff", mid: "#00ccff", bottom: "#0066ff" }, // Saturday - Cyan Blue
-    { top: "#ff99cc", mid: "#ff66ff", bottom: "#cc00cc" }  // Sunday - Pink to Violet
-  ];
-
-  // Get today's theme
-  const today = new Date().getDay(); // 0=Sunday, 1=Monday, ...
-  const theme = colorThemes[today];
-
-<header>
-  <div class="navbar">
-    <h2 class="logo">5yberBind</h2>
-    <div class="menu-btn" id="menuBtn">&#9776;</div>
+  <div class="particles" aria-hidden="true">
+    <!-- some floating dots for vibe -->
+    <div class="dot" style="left:8%; top:30%; width:10px;height:10px; animation-duration:10s;"></div>
+    <div class="dot" style="left:30%; top:10%; width:6px;height:6px; animation-duration:12s;"></div>
+    <div class="dot" style="left:55%; top:22%; width:8px;height:8px; animation-duration:9s;"></div>
+    <div class="dot" style="left:78%; top:40%; width:12px;height:12px; animation-duration:11s;"></div>
+    <div class="dot" style="left:18%; top:70%; width:7px;height:7px; animation-duration:13s;"></div>
+    <div class="dot" style="left:45%; top:78%; width:9px;height:9px; animation-duration:8s;"></div>
   </div>
 
-  <nav id="sideMenu" class="side-menu">
-    <div class="close-btn" id="closeBtn">&times;</div>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#gaming">Gaming Tools</a></li>
-      <li><a href="#editing">Editing Packs</a></li>
-      <li><a href="#utility">Utility Apps</a></li>
-      <li><a href="#earning">Earning Tools</a></li>
-      <li><a href="#music">Music Tools</a></li>
-      <li><a href="#contact">Contact</a></li>
+  <header class="site-header" role="banner">
+    <div class="brand" aria-hidden="false">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="1" y="1" width="22" height="22" rx="6" fill="#0b0b0b" stroke="rgba(255,183,0,0.18)" stroke-width="1.6"/>
+        <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="#ffd23f" font-weight="700">5Y</text>
+      </svg>
+      <h1>5yberBind</h1>
+    </div>
+
+    <div style="display:flex; gap:14px; align-items:center;">
+      <nav aria-label="Main actions" style="color:var(--muted); font-weight:600;">Tech • Tools</nav>
+      <button class="menu-btn" id="openMenu" aria-expanded="false" aria-controls="sideMenu" title="Open menu">
+        <span class="menu-icon" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="neon-line" aria-hidden="true"></div>
+
+  <!-- Side menu -->
+  <aside id="sideMenu" class="side-menu" aria-hidden="true" role="dialog" aria-label="Site menu">
+    <button class="close-btn" id="closeMenu" aria-label="Close menu">❌ Close</button>
+    <ul class="menu-list" role="menu">
+      <li role="menuitem" tabindex="0"><span class="emoji">🏠</span> Home</li>
+      <li role="menuitem" tabindex="0"><span class="emoji">🎮</span> Gaming</li>
+      <li role="menuitem" tabindex="0"><span class="emoji">✂️</span> Editing</li>
+      <li role="menuitem" tabindex="0"><span class="emoji">🔧</span> Utility</li>
+      <li role="menuitem" tabindex="0"><span class="emoji">💰</span> Earning</li>
+      <li role="menuitem" tabindex="0"><span class="emoji">📁</span> XML Files</li>
+      <li role="menuitem" tabindex="0"><span class="emoji">📞</span> Contact</li>
     </ul>
-  </nav>
-</header>
-</script>
-<!-- 🌐 Floating Social Orb -->
-<div id="socialOrb" class="social-orb">
-  <div id="orbBtn" class="orb-btn">Follow</div>
-  <div class="orb-links">
-    <a href="https://youtube.com/@5yberBind" target="_blank" title="YouTube">♥️</a>
-    <a href="https://instagram.com/5yberBind" target="_blank" title="Instagram">🔊</a>
-    <a href="mailto:contact@5yberbind.com" title="Email">💌</a>
-  </div>
-</div>
-<script>
-  const orb = document.getElementById("socialOrb");
-  const orbBtn = document.getElementById("orbBtn");
+  </aside>
 
-  // 🌈 Toggle open/close
-  orbBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    orb.classList.toggle("active");
-    orbBtn.textContent = orb.classList.contains("active") ? "✕" : "☰";
-  });
+  <main class="container" role="main">
+    <section class="hero" aria-labelledby="techTitle">
+      <div style="font-size:40px;">💻</div>
+      <h2 id="techTitle">Tech Tools</h2>
+      <p>Download the latest tools and XML files. Sab kuch safe aur tested dikhane ke liye demo links diye gaye hain.</p>
+    </section>
 
-  // 🌀 Random starting position
-  function randomPosition() {
-    const maxTop = window.innerHeight - 100;
-    const maxLeft = window.innerWidth - 100;
-    orb.style.top = Math.floor(Math.random() * maxTop) + "px";
-    orb.style.left = Math.floor(Math.random() * maxLeft) + "px";
-  }
-  window.addEventListener("load", randomPosition);
+    <!-- 20 apps section -->
+    <div class="section-title" aria-hidden="false">
+      <h3>Top 20 Apps</h3>
+    </div>
 
-  // ✋ Drag functionality
-  let isDragging = false;
-  let offsetX, offsetY;
+    <section class="grid" aria-label="20 apps">
+      <!-- Repeat 20 cards with placeholder links -->
+      <!-- I'll generate 20 cards numbered 1..20 -->
+      <!-- Each card has download button with neon cyan -->
+      <script>
+        // placeholder to generate cards server-side? but we can put static cards below
+      </script>
 
-  const startDrag = (e) => {
-    isDragging = true;
-    offsetX = (e.touches ? e.touches[0].clientX : e.clientX) - orb.offsetLeft;
-    offsetY = (e.touches ? e.touches[0].clientY : e.clientY) - orb.offsetTop;
-    orbBtn.style.cursor = "grabbing";
-  };
+      <!-- Card template repeated -->
+      <div class="card">
+        <h3>APK Tool 1</h3>
+        <p>Download latest version for Android. (Demo link)</p>
+        <a class="download" href="#" role="button" aria-label="Download APK Tool 1">⬇️ Download</a>
+      </div>
 
-  const dragMove = (e) => {
-    if (!isDragging) return;
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-    orb.style.left = `${clientX - offsetX}px`;
-    orb.style.top = `${clientY - offsetY}px`;
-  };
+      <div class="card">
+        <h3>APK Tool 2</h3>
+        <p>Fast decompiler & resources pack. (Demo link)</p>
+        <a class="download" href="#" role="button" aria-label="Download APK Tool 2">⬇️ Download</a>
+      </div>
 
-  const stopDrag = () => {
-    isDragging = false;
-    orbBtn.style.cursor = "grab";
-  };
+      <div class="card">
+        <h3>APK Tool 3</h3>
+        <p>GitHub manager app version. (Demo link)</p>
+        <a class="download" href="#" role="button" aria-label="Download APK Tool 3">⬇️ Download</a>
+      </div>
 
-  orbBtn.addEventListener("mousedown", startDrag);
-  document.addEventListener("mousemove", dragMove);
-  document.addEventListener("mouseup", stopDrag);
-  orbBtn.addEventListener("touchstart", startDrag);
-  document.addEventListener("touchmove", dragMove);
-  document.addEventListener("touchend", stopDrag);
+      <div class="card">
+        <h3>APK Tool 4</h3>
+        <p>Audio editing mobile tool. (Demo link)</p>
+        <a class="download" href="#" role="button" aria-label="Download APK Tool 4">⬇️ Download</a>
+      </div>
 
-  // 🚫 Auto close when click outside
-  document.addEventListener("click", (e) => {
-    if (!orb.contains(e.target)) {
-      orb.classList.remove("active");
-      orbBtn.textContent = "☰";
-    }
-  });
-</script>
- <header>
-  <div class="logo">5yberBind</div>
+      <div class="card">
+        <h3>APK Tool 5</h3>
+        <p>Video editor pro mobile. (Demo link)</p>
+        <a class="download" href="#" role="button" aria-label="Download APK Tool 5">⬇️ Download</a>
+      </div>
 
-  <!-- Animated Menu Button -->
-  <div id="menu-btn" class="menu-btn">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</header>
+      <div class="card">
+        <h3>APK Tool 6</h3>
+        <p>Game booster utility. (Demo link)</p>
+        <a class="download" href="#" role="button" aria-label="Download APK Tool 6">⬇️ Download</a>
+      </div>
 
-<!-- Sidebar Menu -->
-<nav id="side-menu" class="side-menu">
-  <ul>
-    <li><a href="#home">🏠 Home</a></li>
-    <li><a href="#gaming">🎮 Gaming Tools</a></li>
-    <li><a href="#editing">🎬 Editing Packs</a></li>
-    <li><a href="#utility-apps">🛠️ Utility Apps</a></li>
-    <li><a href="#earning">💰 Earning Tools</a></li>
-    <li><a href="#contact">📩 Contact</a></li>
-  </ul>
-</nav>
-<script>
-  const menuBtn = document.getElementById('menu-btn');
-  const sideMenu = document.getElementById('side-menu');
+      <div class="card">
+        <h3>APK Tool 7</h3>
+        <p>Root checker & manager. (Demo link)</p>
+        <a class="download" href="#" role="button" aria-label="Download APK Tool 7">⬇️ Download</a>
+      </div>
 
-  menuBtn.addEventListener('click', () => {
-    menuBtn.classList.toggle('active');
-    sideMenu.classList.toggle('open');
-  });
+      <div class="card">
+        <h3>APK Tool 8</h3>
+        <p>Theme installer & custom HUD. (Demo link)</p>
+        <a class="download" href="#" role="button" aria-label="Download APK Tool 8">⬇️ Download</a>
+      </div>
 
-  // Close menu when link clicked
-  document.querySelectorAll('.side-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      menuBtn.classList.remove('active');
-      sideMenu.classList.remove('open');
-    });
-  });
+      <div class="card">
+        <h3>APK Tool 9</h3>
+        <p>File manager pro. (Demo link)</p>
+        <a class="download" href="#" role="button" aria-label="Download APK Tool 9">⬇️ Download</a>
+      </div>
 
-  // Click outside to close
-  document.addEventListener('click', (e) => {
-    if (!sideMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-      menuBtn.classList.remove('active');
-      sideMenu.classList.remove('open');
-    }
-  });
-</script>
-</body>
+      <div class="card">
+        <h3>APK Tool 10</h3>
+        <p>Net speed monitor. (Demo link)</p>
+        <a class="download" href="#" role="button" aria-label="Download APK Tool 10">⬇️ Download</a>
+      </div>
+
+      <div class="card">
+        <h3>APK Tool 11</h3>
+        <p>Screen recorder pro. (Demo link)</p>
+        <a class="download" href="#" role="button" aria-label="Download APK Tool 11">⬇️ Download</a>
+      </div>
+
+      <div class="card">
+        <h3>APK Tool 12</h3>
+        <p>Icon pack & custom launcher. (Demo link)</p>
+        <a class="download" href="#" role="button" aria-label="Download APK Tool 12">⬇️ Download</a>
+      </div>
+
+      <div class="card">
+        <h3>APK Tool 13</h3>
+        <p>Ad-free helper utility. (Demo link)</p>
+        <a class="download" href="#" role="button" aria-label="Download APK Tool 13">⬇️ Download</a>
+      </div>
+
+      <div class="card">
+        <h3>APK Tool 14</h3>
+        <p>Chat backup & restore. (Demo link)</p>
+        <a class="download" href="#" role="button" aria-label="Download APK Tool 14">⬇️ Download</a>
+      </div>
+
+      <div class="card">
+        <h3>APK Tool 15</h3>
+        <p>VPN & privacy tool. (Demo link)</p>
+        <a class="download" href="#" role="button" aria-label="Download APK Tool 15">⬇️ Download</a>
+      </div>
+
+      <div class="card">
+        <h3>APK Tool 16</h3>
+        <p>Backup installer pack. (Demo link)</p>
+        <a class="download" href="#" role="button" aria-label="Download APK Tool 16">⬇️ Download</a>
+      </div>
+
+      <div class="card">
+        <h3>APK Tool 17</h3>
+        <p>Performance analyzer. (Demo link)</p>
+        <a class="download" href="#" role="button" aria-label="Download APK Tool 17">⬇️ Download</a>
+      </div>
+
+      <div class="card">
+        <h3>APK Tool 18</h3>
+        <p>Patch & mod helper. (Demo link)</p>
+        <a class="download" href="#" role="button" aria-label="Download APK Tool 18">⬇️ Download</a>
+      </div>
+
+      <div class="card">
+        <h3>APK Tool 19</h3>
+        <p>App splitter & bundle tool. (Demo link)</p>
+        <a class="download" href="#" role="button" aria-label="Download APK Tool 19">⬇️ Download</a>
+      </div>
+
+      <div class="card">
+        <h3>APK Tool 20</h3>
+        <p>Developer helper & utilities. (Demo link)</p>
+        <a class="download" href="#" role="button" aria-label="Download APK Tool 20">⬇️ Download</a>
+      </div>
+    </section>
+
+    <!-- XML files section (8 files) -->
+    <div class="section-title">
+      <h3>8 XML Files</h3>
+    </div>
+
+    <section class="grid" aria-label="XML files">
+      <div class="card">
+        <h3>layout_main.xml</h3>
+        <p>Primary layout file for demo. (XML)</p>
+        <a class="download" href="#" role="button">⬇️ Download</a>
+      </div>
+      <div class="card">
+        <h3>
