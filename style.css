@@ -563,7 +563,7 @@ body {
   text-decoration: none;
   font-weight: 600;
   transition: 0.3s;
-  display: block;
+  display: unblock;
 }
 .side-menu ul li a:hover {
   color: #ffcc00;
@@ -819,4 +819,54 @@ body.menu-open::before {
 .side-menu ul li a:hover {
   color: #ffcc00;
   transform: translateX(10px);
+}
+/* 🌈 Neon Glow Hover Animation for Menu Links */
+.side-menu ul li a {
+  position: relative;
+  display: inline-block;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+  overflow: hidden;
+  padding: 4px 0;
+}
+
+.side-menu ul li a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #ff00cc, #00ffff, #ffcc00);
+  transition: all 0.5s ease;
+}
+
+.side-menu ul li a:hover::before {
+  left: 0;
+}
+
+.side-menu ul li a:hover {
+  color: #ffcc00;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Optional smooth text fade animation */
+.side-menu ul li a {
+  animation: softGlow 10s ease-in-out infinite alternate;
+}
+
+@keyframes softGlow {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(255, 204, 0, 0.3);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+  }
 }
