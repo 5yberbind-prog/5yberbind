@@ -1,35 +1,28 @@
-// === Fixed Premium Color Theme ===
+// === Fixed Orange Cyber Theme ===
 const theme = {
-  bg1: "#01040a",
-  bg2: "#001520",
-  neon: "#00e6ff",
-  gold: "#ffd23f"
+  neon: "#ff6600",
+  bg1: "#0b0b0b",
+  bg2: "#000000"
 };
 
-// === Apply fixed background and neon ===
-document.body.style.background = `linear-gradient(135deg, ${theme.bg1}, ${theme.bg2})`;
-document.querySelector(":root").style.setProperty("--accent", theme.neon);
+document.body.style.background = `linear-gradient(180deg, ${theme.bg1}, ${theme.bg2})`;
 
-// === MENU OPEN/CLOSE ===
-const openBtn = document.getElementById('openMenu');
-const closeBtn = document.getElementById('closeMenu');
-const side = document.getElementById('sideMenu');
+// === MENU ===
+const openBtn = document.getElementById("openMenu");
+const closeBtn = document.getElementById("closeMenu");
+const side = document.getElementById("sideMenu");
 
-openBtn.onclick = (e) => { e.stopPropagation(); side.classList.add('open'); };
-closeBtn.onclick = () => side.classList.remove('open');
-document.addEventListener('click', e => {
-  if (!side.contains(e.target) && !openBtn.contains(e.target))
-    side.classList.remove('open');
+openBtn.onclick = (e) => { e.stopPropagation(); side.classList.add("open"); };
+closeBtn.onclick = () => side.classList.remove("open");
+document.addEventListener("click", (e) => {
+  if (!side.contains(e.target) && !openBtn.contains(e.target)) side.classList.remove("open");
 });
 
-// === SUBSCRIBE POPUP ===
-const popup = document.getElementById('subscribePopup');
-setTimeout(() => popup.classList.add('show'), 4000);
-document.getElementById('closePopup').onclick = () => popup.classList.remove('show');
-
 // === PARTICLES ===
-const c = document.getElementById('bgCanvas'), ctx = c.getContext('2d');
-let w = c.width = innerWidth, h = c.height = innerHeight;
+const c = document.getElementById("bgCanvas");
+const ctx = c.getContext("2d");
+let w = c.width = innerWidth;
+let h = c.height = innerHeight;
 const particles = Array.from({ length: 60 }, () => ({
   x: Math.random() * w,
   y: Math.random() * h,
@@ -39,13 +32,14 @@ const particles = Array.from({ length: 60 }, () => ({
 }));
 function draw() {
   ctx.clearRect(0, 0, w, h);
+  ctx.fillStyle = `${theme.neon}33`;
   particles.forEach(p => {
     ctx.beginPath();
-    ctx.fillStyle = `${theme.neon}22`;
     ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.shadowBlur = 10;
+    ctx.shadowColor = theme.neon;
     ctx.fill();
-    p.x += p.vx;
-    p.y += p.vy;
+    p.x += p.vx; p.y += p.vy;
     if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
     if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
   });
@@ -55,13 +49,14 @@ draw();
 window.onresize = () => { w = c.width = innerWidth; h = c.height = innerHeight; };
 
 // === MOUSE TRAIL ===
-const trail = document.getElementById('cursorTrail');
-const dots = Array.from({ length: 8 }, () => {
-  const d = document.createElement('div');
-  d.style.width = '8px'; d.style.height = '8px';
-  d.style.borderRadius = '50%';
+const trail = document.getElementById("cursorTrail");
+const dots = Array.from({ length: 10 }, () => {
+  const d = document.createElement("div");
+  d.style.width = "10px";
+  d.style.height = "10px";
   d.style.background = theme.neon;
-  d.style.opacity = '0.15';
+  d.style.opacity = "0.12";
+  d.style.boxShadow = `0 0 20px ${theme.neon}`;
   trail.appendChild(d);
   return { el: d, x: 0, y: 0 };
 });
@@ -77,16 +72,3 @@ function animateTrail() {
   requestAnimationFrame(animateTrail);
 }
 animateTrail();
-
-// === DOWNLOAD BUTTON EFFECT ===
-document.querySelectorAll('.download').forEach(btn => {
-  btn.addEventListener('click', e => {
-    if (btn.getAttribute('href') === '#') {
-      e.preventDefault();
-      btn.animate(
-        [{ transform: 'scale(1)' }, { transform: 'scale(1.08)' }, { transform: 'scale(1)' }],
-        { duration: 400 }
-      );
-    }
-  });
-});
