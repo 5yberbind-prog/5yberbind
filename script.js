@@ -79,3 +79,17 @@ function applyTheme(){
 }
 applyTheme();
 setInterval(applyTheme,3600000);
+// FOLLOW POPUP
+const followBtn=document.getElementById("followBtn");
+const popupBox=document.getElementById("popupBox");
+const popupClose=document.getElementById("popupClose");
+
+followBtn.addEventListener("click",()=>{
+  popupBox.classList.add("active");
+});
+popupClose.addEventListener("click",()=>{
+  popupBox.classList.remove("active");
+});
+window.addEventListener("click",(e)=>{
+  if(e.target===popupBox) popupBox.classList.remove("active");
+});
