@@ -22,7 +22,6 @@ const sections={
   capcut:["Trending Templates","Velocity Pack","Cinematic FX"],
   tech:["APK Decompiler","GitHub Tools","Link Shortener"]
 };
-
 Object.keys(sections).forEach(id=>{
   const container=document.getElementById(id+"Cards");
   if(container){
@@ -69,3 +68,14 @@ function draw(){
 }
 draw();
 window.addEventListener("resize",()=>{width=canvas.width=window.innerWidth;height=canvas.height=window.innerHeight;});
+
+// 🌈 Daily Neon Theme Changer
+const root=document.documentElement;
+const neonColors=["#00ffff","#ff00ff","#ffbf00","#00ff88","#007bff","#ff3ec9"];
+function applyTheme(){
+  const day=new Date().getDay();
+  const color=neonColors[day%neonColors.length];
+  root.style.setProperty("--neon",color);
+}
+applyTheme();
+setInterval(applyTheme,3600000);
