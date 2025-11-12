@@ -21,7 +21,7 @@ const sections = {
   photo:["Snapseed Mod","Pixellab Pack","Remini Pro"],
   ai:["ChatGPT Clone","AI Image Maker","VoiceOver AI"],
   capcut:["Trending Templates","Velocity Pack","Cinematic FX"],
-  tech:["APK Decompiler","GitHub Tools","Link Shortener"]
+  tech:["APK Decompiler","GitHub Tools","Link Shortener","Ashwani Kumar"]
 };
 
 Object.keys(sections).forEach(id=>{
