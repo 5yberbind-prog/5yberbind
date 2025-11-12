@@ -1,498 +1,88 @@
-<!doctype html>
-<html lang="hi">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>5yberBind — Premium Tech Tools</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-<style>
-  /* ========= VARIABLES ========= */
-  :root{
-    --bg:#040406;
-    --panel: rgba(255,255,255,0.02);
-    --muted: #bdbdbd;
-    --gold: #ffd23f;
-    --red: #ff3b30;
-    --glass: rgba(255,255,255,0.03);
-    --card-radius: 14px;
-    --transition: 220ms cubic-bezier(.2,.9,.2,1);
-    --popup-text: "🔥 Follow 5yberBind on YouTube & GitHub for more tools!";
-  }
-
-  /* daily palettes replaced by JS */
-  body { 
-    margin:0; min-height:100vh; font-family:Inter,system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-    background: radial-gradient(1200px 500px at 10% 10%, rgba(255,255,255,0.02), transparent),
-                radial-gradient(800px 400px at 90% 80%, rgba(255,255,255,0.01), transparent);
-    color:#fff; overflow-x:hidden; position:relative;
-  }
-
-  /* ================== HEADER ================== */
-  header.site-header{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:18px 28px; position:relative; z-index:1200;
-  }
-  .brand{ display:flex; align-items:center; gap:12px; }
-  .brand svg{ filter: drop-shadow(0 6px 16px rgba(0,0,0,0.6)); }
-  .brand h1{ margin:0; color:var(--gold); font-size:20px; letter-spacing:0.4px; }
-
-  /* neon top thin line */
-  .neon-line{ height:4px; margin: -6px 28px 10px 28px; border-radius:6px; box-shadow:0 6px 40px rgba(0,0,0,0.6); }
-
-  /* menu bubble */
-  .menu-btn{
-    width:52px; height:52px; border-radius:50%; display:grid; place-items:center;
-    cursor:pointer; border:0; position:relative; z-index:1300;
-    box-shadow: 0 10px 36px rgba(0,0,0,0.6);
-    transition: transform 160ms ease;
-    backdrop-filter: blur(6px);
-  }
-  .menu-btn:active{ transform: scale(.98); }
-  .menu-icon{ width:22px; height:2px; background:#051017; position:relative; border-radius:2px; box-shadow:0 -6px 0 rgba(0,0,0,.2), 0 6px 0 rgba(0,0,0,.2); }
-
-  /* ================== SIDE MENU ================== */
-  aside.side-menu{
-    position:fixed; right:28px; top:86px; z-index:1250;
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border-radius:14px; padding:12px; border:1px solid rgba(255,255,255,0.04);
-    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-    transform: translateY(-10px) scale(.98); opacity:0; pointer-events:none;
-    transition: all var(--transition);
-    width: max-content; min-width:160px; max-width:86vw;
-    display:flex; flex-direction:column; gap:10px; align-items:stretch;
-  }
-  aside.side-menu.open{ transform: translateY(0) scale(1); opacity:1; pointer-events:auto; }
-
-  .close-btn{
-    margin-left:auto; background: linear-gradient(180deg,var(--red), #d11a1a);
-    color:#fff; padding:8px 12px; border-radius:10px; border:0; cursor:pointer; font-weight:700;
-    box-shadow: 0 8px 30px rgba(209,26,26,0.18);
-  }
-
-  .menu-list{ list-style:none; margin:0; padding:4px; display:flex; flex-direction:column; gap:6px; }
-  .menu-list li{
-    display:inline-flex; gap:12px; align-items:center; padding:12px 14px; border-radius:10px;
-    color:var(--muted); cursor:pointer; user-select:none; border-left:3px solid transparent;
-    transition: all 160ms ease; background:transparent;
-  }
-  .menu-list li:hover{ color:#fff; transform: translateX(-6px); border-left-color: rgba(255,255,255,0.06); background: rgba(255,255,255,0.01); }
-
-  /* make menu width auto equals content */
-  .menu-item-content{ display:inline-flex; gap:10px; align-items:center; }
-
-  /* ================== MAIN ================== */
-  main.container{ max-width:1200px; margin:0 auto; padding:26px; position:relative; z-index:100; }
-
-  .hero{ text-align:center; padding:32px 8px 22px 8px; }
-  .hero .icon{ font-size:44px; margin-bottom:6px; opacity:0.95; }
-  .hero h2{ margin:6px 0; font-size:34px; color:var(--gold); letter-spacing:0.6px; }
-  .hero p{ margin:6px 0 0 0; color:var(--muted); font-size:15px; }
-
-  /* ========== GRID CARDS ========== */
-  .section-title{ display:flex; align-items:center; gap:12px; margin:28px 0 6px 0; }
-  .section-title h3{ margin:0; font-size:20px; color:var(--gold); }
-
-  .grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:18px; margin-top:12px; }
-
-  .card{
-    padding:18px; border-radius:var(--card-radius);
-    background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.008));
-    border:1px solid rgba(255,255,255,0.03); box-shadow: 0 6px 30px rgba(0,0,0,0.6);
-    transition: transform 220ms ease, box-shadow 220ms ease;
-  }
-  .card:hover{ transform: translateY(-8px); box-shadow: 0 40px 80px rgba(0,0,0,0.6); }
-
-  .card h3{ margin:0 0 8px 0; color: #a8f3ff; font-size:18px; }
-  .card p{ margin:0 0 12px 0; color:var(--muted); font-size:13px; }
-
-  .download{
-    display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:10px 14px; border-radius:10px;
-    background: linear-gradient(180deg, rgba(0,230,255,0.14), rgba(0,200,220,0.06));
-    color:#001016; font-weight:700; border:1px solid rgba(0,230,255,0.22); cursor:pointer; text-decoration:none;
-    box-shadow: 0 10px 40px rgba(0,230,255,0.08);
-  }
-
-  /* xml file small cards */
-  .xml-row{ display:grid; grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap:12px; }
-
-  /* ================= POPUP ================= */
-  .subscribe-popup{
-    position:fixed; right:28px; bottom:28px; z-index:1400;
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    padding:18px; border-radius:14px; width:320px; max-width:88%;
-    box-shadow: 0 20px 70px rgba(0,0,0,0.6); border:1px solid rgba(255,255,255,0.04);
-    transform: translateY(20px) scale(.98); opacity:0; pointer-events:none; transition: all 280ms cubic-bezier(.2,.9,.2,1);
-  }
-  .subscribe-popup.show{ transform: translateY(0) scale(1); opacity:1; pointer-events:auto; }
-  .subscribe-popup h4{ margin:0 0 8px 0; font-size:16px; color:#fff; }
-  .subscribe-popup p{ margin:0 0 12px 0; color:var(--muted); font-size:14px; }
-  .popup-actions{ display:flex; gap:10px; }
-
-  .btn-primary{
-    padding:10px 14px; border-radius:10px; border:0; cursor:pointer; font-weight:700;
-    background: linear-gradient(180deg, rgba(0,230,255,0.18), rgba(0,200,220,0.07));
-    color:#001016;
-  }
-  .btn-ghost{ padding:10px 12px; border-radius:10px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:var(--muted); cursor:pointer; }
-
-  /* ================= MOUSE TRAIL ================= */
-  .cursor-trail{ position:fixed; left:0; top:0; pointer-events:none; z-index:1500; mix-blend-mode:screen; }
-
-  /* ================= PARTICLES CANVAS ================= */
-  canvas#bgCanvas{ position:fixed; inset:0; z-index:0; pointer-events:none; }
-
-  /* ================= FOOTER ================= */
-  footer{ color:var(--muted); text-align:center; padding:40px 12px 120px 12px; }
-
-  /* responsive tweaks */
-  @media (max-width:720px){
-    header.site-header{ padding:12px 16px; }
-    .neon-line{ margin-left:16px; margin-right:16px; }
-    aside.side-menu{ right:14px; top:74px; width:92%; }
-    .subscribe-popup{ right:14px; left:14px; width:auto; }
-    .hero h2{ font-size:22px; }
-  }
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5yberBind - Tech Tools</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- BACKGROUND CANVAS FOR PARTICLES -->
-  <canvas id="bgCanvas" aria-hidden="true"></canvas>
 
-  <!-- CURSOR TRAIL CONTAINER -->
-  <div class="cursor-trail" id="cursorTrail" aria-hidden="true"></div>
+<canvas id="bgCanvas"></canvas>
+<div id="cursorTrail" class="cursor-trail"></div>
 
-  <!-- HEADER -->
-  <header class="site-header" role="banner">
-    <div class="brand" aria-hidden="false">
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="1" y="1" width="22" height="22" rx="6" fill="#070708" stroke="rgba(255,210,63,0.16)" stroke-width="1.4"/>
-        <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" font-size="11" fill="#ffd23f" font-weight="700">5Y</text>
-      </svg>
-      <h1>5yberBind</h1>
-    </div>
-
-    <div style="display:flex; gap:12px; align-items:center;">
-      <nav aria-label="Main actions" style="color:var(--muted); font-weight:600;">Tech • Tools</nav>
-      <button id="openMenu" class="menu-btn" aria-expanded="false" aria-controls="sideMenu" title="Open menu">
-        <span class="menu-icon" aria-hidden="true"></span>
-      </button>
-    </div>
-  </header>
-
-  <div class="neon-line" id="neonLine" aria-hidden="true"></div>
-
-  <!-- SIDE MENU (auto width) -->
-  <aside id="sideMenu" class="side-menu" aria-hidden="true" role="dialog" aria-label="Site menu">
-    <button id="closeMenu" class="close-btn" aria-label="Close menu">❌ Close</button>
-    <ul class="menu-list" role="menu">
-      <li role="menuitem" tabindex="0"><div class="menu-item-content"><span>🏠</span><span>Home</span></div></li>
-      <li role="menuitem" tabindex="0"><div class="menu-item-content"><span>🎮</span><span>Gaming</span></div></li>
-      <li role="menuitem" tabindex="0"><div class="menu-item-content"><span>✂️</span><span>Editing</span></div></li>
-      <li role="menuitem" tabindex="0"><div class="menu-item-content"><span>🔧</span><span>Utility</span></div></li>
-      <li role="menuitem" tabindex="0"><div class="menu-item-content"><span>💰</span><span>Earning</span></div></li>
-      <li role="menuitem" tabindex="0"><div class="menu-item-content"><span>📁</span><span>XML Files</span></div></li>
-      <li role="menuitem" tabindex="0"><div class="menu-item-content"><span>📞</span><span>Contact</span></div></li>
-    </ul>
-  </aside>
-
-  <!-- SUBSCRIBE POPUP -->
-  <div id="subscribePopup" class="subscribe-popup" role="dialog" aria-live="polite" aria-hidden="true">
-    <h4>🔥 Follow 5yberBind</h4>
-    <p>Follow 5yberBind on YouTube & GitHub for more tools and demos.</p>
-    <div class="popup-actions">
-      <button id="followBtn" class="btn-primary">Follow</button>
-      <button id="subBtn" class="btn-primary">Subscribe</button>
-      <button id="closePopup" class="btn-ghost">Close</button>
-    </div>
+<header class="site-header">
+  <div class="brand">
+    <h1>5yberBind</h1>
   </div>
+  <button id="openMenu" class="menu-btn"><span class="menu-icon"></span></button>
+</header>
 
-  <!-- MAIN -->
-  <main class="container" role="main">
-    <section class="hero" aria-labelledby="techTitle">
-      <div class="icon">💻</div>
-      <h2 id="techTitle">Tech Tools</h2>
-      <p>Premium tools, HUDs, and XML files — updated daily with ambient color themes.</p>
-    </section>
+<nav id="sideMenu" class="side-menu">
+  <button id="closeMenu" class="close-btn">✖</button>
+  <ul class="menu-list">
+    <li>🏠 Home</li>
+    <li>🎮 Gaming</li>
+    <li>🎬 Editing</li>
+    <li>📱 Android Tools</li>
+    <li>💰 Earning</li>
+  </ul>
+</nav>
 
-    <!-- 20 APPS -->
-    <div class="section-title">
-      <h3>Top 20 Apps</h3>
+<section class="hero">
+  <h2>Welcome to 5yberBind</h2>
+  <p>Your ultimate hub for Tech Apps, Editing Packs & Online Earning Tools 🚀</p>
+  <div class="buttons">
+    <a href="#" class="btn-primary">Explore Now</a>
+    <a href="#" class="btn-outline">Latest Packs</a>
+  </div>
+</section>
+
+<main class="container">
+  <!-- Gaming -->
+  <section>
+    <h3 class="section-title">🎮 Gaming Tools & Configs</h3>
+    <div class="grid">
+      <div class="card"><h4>Free Fire Headshot Config V2</h4><p>Advanced sensitivity and DPI tuning.</p><a class="download" href="#">Download</a></div>
+      <div class="card"><h4>BGMI Lag Fix Tool</h4><p>Optimize FPS and reduce lag instantly.</p><a class="download" href="#">Download</a></div>
+      <div class="card"><h4>Call of Duty Pro HUD</h4><p>Custom controller layout for accuracy.</p><a class="download" href="#">Download</a></div>
     </div>
-    <section class="grid" aria-label="20 apps">
-      <!-- generate 20 cards quickly via JS or paste static - here static for simplicity -->
-      <!-- You can replace href="#" with actual download links -->
-      <!-- I'll show 10 cards then replicate with small variations to keep code manageable -->
-      <div class="card"><h3>VPN Service</h3><p>Secure & fast VPN (Demo)</p><a class="download" href="#" role="button">⬇️ Download</a></div>
-      <div class="card"><h3>File Manager</h3><p>Advanced file manager (Demo)</p><a class="download" href="#" role="button">⬇️ Download</a></div>
-      <div class="card"><h3>Media Player</h3><p>High quality media player (Demo)</p><a class="download" href="#" role="button">⬇️ Download</a></div>
-      <div class="card"><h3>QR Reader</h3><p>Fast QR & barcode reader (Demo)</p><a class="download" href="#" role="button">⬇️ Download</a></div>
-      <div class="card"><h3>Music Player</h3><p>Lossless mobile player (Demo)</p><a class="download" href="#" role="button">⬇️ Download</a></div>
+  </section>
 
-      <div class="card"><h3>Camera App</h3><p>Pro camera with filters (Demo)</p><a class="download" href="#" role="button">⬇️ Download</a></div>
-      <div class="card"><h3>Code Editor</h3><p>Lightweight editor for devs (Demo)</p><a class="download" href="#" role="button">⬇️ Download</a></div>
-      <div class="card"><h3>Video Editor</h3><p>Mobile video pro tools (Demo)</p><a class="download" href="#" role="button">⬇️ Download</a></div>
-      <div class="card"><h3>Weather App</h3><p>Accurate forecasts & widgets (Demo)</p><a class="download" href="#" role="button">⬇️ Download</a></div>
-      <div class="card"><h3>Voice Recorder</h3><p>High quality voice recorder (Demo)</p><a class="download" href="#" role="button">⬇️ Download</a></div>
+  <!-- Editing -->
+  <section>
+    <h3 class="section-title">🎥 Editing Templates & Packs</h3>
+    <div class="grid">
+      <div class="card"><h4>CapCut Transition Pack</h4><p>30 smooth transitions with 3D effects.</p><a class="download" href="#">Download</a></div>
+      <div class="card"><h4>VN Video LUT Pack</h4><p>Color-grading filters for cinematic looks.</p><a class="download" href="#">Download</a></div>
+      <div class="card"><h4>Alight Motion 3D Shake Presets</h4><p>Professional 3D shake & glow presets.</p><a class="download" href="#">Download</a></div>
+    </div>
+  </section>
 
-      <div class="card"><h3>Document Scanner</h3><p>Scan & export PDFs (Demo)</p><a class="download" href="#" role="button">⬇️ Download</a></div>
-      <div class="card"><h3>Translator</h3><p>Fast offline translator (Demo)</p><a class="download" href="#" role="button">⬇️ Download</a></div>
-      <div class="card"><h3>Theme Installer</h3><p>Custom themes & HUDs (Demo)</p><a class="download" href="#" role="button">⬇️ Download</a></div>
-      <div class="card"><h3>Patch Helper</h3><p>Modding utilities (Demo)</p><a class="download" href="#" role="button">⬇️ Download</a></div>
-      <div class="card"><h3>Ad Remover</h3><p>Ad-free experience (Demo)</p><a class="download" href="#" role="button">⬇️ Download</a></div>
+  <!-- Utility -->
+  <section>
+    <h3 class="section-title">📱 Android Utility Apps</h3>
+    <div class="grid">
+      <div class="card"><h4>File Splitter Pro</h4><p>Split or merge large files easily.</p><a class="download" href="#">Download</a></div>
+      <div class="card"><h4>VPN Lite</h4><p>Secure and fast VPN for free users.</p><a class="download" href="#">Download</a></div>
+      <div class="card"><h4>Screen Recorder HD</h4><p>1080p screen recording watermark-free.</p><a class="download" href="#">Download</a></div>
+    </div>
+  </section>
 
-      <div class="card"><h3>Backup Tool</h3><p>Backup & restore apps (Demo)</p><a class="download" href="#" role="button">⬇️ Download</a></div>
-      <div class="card"><h3>Performance</h3><p>Analyze & boost device (Demo)</p><a class="download" href="#" role="button">⬇️ Download</a></div>
-      <div class="card"><h3>Splitter</h3><p>Split large apks (Demo)</p><a class="download" href="#" role="button">⬇️ Download</a></div>
-      <div class="card"><h3>Developer Pack</h3><p>Dev helper utilities (Demo)</p><a class="download" href="#" role="button">⬇️ Download</a></div>
-      <div class="card"><h3>Root Checker</h3><p>Check root & details (Demo)</p><a class="download" href="#" role="button">⬇️ Download</a></div>
-    </section>
+  <!-- Earning -->
+  <section>
+    <h3 class="section-title">💰 Earning & Finance Apps</h3>
+    <div class="grid">
+      <div class="card"><h4>TaskEarn</h4><p>Earn coins for completing small online tasks.</p><a class="download" href="#">Download</a></div>
+      <div class="card"><h4>AdCash</h4><p>Watch ads and redeem instant Paytm cash.</p><a class="download" href="#">Download</a></div>
+      <div class="card"><h4>SurveyKing</h4><p>Get paid for giving your opinion on trending products.</p><a class="download" href="#">Download</a></div>
+    </div>
+  </section>
+</main>
 
-    <!-- XML files -->
-    <div class="section-title"><h3>8 XML Files</h3></div>
-    <section class="grid xml-row" aria-label="XML files">
-      <div class="card"><h3>layout_main.xml</h3><p>Primary layout (Demo)</p><a class="download" href="#">⬇️ Download</a></div>
-      <div class="card"><h3>hud_layout.xml</h3><p>HUD layout (Demo)</p><a class="download" href="#">⬇️ Download</a></div>
-      <div class="card"><h3>dialog_controls.xml</h3><p>Dialog controls (Demo)</p><a class="download" href="#">⬇️ Download</a></div>
-      <div class="card"><h3>themes.xml</h3><p>Theme definitions (Demo)</p><a class="download" href="#">⬇️ Download</a></div>
-      <div class="card"><h3>strings.xml</h3><p>Localization strings (Demo)</p><a class="download" href="#">⬇️ Download</a></div>
-      <div class="card"><h3>styles.xml</h3><p>Style resources (Demo)</p><a class="download" href="#">⬇️ Download</a></div>
-      <div class="card"><h3>colors.xml</h3><p>Colors & tokens (Demo)</p><a class="download" href="#">⬇️ Download</a></div>
-      <div class="card"><h3>icons.xml</h3><p>Icon mapping (Demo)</p><a class="download" href="#">⬇️ Download</a></div>
-    </section>
+<footer>© 5yberBind — All Rights Reserved</footer>
 
-    <footer>© 5yberBind — Demo placeholders. Replace <code>#</code> in <code>href</code> with real file links (GitHub raw / Drive / CDN).</footer>
-  </main>
-
-<script>
-/* ========= DAILY COLOR PALETTES =========
-   We'll pick a palette each day (based on day index) and apply
-   gradient + neon color for buttons, menu, popup accents, neon-line etc.
-*/
-(function(){
-  const palettes = [
-    { name:'Cyan', a:'#001216', b:'#001f22', c:'#00e6ff', accent:'#00e6ff', gold:'#ffd23f' },
-    { name:'Purple', a:'#07031b', b:'#1a0b2e', c:'#9b66ff', accent:'#9b66ff', gold:'#ffd23f' },
-    { name:'Emerald', a:'#00130b', b:'#04321a', c:'#00ff9f', accent:'#00ff9f', gold:'#ffd23f' },
-    { name:'Rose', a:'#1b0303', b:'#2b0a0a', c:'#ff6b9a', accent:'#ff6b9a', gold:'#ffd23f' },
-    { name:'Orange', a:'#1b0f00', b:'#2e1600', c:'#ff9f1c', accent:'#ff9f1c', gold:'#ffd23f' },
-    { name:'TealPurple', a:'#041018', b:'#0b1a28', c:'#4bd6ff', accent:'#4bd6ff', gold:'#ffd23f' }
-  ];
-
-  const dayIndex = (new Date()).getDate() % palettes.length;
-  const pal = palettes[dayIndex];
-
-  // Apply CSS variables dynamically
-  const root = document.documentElement;
-  root.style.setProperty('--accent', pal.accent);
-  root.style.setProperty('--bg-start', pal.a);
-  root.style.setProperty('--bg-end', pal.b);
-  root.style.setProperty('--neon', pal.c);
-  root.style.setProperty('--gold', pal.gold);
-
-  // Neon top line effect
-  const neonLine = document.getElementById('neonLine');
-  neonLine.style.background = `linear-gradient(90deg, ${pal.c}55, ${pal.gold}22)`;
-  neonLine.style.boxShadow = `0 10px 40px ${pal.c}1f`;
-
-  // style menu button bg & border
-  const openBtn = document.getElementById('openMenu');
-  openBtn.style.background = `radial-gradient(circle at 30% 20%, ${pal.c}33, ${pal.c}22), linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.03))`;
-  openBtn.style.border = `1px solid ${pal.c}33`;
-
-  // apply to download buttons via CSS injection
-  const style = document.createElement('style');
-  style.innerHTML = `
-    .download { background: linear-gradient(180deg, ${pal.c}20, ${pal.c}10); border:1px solid ${pal.c}44; box-shadow: 0 10px 40px ${pal.c}0d; color: #001016; }
-    .btn-primary { background: linear-gradient(180deg, ${pal.c}22, ${pal.c}10); border:1px solid ${pal.c}44; color:#001016; }
-    .menu-list li:hover { border-left-color: ${pal.c}33; }
-  `;
-  document.head.appendChild(style);
-
-  // Background gradient overlay (soft)
-  document.body.style.background = `radial-gradient(1000px 450px at 6% 8%, ${pal.a} 0%, transparent 25%), radial-gradient(900px 400px at 92% 88%, ${pal.b} 0%, transparent 25%), linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.35))`;
-})();
-
-/* ========= PARTICLES ON CANVAS ========= */
-(function(){
-  const canvas = document.getElementById('bgCanvas');
-  const ctx = canvas.getContext('2d');
-  let w = canvas.width = innerWidth;
-  let h = canvas.height = innerHeight;
-  const particles = [];
-  const count = Math.round((w*h)/90000); // scale particles by viewport
-  const colors = ['rgba(255,255,255,0.06)','rgba(255,255,255,0.04)'];
-
-  function rand(min,max){ return Math.random()*(max-min)+min; }
-  function init(){
-    particles.length = 0;
-    for(let i=0;i<count;i++){
-      particles.push({
-        x: rand(0,w),
-        y: rand(0,h),
-        r: rand(1,7),
-        vy: rand(0.1,0.7),
-        vx: rand(-0.2,0.2),
-        alpha: rand(0.03,0.14),
-        dx: Math.random()*Math.PI*2
-      });
-    }
-  }
-  function resize(){ w=canvas.width=innerWidth; h=canvas.height=innerHeight; init(); }
-  addEventListener('resize', resize);
-  init();
-
-  function draw(){
-    ctx.clearRect(0,0,w,h);
-    for(const p of particles){
-      p.x += p.vx;
-      p.y -= p.vy;
-      p.dx += 0.002;
-      const alpha = 0.04 + Math.sin(p.dx)*0.02;
-      ctx.beginPath();
-      ctx.fillStyle = `rgba(0,230,255,${alpha})`;
-      // subtle glow
-      ctx.shadowBlur = Math.min(30, p.r*3);
-      ctx.shadowColor = 'rgba(0,230,255,0.12)';
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-      ctx.fill();
-      ctx.closePath();
-
-      // wrap
-      if(p.y < -20) p.y = h + 30;
-      if(p.x < -30) p.x = w + 30;
-      if(p.x > w + 30) p.x = -30;
-    }
-    requestAnimationFrame(draw);
-  }
-  draw();
-})();
-
-/* ========= MOUSE TRAIL ========= */
-(function(){
-  const trail = document.getElementById('cursorTrail');
-  let dots = [];
-  const maxDots = 10;
-  for(let i=0;i<maxDots;i++){
-    const d = document.createElement('div');
-    d.style.width = (4 + i*0.8) + 'px';
-    d.style.height = (4 + i*0.8) + 'px';
-    d.style.borderRadius = '999px';
-    d.style.position = 'absolute';
-    d.style.pointerEvents = 'none';
-    d.style.opacity = (0.12 + i*0.06);
-    d.style.background = `radial-gradient(circle, rgba(255,255,255,0.95), rgba(0,0,0,0.05))`;
-    d.style.boxShadow = `0 6px 22px rgba(0,230,255,0.12)`;
-    trail.appendChild(d);
-    dots.push({el:d, x:0, y:0});
-  }
-
-  let mouse = {x: window.innerWidth/2, y: window.innerHeight/2};
-  window.addEventListener('mousemove', (e)=> { mouse.x = e.clientX; mouse.y = e.clientY; });
-  function animate(){
-    let x = mouse.x, y = mouse.y;
-    dots.forEach((d, i)=>{
-      const nx = d.x + (x - d.x) * (0.18 + i*0.02);
-      const ny = d.y + (y - d.y) * (0.18 + i*0.02);
-      d.x = nx; d.y = ny;
-      d.el.style.transform = `translate3d(${nx - (d.el.offsetWidth/2)}px, ${ny - (d.el.offsetHeight/2)}px, 0)`;
-      x = nx; y = ny;
-    });
-    requestAnimationFrame(animate);
-  }
-  animate();
-})();
-
-/* ========= MENU OPEN/CLOSE + AUTO WIDTH behavior ========= */
-(function(){
-  const openBtn = document.getElementById('openMenu');
-  const closeBtn = document.getElementById('closeMenu');
-  const side = document.getElementById('sideMenu');
-
-  function openMenu(e){
-    side.classList.add('open');
-    side.setAttribute('aria-hidden','false');
-    openBtn.setAttribute('aria-expanded','true');
-    // outside click after tiny delay
-    setTimeout(()=> document.addEventListener('click', outsideClick), 10);
-  }
-  function closeMenu(){
-    side.classList.remove('open');
-    side.setAttribute('aria-hidden','true');
-    openBtn.setAttribute('aria-expanded','false');
-    document.removeEventListener('click', outsideClick);
-  }
-  function outsideClick(e){
-    if (!side.contains(e.target) && !openBtn.contains(e.target)) closeMenu();
-  }
-
-  openBtn.addEventListener('click', (e)=> { e.stopPropagation(); openMenu(); });
-  closeBtn.addEventListener('click', (e)=> { e.stopPropagation(); closeMenu(); });
-  document.addEventListener('keydown', (ev)=> { if(ev.key==='Escape') closeMenu(); });
-
-  // Resize menu box to content width (auto). We set width:auto in CSS via max-content,
-  // but on mobile keep max width - handled via CSS. No extra JS needed.
-})();
-
-/* ========= SUBSCRIBE POPUP (auto show) ========= */
-(function(){
-  const popup = document.getElementById('subscribePopup');
-  const follow = document.getElementById('followBtn');
-  const sub = document.getElementById('subBtn');
-  const close = document.getElementById('closePopup');
-
-  // show after 4s if user hasn't opened menu etc
-  let shown = false;
-  const showDelay = 4000;
-  const showPopup = ()=>{
-    if(shown) return;
-    popup.classList.add('show');
-    popup.setAttribute('aria-hidden','false');
-    shown = true;
-  };
-
-  // show after delay but cancel if user opens menu quickly
-  let menuOpened = false;
-  document.getElementById('openMenu').addEventListener('click', ()=> { menuOpened = true; });
-  setTimeout(()=> { if(!menuOpened) showPopup(); }, showDelay);
-
-  follow.addEventListener('click', ()=> {
-    window.open('https://www.youtube.com', '_blank'); // replace with real
-  });
-  sub.addEventListener('click', ()=> {
-    window.open('https://github.com', '_blank'); // replace with real
-  });
-  close.addEventListener('click', ()=> {
-    popup.classList.remove('show');
-    popup.setAttribute('aria-hidden','true');
-  });
-})();
-
-/* ========= DOWNLOAD BUTTON demo effect ========= */
-(function(){
-  document.querySelectorAll('.download').forEach(btn=>{
-    btn.addEventListener('click', function(e){
-      if (this.getAttribute('href') === '#') {
-        e.preventDefault();
-        this.animate([{ transform:'translateY(0)' }, { transform:'translateY(-8px)' }, { transform:'translateY(0)' }], { duration:320 });
-      } else {
-        // allow normal link
-      }
-    });
-  });
-})();
-
-/* ========= Accessibility: focus trap small improvements ========= */
-(function(){
-  // quick: add keyboard nav to menu list items
-  document.querySelectorAll('.menu-list li').forEach(li=>{
-    li.addEventListener('keypress', (e)=> { if(e.key==='Enter' || e.key===' ') li.click(); });
-  });
-})();
-
-/* ========= Helpful console message for developer ========= */
-console.log("%c5yberBind: Premium page loaded — replace demo '#' links with your download URLs.", "color: #00e6ff; font-weight:700; background:#021216; padding:6px; border-radius:6px;");
-</script>
+<script src="main.js"></script>
 </body>
 </html>
