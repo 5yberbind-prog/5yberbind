@@ -79,32 +79,28 @@ function applyTheme(){
 }
 applyTheme();
 setInterval(applyTheme,3600000);
-// FOLLOW POPUP - Auto + Cookie Based
+ 
+// === FOLLOW POPUP (Animated + Cookie + Glow) ===
 const followBtn=document.getElementById("followBtn");
 const popupBox=document.getElementById("popupBox");
 const popupClose=document.getElementById("popupClose");
 const dontShowCheckbox=document.getElementById("dontShowAgain");
+const glassBox=document.querySelector(".popup-content.glass");
+const glow=document.querySelector(".popup-glow");
 
 function showPopup(){
   const dontShow=localStorage.getItem("hideFollowPopup");
-  if(!dontShow){ popupBox.classList.add("active"); }
+  if(!dontShow) popupBox.classList.add("active");
 }
-
-// Auto open after 5 seconds
 setTimeout(showPopup,5000);
 
-// Manual open via button
 followBtn.addEventListener("click",()=>popupBox.classList.add("active"));
-
-// Close popup
 popupClose.addEventListener("click",()=>{
   if(dontShowCheckbox.checked){
     localStorage.setItem("hideFollowPopup",true);
   }
   popupBox.classList.remove("active");
 });
-
-// Close when click outside
 window.addEventListener("click",(e)=>{
   if(e.target===popupBox){
     if(dontShowCheckbox.checked){
@@ -112,4 +108,13 @@ window.addEventListener("click",(e)=>{
     }
     popupBox.classList.remove("active");
   }
+});
+
+// === Parallax Light Reflection ===
+glassBox.addEventListener("mousemove",(e)=>{
+  const rect=glassBox.getBoundingClientRect();
+  const x=e.clientX-rect.left;
+  const y=e.clientY-rect.top;
+  glow.style.setProperty("--x",`${(x/rect.width)*100}%`);
+  glow.style.setProperty("--y",`${(y/rect.height)*100}%`);
 });
