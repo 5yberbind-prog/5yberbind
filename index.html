@@ -1,230 +1,504 @@
-/* Premium Landing Page - React + Tailwind File: PremiumLanding.jsx Notes for Ashwani:
+</style>
+<!-- 🌟 Navigation Bar -->
+<header class="navbar">
+  <div class="logo">5yberBind</div>
 
-1. Delete these old files (if present) before replacing:
+ <!-- 3 Dot Menu Button -->
+  <div class="menu-btn" id="menuBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
-src/components/Hero.jsx
+  <!-- Sliding Menu -->
+  <nav class="menu" id="menu">
+    <a href="#home">🏠 Home</a>
+    <a href="#gaming">🎮 Gaming Tools</a>
+    <a href="#editing">🎬 Editing Packs</a>
+    <a href="#apps">📱 Utility Apps</a>
+    <a href="#earning">💰 Earning Tools</a>
+    <a href="#music">🎧 Music Tools</a>
+    <a href="#contact">📩 Contact</a>
+  </nav>
+</header>
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const menu = document.getElementById('menu');
 
-src/components/Navbar.jsx
+  menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('active');
+    menu.classList.toggle('active');
+  });
 
-src/components/Footer.jsx
+  // Close menu when clicking link
+  document.querySelectorAll('.menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuBtn.classList.remove('active');
+      menu.classList.remove('active');
+    });
+  });
+</script>
+<script src="script.js"></script>
+</body>
+<div class="neon-ring"></div>
+</html>
+<script>
+  // 🌈 Array of Neon Colors (tu chahe to aur add kar sakta hai)
+  const neonColors = [
+    "#00FFFF", // Cyan
+    "#FF00FF", // Magenta
+    "#00FF00", // Neon Green
+    "#FF4500", // Orange Red
+    "#FFD700", // Gold
+    "#1E90FF", // Dodger Blue
+    "#FF1493", // Deep Pink
+    "#ADFF2F"  // Green Yellow
+  ];
 
-src/styles/hero.css
+  // 📅 Get current day number (0–365)
+  const now = new Date();
+  const dayOfYear = Math.floor(
+    (now - new Date(now.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24)
+  );
 
-public/assets/hero-demo.png
+  // 🧠 Pick color based on day (loop through array)
+  const todayColor = neonColors[dayOfYear % neonColors.length];
 
-public/assets/logo.png
-
-
-
-2. Replace with the single file below (or split into components if you prefer):
-
-Create: src/components/PremiumLanding.jsx and paste the component code below.
-
-Add assets folder: public/assets/ (place your logo as logo.png and demo image as hero-demo.jpg)
-
-
-
-3. Tailwind: this code expects Tailwind CSS configured in the project.
-
-If you don't have Tailwind, run: npm install -D tailwindcss postcss autoprefixer && npx tailwindcss init -p
-
-Add the Tailwind directives to src/index.css: @tailwind base; @tailwind components; @tailwind utilities;
-
-
-
-4. Fonts: You asked for English font for website content. I used system fonts (Inter fallback). To use Google Inter, add in index.html: <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet"> and in tailwind config set fontFamily.
-
-
-5. Assets & placeholders: replace placeholder text and images in /public/assets with your final images. I included clear filenames so you can copy-paste easily.
-
-
-
-What to copy/paste (one file): */
-
-import React from 'react';
-
-export default function PremiumLanding() { return ( <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-black text-gray-100 antialiased"> {/* NAVBAR */} <header className="backdrop-blur-sm bg-black/40 sticky top-0 z-50"> <div className="max-w-7xl mx-auto px-6 lg:px-8"> <div className="flex items-center justify-between h-20"> <div className="flex items-center gap-4"> <img src="/assets/logo.png" alt="logo" className="w-10 h-10 rounded-md object-cover" /> <div> <h1 className="text-xl font-semibold leading-tight">5yberBind</h1> <p className="text-xs text-gray-400 -mt-1">Premium Web Experience</p> </div> </div> <nav className="hidden md:flex items-center gap-8 text-sm"> <a className="hover:text-white transition">Features</a> <a className="hover:text-white transition">Templates</a> <a className="hover:text-white transition">Pricing</a> <a className="hover:text-white transition">Docs</a> <button className="ml-2 px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-500 to-violet-500 text-black font-medium"> Get Started </button> </nav> <div className="md:hidden"> <button aria-label="open menu" className="p-2 rounded-md bg-white/6">☰</button> </div> </div> </div> </header>
-
-{/* HERO */}
-  <main className="pt-12 pb-20">
-    <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <section>
-        <div className="max-w-xl">
-          <p className="uppercase text-xs text-indigo-400 font-semibold tracking-wide">Premium Template</p>
-          <h2 className="mt-4 text-4xl lg:text-5xl font-extrabold leading-tight">Build a professional, fast & secure website<br className="hidden lg:inline" />— made for creators & tech brands.</h2>
-          <p className="mt-6 text-gray-300">Fully responsive landing, component-driven design, built with Tailwind CSS and optimized for SEO and performance. Comes with demo content, pre-built sections and easy customization so you can launch fast.</p>
-
-          <div className="mt-8 flex items-center gap-4">
-            <a className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl bg-white text-black font-semibold shadow-lg">Download Template</a>
-            <a className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl border border-white/10 text-sm">Live Demo</a>
-          </div>
-
-          <div className="mt-8 grid grid-cols-2 gap-4 text-sm text-gray-300">
-            <div>
-              <p className="font-semibold">Performance</p>
-              <p className="text-xs">Optimized for speed & Lighthouse</p>
-            </div>
-            <div>
-              <p className="font-semibold">Support</p>
-              <p className="text-xs">Detailed docs + updates</p>
-            </div>
-            <div>
-              <p className="font-semibold">Customizable</p>
-              <p className="text-xs">Easy to adapt, component-based</p>
-            </div>
-            <div>
-              <p className="font-semibold">SEO Ready</p>
-              <p className="text-xs">Metadata & semantic HTML</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative">
-        <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/6">
-          {/* Demo image placeholder. Replace /assets/hero-demo.jpg with your own high-res image */}
-          <img src="/assets/hero-demo.jpg" alt="demo" className="w-full h-96 object-cover" />
-          <div className="p-6 bg-gradient-to-t from-black/40 to-transparent">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-xs text-gray-300">Premium Design</p>
-                <h3 className="font-semibold text-lg text-white">Hacker & Cyber aesthetic (subtle)</h3>
-              </div>
-              <div className="text-right text-xs text-gray-400">v1.0 • 2025</div>
-            </div>
-          </div>
-        </div>
-
-        {/* floating cards */}
-        <div className="absolute -bottom-6 right-6 w-64 bg-gradient-to-br from-white/6 to-black/20 border border-white/5 rounded-2xl p-4 backdrop-blur">
-          <p className="text-xs text-gray-300">Live Stats</p>
-          <div className="mt-3 flex items-center justify-between">
-            <div>
-              <p className="text-sm font-semibold">Pages</p>
-              <p className="text-xs text-gray-400">12 ready</p>
-            </div>
-            <div>
-              <p className="text-sm font-semibold">Lighthouse</p>
-              <p className="text-xs text-gray-400">> 90</p>
-            </div>
-          </div>
-        </div>
-      </section>
+  // 🎨 Apply the color as CSS variable for global use
+  document.documentElement.style.setProperty('--neon-color', todayColor);
+</script>
+<body>
+  <!-- 🌟 HEADER -->
+  <header class="site-header">
+    <h1>Welcome to <span class="brand">5yberBind</span></h1>
+    <p>Your ultimate hub for Tech Apps, Editing Packs & Online Earning Tools 🚀</p>
+    <div class="buttons">
+      <a href="#latest" class="btn">Explore Now</a>
+      <a href="#packs" class="btn secondary">Latest Packs</a>
     </div>
-  </main>
+  </header>
 
-  {/* FEATURES */}
-  <section className="py-16 border-t border-white/6">
-    <div className="max-w-7xl mx-auto px-6 lg:px-8">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="p-6 rounded-xl bg-white/3 border border-white/6">
-          <h4 className="font-semibold text-lg">Component Library</h4>
-          <p className="mt-2 text-sm text-gray-300">Pre-built components for any layout: hero, pricing, team, docs and blog.</p>
-        </div>
-        <div className="p-6 rounded-xl bg-white/3 border border-white/6">
-          <h4 className="font-semibold text-lg">Dark Cyber Theme</h4>
-          <p className="mt-2 text-sm text-gray-300">Subtle neon accents, smooth gradients — not garish, crafted for professionals.</p>
-        </div>
-        <div className="p-6 rounded-xl bg-white/3 border border-white/6">
-          <h4 className="font-semibold text-lg">Easy Deployment</h4>
-          <p className="mt-2 text-sm text-gray-300">Works with Vercel, Netlify or static S3 hosting. CI-ready.</p>
-        </div>
+  <!-- 🎮 GAMING SECTION -->
+  <section id="gaming">
+    <h2>🎮 Gaming Tools & Configs</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Free Fire Headshot Config V2</h3>
+        <p>Advanced sensitivity and DPI tuning.</p>
+        <a href="#" class="download-btn">Download</a>
+      </div>
+      <div class="card">
+        <h3>BGMI Lag Fix Tool</h3>
+        <p>Optimize FPS and reduce lag instantly.</p>
+        <a href="#" class="download-btn">Download</a>
+      </div>
+      <div class="card">
+        <h3>Call of Duty Pro HUD</h3>
+        <p>Custom controller layout for accuracy.</p>
+        <a href="#" class="download-btn">Download</a>
       </div>
     </div>
   </section>
 
-  {/* PRICING */}
-  <section className="py-16">
-    <div className="max-w-7xl mx-auto px-6 lg:px-8">
-      <h3 className="text-2xl font-bold">Pricing</h3>
-      <p className="text-gray-400 mt-2">One-time purchase or subscription — choose what fits you.</p>
-
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="p-6 rounded-2xl bg-gradient-to-r from-white/4 to-black/20 border border-white/6">
-          <h4 className="text-lg font-semibold">Starter</h4>
-          <p className="mt-2 text-3xl font-bold">₹999</p>
-          <ul className="mt-4 text-sm text-gray-300 space-y-2">
-            <li>One site license</li>
-            <li>Basic support</li>
-            <li>All core components</li>
-          </ul>
-          <button className="mt-6 w-full py-3 rounded-xl bg-white/8">Buy</button>
-        </div>
-
-        <div className="p-6 rounded-2xl border-2 border-indigo-500 bg-gradient-to-tr from-indigo-700/30 to-violet-800/20 shadow-xl">
-          <div className="flex items-center justify-between">
-            <h4 className="text-lg font-semibold">Pro</h4>
-            <span className="text-sm text-indigo-200">Most popular</span>
-          </div>
-          <p className="mt-2 text-4xl font-extrabold">₹2499</p>
-          <ul className="mt-4 text-sm text-gray-200 space-y-2">
-            <li>5 site licenses</li>
-            <li>Priority support</li>
-            <li>Premium components + updates</li>
-          </ul>
-          <button className="mt-6 w-full py-3 rounded-xl bg-indigo-500 text-black font-semibold">Buy Pro</button>
-        </div>
-
-        <div className="p-6 rounded-2xl bg-white/3 border border-white/6">
-          <h4 className="text-lg font-semibold">Agency</h4>
-          <p className="mt-2 text-3xl font-bold">₹6999</p>
-          <ul className="mt-4 text-sm text-gray-300 space-y-2">
-            <li>Unlimited sites</li>
-            <li>Dedicated support</li>
-            <li>Custom onboarding</li>
-          </ul>
-          <button className="mt-6 w-full py-3 rounded-xl bg-white/8">Contact</button>
-        </div>
+  <!-- 🎬 EDITING SECTION -->
+  <section id="editing">
+    <h2>🎬 Editing Templates & Packs</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>My2dGame</h3>
+<p>2D racing game</p>
+<a href="https://github.com/5yberbind-prog/5yberbind/blob/main/My2dGame-debug.apk"
+  <button class="download-btn">Download</button>
+</a>
+      </div>
+      <div class="card">
+        <h3>VN Video LUT Pack</h3>
+        <p>Color-grading filters for cinematic looks.</p>
+        <a href="#" class="download-btn">Download</a>
+      </div>
+      <div class="card">
+        <h3>Alight Motion 3D Shake Presets</h3>
+        <p>Professional 3D shake & glow presets.</p>
+        <a href="#" class="download-btn">Download</a>
       </div>
     </div>
   </section>
 
-  {/* FOOTER */}
-  <footer className="border-t border-white/6 py-10">
-    <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div>
-        <img src="/assets/logo.png" alt="logo" className="w-12 h-12 rounded-md mb-3" />
-        <p className="text-sm text-gray-300">5yberBind — premium templates & tools for creators and developers.</p>
+  <!-- 📱 ANDROID TOOLS -->
+  <section id="android">
+    <h2>📱 Android Utility Apps</h2>
+    <div class="cards">
+      <div class="card"><h3>File Splitter Pro</h3><p>Split or merge large files easily.</p><a href="#" class="download-btn">Download</a></div>
+      <div class="card"><h3>VPN Lite</h3><p>Secure and fast VPN for free users.</p><a href="#" class="download-btn">Download</a></div>
+      <div class="card"><h3>Screen Recorder HD</h3><p>1080p screen recording with watermark-free mode.</p><a href="#" class="download-btn">Download</a></div>
+    </div>
+  </section>
+
+  <!-- 💰 EARNING SECTION -->
+  <section id="earning">
+    <h2>💰 Earning & Finance Apps</h2>
+    <div class="cards">
+      <div class="card"><h3>TaskEarn</h3><p>Earn coins for completing small online tasks.</p><a href="#" class="download-btn">Download</a></div>
+      <div class="card"><h3>AdCash</h3><p>Watch ads and redeem instant Paytm cash.</p><a href="#" class="download-btn">Download</a></div>
+      <div class="card"><h3>SurveyKing</h3><p>Get paid for giving your opinion on trending products.</p><a href="#" class="download-btn">Download</a></div>
+    </div>
+  </section>
+
+<!-- 🎵 MUSIC SECTION -->
+  <section id="music">
+    <h2>🎵 Music & Sound Tools</h2>
+    <div class="cards">
+      <div class="card"><h3>FL Studio Mobile Preset Pack</h3><p>Top-quality synth & beat presets for mobile producers.</p><a href="#" class="download-btn">Download</a></div>
+      <div class="card"><h3>AudioLab Editor</h3><p>Cut, mix and enhance sound with AI mastering.</p><a href="#" class="download-btn">Download</a></div>
+      <div class="card"><h3>VoiceTune FX</h3><p>Auto-tune and voice effects for singers.</p><a href="#" class="download-btn">Download</a></div>
+    </div>
+  </section>
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>5yberBind — Neon Dark Theme</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<body>
+  </div>
+<main>
+
+  <section id="apps" class="card">
+<!-- ===== More App Sections ===== -->
+
+<section class="section">
+  <h2>🎮 Gaming Tools & Configs</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Free Fire Headshot Config V2</h3>
+      <p>Advanced sensitivity and DPI tuning.</p>
+      <button class="btn">Download</button>
+    </div>
+    <div class="card">
+      <h3>BGMI Lag Fix Tool</h3>
+      <p>Optimize FPS and reduce lag instantly.</p>
+      <button class="btn">Download</button>
+    </div>
+    <div class="card">
+      <h3>Call of Duty Pro HUD</h3>
+      <p>Custom controller layout for accuracy.</p>
+      <button class="btn">Download</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>🎬 Editing Templates & Packs</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>CapCut Transition Pack</h3>
+      <p>30 smooth transitions with 3D effects.</p>
+      <button class="btn">Download</button>
+    </div>
+    <div class="card">
+      <h3>VN Video LUT Pack</h3>
+      <p>Color-grading filters for cinematic looks.</p>
+      <button class="btn">Download</button>
+    </div>
+    <div class="card">
+      <h3>Alight Motion 3D Shake Presets</h3>
+      <p>Professional 3D shake & glow presets.</p>
+      <button class="btn">Download</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>📱 Android Utility Apps</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>File Splitter Pro</h3>
+      <p>Split or merge large files easily.</p>
+      <button class="btn">Download</button>
+    </div>
+    <div class="card">
+      <h3>VPN Lite</h3>
+      <p>Secure and fast VPN for free users.</p>
+      <button class="btn">Download</button>
+    </div>
+    <div class="card">
+      <h3>Screen Recorder HD</h3>
+      <p>1080p screen recording with watermark-free mode.</p>
+      <button class="btn">Download</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>💰 Earning & Finance Apps</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>TaskEarn</h3>
+      <p>Earn coins for completing small online tasks.</p>
+      <button class="btn">Download</button>
+    </div>
+    <div class="card">
+      <h3>AdCash</h3>
+      <p>Watch ads and redeem instant Paytm cash.</p>
+      <button class="btn">Download</button>
+    </div>
+    <div class="card">
+      <h3>SurveyKing</h3>
+      <p>Get paid for giving your opinion on trending products.</p>
+      <button class="btn">Download</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>🎧 Music & Sound Tools</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>FL Studio Mobile Preset Pack</h3>
+      <p>Top-quality synth & beat presets for mobile producers.</p>
+      <button class="btn">Download</button>
+    </div>
+    <div class="card">
+      <h3>AudioLab Editor</h3>
+      <p>Cut, mix and enhance sound with AI mastering.</p>
+      <button class="btn">Download</button>
+    </div>
+    <div class="card">
+      <h3>VoiceTune FX</h3>
+      <p>Auto-tune and voice effects for singers.</p>
+      <button class="btn">Download</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>🧠 AI Tools & Creator Utilities</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Thumbnail Maker AI</h3>
+      <p>Generate stunning YouTube thumbnails in one tap.</p>
+      <button class="btn">Download</button>
+    </div>
+    <div class="card">
+      <h3>ScriptGen Pro</h3>
+      <p>AI-powered script writer for YouTube videos.</p>
+      <button class="btn">Download</button>
+    </div>
+    <div class="card">
+      <h3>VoiceClone Studio</h3>
+      <p>Clone your voice with realistic sound quality.</p>
+      <button class="btn">Download</button>
+    </div>
+  </div>
+</section>
+    <h2>🔥 Latest Apps & Editing Packs</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Alight Motion XML Pack</h3>
+        <p>Best presets for smooth edits.</p>
+        <button class="btn">Download</button>
       </div>
-      <div className="text-sm text-gray-300">
-        <p className="font-semibold">Quick Links</p>
-        <ul className="mt-3 space-y-2">
-          <li>Features</li>
-          <li>Pricing</li>
-          <li>Docs</li>
-        </ul>
+      <div class="card">
+        <h3>Free Fire Headshot Config</h3>
+        <p>Pro-level aiming config setup.</p>
+        <button class="downloadbtnglow">Download</button>
       </div>
-      <div>
-        <p className="font-semibold text-sm text-gray-300">Subscribe</p>
-        <div className="mt-3 flex gap-2">
-          <input className="px-3 py-2 rounded-lg bg-white/5 w-full" placeholder="Your email" />
-          <button className="px-4 py-2 rounded-lg bg-indigo-600 text-black">Join</button>
-        </div>
-        <p className="mt-3 text-xs text-gray-400">© {new Date().getFullYear()} 5yberBind. All rights reserved.</p>
+      <div class="card">
+        <h3>CapCut Template Pack</h3>
+        <p>Trending templates for creators.</p>
+        <button class="btn">Download</button>
       </div>
     </div>
-  </footer>
+  </section>
+
+</main>
+<footer class="site-footer">
+  <div class="footer-content">
+    <h3>✨ Thank You for Visiting 5yberBind</h3>
+    <p>Your one-stop hub for Free Tech Apps, Editing Packs & Online Earning Tools 💻</p>
+
+    <div class="footer-links">
+      <a href="#top">Back to Top ↑</a>
+      <a href="https://www.youtube.com/@5yberBind" target="_blank">YouTube</a>
+      <a href="https://github.com/5yberbind-prog" target="_blank">GitHub</a>
+      
+    </div>
+    <p class="copyright">
+      © <span id="year"></span> 5yberBind • Created with ❤️ by <b>Ashwani Kumar</b>
+    </p>
+  </div>
+</footer>
+
+<script>
+  // Automatic year update
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </div>
+<script>
+  // Popup open/close script
+  const popupBtn = document.getElementById("socialPopupBtn");
+  const popup = document.getElementById("socialPopup");
+  const closeBtn = document.querySelector(".close-btn");
 
-); }
+  popupBtn.addEventListener("click", () => popup.classList.add("active"));
+  closeBtn.addEventListener("click", () => popup.classList.remove("active"));
+  popup.addEventListener("click", (e) => {
+    if (e.target === popup) popup.classList.remove("active");
+  });
+</script>
+<script>
+  // Define 7 sets of color themes (one for each day)
+  const colorThemes = [
+    { top: "#ff0040", mid: "#ff9900", bottom: "#ffff00" }, // Monday - Red to Yellow
+    { top: "#00ffcc", mid: "#0099ff", bottom: "#3300ff" }, // Tuesday - Aqua to Blue
+    { top: "#ff00ff", mid: "#cc00ff", bottom: "#6600ff" }, // Wednesday - Purple
+    { top: "#00ff00", mid: "#99ff00", bottom: "#ffff00" }, // Thursday - Green to Yellow
+    { top: "#ff6600", mid: "#ff3300", bottom: "#cc0000" }, // Friday - Orange to Red
+    { top: "#00ffff", mid: "#00ccff", bottom: "#0066ff" }, // Saturday - Cyan Blue
+    { top: "#ff99cc", mid: "#ff66ff", bottom: "#cc00cc" }  // Sunday - Pink to Violet
+  ];
 
-/* Deployment & quick checklist for Ashwani:
+  // Get today's theme
+  const today = new Date().getDay(); // 0=Sunday, 1=Monday, ...
+  const theme = colorThemes[today];
 
-Delete the old components listed at the top.
+<header>
+  <div class="navbar">
+    <h2 class="logo">5yberBind</h2>
+    <div class="menu-btn" id="menuBtn">&#9776;</div>
+  </div>
 
-Paste this file at: src/components/PremiumLanding.jsx
+  <nav id="sideMenu" class="side-menu">
+    <div class="close-btn" id="closeBtn">&times;</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#gaming">Gaming Tools</a></li>
+      <li><a href="#editing">Editing Packs</a></li>
+      <li><a href="#utility">Utility Apps</a></li>
+      <li><a href="#earning">Earning Tools</a></li>
+      <li><a href="#music">Music Tools</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+</script>
+<!-- 🌐 Floating Social Orb -->
+<div id="socialOrb" class="social-orb">
+  <div id="orbBtn" class="orb-btn">Follow</div>
+  <div class="orb-links">
+    <a href="https://youtube.com/@5yberBind" target="_blank" title="YouTube">♥️</a>
+    <a href="https://instagram.com/5yberBind" target="_blank" title="Instagram">🔊</a>
+    <a href="mailto:contact@5yberbind.com" title="Email">💌</a>
+  </div>
+</div>
+<script>
+  const orb = document.getElementById("socialOrb");
+  const orbBtn = document.getElementById("orbBtn");
 
-In your App.jsx, replace previous import and component with: // Delete old imports for Navbar/Hero/Footer import PremiumLanding from './components/PremiumLanding'; function App(){ return <PremiumLanding /> }
+  // 🌈 Toggle open/close
+  orbBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    orb.classList.toggle("active");
+    orbBtn.textContent = orb.classList.contains("active") ? "✕" : "☰";
+  });
 
-Replace public/assets/logo.png and public/assets/hero-demo.jpg with your images.
+  // 🌀 Random starting position
+  function randomPosition() {
+    const maxTop = window.innerHeight - 100;
+    const maxLeft = window.innerWidth - 100;
+    orb.style.top = Math.floor(Math.random() * maxTop) + "px";
+    orb.style.left = Math.floor(Math.random() * maxLeft) + "px";
+  }
+  window.addEventListener("load", randomPosition);
 
-Run the app: npm run dev (Vite) or npm start (CRA) depending on your setup.
+  // ✋ Drag functionality
+  let isDragging = false;
+  let offsetX, offsetY;
 
+  const startDrag = (e) => {
+    isDragging = true;
+    offsetX = (e.touches ? e.touches[0].clientX : e.clientX) - orb.offsetLeft;
+    offsetY = (e.touches ? e.touches[0].clientY : e.clientY) - orb.offsetTop;
+    orbBtn.style.cursor = "grabbing";
+  };
 
-If you want I can now:
+  const dragMove = (e) => {
+    if (!isDragging) return;
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    orb.style.left = `${clientX - offsetX}px`;
+    orb.style.top = `${clientY - offsetY}px`;
+  };
 
-Generate a high-resolution hero image (demo) with cyber/hacker aesthetic for the hero-demo.jpg filename.
+  const stopDrag = () => {
+    isDragging = false;
+    orbBtn.style.cursor = "grab";
+  };
 
-Break this single component into smaller components and supply exact files and names to replace.
+  orbBtn.addEventListener("mousedown", startDrag);
+  document.addEventListener("mousemove", dragMove);
+  document.addEventListener("mouseup", stopDrag);
+  orbBtn.addEventListener("touchstart", startDrag);
+  document.addEventListener("touchmove", dragMove);
+  document.addEventListener("touchend", stopDrag);
 
-Generate copy (Hindi or English) for each section. */
+  // 🚫 Auto close when click outside
+  document.addEventListener("click", (e) => {
+    if (!orb.contains(e.target)) {
+      orb.classList.remove("active");
+      orbBtn.textContent = "☰";
+    }
+  });
+</script>
+ <header>
+  <div class="logo">5yberBind</div>
+
+  <!-- Animated Menu Button -->
+  <div id="menu-btn" class="menu-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+
+<!-- Sidebar Menu -->
+<nav id="side-menu" class="side-menu">
+  <ul>
+    <li><a href="#home">🏠 Home</a></li>
+    <li><a href="#gaming">🎮 Gaming Tools</a></li>
+    <li><a href="#editing">🎬 Editing Packs</a></li>
+    <li><a href="#utility-apps">🛠️ Utility Apps</a></li>
+    <li><a href="#earning">💰 Earning Tools</a></li>
+    <li><a href="#contact">📩 Contact</a></li>
+  </ul>
+</nav>
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const sideMenu = document.getElementById('side-menu');
+
+  menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('active');
+    sideMenu.classList.toggle('open');
+  });
+
+  // Close menu when link clicked
+  document.querySelectorAll('.side-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuBtn.classList.remove('active');
+      sideMenu.classList.remove('open');
+    });
+  });
+
+  // Click outside to close
+  document.addEventListener('click', (e) => {
+    if (!sideMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+      menuBtn.classList.remove('active');
+      sideMenu.classList.remove('open');
+    }
+  });
+</script>
+</body>
