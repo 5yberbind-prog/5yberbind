@@ -1,1 +1,23 @@
-
+[
+  {
+    "id": "1",
+    "title": "Cinematic Glitch Pack",
+    "category": "Alight Motion XML",
+    "thumbnail": "assets/thumbnails/am1.jpg",
+    "file": "assets/files/am_glitch.zip"
+  },
+  {
+    "id": "2",
+    "title": "CapCut Promo Template",
+    "category": "CapCut Template",
+    "thumbnail": "assets/thumbnails/cap1.jpg",
+    "file": "assets/files/capcut_template.cctemplate"
+  },
+  {
+    "id": "3",
+    "title": "VN Overlay Pack",
+    "category": "VN Code",
+    "thumbnail": "assets/thumbnails/vn1.jpg",
+    "file": "assets/files/vn_overlay.zip"
+  }
+]
