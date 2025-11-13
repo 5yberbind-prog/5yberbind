@@ -57,5 +57,28 @@
   </div>
 
   <script src="assets/js/app.js"></script>
+<header class="navbar">
+  <div class="container nav-content">
+    <h1 class="logo">5yberbind</h1>
+
+    <nav class="nav-links">
+      <a href="#">Templates</a>
+      <a href="#">CapCut</a>
+      <a href="#">VN</a>
+      <button class="btn-primary">Sign Up</button>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-box">
+    <h2 class="hero-title">High-Quality Templates & Apps</h2>
+    <p class="hero-subtitle">
+      Explore premium templates for Alight Motion, CapCut, VN, and download top-rated editing apps.
+    </p>
+
+    <button class="btn-big">Browse Templates</button>
+  </div>
+</section>
 </body>
 </html>
