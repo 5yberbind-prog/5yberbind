@@ -1,4 +1,3 @@
-
 body{
   margin:0;
   font-family:Arial;
@@ -58,3 +57,24 @@ body{
   height:140px;
   object-fit:cover;
 }
+async function loadData(){
+  const res = await fetch("data/items.json");
+  return await res.json();
+}
+
+function card(item){
+  return `
+    <div class="card">
+      <img src="${item.thumbnail}">
+      <h3>${item.title}</h3>
+      <p>${item.category}</p>
+      <a href="${item.file}" download class="btn">Download</a>
+    </div>`;
+}
+
+async function render(){
+  let data = await loadData();
+  document.querySelector("#galleryGrid").innerHTML =
+    data.map(card).join("");
+}
+render();
