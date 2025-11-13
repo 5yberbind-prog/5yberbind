@@ -1,1 +1,88 @@
 
+// app.js - simple gallery from data/items.json
+async function loadData() {
+  const res = await fetch('data/items.json');
+  const items = await res.json();
+  return items;
+}
+
+function createCard(item) {
+  const tpl = document.getElementById('cardTpl');
+  const node = tpl.content.cloneNode(true);
+  node.querySelector('.thumb-img').src = item.thumbnail;
+  node.querySelector('.thumb-img').alt = item.title;
+  node.querySelector('.title').textContent = item.title;
+  node.querySelector('.desc').textContent = item.description;
+  node.querySelector('.meta-small').textContent = `${item.category} • ${item.author} • v${item.version}`;
+  const downloadBtn = node.querySelector('.download-btn');
+  downloadBtn.href = item.file;
+
+  const detailsBtn = node.querySelector('.details-btn');
+  detailsBtn.addEventListener('click', () => openDetails(item));
+
+  const previewBtn = node.querySelector('.preview-btn');
+  previewBtn.addEventListener('click', () => openPreview(item));
+
+  return node;
+}
+
+function openDetails(item) {
+  const modal = document.getElementById('modal');
+  const body = document.getElementById('modalBody');
+  body.innerHTML = `
+    <h2>${item.title}</h2>
+    <p><strong>Category:</strong> ${item.category}</p>
+    <p><strong>Author:</strong> ${item.author} • <strong>Version:</strong> ${item.version}</p>
+    <p>${item.description}</p>
+    <p><a href="${item.file}" class="download-btn" download>Download</a></p>
+  `;
+  modal.classList.remove('hidden');
+}
+
+function openPreview(item) {
+  const modal = document.getElementById('modal');
+  const body = document.getElementById('modalBody');
+  const media = item.preview.endsWith('.gif') || item.preview.endsWith('.webp') ? 
+    `<img src="${item.preview}" style="max-width:100%"/>` :
+    `<video controls style="max-width:100%"><source src="${item.preview}"></video>`;
+  body.innerHTML = `<h3>${item.title} — Preview</h3>${media}`;
+  modal.classList.remove('hidden');
+}
+
+function initEvents() {
+  document.getElementById('closeModal').addEventListener('click', () => {
+    document.getElementById('modal').classList.add('hidden');
+    document.getElementById('modalBody').innerHTML = '';
+  });
+
+  document.getElementById('categoryFilter').addEventListener('change', applyFilters);
+  document.getElementById('searchInput').addEventListener('input', applyFilters);
+}
+
+let itemsCache = [];
+async function renderList(list = null) {
+  const container = document.getElementById('gallery');
+  container.innerHTML = '';
+  const data = list || itemsCache;
+  data.forEach(item => {
+    const card = createCard(item);
+    container.appendChild(card);
+  });
+}
+
+function applyFilters() {
+  const cat = document.getElementById('categoryFilter').value;
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  let filtered = itemsCache.filter(it => {
+    if (cat !== 'all' && it.category !== cat) return false;
+    if (q && !(it.title.toLowerCase().includes(q) || (it.author || '').toLowerCase().includes(q))) return false;
+    return true;
+  });
+  renderList(filtered);
+}
+
+(async function main(){
+  initEvents();
+  itemsCache = await loadData();
+  renderList();
+})();
