@@ -1,1 +1,27 @@
 
+[
+  {
+    "id": "am_xml_01",
+    "category": "AlightMotion XML",
+    "title": "Cinematic Glitch Pack - AM XML",
+    "description": "Multiple glitch transitions & color grades for Alight Motion. Easy to import.",
+    "thumbnail": "assets/thumbnails/am_glitch.jpg",
+    "preview": "assets/previews/am_glitch_preview.mp4",
+    "file": "assets/files/am_glitch_pack.zip",
+    "version": "1.0",
+    "author": "Techbinders",
+    "date": "2025-11-13"
+  },
+  {
+    "id": "capcut_temp_01",
+    "category": "CapCut Template",
+    "title": "Minimal Promo Template",
+    "description": "CapCut template for quick promos. Replace text & media.",
+    "thumbnail": "assets/thumbnails/capcut_minimal.jpg",
+    "preview": "assets/previews/capcut_minimal.gif",
+    "file": "assets/files/capcut_minimal.cctemplate",
+    "version": "1.0",
+    "author": "Techbinders",
+    "date": "2025-11-10"
+  }
+]
