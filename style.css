@@ -1,0 +1,34 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: #fafafa;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.sub {
+    color: #666;
+}
+
+.box {
+    margin-bottom: 40px;
+}
+
+.box h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.box img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 10px;
+}
