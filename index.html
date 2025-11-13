@@ -1,45 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>5yberbind - Premium Templates</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="logo">
+            <span>5yberbind</span>
+        </div>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="alight-motion.html">Alight Motion</a></li>
+            <li><a href="capcut.html">CapCut</a></li>
+            <li><a href="vn.html">VN Codes</a></li>
+        </ul>
+
+        <button id="darkToggle">🌙</button>
+    </nav>
+
+    <!-- HERO -->
     <header class="hero">
         <h1>5yberbind</h1>
         <p>Your Premium Templates Store</p>
         <a class="btn" href="#templates">Browse Templates</a>
     </header>
 
+    <!-- CARDS -->
     <section id="templates" class="section">
         <h2 class="section-title">Available Categories</h2>
 
         <div class="cards">
 
             <div class="card">
-                <img src="images/am.png" alt="Alight Motion">
+                <img src="images/am.png" alt="">
                 <h3>Alight Motion XML</h3>
-                <p>Premium motion graphics and XML presets.</p>
-                <a href="#" class="card-btn">Explore</a>
+                <p>Premium motion graphics & XML presets.</p>
+                <a href="alight-motion.html" class="card-btn">Explore</a>
             </div>
 
             <div class="card">
-                <img src="images/capcut.png" alt="CapCut">
+                <img src="images/capcut.png" alt="">
                 <h3>CapCut Templates</h3>
-                <p>Latest trending CapCut template packs.</p>
-                <a href="#" class="card-btn">Explore</a>
+                <p>Trending CapCut template packs.</p>
+                <a href="capcut.html" class="card-btn">Explore</a>
             </div>
 
             <div class="card">
-                <img src="images/vn.png" alt="VN">
+                <img src="images/vn.png" alt="">
                 <h3>VN Codes</h3>
-                <p>Professional VN project codes for editing.</p>
-                <a href="#" class="card-btn">Explore</a>
+                <p>Professional VN project codes.</p>
+                <a href="vn.html" class="card-btn">Explore</a>
             </div>
 
         </div>
@@ -49,5 +68,6 @@
         <p>© 2025 5yberbind • All Rights Reserved</p>
     </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
