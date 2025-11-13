@@ -1,1 +1,61 @@
 
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Templates & Apps — Techbinders</title>
+  <meta name="description" content="Apps, Alight Motion XML, CapCut templates, VN code — screenshot previews and downloads." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Techbinders - Templates & Apps</h1>
+      <p class="tagline">Alight Motion XML · CapCut Templates · VN Code · App Downloads</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="filters">
+      <select id="categoryFilter">
+        <option value="all">सब Category</option>
+        <option value="AlightMotion XML">AlightMotion XML</option>
+        <option value="CapCut Template">CapCut Template</option>
+        <option value="VN Code">VN Code</option>
+        <option value="App">App</option>
+      </select>
+      <input id="searchInput" placeholder="Search by title or author..." />
+    </section>
+
+    <section id="gallery" class="grid"></section>
+  </main>
+
+  <template id="cardTpl">
+    <article class="card">
+      <div class="thumb">
+        <img class="thumb-img" alt="thumbnail" />
+        <button class="preview-btn">Preview</button>
+      </div>
+      <div class="meta">
+        <h3 class="title"></h3>
+        <p class="desc"></p>
+        <p class="meta-small"></p>
+        <div class="actions">
+          <a class="download-btn" download>Download</a>
+          <a class="details-btn">Details</a>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <button id="closeModal" class="close">×</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
