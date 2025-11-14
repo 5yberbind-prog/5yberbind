@@ -1,116 +1,313 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="hi">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5yberbind - Premium Templates</title>
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Premium App Store - Techbinders</title>
+  <meta name="description" content="Premium neon app store with sections, detail pages, download timer, splash and theme toggle." />
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <!-- SPLASH -->
+  <div id="splash" class="splash">
+    <div class="splash-inner">
+      <svg class="logo-splash" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g" x1="0" x2="1">
+            <stop offset="0" stop-color="#06b6d4"/>
+            <stop offset="1" stop-color="#7c3aed"/>
+          </linearGradient>
+        </defs>
+        <rect x="10" y="10" width="80" height="80" rx="18" fill="url(#g)"/>
+        <text x="50" y="60" font-size="32" text-anchor="middle" fill="#00101a" font-weight="800">TB</text>
+      </svg>
+      <div class="splash-text">Premium App Store</div>
+    </div>
+  </div>
 
-    <!-- NAVIGATION -->
-    <nav class="navbar">
-        <div class="logo">
-            <img src="logo.png" alt="logo">
-            <span>5yberbind</span>
-        </div>
+  <!-- AUDIO for hover sound (small click/pop) -->
+  <audio id="hover-snd" preload="auto">
+    <!-- simple tone as base64 small beep (silence fallback) -->
+    <source src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAAAB3AQACABAAZGF0YQAAAAA=" type="audio/wav">
+  </audio>
 
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="brand-wrap">
+      <!-- SVG Logo -->
+      <svg class="brand-logo" viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Techbinders">
+        <defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#06b6d4"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs>
+        <rect x="0" y="0" width="40" height="40" rx="10" fill="url(#lg)"></rect>
+        <text x="60" y="26" font-size="18" fill="#ffffff" font-weight="800">Techbinders</text>
+      </svg>
+
+      <div class="header-controls">
+        <button id="theme-toggle" class="icon-btn" aria-pressed="false" title="Toggle theme">🌙</button>
+        <nav class="top-nav">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#editing" class="nav-link">Editing</a>
+          <a href="#tech" class="nav-link">Tech</a>
+          <a href="#gaming" class="nav-link">Gaming</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="top-row">
+      <input id="search" class="search" placeholder="Search apps, e.g. CapCut" aria-label="Search apps">
+      <button id="sidebar-toggle" class="icon-btn" title="Toggle categories">☰</button>
+    </div>
+  </header>
+
+  <!-- LAYOUT: SIDEBAR + MAIN -->
+  <div class="layout">
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-top">
+        <h3>Categories</h3>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="alight-motion.html">Alight Motion</a></li>
-            <li><a href="capcut.html">CapCut</a></li>
-            <li><a href="vn.html">VN Codes</a></li>
+          <li><button class="side-link" data-filter="all">All</button></li>
+          <li><button class="side-link" data-filter="editing">Editing</button></li>
+          <li><button class="side-link" data-filter="tech">Tech</button></li>
+          <li><button class="side-link" data-filter="gaming">Gaming</button></li>
         </ul>
+      </div>
+      <div class="sidebar-bottom">
+        <button id="logo-banner" class="logo-banner">Premium</button>
+      </div>
+    </aside>
 
-        <button id="darkToggle">🌙</button>
-    </nav>
+    <main id="main" class="main">
+      <!-- Home / sections are managed by JS routing via hash -->
+      <section id="home" class="page" data-page="home">
+        <h1 class="page-title">Featured Categories</h1>
 
-    <!-- HERO -->
-    <header class="hero">
-        <h1>5yberbind</h1>
-        <p>Your Premium Templates Store</p>
-        <a class="btn" href="#templates">Browse Templates</a>
-    </header>
+        <!-- EDITING SECTION PREVIEW -->
+        <section class="app-section" data-section="editing">
+          <h2 class="section-title">Editing Apps</h2>
+          <div class="app-grid" id="editing-grid">
+            <!-- Cards inserted in HTML for quick copy/paste (10 items per section) -->
+            <!-- Example Card -->
+            <article class="app-card" data-type="editing" data-name="CapCut" tabindex="0">
+              <div class="icon-wrap">
+                <div class="glow-ring" aria-hidden></div>
+                <div class="icon-frame">
+                  <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3" stroke="white" stroke-width="1.6" fill="none"/></svg>
+                </div>
+              </div>
+              <div class="app-title">CapCut</div>
+              <div class="app-sub">Free video editor</div>
+              <div class="dl-row">
+                <button class="dl-btn" data-app="CapCut">Download</button>
+                <button class="info-btn" data-app="CapCut">Details</button>
+              </div>
+            </article>
 
-    <!-- CARDS -->
-    <section id="templates" class="section">
-        <h2 class="section-title">Available Categories</h2>
+            <article class="app-card" data-type="editing" data-name="Alight Motion">
+              <div class="icon-wrap"><div class="glow-ring"></div><div class="icon-frame"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" stroke="white" stroke-width="1.6" fill="none"/></svg></div></div>
+              <div class="app-title">Alight Motion</div>
+              <div class="app-sub">Motion & VFX</div>
+              <div class="dl-row"><button class="dl-btn" data-app="Alight Motion">Download</button><button class="info-btn" data-app="Alight Motion">Details</button></div>
+            </article>
 
-        <div class="category-cards">
+            <article class="app-card" data-type="editing" data-name="VN Editor">
+              <div class="icon-wrap"><div class="glow-ring"></div><div class="icon-frame"><svg viewBox="0 0 24 24"><polygon points="5,4 20,12 5,20" stroke="white" stroke-width="1.6" fill="none"/></svg></div></div>
+              <div class="app-title">VN Editor</div>
+              <div class="app-sub">Simple & Powerful</div>
+              <div class="dl-row"><button class="dl-btn" data-app="VN Editor">Download</button><button class="info-btn" data-app="VN Editor">Details</button></div>
+            </article>
 
-            <div class="card">
-                <img src="images/am.png" alt="">
-                <h3>Alight Motion XML</h3>
-                <p>Premium motion graphics & XML presets.</p>
-                <a href="alight-motion.html" class="card-btn">Explore</a>
+            <article class="app-card" data-type="editing" data-name="PixelLab">
+              <div class="icon-wrap"><div class="glow-ring"></div><div class="icon-frame"><svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="3" stroke="white" stroke-width="1.6" fill="none"/></svg></div></div>
+              <div class="app-title">PixelLab</div>
+              <div class="app-sub">Graphic text editor</div>
+              <div class="dl-row"><button class="dl-btn" data-app="PixelLab">Download</button><button class="info-btn" data-app="PixelLab">Details</button></div>
+            </article>
+
+            <article class="app-card" data-type="editing" data-name="PicsArt">
+              <div class="icon-wrap"><div class="glow-ring"></div><div class="icon-frame"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="4" stroke="white" stroke-width="1.6" fill="none"/><circle cx="15" cy="15" r="4" stroke="white" stroke-width="1.6" fill="none"/></svg></div></div>
+              <div class="app-title">PicsArt</div>
+              <div class="app-sub">Photo editor</div>
+              <div class="dl-row"><button class="dl-btn" data-app="PicsArt">Download</button><button class="info-btn" data-app="PicsArt">Details</button></div>
+            </article>
+
+            <article class="app-card" data-type="editing" data-name="Lightroom">
+              <div class="icon-wrap"><div class="glow-ring"></div><div class="icon-frame"><svg viewBox="0 0 24 24"><path d="M12 4v16M4 12h16" stroke="white" stroke-width="1.6" fill="none"/></svg></div></div>
+              <div class="app-title">Lightroom</div>
+              <div class="app-sub">Pro photo tools</div>
+              <div class="dl-row"><button class="dl-btn" data-app="Lightroom">Download</button><button class="info-btn" data-app="Lightroom">Details</button></div>
+            </article>
+
+            <article class="app-card" data-type="editing" data-name="KineMaster">
+              <div class="icon-wrap"><div class="glow-ring"></div><div class="icon-frame"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" stroke="white" stroke-width="1.6" fill="none"/></svg></div></div>
+              <div class="app-title">KineMaster</div>
+              <div class="app-sub">Mobile pro editor</div>
+              <div class="dl-row"><button class="dl-btn" data-app="KineMaster">Download</button><button class="info-btn" data-app="KineMaster">Details</button></div>
+            </article>
+
+            <article class="app-card" data-type="editing" data-name="Node Video">
+              <div class="icon-wrap"><div class="glow-ring"></div><div class="icon-frame"><svg viewBox="0 0 24 24"><path d="M6 4h12l-6 16z" stroke="white" stroke-width="1.6" fill="none"/></svg></div></div>
+              <div class="app-title">Node Video</div>
+              <div class="app-sub">Advanced editing</div>
+              <div class="dl-row"><button class="dl-btn" data-app="Node Video">Download</button><button class="info-btn" data-app="Node Video">Details</button></div>
+            </article>
+
+            <article class="app-card" data-type="editing" data-name="Filmora">
+              <div class="icon-wrap"><div class="glow-ring"></div><div class="icon-frame"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" stroke="white" stroke-width="1.6" fill="none"/></svg></div></div>
+              <div class="app-title">Filmora</div>
+              <div class="app-sub">Easy video maker</div>
+              <div class="dl-row"><button class="dl-btn" data-app="Filmora">Download</button><button class="info-btn" data-app="Filmora">Details</button></div>
+            </article>
+
+            <article class="app-card" data-type="editing" data-name="Remini">
+              <div class="icon-wrap"><div class="glow-ring"></div><div class="icon-frame"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" stroke="white" stroke-width="1.6" fill="none"/></svg></div></div>
+              <div class="app-title">Remini</div>
+              <div class="app-sub">AI enhancer</div>
+              <div class="dl-row"><button class="dl-btn" data-app="Remini">Download</button><button class="info-btn" data-app="Remini">Details</button></div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- Tech & Gaming preview sections appear below -->
+        <section class="app-section" data-section="tech">
+          <h2 class="section-title">Tech Apps</h2>
+          <div class="app-grid" id="tech-grid">
+            <article class="app-card" data-type="tech" data-name="Termux">
+              <div class="icon-wrap"><div class="glow-ring"></div><div class="icon-frame"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" stroke="white" stroke-width="1.6" fill="none"/></svg></div></div>
+              <div class="app-title">Termux</div>
+              <div class="app-sub">Terminal emulator</div>
+              <div class="dl-row"><button class="dl-btn" data-app="Termux">Download</button><button class="info-btn" data-app="Termux">Details</button></div>
+            </article>
+
+            <article class="app-card" data-type="tech" data-name="VS Code">
+              <div class="icon-wrap"><div class="glow-ring"></div><div class="icon-frame"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" stroke="white" stroke-width="1.6" fill="none"/></svg></div></div>
+              <div class="app-title">VS Code</div>
+              <div class="app-sub">Code editor</div>
+              <div class="dl-row"><button class="dl-btn" data-app="VS Code">Download</button><button class="info-btn" data-app="VS Code">Details</button></div>
+            </article>
+
+            <article class="app-card" data-type="tech" data-name="GitHub">
+              <div class="icon-wrap"><div class="glow-ring"></div><div class="icon-frame"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="white" stroke-width="1.6" fill="none"/></svg></div></div>
+              <div class="app-title">GitHub</div>
+              <div class="app-sub">Code hosting</div>
+              <div class="dl-row"><button class="dl-btn" data-app="GitHub">Download</button><button class="info-btn" data-app="GitHub">Details</button></div>
+            </article>
+
+            <article class="app-card" data-type="tech" data-name="Replit">
+              <div class="icon-wrap"><div class="glow-ring"></div><div class="icon-frame"><svg viewBox="0 0 24 24"><path d="M4 8h16M4 12h16M4 16h16" stroke="white" stroke-width="1.6" fill="none"/></svg></div></div>
+              <div class="app-title">Replit</div>
+              <div class="app-sub">Online IDE</div>
+              <div class="dl-row"><button class="dl-btn" data-app="Replit">Download</button><button class="info-btn" data-app="Replit">Details</button></div>
+            </article>
+
+            <article class="app-card" data-type="tech" data-name="Acode">
+              <div class="icon-wrap"><div class="glow-ring"></div><div class="icon-frame"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" stroke="white" stroke-width="1.6" fill="none"/></svg></div></div>
+              <div class="app-title">Acode</div>
+              <div class="app-sub">Mobile editor</div>
+              <div class="dl-row"><button class="dl-btn" data-app="Acode">Download</button><button class="info-btn" data-app="Acode">Details</button></div>
+            </article>
+
+            <article class="app-card" data-type="tech" data-name="Figma">
+              <div class="icon-wrap"><div class="glow-ring"></div><div class="icon-frame"><svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" stroke="white" stroke-width="1.6" fill="none"/></svg></div></div>
+              <div class="app-title">Figma</div>
+              <div class="app-sub">Design tool</div>
+              <div class="dl-row"><button class="dl-btn" data-app="Figma">Download</button><button class="info-btn" data-app="Figma">Details</button></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="app-section" data-section="gaming">
+          <h2 class="section-title">Gaming Apps</h2>
+          <div class="app-grid" id="gaming-grid">
+            <article class="app-card" data-type="gaming" data-name="Free Fire">
+              <div class="icon-wrap"><div class="glow-ring"></div><div class="icon-frame"><svg viewBox="0 0 24 24"><rect x="5" y="10" width="4" height="4" fill="white"/></svg></div></div>
+              <div class="app-title">Free Fire</div>
+              <div class="app-sub">Battle royale</div>
+              <div class="dl-row"><button class="dl-btn" data-app="Free Fire">Download</button><button class="info-btn" data-app="Free Fire">Details</button></div>
+            </article>
+
+            <article class="app-card" data-type="gaming" data-name="PUBG">
+              <div class="icon-wrap"><div class="glow-ring"></div><div class="icon-frame"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" stroke="white" stroke-width="1.6" fill="none"/></svg></div></div>
+              <div class="app-title">PUBG</div>
+              <div class="app-sub">Classic shooter</div>
+              <div class="dl-row"><button class="dl-btn" data-app="PUBG">Download</button><button class="info-btn" data-app="PUBG">Details</button></div>
+            </article>
+
+            <article class="app-card" data-type="gaming" data-name="BGMI">
+              <div class="icon-wrap"><div class="glow-ring"></div><div class="icon-frame"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" stroke="white" stroke-width="1.6" fill="none"/></svg></div></div>
+              <div class="app-title">BGMI</div>
+              <div class="app-sub">Competitive</div>
+              <div class="dl-row"><button class="dl-btn" data-app="BGMI">Download</button><button class="info-btn" data-app="BGMI">Details</button></div>
+            </article>
+
+            <article class="app-card" data-type="gaming" data-name="COD Mobile">
+              <div class="icon-wrap"><div class="glow-ring"></div><div class="icon-frame"><svg viewBox="0 0 24 24"><path d="M4 7h16v10H4z" stroke="white" stroke-width="1.6" fill="none"/></svg></div></div>
+              <div class="app-title">COD Mobile</div>
+              <div class="app-sub">FPS & Multiplayer</div>
+              <div class="dl-row"><button class="dl-btn" data-app="COD Mobile">Download</button><button class="info-btn" data-app="COD Mobile">Details</button></div>
+            </article>
+
+            <article class="app-card" data-type="gaming" data-name="Minecraft">
+              <div class="icon-wrap"><div class="glow-ring"></div><div class="icon-frame"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" stroke="white" stroke-width="1.6" fill="none"/></svg></div></div>
+              <div class="app-title">Minecraft</div>
+              <div class="app-sub">Sandbox</div>
+              <div class="dl-row"><button class="dl-btn" data-app="Minecraft">Download</button><button class="info-btn" data-app="Minecraft">Details</button></div>
+            </article>
+
+          </div>
+        </section>
+
+      </section>
+
+      <!-- APP DETAIL PAGE (SPA) -->
+      <section id="detail-page" class="page" data-page="detail" hidden>
+        <button id="back-home" class="back-btn">← Back</button>
+        <div class="detail-card" id="detail-card">
+          <div class="detail-left">
+            <div class="icon-wrap large"><div class="glow-ring"></div><div class="icon-frame"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3" stroke="white" stroke-width="1.6" fill="none"/></svg></div></div>
+          </div>
+          <div class="detail-right">
+            <h2 id="detail-title">App Name</h2>
+            <p id="detail-desc">App description goes here. Replace with real text about features, size, version, requirements, etc.</p>
+            <div class="detail-meta"><strong>Size:</strong> <span id="detail-size">25 MB</span> • <strong>Version:</strong> <span id="detail-ver">1.0.0</span></div>
+            <div style="margin-top:12px">
+              <button class="dl-btn" id="detail-download">Download</button>
+              <button class="dl-btn secondary" id="detail-preview">Preview</button>
             </div>
-
-            <div class="card">
-                <img src="images/capcut.png" alt="">
-                <h3>CapCut Templates</h3>
-                <p>Trending CapCut template packs.</p>
-                <a href="capcut.html" class="card-btn">Explore</a>
-            </div>
-
-            <div class="card">
-                <img src="images/vn.png" alt="">
-                <h3>VN Codes</h3>
-                <p>Professional VN project codes.</p>
-                <a href="vn.html" class="card-btn">Explore</a>
-            </div>
-<section class="apps-section">
-
-    <h2 class="section-title">Editing Apps</h2>
-    <div class="apps-grid">
-        <div class="app-card"><p>CapCut</p><a href="#">Download</a></div>
-        <div class="app-card"><p>Alight Motion</p><a href="#">Download</a></div>
-        <div class="app-card"><p>VN Editor</p><a href="#">Download</a></div>
-        <div class="app-card"><p>PixelLab</p><a href="#">Download</a></div>
-        <div class="app-card"><p>PicsArt</p><a href="#">Download</a></div>
-        <div class="app-card"><p>Lightroom</p><a href="#">Download</a></div>
-        <div class="app-card"><p>KineMaster</p><a href="#">Download</a></div>
-        <div class="app-card"><p>Node Video</p><a href="#">Download</a></div>
-        <div class="app-card"><p>Filmora</p><a href="#">Download</a></div>
-        <div class="app-card"><p>Remini</p><a href="#">Download</a></div>
-    </div>
-
-    <h2 class="section-title">Tech Apps</h2>
-    <div class="apps-grid">
-        <div class="app-card"><p>Termux</p><a href="#">Download</a></div>
-        <div class="app-card"><p>VS Code</p><a href="#">Download</a></div>
-        <div class="app-card"><p>GitHub</p><a href="#">Download</a></div>
-        <div class="app-card"><p>Replit</p><a href="#">Download</a></div>
-        <div class="app-card"><p>Acode</p><a href="#">Download</a></div>
-        <div class="app-card"><p>Figma</p><a href="#">Download</a></div>
-    </div>
-
-    <h2 class="section-title">Gaming Apps</h2>
-    <div class="apps-grid">
-        <div class="app-card"><p>Free Fire</p><a href="#">Download</a></div>
-        <div class="app-card"><p>PUBG</p><a href="#">Download</a></div>
-        <div class="app-card"><p>BGMI</p><a href="#">Download</a></div>
-    </div>
-
-</section>
-
-    <div class="app-card">
-      <svg class="icon-glow"><rect x="4" y="4" width="16" height="16" stroke="cyan" fill="none" stroke-width="2"/></svg>
-      <span>VS Code</span>
-      <button class="dl-btn">Download</button>
-    </div>
-
+          </div>
         </div>
-    </section>
+      </section>
 
-    <footer>
-        <p>© 2025 5yberbind • All Rights Reserved</p>
-    </footer>
+      <!-- DOWNLOAD PAGE with timer -->
+      <section id="download-page" class="page" data-page="download" hidden>
+        <button id="back-from-download" class="back-btn">← Back</button>
+        <div class="download-card">
+          <h2 id="download-app">Preparing Download</h2>
+          <p id="download-msg">Server preparing your APK. Your download will start in <strong id="countdown">5</strong> seconds.</p>
+          <div class="links" id="download-links" hidden>
+            <a id="dl-link-1" href="#" class="dl-link">Download Server 1</a>
+            <a id="dl-link-2" href="#" class="dl-link">Mirror Server 2</a>
+          </div>
+        </div>
+      </section>
 
-<script src="script.js"></script>
+    </main>
+  </div>
+
+  <footer class="site-footer">© 2025 Techbinders · Made for Ashwani</footer>
+
+  <!-- Modal (also used for quick downloads) -->
+  <div class="modal-backdrop" id="modal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <h3 id="modal-title">Download</h3>
+      <div class="meta" id="modal-meta">Choose server for <strong id="modal-app">App</strong></div>
+      <div class="links" id="modal-links">
+        <a id="modal-link1" href="#" class="dl-link">Server 1 - APK</a>
+        <a id="modal-link2" href="#" class="dl-link">Server 2 - Mirror</a>
+      </div>
+      <div style="margin-top:12px;text-align:right"><button id="modal-close" class="close">Close</button></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
-<!-- Cursor elements (add near end of <body>) -->
-<div id="cursor-dot" aria-hidden="true"></div>
-<div id="cursor-outline" aria-hidden="true"></div>
