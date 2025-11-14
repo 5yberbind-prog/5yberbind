@@ -1,149 +1,228 @@
-/* Neon click ripple + cursor boost */
-document.addEventListener("click", function(e) {
-    // Neon ripple
-    const ripple = document.createElement("div");
-    ripple.className = "click-ripple";
-    ripple.style.left = e.clientX + "px";
-    ripple.style.top = e.clientY + "px";
-    document.body.appendChild(ripple);
+// Core interactive features: splash, theme toggle, sidebar, routing, detail, download timer, hover sound
 
-    // remove ripple after animation
-    setTimeout(() => ripple.remove(), 600);
-<script>
-(function(){
-  // If a previous cursor script exists, remove/disable it first.
-  // This script creates smooth lerp motion and outlines on hover of .card / .app elements
+// ========== Splash ==========
+document.addEventListener('DOMContentLoaded', () => {
+  const splash = document.getElementById('splash');
+  setTimeout(() => {
+    splash.style.transition = 'opacity .4s ease, transform .4s ease';
+    splash.style.opacity = '0';
+    splash.style.transform = 'scale(.98)';
+    setTimeout(()=>splash.remove(), 450);
+  }, 900); // short splash
+});
 
-  // Elements
-  const dot = document.getElementById('cursor-dot');
-  const outline = document.getElementById('cursor-outline');
+// ========== Theme Toggle (dark/light) ==========
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'light') body.classList.add('light-theme'), themeToggle.textContent = '☀️';
+themeToggle.addEventListener('click', () => {
+  const isLight = body.classList.toggle('light-theme');
+  themeToggle.textContent = isLight ? '☀️' : '🌙';
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+});
+/* Light theme quick vars */
+const style = document.documentElement.style;
+if (!savedTheme || savedTheme === 'dark') {
+  // keep default neon look
+} else {
+  // light adjustments (optional)
+  document.documentElement.style.setProperty('--bg', '#f6fbff');
+  document.documentElement.style.setProperty('--card', '#ffffff');
+  document.documentElement.style.setProperty('--muted', '#475569');
+}
 
-  // Smooth follow (lerp)
-  let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
-  let dotX = mouseX, dotY = mouseY;
-  let outlineX = mouseX, outlineY = mouseY;
+// ========== Sidebar toggle ==========
+const sidebar = document.getElementById('sidebar');
+const sidebarToggle = document.getElementById('sidebar-toggle');
+sidebarToggle.addEventListener('click', ()=> sidebar.classList.toggle('collapsed'));
 
-  // target outline rect (when hovering)
-  let targetRect = null;
-  let isActive = false;
-
-  // easing
-  const ease = 0.18;
-
-  window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-
-    // show dot if hidden
-    dot.style.opacity = 1;
+// ========== Routing & Tabs ==========
+const pages = document.querySelectorAll('.page');
+function showPage(name) {
+  pages.forEach(p => {
+    if (p.dataset.page === name) p.hidden = false;
+    else p.hidden = true;
   });
+  // scroll to top of main area
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+function routeFromHash() {
+  const hash = location.hash.replace('#','') || 'home';
+  if (['home','detail','download'].includes(hash)) {
+    showPage(hash);
+  } else {
+    // section-specific (editing, tech, gaming) -> show home and scroll to section
+    showPage('home');
+    const sec = document.querySelector(`[data-section="${hash}"]`);
+    if (sec) setTimeout(()=> sec.scrollIntoView({behavior:'smooth', block:'start'}), 100);
+  }
+}
+window.addEventListener('hashchange', routeFromHash);
+routeFromHash(); // initial
 
-  // hide on leave
-  window.addEventListener('mouseleave', ()=> {
-    dot.style.opacity = 0;
-    outline.style.opacity = 0;
+// Top nav / sidebar linking (set active)
+document.querySelectorAll('.nav-link').forEach(a=>{
+  a.addEventListener('click',(e)=>{
+    // let hash handle it
   });
+});
+document.querySelectorAll('.side-link').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const f = btn.dataset.filter;
+    if (f==='all') location.hash = '#home';
+    else location.hash = `#${f}`;
+  });
+});
 
-  // Update loop
-  function raf(){
-    // lerp dot
-    dotX += (mouseX - dotX) * 0.28;
-    dotY += (mouseY - dotY) * 0.28;
-    dot.style.transform = `translate(${dotX - 0}px, ${dotY - 0}px) translate(-50%,-50%)`;
+// ========== Card hover sound ==========
+const hoverSnd = document.getElementById('hover-snd');
+function playHoverSound(){
+  // many browsers block audio play without user gesture; try-catch
+  try { hoverSnd.currentTime = 0; hoverSnd.play().catch(()=>{}); } catch(e){}
+}
+document.body.addEventListener('mouseover', (e)=>{
+  const card = e.target.closest('.app-card');
+  if (card) playHoverSound();
+});
+document.body.addEventListener('mouseover', (e)=>{
+  const btn = e.target.closest('.dl-btn');
+  if (btn) playHoverSound();
+});
 
-    // outline movement
-    if(targetRect && isActive){
-      // target center
-      const tx = targetRect.left + targetRect.width / 2;
-      const ty = targetRect.top + targetRect.height / 2;
+// ========== Card animations entrance ==========
+document.querySelectorAll('.app-card').forEach((c,i)=>setTimeout(()=>c.classList.add('show'), i*35));
 
-      outlineX += (tx - outlineX) * ease;
-      outlineY += (ty - outlineY) * ease;
+// ========== Search filter ==========
+const searchInput = document.getElementById('search');
+searchInput.addEventListener('input', ()=>{
+  const q = searchInput.value.trim().toLowerCase();
+  document.querySelectorAll('.app-card').forEach(card=>{
+    const name = (card.dataset.name||'').toLowerCase();
+    card.style.display = name.includes(q) ? '' : 'none';
+  });
+});
 
-      // lerp width/height
-      const currentW = parseFloat(outline.style.width) || targetRect.width;
-      const currentH = parseFloat(outline.style.height) || targetRect.height;
-      const newW = currentW + (targetRect.width - currentW) * ease;
-      const newH = currentH + (targetRect.height - currentH) * ease;
+// ========== Details modal / SPA detail page ==========
+const detailPage = document.getElementById('detail-page');
+const detailTitle = document.getElementById('detail-title');
+const detailDesc = document.getElementById('detail-desc');
+const detailSize = document.getElementById('detail-size');
+const detailVer = document.getElementById('detail-ver');
+const detailDownloadBtn = document.getElementById('detail-download');
+const backHomeBtn = document.getElementById('back-home');
+const infoButtons = document.querySelectorAll('.info-btn');
 
-      outline.style.width = `${Math.round(newW)}px`;
-      outline.style.height = `${Math.round(newH)}px`;
-      outline.style.left = `${Math.round(outlineX)}px`;
-      outline.style.top = `${Math.round(outlineY)}px`;
-      // adjust radius to look premium
-      outline.style.borderRadius = (Math.min(targetRect.width, targetRect.height) * 0.12) + 'px';
+let currentApp = null;
 
+infoButtons.forEach(btn=>{
+  btn.addEventListener('click', (e)=>{
+    const app = btn.dataset.app;
+    openDetail(app);
+  });
+});
+function openDetail(appName){
+  // populate with placeholder info - you can customize per-app
+  currentApp = appName;
+  detailTitle.textContent = appName;
+  detailDesc.textContent = appName + ' — Ye ek sample description hai. Isko aap apne real features, changelog aur screenshots se replace kar sakte ho.';
+  detailSize.textContent = '25 MB';
+  detailVer.textContent = '1.0.0';
+  // show detail page
+  location.hash = '#detail';
+  showPage('detail');
+}
+backHomeBtn.addEventListener('click', ()=> {
+  location.hash = '#home';
+  showPage('home');
+});
+detailDownloadBtn.addEventListener('click', ()=> {
+  if (!currentApp) return;
+  openDownloadPage(currentApp);
+});
+
+// ========== Download flow (timer + links) ==========
+const downloadPage = document.getElementById('download-page');
+const downloadAppTitle = document.getElementById('download-app');
+const countdownEl = document.getElementById('countdown');
+const downloadLinks = document.getElementById('download-links');
+const dlLink1 = document.getElementById('dl-link-1');
+const dlLink2 = document.getElementById('dl-link-2');
+const backFromDownloadBtn = document.getElementById('back-from-download');
+
+backFromDownloadBtn.addEventListener('click', ()=>{
+  location.hash = '#home';
+  showPage('home');
+});
+
+function openDownloadPage(appName){
+  location.hash = '#download';
+  showPage('download');
+  downloadAppTitle.textContent = 'Preparing: ' + appName;
+  downloadLinks.hidden = true;
+  let t = 5; // seconds countdown
+  countdownEl.textContent = t;
+  const inter = setInterval(()=>{
+    t -= 1;
+    if (t <= 0) {
+      clearInterval(inter);
+      countdownEl.textContent = 0;
+      // show final links (replace '#' with real URLs)
+      document.getElementById('download-links').hidden = false;
+      document.getElementById('dl-link-1').href = '#'; // replace with real
+      document.getElementById('dl-link-2').href = '#'; // replace with real
+      // optional: auto-click primary link after a short delay (commented out)
+      // setTimeout(()=>document.getElementById('dl-link-1').click(), 1000);
     } else {
-      // follow small with mouse when not active (subtle)
-      outlineX += (mouseX - outlineX) * (ease * 0.8);
-      outlineY += (mouseY - outlineY) * (ease * 0.8);
-      outline.style.left = `${Math.round(outlineX)}px`;
-      outline.style.top = `${Math.round(outlineY)}px`;
-      outline.style.width = `60px`;
-      outline.style.height = `40px`;
-      outline.style.borderRadius = '12px';
-      outline.style.opacity = 0; // keep not visible if not active
+      countdownEl.textContent = t;
     }
+  }, 1000);
+}
 
-    requestAnimationFrame(raf);
+// Quick modal for direct download buttons in grids
+const modal = document.getElementById('modal');
+const modalAppName = document.getElementById('modal-app');
+const modalLink1 = document.getElementById('modal-link1');
+const modalLink2 = document.getElementById('modal-link2');
+const modalClose = document.getElementById('modal-close');
+
+document.body.addEventListener('click', (e)=>{
+  const dl = e.target.closest('.dl-btn');
+  if (dl && dl.dataset.app) {
+    e.preventDefault();
+    const app = dl.dataset.app;
+    openQuickModal(app);
   }
-  requestAnimationFrame(raf);
+});
+function openQuickModal(appName){
+  modalAppName.textContent = appName;
+  modalLink1.href = '#';
+  modalLink2.href = '#';
+  modal.style.display = 'flex';
+  modal.setAttribute('aria-hidden','false');
+}
+modalClose.addEventListener('click', closeModal);
+modal.addEventListener('click', (e)=>{ if (e.target === modal) closeModal(); });
+function closeModal(){ modal.style.display = 'none'; modal.setAttribute('aria-hidden','true'); }
 
-  // Helper: set outline to element rect
-  function setOutlineRect(el){
-    const r = el.getBoundingClientRect();
-    targetRect = {
-      left: r.left + window.scrollX + r.width/2 - r.width/2,
-      top: r.top + window.scrollY,
-      width: r.width,
-      height: r.height
-    };
-    // center coords used in raf calculation (we store left+half in targetRect later)
-    // We'll override in raf calculation
-  }
-
-  // Attach hover listeners to targets
-  function bindTargets(selector){
-    document.querySelectorAll(selector).forEach(el=>{
-      el.addEventListener('mouseenter', (ev)=>{
-        isActive = true;
-        setOutlineRect(el);
-        // set outline immediately to element center for fast response
-        const r = el.getBoundingClientRect();
-        outline.style.width = `${Math.round(r.width)}px`;
-        outline.style.height = `${Math.round(r.height)}px`;
-        outline.style.left = `${Math.round(r.left + r.width/2)}px`;
-        outline.style.top = `${Math.round(r.top + r.height/2)}px`;
-        outline.classList.add('active');
-        // optional: slightly enlarge dot
-        dot.style.transform = `translate(${r.left + r.width/2}px, ${r.top + r.height/2}px) translate(-50%,-50%) scale(0.85)`;
-      });
-
-      el.addEventListener('mousemove', (ev)=>{
-        // update rect on resize/scroll/position change
-        setOutlineRect(el);
-      });
-
-      el.addEventListener('mouseleave', ()=>{
-        isActive = false;
-        targetRect = null;
-        outline.classList.remove('active');
-        // small fade out
-        outline.style.opacity = 0;
-        dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%,-50%) scale(1)`;
-      });
-    });
-  }
-
-  // apply to both large feature cards and small app cards
-  bindTargets('.card');
-  bindTargets('.app');
-  bindTargets('.app-card'); // in case your other markup uses .app-card
-
-  // Recalculate on resize to keep layout correct
-  window.addEventListener('resize', ()=>{
-    // nothing heavy, refs updated on mouseenter/mousemove
+// ========== Multi-page navigation (nav links update hash) ==========
+document.querySelectorAll('.nav-link').forEach(a=>{
+  a.addEventListener('click',(e)=>{
+    // let the hash change; routing will handle it
   });
-})();
-</script>
-   
+});
+
+// ========== Accessibility & keyboard shortcuts ==========
+document.addEventListener('keydown', (e)=>{
+  if (e.key === 'Escape') {
+    // close modal or go home
+    if (modal.style.display === 'flex') closeModal();
+    else { location.hash = '#home'; showPage('home'); }
+  }
+});
+
+// Optional: persist sidebar collapsed state
+if (localStorage.getItem('sidebar-collapsed') === 'true') sidebar.classList.add('collapsed');
+sidebarToggle.addEventListener('click', ()=> localStorage.setItem('sidebar-collapsed', sidebar.classList.contains('collapsed')));
+
+// End of script
