@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alight Motion XML - 5yberbind</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo"><img src="logo.png"> <span>5yberbind</span></div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+    </ul>
+    <button id="darkToggle">🌙</button>
+</nav>
+
+<header class="page-header">
+    <h1>Alight Motion XML</h1>
+    <p>Download premium motion graphics and XML presets.</p>
+</header>
+
+<section class="downloads">
+
+    <div class="download-card">
+        <img src="images/am.png">
+        <h3>Velocity XML Pack</h3>
+        <a class="download-btn" href="#">Download</a>
+    </div>
+
+    <div class="download-card">
+        <img src="images/am.png">
+        <h3>Beat Sync XML Pack</h3>
+        <a class="download-btn" href="#">Download</a>
+    </div>
+
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
