@@ -1,106 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alight Motion XML - 5yberbind</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-<nav class="navbar">
-    <div class="logo"><img src="logo.png"> <span>5yberbind</span></div>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-    </ul>
-    <button id="darkToggle">🌙</button>
-</nav>
-
-<header class="page-header">
-    <h1>Alight Motion XML</h1>
-    <p>Download premium motion graphics and XML presets.</p>
-</header>
-
-<section class="downloads">
-
-    <div class="download-card">
-        <img src="images/am.png">
-        <h3>Velocity XML Pack</h3>
-        <a class="download-btn" href="#">Download</a>
-    </div>
-
-    <div class="download-card">
-        <img src="images/am.png">
-        <h3>Beat Sync XML Pack</h3>
-        <a class="download-btn" href="#">Download</a>
-    </div>
-
-</section>
-
-<script src="script.js"></script>
-</body>
-</html>
-/* --- Premium smooth cursor + outline --- */
-#cursor-dot, #cursor-outline {
-  position: fixed;
-  pointer-events: none;
-  z-index: 999999;
-  mix-blend-mode: screen;
-  transition: opacity 220ms ease;
-  will-change: transform, width, height, left, top;
+:root{
+  --bg:#061226;
+  --card:#0f172a;
+  --muted:#94a3b8;
+  --neon1:#06b6d4;
+  --neon2:#7c3aed;
+  --accent:linear-gradient(90deg,var(--neon1),var(--neon2));
+  --glass: rgba(255,255,255,0.03);
 }
 
-/* small neon dot */
-#cursor-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(0,240,255,1) 30%, rgba(0,240,255,0.8) 60%);
-  box-shadow: 0 6px 22px rgba(0,240,255,0.22), 0 2px 6px rgba(123,66,255,0.12);
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 0.98;
-}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;background:radial-gradient(1200px 600px at 10% 10%, rgba(7,20,40,0.45), transparent),var(--bg);color:#e6eef8;-webkit-font-smoothing:antialiased}
 
-/* outline box */
-#cursor-outline {
-  left: 0; top: 0;
-  width: 60px; height: 40px;
-  border-radius: 14px;
-  border: 1.6px solid transparent;
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  box-shadow:
-    0 10px 40px rgba(0,240,255,0.06),
-    inset 0 1px 0 rgba(255,255,255,0.02);
-  transform-origin: center center;
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 0;
-  transition:
-    width 360ms cubic-bezier(.16,.84,.44,1),
-    height 360ms cubic-bezier(.16,.84,.44,1),
-    left 360ms cubic-bezier(.16,.84,.44,1),
-    top 360ms cubic-bezier(.16,.84,.44,1),
-    border-radius 260ms cubic-bezier(.16,.84,.44,1),
-    opacity 200ms ease;
-  border-image: linear-gradient(90deg, rgba(0,240,255,0.98), rgba(123,66,255,0.98)) 1;
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
-}
+/* SPLASH */
+.splash{position:fixed;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.25),transparent);display:flex;align-items:center;justify-content:center;z-index:9999}
+.splash-inner{text-align:center;animation:splash-fade 1200ms ease both}
+.logo-splash{width:120px;height:120px;filter:drop-shadow(0 10px 26px rgba(124,58,237,0.18))}
+.splash-text{margin-top:10px;font-weight:700;letter-spacing:0.4px}
+@keyframes splash-fade{0%{opacity:0;transform:scale(.96)}100%{opacity:1;transform:none}}
 
-/* when outline is active (over element) */
-#cursor-outline.active {
-  opacity: 1;
-  box-shadow:
-    0 30px 90px rgba(0,240,255,0.12),
-    inset 0 1px 0 rgba(255,255,255,0.03);
-}
+/* HEADER */
+.site-header{padding:14px 18px;border-bottom:1px solid rgba(255,255,255,0.02);position:sticky;top:0;background:linear-gradient(180deg,rgba(7,12,25,0.6),transparent);backdrop-filter:blur(6px);z-index:50}
+.brand-wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:1200px;margin:0 auto}
+.brand-logo{width:220px;height:40px}
+.header-controls{display:flex;gap:10px;align-items:center}
+.top-row{display:flex;gap:8px;justify-content:center;margin-top:10px}
+.search{padding:10px 12px;border-radius:12px;background:var(--glass);border:1px solid rgba(255,255,255,0.02);color:var(--muted);min-width:260px}
+.icon-btn{background:transparent;border:1px solid rgba(255,255,255,0.03);padding:8px;border-radius:10px;cursor:pointer;color:var(--muted)}
 
-/* special style if hovered element wants sharp corners */
-#cursor-outline.rounded { border-radius: 12px; }
+/* LAYOUT */
+.layout{display:flex;gap:18px;max-width:1200px;margin:18px auto;padding:0 18px}
+.sidebar{width:220px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:12px;padding:12px;position:sticky;top:86px;height:calc(100vh - 120px);overflow:auto;border:1px solid rgba(255,255,255,0.02)}
+.sidebar h3{margin:0 0 6px}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.side-link{display:block;width:100%;padding:8px;border-radius:8px;background:transparent;border:none;text-align:left;cursor:pointer;color:var(--muted);margin-bottom:6px}
+.side-link:hover{background:linear-gradient(90deg,var(--neon1),var(--neon2));color:#00101a}
+.logo-banner{width:100%;padding:10px;border-radius:10px;background:var(--accent);border:none;color:#00101a;font-weight:800;cursor:default}
 
-/* optional: reduce default pointer visibility for a clean premium look */
-:root * { cursor: none !important; } /* WARNING: disables native cursor everywhere */
-@media (hover: none), (pointer: coarse) {
-  /* don't hide native cursor on touch devices */
-  :root * { cursor: auto !important; }
+/* MAIN */
+.main{flex:1}
+.page{padding:6px 0}
+.page-title{font-size:20px;margin-bottom:10px}
+.app-section{margin-bottom:28px}
+.section-title{font-size:18px;margin-bottom:12px;font-weight:800;text-align:left}
+
+/* GRID + CARD */
+.app-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px}
+.app-card{background:var(--card);padding:16px;border-radius:14px;text-align:center;border:1px solid rgba(255,255,255,0.03);transition:transform .35s, box-shadow .35s;cursor:default;outline:none}
+.app-card:focus{box-shadow:0 8px 30px rgba(6,182,212,0.12)}
+.app-card:hover{transform:translateY(-8px) rotate(-1deg);box-shadow:0 12px 40px rgba(6,182,212,0.12),0 2px 8px rgba(124,58,237,0.06)}
+.icon-wrap{width:74px;height:74px;margin:0 auto 10px;border-radius:18px;display:grid;place-items:center;position:relative;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));border:1px solid rgba(255,255,255,0.03)}
+.icon-wrap.large{width:110px;height:110px;border-radius:22px}
+.icon-frame svg{width:42px;height:42px;filter:drop-shadow(0 0 10px rgba(6,182,212,0.6));mix-blend-mode:screen}
+.glow-ring{position:absolute;inset:-6px;border-radius:20px;background:conic-gradient(from 0deg,var(--neon1),var(--neon2),var(--neon1));filter:blur(16px);opacity:.9;transition:transform .25s}
+.app-card:hover .glow-ring{transform:scale(1.06);filter:blur(26px)}
+.app-title{font-weight:700;font-size:14px}
+.app-sub{font-size:12px;color:var(--muted);margin-bottom:8px}
+.dl-row{display:flex;gap:8px;justify-content:center}
+.dl-btn{padding:8px 12px;border-radius:9px;border:none;background:var(--accent);color:#001018;font-weight:800;cursor:pointer;box-shadow:0 6px 18px rgba(6,182,212,0.12)}
+.dl-btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+
+/* DETAIL + DOWNLOAD PAGE */
+.page[hidden]{display:none}
+.detail-card{display:flex;gap:18px;align-items:center;background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+.detail-left{flex:0 0 130px}
+.detail-right{flex:1}
+.back-btn{background:transparent;border:none;color:var(--muted);cursor:pointer;font-weight:800;margin-bottom:12px}
+
+/* download page */
+.download-card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);text-align:center}
+.dl-link{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--neon1),var(--neon2));color:#001018;font-weight:800;margin:8px;text-decoration:none}
+
+/* MODAL */
+.modal-backdrop{position:fixed;inset:0;background:rgba(0,6,12,0.6);display:none;align-items:center;justify-content:center;z-index:90;padding:12px}
+.modal{width:100%;max-width:520px;background:linear-gradient(180deg,#071226,#0b1728);border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.03)}
+.close{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 10px;border-radius:8px;color:var(--muted);cursor:pointer}
+
+/* FOOTER */
+.site-footer{text-align:center;padding:18px;color:var(--muted);font-size:13px;margin-top:24px}
+
+/* responsive */
+@media (max-width:920px){
+  .layout{flex-direction:column;padding:0 12px}
+  .sidebar{width:100%;height:auto;position:relative;top:auto}
+  .brand-logo{width:160px}
+  .search{min-width:140px}
 }
