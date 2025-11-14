@@ -210,7 +210,7 @@ footer{ text-align:center; color:var(--muted); padding:30px 10px; font-size:13px
     font-size: 28px;
     font-weight: 700;
     margin: 40px 0 20px 12px;
-    color: #ffffff;
+    color: #gradiant;
     text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
     letter-spacing: 1px;
 }
