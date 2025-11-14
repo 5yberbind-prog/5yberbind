@@ -192,38 +192,67 @@ footer{ text-align:center; color:var(--muted); padding:30px 10px; font-size:13px
     transform: translate(-50%, -50%) scale(1);
     animation: fadeOut 0.8s ease-out forwards;
 }
-/* New App Sections */
+/* FULL APP SECTION DESIGN */
 .app-section {
-  padding: 40px 20px;
+  padding: 45px 20px;
 }
 
 .section-title {
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   text-align: center;
   color: #fff;
 }
 
+/* GRID */
 .app-grid {
   display: grid;
-  gap: 15px;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
 }
 
+/* CARD */
 .app-card {
-  background: #111827;
-  color: #fff;
-  padding: 18px;
-  border-radius: 15px;
+  background: #0f172a;
+  padding: 25px 10px;
+  border-radius: 18px;
   text-align: center;
-  font-size: 16px;
-  font-weight: 600;
+  color: #fff;
+  border: 1px solid #1e293b;
   transition: 0.3s;
-  border: 1px solid #1f2937;
 }
 
 .app-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   background: #1e293b;
+  box-shadow: 0 0 22px rgba(0,255,255,0.5);
+}
+
+/* ICONS */
+.icon-glow {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 0 8px cyan);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* DOWNLOAD BUTTON */
+.dl-btn {
+  margin-top: 10px;
+  background: cyan;
+  color: #000;
+  border: none;
+  padding: 6px 12px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.dl-btn:hover {
+  background: #00e5ff;
+  box-shadow: 0 0 10px cyan;
 }
