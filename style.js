@@ -4,44 +4,33 @@
    - auto-disabled on touch / reduced-motion
 */
 
-/* ---- DARK MODE TOGGLE ---- */
+/* -------- PREMIUM TOGGLE FUNCTIONALITY -------- */
 
-const html = document.documentElement;
-const darkBtn = document.querySelector('#darkToggle');
+const htmlEl = document.documentElement;
+const toggle = document.querySelector("#darkToggle");
 
-// Load saved theme
-const savedTheme = localStorage.getItem('5y-theme');
-if (savedTheme === 'dark') {
-    html.classList.add('dark');
-}
-if (savedTheme === 'light') {
-    html.classList.remove('dark');
+if (localStorage.getItem("theme") === "dark") {
+    htmlEl.classList.add("dark");
 }
 
-// Button click event
-if (darkBtn) {
-    darkBtn.addEventListener('click', () => {
-        html.classList.toggle('dark');
+toggle.addEventListener("click", () => {
+    htmlEl.classList.toggle("dark");
 
-        // Save preference
-        localStorage.setItem(
-            '5y-theme',
-            html.classList.contains('dark') ? 'dark' : 'light'
-        );
+    // save preference
+    localStorage.setItem("theme",
+        htmlEl.classList.contains("dark") ? "dark" : "light"
+    );
 
-        // Small button animation
-        darkBtn.animate(
-            [
-                { transform: 'scale(1)' },
-                { transform: 'scale(1.25)' },
-                { transform: 'scale(1)' }
-            ],
-            { duration: 250 }
-        );
-    });
-} else {
-    console.log("Dark mode button not found: #darkToggle");
-}
+    // click animation
+    toggle.animate(
+        [
+            { transform: "scale(1)" },
+            { transform: "scale(1.18)" },
+            { transform: "scale(1)" }
+        ],
+        { duration: 260 }
+    );
+});
 (() => {
   const doc = document;
   const html = doc.documentElement;
