@@ -4,6 +4,44 @@
    - auto-disabled on touch / reduced-motion
 */
 
+/* ---- DARK MODE TOGGLE ---- */
+
+const html = document.documentElement;
+const darkBtn = document.querySelector('#darkToggle');
+
+// Load saved theme
+const savedTheme = localStorage.getItem('5y-theme');
+if (savedTheme === 'dark') {
+    html.classList.add('dark');
+}
+if (savedTheme === 'light') {
+    html.classList.remove('dark');
+}
+
+// Button click event
+if (darkBtn) {
+    darkBtn.addEventListener('click', () => {
+        html.classList.toggle('dark');
+
+        // Save preference
+        localStorage.setItem(
+            '5y-theme',
+            html.classList.contains('dark') ? 'dark' : 'light'
+        );
+
+        // Small button animation
+        darkBtn.animate(
+            [
+                { transform: 'scale(1)' },
+                { transform: 'scale(1.25)' },
+                { transform: 'scale(1)' }
+            ],
+            { duration: 250 }
+        );
+    });
+} else {
+    console.log("Dark mode button not found: #darkToggle");
+}
 (() => {
   const doc = document;
   const html = doc.documentElement;
