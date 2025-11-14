@@ -17,3 +17,16 @@ document.addEventListener("click", function(e) {
         setTimeout(() => cf.classList.remove("click-boost"), 200);
     }
 });
+/* Neon cursor trail particles */
+document.addEventListener("mousemove", function(e) {
+    // make dot
+    const dot = document.createElement("div");
+    dot.className = "trail-dot";
+    dot.style.left = e.clientX + "px";
+    dot.style.top = e.clientY + "px";
+
+    document.body.appendChild(dot);
+
+    // remove after animation
+    setTimeout(() => dot.remove(), 800);
+});
