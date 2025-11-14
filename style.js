@@ -1,159 +1,70 @@
-/* PREMIUM SMOOTH CURSOR + TRAIL + CLICK RIPPLE
-   - high-performance: uses object pooling for trail dots
-   - smooth follower using lerp with requestAnimationFrame
-   - auto-disabled on touch / reduced-motion
-*/
+/* Replace old script.js with this whole file */
+/* Dark mode toggle (stores preference in localStorage) */
+(function(){
+  const html = document.documentElement;
+  const btns = document.querySelectorAll('#darkToggle');
+  const CURSOR = { enabled: false };
 
-/* -------- PREMIUM TOGGLE FUNCTIONALITY -------- */
+  // apply saved theme
+  const saved = localStorage.getItem('5y-theme');
+  if(saved === 'dark') html.classList.add('dark');
 
-const htmlEl = document.documentElement;
-const toggle = document.querySelector("#darkToggle");
-
-if (localStorage.getItem("theme") === "dark") {
-    htmlEl.classList.add("dark");
-}
-
-toggle.addEventListener("click", () => {
-    htmlEl.classList.toggle("dark");
-
-    // save preference
-    localStorage.setItem("theme",
-        htmlEl.classList.contains("dark") ? "dark" : "light"
-    );
-
-    // click animation
-    toggle.animate(
-        [
-            { transform: "scale(1)" },
-            { transform: "scale(1.18)" },
-            { transform: "scale(1)" }
-        ],
-        { duration: 260 }
-    );
-});
-(() => {
-  const doc = document;
-  const html = doc.documentElement;
-
-  // respect reduced-motion
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
-  if (reduced || isTouch) return; // do nothing on touch or reduce-motion
-
-  // create cursor follower element
-  const follower = document.createElement('div');
-  follower.className = 'cursor-follower';
-  follower.innerHTML = '<div class="cursor-ring"></div>';
-  document.body.appendChild(follower);
-  // enable visible
-  follower.style.display = 'block';
-  follower.style.opacity = '1';
-
-  // pointer state
-  let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
-  let fx = mouseX, fy = mouseY; // follower position (smoothed)
-  const ease = 0.18; // smoothing factor (smaller = smoother/slower)
-  let lastMoveTime = Date.now();
-
-  // trail pooling
-  const POOL_SIZE = 28;
-  const pool = [];
-  for (let i = 0; i < POOL_SIZE; i++) {
-    const el = document.createElement('div');
-    el.className = 'trail-dot';
-    el.style.position = 'fixed';
-    el.style.left = '-9999px';
-    el.style.top = '-9999px';
-    el.style.opacity = '0';
-    document.body.appendChild(el);
-    pool.push({el, busy: false});
-  }
-  let poolIdx = 0;
-  function getDot() {
-    for (let i = 0; i < POOL_SIZE; i++) {
-      poolIdx = (poolIdx + 1) % POOL_SIZE;
-      if (!pool[poolIdx].busy) {
-        pool[poolIdx].busy = true;
-        return pool[poolIdx];
-      }
-    }
-    // fallback: reuse current
-    poolIdx = (poolIdx + 1) % POOL_SIZE;
-    return pool[poolIdx];
-  }
-
-  // mousemove -> update mouseX/mouseY and spawn subtle trailing dots
-  let lastDot = 0;
-  const DOT_INTERVAL = 22; // ms between spawning dots
-  doc.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX; mouseY = e.clientY;
-    lastMoveTime = Date.now();
-
-    // spawn dot at intervals for smooth trail
-    const now = Date.now();
-    if (now - lastDot > DOT_INTERVAL) {
-      spawnTrailDot(mouseX, mouseY);
-      lastDot = now;
-    }
-  }, {passive:true});
-
-  // spawn a pooled trail dot
-  function spawnTrailDot(x, y) {
-    const p = getDot();
-    const el = p.el;
-    // slight randomization
-    const sRand = (Math.random() * 0.6) - 0.3;
-    const sizeClass = (Math.random() > 0.7) ? ' small' : '';
-    el.className = 'trail-dot' + sizeClass;
-    el.style.left = x + 'px';
-    el.style.top = y + 'px';
-    el.style.opacity = '1';
-    el.style.transform = 'translate(-50%,-50%) scale(1)';
-    // release after animation duration
-    setTimeout(() => {
-      el.style.left = '-9999px';
-      el.style.top = '-9999px';
-      p.busy = false;
-      el.className = 'trail-dot'; // reset
-    }, 760); // slight buffer over CSS animation time
-  }
-
-  // click ripple
-  doc.addEventListener('click', (e) => {
-    // small click feedback on follower
-    follower.classList.add('grow');
-    setTimeout(()=> follower.classList.remove('grow'), 180);
-
-    // ripple element
-    const r = document.createElement('div');
-    r.className = 'click-ripple';
-    r.style.left = (e.clientX) + 'px';
-    r.style.top = (e.clientY) + 'px';
-    document.body.appendChild(r);
-    setTimeout(()=> { r.remove(); }, 620);
-  }, {passive:true});
-
-  // enlarge follower on interactive elements
-  const interactive = 'a, button, .card, .card-btn, .download-btn, input, textarea, label';
-  doc.querySelectorAll(interactive).forEach(el => {
-    el.addEventListener('mouseenter', () => follower.classList.add('grow'));
-    el.addEventListener('mouseleave', () => follower.classList.remove('grow'));
+  btns.forEach(b=>{
+    b.addEventListener('click', ()=>{
+      html.classList.toggle('dark');
+      localStorage.setItem('5y-theme', html.classList.contains('dark') ? 'dark' : 'light');
+      // small button feedback
+      b.animate([{transform:'scale(1)'},{transform:'scale(1.08)'},{transform:'scale(1)'}], {duration:220});
+    });
   });
 
-  // smooth follow using rAF
-  function animate() {
-    // lerp follower towards mouse
-    fx += (mouseX - fx) * ease;
-    fy += (mouseY - fy) * ease;
-    follower.style.transform = `translate(${fx}px, ${fy}px) translate(-50%, -50%) scale(1)`;
-    requestAnimationFrame(animate);
+  // Cursor follower for non-touch devices
+  function isTouch(){ return ('ontouchstart' in window) || navigator.maxTouchPoints > 0; }
+  if(!isTouch()){
+    CURSOR.enabled = true;
+    const follower = document.createElement('div');
+    follower.className = 'cursor-follower';
+    document.body.appendChild(follower);
+    follower.style.display = 'block';
+    let mouseX=0, mouseY=0, fx=0, fy=0;
+    window.addEventListener('mousemove', e => {
+      mouseX = e.clientX; mouseY = e.clientY;
+      follower.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%,-50%)`;
+    });
+    // enlarge on hover for interactive items
+    document.querySelectorAll('a, button, .card, .card-btn, .download-btn').forEach(el=>{
+      el.addEventListener('mouseenter', ()=> follower.style.transform += ' scale(1.5)');
+      el.addEventListener('mouseleave', ()=> follower.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%,-50%)`);
+    });
   }
-  animate();
 
-  // optional: subtle idle fade when mouse not moved recently
-  setInterval(() => {
-    const idle = (Date.now() - lastMoveTime) > 2200;
-    follower.style.opacity = idle ? '0.16' : '1';
-  }, 600);
+  // Simple reveal on scroll
+  const revealElems = document.querySelectorAll('.card, .download-card, .hero, .page-header');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting) e.target.style.transform = 'translateY(0)'; 
+    });
+  }, {threshold:0.12});
+  revealElems.forEach(el=>{
+    el.style.transition = 'transform 600ms cubic-bezier(.2,.9,.3,1), opacity 600ms';
+    el.style.transform = 'translateY(18px)';
+    el.style.opacity = '1';
+    io.observe(el);
+  });
+
+  // small tilt effect for cards on mousemove
+  document.querySelectorAll('.card, .download-card').forEach(card=>{
+    card.addEventListener('mousemove', e=>{
+      const r = card.getBoundingClientRect();
+      const cx = r.left + r.width/2;
+      const cy = r.top + r.height/2;
+      const dx = (e.clientX - cx) / (r.width/2);
+      const dy = (e.clientY - cy) / (r.height/2);
+      card.style.transform = `perspective(900px) rotateX(${(-dy*4).toFixed(2)}deg) rotateY(${(dx*4).toFixed(2)}deg) translateZ(0) scale(1.01)`;
+    });
+    card.addEventListener('mouseleave', ()=>{
+      card.style.transform = '';
+    });
+  });
 
 })();
