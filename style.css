@@ -192,13 +192,10 @@ footer{ text-align:center; color:var(--muted); padding:30px 10px; font-size:13px
     transform: translate(-50%, -50%) scale(1);
     animation: fadeOut 0.8s ease-out forwards;
 }
-
-@keyframes fadeOut {
-    0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    100% { opacity: 0; transform: translate(-50%, -50%) scale(0.4); }
-}
-@media (max-width: 480px) {
-    .category-card img {
-        height: 200px;
-    }
+.category-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: contain;  /* Image crop nahi hogi */
+    background: #fff;
+    border-radius: 20px;
 }
