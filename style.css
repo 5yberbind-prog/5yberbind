@@ -201,41 +201,65 @@ footer{ text-align:center; color:var(--muted); padding:30px 10px; font-size:13px
     transform: translate(-50%, -50%) scale(1);
     animation: fadeOut 0.8s ease-out forwards;
 }
-/* FULL APP SECTION DESIGN */
-.app-section {
-  padding: 45px 20px;
+.apps-section {
+    width: 100%;
+    padding: 40px 0;
 }
 
 .section-title {
-  font-size: 30px;
-  font-weight: 700;
-  margin-bottom: 30px;
-  text-align: center;
-  color: #fff;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 40px 0 20px 12px;
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+    letter-spacing: 1px;
 }
 
-/* GRID */
-.app-grid {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 18px;
+    padding: 0 12px;
 }
 
-/* CARD */
 .app-card {
-  background: #0f172a;
-  padding: 25px 10px;
-  border-radius: 18px;
-  text-align: center;
-  color: #fff;
-  border: 1px solid #1e293b;
-  transition: 0.3s;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    padding: 18px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.15);
+    transition: 0.3s ease;
 }
 
 .app-card:hover {
-  transform: translateY(-6px);
-  background: #1e293b;
-  box-shadow: 0 0 22px rgba(0,255,255,0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+}
+
+.app-card p {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.app-card a {
+    background: linear-gradient(90deg, #00eaff, #0077ff);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    display: inline-block;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(0, 200, 255, 0.6);
+    transition: 0.3s ease;
+}
+
+.app-card a:hover {
+    box-shadow: 0 0 20px rgba(0, 200, 255, 1);
 }
 
 /* ICONS */
