@@ -8,7 +8,7 @@ export default function PremiumStore(){
 
   // Replace demo data below with your actual product metadata (title, thumbnail, previewUrl, fileUrl, price, tags)
   const products = [
-    { id: 'ep-001', title: 'Color Grading Pack', type: 'editing-pack', price: 499, thumbnail: '/assets/thumb-lut.jpg', previewUrl: '/assets/previews/lut-demo.mp4', fileUrl: '/downloads/luts-20.zip', tags: ['LUT','Color'] },
+    { id: 'ep-001', title: 'Color Grading Pack', type: 'editing-pack', price: 499, thumbnail: './assets/thumb-lut.jpg', previewUrl: '/assets/previews/lut-demo.mp4', fileUrl: '/downloads/luts-20.zip', tags: ['LUT','Color'] },
     { id: 'xml-101', title: 'KineMaster XML Template', type: 'xml-template', price: 299, thumbnail: '/assets/thumb-xml.jpg', previewUrl: '/assets/previews/xml-demo.mp4', fileUrl: '/downloads/xml-101.zip', tags: ['XML','Template'] },
     { id: 'tpl-500', title: 'Instagram Stories Pack', type: 'template', price: 249, thumbnail: '/assets/thumb-stories.jpg', previewUrl: '/assets/previews/stories-demo.mp4', fileUrl: '/downloads/stories-pack.zip', tags: ['Instagram','Template'] },
     { id: 'app-900', title: 'Preview Player APK', type: 'app', price: 0, thumbnail: '/assets/thumb-app.jpg', previewUrl: '/assets/previews/app-demo.mp4', fileUrl: '/downloads/preview-player.apk', tags: ['APK','App'] }
