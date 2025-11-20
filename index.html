@@ -1,124 +1,112 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SyberBind Mega Store</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SyberBind — Mega Resource Store</title>
+  <meta name="description" content="SyberBind — Mega Resource Store. Apps, Tech, Editing files, XML templates. Explore 20 premium packs per category." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<div class="mouse-glow"></div>
+  <div class="mouse-glow" id="mouseGlow"></div>
 
-<header>
-  <h1>SyberBind – Mega Resource Store</h1>
-  <p>Select category & explore 20 premium packs.</p>
-</header>
+  <!-- NAV / HEADER -->
+  <nav class="topbar">
+    <div class="brand">
+      <div class="logo">SYB</div>
+      <div class="brand-text">
+        <div class="title">SyberBind — Mega Resource Store</div>
+        <div class="subtitle">Select category & explore 20 premium packs.</div>
+      </div>
+    </div>
 
-<section class="category">
-  <h2>Apps Packs (20)</h2>
-  <div class="grid">
-    <button class="item">APP 1</button>
-    <button class="item">APP 2</button>
-    <button class="item">APP 3</button>
-    <button class="item">APP 4</button>
-    <button class="item">APP 5</button>
-    <button class="item">APP 6</button>
-    <button class="item">APP 7</button>
-    <button class="item">APP 8</button>
-    <button class="item">APP 9</button>
-    <button class="item">APP 10</button>
-    <button class="item">APP 11</button>
-    <button class="item">APP 12</button>
-    <button class="item">APP 13</button>
-    <button class="item">APP 14</button>
-    <button class="item">APP 15</button>
-    <button class="item">APP 16</button>
-    <button class="item">APP 17</button>
-    <button class="item">APP 18</button>
-    <button class="item">APP 19</button>
-    <button class="item">APP 20</button>
+    <div class="nav-actions">
+      <input id="searchInput" class="search" type="search" placeholder="Search packs, tags, titles..." />
+      <div class="tabs" role="tablist" aria-label="Categories">
+        <button class="tab active" data-filter="all">All</button>
+        <button class="tab" data-filter="apps">Apps</button>
+        <button class="tab" data-filter="tech">Tech</button>
+        <button class="tab" data-filter="editing">Editing</button>
+        <button class="tab" data-filter="xml">XML</button>
+        <button class="tab" data-filter="design">Design</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- Breadcrumb / quick summary -->
+    <div class="summary">
+      <div class="info">Showing <span id="visibleCount">All</span> items • Click Preview to inspect • Download for counts</div>
+      <div class="controls">
+        <button id="resetBtn" class="ghost">Reset Filters</button>
+      </div>
+    </div>
+
+    <!-- Sections -->
+    <!-- Each section has data-cat attribute used for filtering -->
+    <section class="category-card" data-cat="apps">
+      <h2>Apps Packs <span class="small">(20)</span></h2>
+      <div class="grid" id="appsGrid">
+        <!-- JS will render items automatically, but include seeds for graceful fallback -->
+      </div>
+    </section>
+
+    <section class="category-card" data-cat="tech">
+      <h2>Tech Related <span class="small">(20)</span></h2>
+      <div class="grid" id="techGrid"></div>
+    </section>
+
+    <section class="category-card" data-cat="editing">
+      <h2>Editing Files <span class="small">(20)</span></h2>
+      <div class="grid" id="editingGrid"></div>
+    </section>
+
+    <section class="category-card" data-cat="xml">
+      <h2>XML Templates <span class="small">(20)</span></h2>
+      <div class="grid" id="xmlGrid"></div>
+    </section>
+
+    <section class="category-card" data-cat="design">
+      <h2>Design Templates <span class="small">(20)</span></h2>
+      <div class="grid" id="designGrid"></div>
+    </section>
+
+  </main>
+
+  <!-- PREVIEW MODAL -->
+  <div id="previewModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-body" role="document">
+      <button class="modal-close" id="modalClose" aria-label="Close preview">&times;</button>
+      <div class="modal-content">
+        <div class="modal-left">
+          <div class="modal-image" id="modalImage">IMG</div>
+        </div>
+        <div class="modal-right">
+          <h3 id="modalTitle">Title</h3>
+          <p id="modalDesc">Description of the pack goes here. This is a preview modal with pack details, file types and features.</p>
+          <div class="modal-meta">
+            <span id="modalTags">tags: apk, mobile</span>
+            <span id="downloadCount">Downloads: 0</span>
+          </div>
+          <div class="modal-actions">
+            <button id="modalPreviewBtn" class="primary">Open Preview</button>
+            <button id="modalDownloadBtn" class="secondary">Download</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</section>
 
-<section class="category">
-  <h2>Tech Related (20)</h2>
-  <div class="grid">
-    <button class="item">TECH 1</button>
-    <button class="item">TECH 2</button>
-    <button class="item">TECH 3</button>
-    <button class="item">TECH 4</button>
-    <button class="item">TECH 5</button>
-    <button class="item">TECH 6</button>
-    <button class="item">TECH 7</button>
-    <button class="item">TECH 8</button>
-    <button class="item">TECH 9</button>
-    <button class="item">TECH 10</button>
-    <button class="item">TECH 11</button>
-    <button class="item">TECH 12</button>
-    <button class="item">TECH 13</button>
-    <button class="item">TECH 14</button>
-    <button class="item">TECH 15</button>
-    <button class="item">TECH 16</button>
-    <button class="item">TECH 17</button>
-    <button class="item">TECH 18</button>
-    <button class="item">TECH 19</button>
-    <button class="item">TECH 20</button>
-  </div>
-</section>
+  <footer class="site-footer">
+    <div>© <strong>SyberBind</strong> — Mega Resource Store</div>
+    <div class="footer-links">
+      <a href="#" id="terms">Terms</a> · <a href="#" id="privacy">Privacy</a>
+    </div>
+  </footer>
 
-<section class="category">
-  <h2>Editing Files (20)</h2>
-  <div class="grid">
-    <button class="item">EDIT 1</button>
-    <button class="item">EDIT 2</button>
-    <button class="item">EDIT 3</button>
-    <button class="item">EDIT 4</button>
-    <button class="item">EDIT 5</button>
-    <button class="item">EDIT 6</button>
-    <button class="item">EDIT 7</button>
-    <button class="item">EDIT 8</button>
-    <button class="item">EDIT 9</button>
-    <button class="item">EDIT 10</button>
-    <button class="item">EDIT 11</button>
-    <button class="item">EDIT 12</button>
-    <button class="item">EDIT 13</button>
-    <button class="item">EDIT 14</button>
-    <button class="item">EDIT 15</button>
-    <button class="item">EDIT 16</button>
-    <button class="item">EDIT 17</button>
-    <button class="item">EDIT 18</button>
-    <button class="item">EDIT 19</button>
-    <button class="item">EDIT 20</button>
-  </div>
-</section>
-
-<section class="category">
-  <h2>XML Templates (20)</h2>
-  <div class="grid">
-    <button class="item">XML 1</button>
-    <button class="item">XML 2</button>
-    <button class="item">XML 3</button>
-    <button class="item">XML 4</button>
-    <button class="item">XML 5</button>
-    <button class="item">XML 6</button>
-    <button class="item">XML 7</button>
-    <button class="item">XML 8</button>
-    <button class="item">XML 9</button>
-    <button class="item">XML 10</button>
-    <button class="item">XML 11</button>
-    <button class="item">XML 12</button>
-    <button class="item">XML 13</button>
-    <button class="item">XML 14</button>
-    <button class="item">XML 15</button>
-    <button class="item">XML 16</button>
-    <button class="item">XML 17</button>
-    <button class="item">XML 18</button>
-    <button class="item">XML 19</button>
-    <button class="item">XML 20</button>
-  </div>
-</section>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
