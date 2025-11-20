@@ -110,3 +110,62 @@
   <script src="script.js"></script>
 </body>
 </html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SyberBind — Mega Resource Store</title>
+  <meta name="description" content="Apps, Tech, Editing files, XML templates — blog style detail pages with screenshot gallery." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="mouse-glow" id="mouseGlow"></div>
+
+  <nav class="topbar">
+    <div class="brand">
+      <div class="logo">SYB</div>
+      <div class="brand-text">
+        <div class="title">SyberBind — Mega Resource Store</div>
+        <div class="subtitle">Apps • Tech • Editing • XML • Design</div>
+      </div>
+    </div>
+
+    <div class="nav-actions">
+      <input id="searchInput" class="search" type="search" placeholder="Search posts, tags..." />
+      <div class="tabs" role="tablist" aria-label="Categories">
+        <button class="tab active" data-filter="all">All</button>
+        <button class="tab" data-filter="apps">Apps</button>
+        <button class="tab" data-filter="tech">Tech</button>
+        <button class="tab" data-filter="editing">Editing</button>
+        <button class="tab" data-filter="xml">XML</button>
+        <button class="tab" data-filter="design">Design</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container" id="appRoot">
+    <!-- content injected by script.js -->
+  </main>
+
+  <!-- POST PREVIEW / GALLERY MODAL -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <div class="lb-backdrop" id="lbBackdrop"></div>
+    <div class="lb-panel">
+      <button class="lb-close" id="lbClose">&times;</button>
+      <div class="lb-imgwrap"><img id="lbImage" src="" alt="preview"/></div>
+      <div class="lb-caption" id="lbCaption"></div>
+      <div class="lb-controls">
+        <button id="lbPrev">Prev</button>
+        <button id="lbNext">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div>© <strong>SyberBind</strong> — Mega Resource Store</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
