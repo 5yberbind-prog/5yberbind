@@ -1,59 +1,66 @@
-<!-- ULTRA PREMIUM GLASSMORPHISM + NEON WEBSITE MODEL --><!-- Full index.html file → directly paste into GitHub as index.html --><!doctype html>
+<!-- FULL NEW PROFESSIONAL ULTRA-NEO DESIGN (2025 EDITION) --><!-- Fully responsive • Animated • Glass + Neon • Professional Store UI --><!doctype html>
 
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>5yberbind — Ultra Premium Editing Store</title>
-<meta name="description" content="Ultra premium editing packs, XML templates, presets and filters for editors and creators." />
+<title>5yberbind — Ultra Neo Editing Store</title>
 <style>
   :root{
-    --bg:#05070d;
-    --glass:rgba(255,255,255,0.08);
-    --card:rgba(255,255,255,0.06);
-    --accent:#00f5ff;
-    --neon:#36f9ff;
-    font-family: Poppins, sans-serif;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    background:radial-gradient(circle at top, #0a0f29, #000);
-    color:white;
-    padding:24px;
-    display:flex;justify-content:center;
-  }
-  .container{width:100%;max-width:1280px}/* HEADER */ header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px} .logo{ font-size:24px;font-weight:800; padding:12px 18px;border-radius:12px; background:linear-gradient(135deg,#00f5ff,#008cff); box-shadow:0 0 20px #00eaff; } nav a{color:#c9d6ff;text-decoration:none;margin-left:20px;font-size:15px;transition:0.2s} nav a:hover{color:white;text-shadow:0 0 8px var(--accent)}
+    --bg:#02040a;
+    --panel:rgba(255,255,255,0.06);
+    --glass:rgba(255,255,255,0.14);
+    --accent:#00d9ff;
+    --neon:#56e8ff;
+    --text:#d6e7ff;
+    --muted:#9fb4d6;
+    font-family: 'Poppins', sans-serif;
+  }*{margin:0;padding:0;box-sizing:border-box} body{ background:linear-gradient(to bottom right,#030712,#000); color:var(--text); padding:22px; display:flex;justify-content:center; } .container{width:100%;max-width:1280px}
 
-/* HERO */ .hero{ background:var(--glass); border:1px solid rgba(255,255,255,0.12); backdrop-filter:blur(14px); padding:28px; border-radius:20px; box-shadow:0 0 40px rgba(0,255,255,0.12); margin-bottom:24px; } .hero h1{font-size:38px;letter-spacing:1px;margin-bottom:12px} .hero p{color:#b8c2ff;font-size:16px;margin-bottom:18px} .btn{ background:var(--accent); border:none;padding:12px 18px; font-weight:600;border-radius:12px; cursor:pointer;color:#003b3f; margin-right:12px;transition:0.2s; } .btn:hover{box-shadow:0 0 20px var(--accent)} .btn.sec{ background:transparent;color:#b8c2ff; border:1px solid rgba(255,255,255,0.15); }
+/* HEADER */ header{ display:flex;justify-content:space-between;align-items:center; margin-bottom:24px; } .logo{ font-size:22px;font-weight:800; padding:12px 18px; background:linear-gradient(135deg,var(--accent),#007bff); border-radius:14px; box-shadow:0 0 16px var(--neon); } nav a{ color:var(--muted);text-decoration:none;margin-left:24px;font-size:15px; transition:0.2s; } nav a:hover{color:white;text-shadow:0 0 10px var(--neon)}
 
-/* GRID */ .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px} .card{ background:var(--card); border-radius:18px; padding:16px; border:1px solid rgba(255,255,255,0.1); transition:0.2s; } .card:hover{ transform:translateY(-4px); box-shadow:0 0 25px rgba(0,255,255,0.2); } .thumb{ height:170px;background:#0a1128;border-radius:12px; display:flex;align-items:center;justify-content:center; margin-bottom:10px;color:#6f7ea8;font-size:14px; } .pill{background:rgba(255,255,255,0.08);padding:4px 8px;border-radius:10px;font-size:11px;margin-right:5px;color:#a5b9ff} .meta{color:#9eb0ff;font-size:13px;margin:6px 0 12px}
+/* HERO */ .hero{ padding:32px;border-radius:22px; background:var(--panel); border:1px solid rgba(255,255,255,0.15); backdrop-filter:blur(12px); margin-bottom:26px; animation:fadeIn 1s ease; } @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
-footer{text-align:center;color:#7b8cff;font-size:14px;margin-top:40px}
+.hero h1{font-size:36px;margin-bottom:8px} .hero p{color:var(--muted);margin-bottom:18px;font-size:16px}
 
-/* MODAL */ .modal-backdrop{ position:fixed;inset:0;display:none; background:rgba(0,0,0,0.7); justify-content:center;align-items:center; padding:24px; } .modal{ background:#070c1d;border-radius:16px; padding:20px;max-width:900px;width:100%; border:1px solid rgba(0,255,255,0.25); box-shadow:0 0 28px rgba(0,255,255,0.15); } pre{ background:#000814;padding:14px;border-radius:12px; max-height:400px;overflow:auto;color:#80f8ff; border:1px solid rgba(0,255,255,0.1); } </style>
+.btn{ padding:12px 22px;border:none;border-radius:12px;font-weight:600;cursor:pointer; margin-right:12px;font-size:15px; } .btn.primary{ background:var(--accent);color:#00252a; box-shadow:0 0 15px var(--neon); } .btn.secondary{ background:transparent;color:var(--muted); border:1px solid rgba(255,255,255,0.20); }
+
+/* SEARCH PANEL */ .searchBox{ margin-top:18px;padding:18px;border-radius:16px; background:var(--panel); border:1px solid rgba(255,255,255,0.1); backdrop-filter:blur(10px); } .searchBox input{ width:100%;padding:12px;border-radius:12px; border:1px solid rgba(255,255,255,0.15); background:rgba(0,0,0,0.35);color:white; }
+
+.tags{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap} .tag{padding:6px 12px;background:rgba(255,255,255,0.10);border-radius:12px;font-size:13px;color:var(--muted);cursor:pointer}
+
+/* GRID */ .grid{ display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px;margin-top:22px; } .card{ padding:16px;border-radius:18px;background:var(--panel); border:1px solid rgba(255,255,255,0.12); transition:0.25s; } .card:hover{ transform:translateY(-6px); box-shadow:0 0 22px rgba(0,210,255,0.25); } .thumb{ height:170px;border-radius:14px;margin-bottom:12px; background:#091227; display:flex;align-items:center;justify-content:center;color:#6d7fa8; }
+
+.pill{padding:4px 10px;border-radius:12px;background:rgba(255,255,255,0.12);font-size:11px;color:var(--muted);margin-right:6px}
+
+footer{text-align:center;color:var(--muted);margin-top:35px;font-size:14px}
+
+/* MODAL */ .modal-backdrop{ position:fixed;inset:0;background:rgba(0,0,0,0.75); display:none;justify-content:center;align-items:center; padding:24px; } .modal{ background:#07101f;padding:22px;border-radius:16px; max-width:900px;width:100%;border:1px solid var(--neon); } pre{ background:#000821;border-radius:12px;padding:16px;max-height:420px; overflow:auto;color:#7cf3ff;border:1px solid rgba(0,255,255,0.20); } </style>
 
 </head><body>
 <div class="container"><header>
   <div class="logo">5YB</div>
   <nav>
-    <a href="#">Home</a>
+    <a href="#home">Home</a>
     <a href="#packs">Packs</a>
     <a href="#contact">Contact</a>
   </nav>
 </header><section class="hero">
-  <h1>Ultra Premium Editing Packs & Templates</h1>
-  <p>Glassmorphism + Neon UI store for editors. Download XML, presets, overlays and pro editing packs.</p>
-  <button class="btn" id="freeXML">Download Free XML</button>
-  <button class="btn sec">Browse Packs</button>
-</section><h2 style="margin-bottom:10px">Latest Premium Packs</h2>
-<div class="grid" id="packsGrid"></div><footer>
-  © <span id="year"></span> 5yberbind — Ultra Premium Store
-</footer></div><!-- MODAL --><div class="modal-backdrop" id="modal">
+  <h1>Ultra Neo Professional Editing Store</h1>
+  <p>Download premium editing packs, overlays, XML templates, LUTs, color grading packs & mobile filters.</p>
+  <button class="btn primary" id="freeXML">Download Free XML</button>
+  <button class="btn secondary">Browse Packs</button>
+</section><section class="searchBox">
+  <input id="searchInput" placeholder="Search packs...">
+  <div class="tags" id="tagsList"></div>
+</section><h2 style="margin-top:28px">Latest Premium Packs</h2>
+<div class="grid" id="packsGrid"></div><footer>© <span id="year"></span> 5yberbind — Ultra Neo Edition</footer>
+</div><!-- MODAL --><div class="modal-backdrop" id="modal">
   <div class="modal">
     <h3 id="modalTitle">Preview</h3>
     <pre id="xmlPreview">Loading...</pre>
     <div style="text-align:right;margin-top:12px">
-      <button class="btn sec" id="closeModal">Close</button>
+      <button class="btn secondary" id="closeModal">Close</button>
     </div>
   </div>
 </div><script>
@@ -61,197 +68,96 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 const PACKS = [
   {
-    id:"neon-cinematic",
-    title:"Neon Cinematic Pack",
+    id:"neon-pro",
+    title:"Neon Cinematic Pro",
     thumb:"assets/thumb1.jpg",
-    desc:"Neon color grading + cinematic XML presets",
+    desc:"Ultra neon cinematic XML + LUT filters",
     tags:["neon","cinematic","xml"],
-    preview:"<xml><pack>Neon Cinematic</pack></xml>",
-    download:"downloads/neon-cinematic.zip"
+    preview:"<xml><pack>Neon Cinematic Pro</pack></xml>",
+    download:"downloads/neon-pro.zip"
   },
   {
-    id:"premium-glitch",
-    title:"Premium Glitch Titles",
+    id:"prism-glitch",
+    title:"Prism Glitch FX",
     thumb:"assets/thumb2.jpg",
-    desc:"Insane glitch titles + motion transitions",
-    tags:["glitch","titles"],
-    preview:"<xml><pack>Glitch Titles</pack></xml>",
-    download:"downloads/premium-glitch.zip"
+    desc:"Glitch transitions + RGB split overlays",
+    tags:["glitch","fx","rgb"],
+    preview:"<xml><pack>Prism Glitch FX</pack></xml>",
+    download:"downloads/prism-glitch.zip"
   },
   {
-    id:"mobile-pro",
-    title:"Mobile Pro Filters Pack",
+    id:"mobile-ultra",
+    title:"Mobile Ultra Filters",
     thumb:"assets/thumb3.jpg",
-    desc:"Mobile optimized filters + overlays",
-    tags:["filters","mobile"],
-    preview:"<xml><pack>Mobile Filters</pack></xml>",
-    download:"downloads/mobile-pro.zip"
+    desc:"Professional mobile filters for CapCut/VN",
+    tags:["mobile","filters","xml"],
+    preview:"<xml><pack>Mobile Ultra Filters</pack></xml>",
+    download:"downloads/mobile-ultra.zip"
   }
 ];
 
-// RENDER
-const grid = document.getElementById("packsGrid");
-PACKS.forEach(p=>{
-  let div = document.createElement("div");
-  div.className="card";
-  div.innerHTML = `
-    <div class='thumb'><img src="${p.thumb}" style='max-width:100%;max-height:100%;border-radius:12px;'></div>
-    <h3>${p.title}</h3>
-    <div class='meta'>${p.desc}</div>
-    <div>${p.tags.map(t=>`<span class='pill'>${t}</span>`).join('')}</div>
-    <button class='btn' onclick="previewPack('${p.id}')" style='margin-top:10px'>Preview</button>
-    <button class='btn sec' onclick="window.location='${p.download}'" style='margin-top:6px'>Download</button>
-  `;
-  grid.appendChild(div);
+const TAGS = [...new Set(PACKS.flatMap(p=>p.tags))];
+const tagsList = document.getElementById("tagsList");
+TAGS.forEach(t=>{
+  let el=document.createElement("div");
+  el.className="tag";
+  el.textContent=t;
+  el.onclick=()=>filterTag(t);
+  tagsList.appendChild(el);
 });
 
-// MODAL
+function render(list){
+  const grid=document.getElementById("packsGrid");
+  grid.innerHTML="";
+  list.forEach(p=>{
+    let card=document.createElement("div");
+    card.className="card";
+    card.innerHTML=`
+      <div class='thumb'><img src='${p.thumb}' style='max-width:100%;max-height:100%;border-radius:14px;'></div>
+      <h3>${p.title}</h3>
+      <div style='color:var(--muted);margin:6px 0'>${p.desc}</div>
+      <div>${p.tags.map(t=>`<span class='pill'>${t}</span>`).join('')}</div>
+      <button class='btn primary' style='margin-top:12px' onclick="previewPack('${p.id}')">Preview</button>
+      <button class='btn secondary' style='margin-top:8px' onclick="window.location='${p.download}'">Download</button>
+    `;
+    grid.appendChild(card);
+  });
+}
+render(PACKS);
+
+// Search
+const searchInput=document.getElementById("searchInput");
+searchInput.oninput = ()=>{
+  const q=searchInput.value.toLowerCase();
+  const filtered = PACKS.filter(p => (p.title+p.desc+p.tags.join()).toLowerCase().includes(q));
+  render(filtered);
+};
+
+// Tag filter
+function filterTag(t){render(PACKS.filter(p=>p.tags.includes(t))) }
+
+// Modal
 const modal=document.getElementById("modal");
-const xmlBox=document.getElementById("xmlPreview");
 const title=document.getElementById("modalTitle");
-unction previewPack(id){
-  let p = PACKS.find(x=>x.id===id);
+const xml=document.getElementById("xmlPreview");
+
+function previewPack(id){
+  let p=PACKS.find(x=>x.id===id);
   modal.style.display="flex";
-  title.textContent = p.title + " — XML Preview";
-  xmlBox.textContent = p.preview;
+  title.textContent = p.title+" — XML Preview";
+  xml.textContent = p.preview;
 }
 document.getElementById("closeModal").onclick=()=>modal.style.display="none";
-modal.onclick=(e)=>{if(e.target===modal) modal.style.display="none"}
+modal.onclick = e=>{ if(e.target===modal) modal.style.display="none" }
 
-// FREE XML
-const sample = "<xml><sample>Free XML From 5yberbind</sample></xml>";
-document.getElementById("freeXML").onclick = ()=>{
-  let blob = new Blob([sample], {type:"application/xml"});
-  let a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download="free-5yberbind.xml";
+// Free XML download
+const freeData="<xml><free>5yberbind Ultra Neo XML</free></xml>";
+document.getElementById("freeXML").onclick=()=>{
+  let blob=new Blob([freeData],{type:"application/xml"});
+  let a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download="5yberbind-free.xml";
   a.click();
-}
+};
 </script></body>
 </html>
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ultra Premium Store – 5yberbind</title>
-
-<style>
-  :root{
-    --glass:rgba(255,255,255,0.10);
-    --card:rgba(255,255,255,0.08);
-    --accent:#00f5ff;
-    --bg:#020412;
-    font-family: Poppins, sans-serif;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    background:radial-gradient(circle at top, #0a1137, #000);
-    color:white;
-    padding:22px;
-    display:flex;justify-content:center;
-  }
-  .container{width:100%;max-width:1280px}
-
-  header{
-    display:flex;justify-content:space-between;align-items:center;
-    margin-bottom:20px;
-  }
-  .logo{
-    font-size:22px;font-weight:800;
-    padding:12px 18px;border-radius:12px;
-    background:linear-gradient(135deg,#00eaff,#007cff);
-    box-shadow:0 0 18px #00eaff;
-  }
-  nav a{
-    color:#bcd0ff;text-decoration:none;margin-left:20px;
-    font-size:14px;
-  }
-
-  .hero{
-    background:var(--glass);
-    border:1px solid rgba(255,255,255,0.15);
-    backdrop-filter:blur(12px);
-    padding:28px;border-radius:20px;
-    margin-bottom:26px;
-  }
-  .btn{
-    background:var(--accent);color:#003438;
-    padding:10px 16px;border:none;
-    border-radius:10px;font-weight:600;cursor:pointer;
-  }
-  .btn.sec{
-    background:transparent;border:1px solid rgba(255,255,255,0.20);
-    color:#bcd0ff;
-  }
-
-  .grid{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:18px;margin-top:18px;
-  }
-  .card{
-    background:var(--card);
-    padding:16px;border-radius:16px;
-    border:1px solid rgba(255,255,255,0.12);
-  }
-  .thumb{
-    height:170px;border-radius:12px;
-    background:#08122e;display:flex;align-items:center;justify-content:center;
-    margin-bottom:10px;
-  }
-  .pill{
-    background:rgba(255,255,255,0.15);
-    padding:4px 8px;border-radius:10px;font-size:11px;margin-right:5px;
-  }
-  footer{text-align:center;color:#9ab0ff;margin-top:30px}
-
-  /* MODAL */
-  .modal-backdrop{
-    position:fixed;inset:0;background:rgba(0,0,0,0.7);
-    display:none;justify-content:center;align-items:center;padding:24px;
-  }
-  .modal{
-    background:#070c1d;border-radius:18px;
-    padding:20px;max-width:900px;width:100%;
-    border:1px solid rgba(0,255,255,0.25);
-  }
-  pre{
-    background:#000820;padding:14px;border-radius:12px;
-    max-height:420px;overflow:auto;color:#78f5ff;
-    border:1px solid rgba(0,255,255,0.15);
-  }
-</style>
-</head>
-
-<body>
-<div class="container">
-
-<header>
-  <div class="logo">5YB</div>
-  <nav>
-    <a href="#packs">Packs</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <h1 style="margin-bottom:10px">Ultra Premium Editing Packs & Templates</h1>
-  <p style="color:#bcd0ff;margin-bottom:14px">
-    Glassmorphism + Neon UI packs. XML, presets, overlays & pro editing elements.
-  </p>
-  <button class="btn" id="freeXML">Download Free XML</button>
-  <button class="btn sec">Browse Packs</button>
-</section>
-
-<h2>Latest Premium Packs</h2>
-<div class="grid" id="packsGrid"></div>
-
-<footer>© <span id="year"></span> 5yberbind — Ultra Premium Store</footer>
-
-</div>
-
-<!-- MODAL -->
-<div class="modal-backdrop" id="modal">
-  <div class="modal">
-    <h3 id="modalTitle">Preview</h3>
-    <pre id="xmlPreview">Loading...</pre
