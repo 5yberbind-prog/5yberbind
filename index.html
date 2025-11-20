@@ -1,253 +1,131 @@
-<!doctype html>
+<!-- ULTRA PREMIUM GLASSMORPHISM + NEON WEBSITE MODEL --><!-- Full index.html file → directly paste into GitHub as index.html --><!doctype html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>5yberbind — Premium Editing Packs & Templates</title>
-  <meta name="description" content="Download premium editing packs, XML templates, presets and preview files for editors and creators." />
-  <meta name="keywords" content="editing packs, xml templates, video templates, preview xml, download templates, editing presets" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>5yberbind — Ultra Premium Editing Store</title>
+<meta name="description" content="Ultra premium editing packs, XML templates, presets and filters for editors and creators." />
+<style>
+  :root{
+    --bg:#05070d;
+    --glass:rgba(255,255,255,0.08);
+    --card:rgba(255,255,255,0.06);
+    --accent:#00f5ff;
+    --neon:#36f9ff;
+    font-family: Poppins, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:radial-gradient(circle at top, #0a0f29, #000);
+    color:white;
+    padding:24px;
+    display:flex;justify-content:center;
+  }
+  .container{width:100%;max-width:1280px}/* HEADER */ header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px} .logo{ font-size:24px;font-weight:800; padding:12px 18px;border-radius:12px; background:linear-gradient(135deg,#00f5ff,#008cff); box-shadow:0 0 20px #00eaff; } nav a{color:#c9d6ff;text-decoration:none;margin-left:20px;font-size:15px;transition:0.2s} nav a:hover{color:white;text-shadow:0 0 8px var(--accent)}
 
-  <style>
-    :root{
-      --bg:#0f1724; 
-      --card:#0b1a2b; 
-      --muted:#9aa6b2; 
-      --accent:#6ee7b7; 
-      --glass: rgba(255,255,255,0.04);
-      font-family: Inter, ui-sans-serif, system-ui;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0; background:#071827; color:#e6eef6; 
-      padding:24px;
-      display:flex; justify-content:center;
-    }
-    .container{width:100%; max-width:1200px}
+/* HERO */ .hero{ background:var(--glass); border:1px solid rgba(255,255,255,0.12); backdrop-filter:blur(14px); padding:28px; border-radius:20px; box-shadow:0 0 40px rgba(0,255,255,0.12); margin-bottom:24px; } .hero h1{font-size:38px;letter-spacing:1px;margin-bottom:12px} .hero p{color:#b8c2ff;font-size:16px;margin-bottom:18px} .btn{ background:var(--accent); border:none;padding:12px 18px; font-weight:600;border-radius:12px; cursor:pointer;color:#003b3f; margin-right:12px;transition:0.2s; } .btn:hover{box-shadow:0 0 20px var(--accent)} .btn.sec{ background:transparent;color:#b8c2ff; border:1px solid rgba(255,255,255,0.15); }
 
-    header{display:flex; align-items:center; justify-content:space-between;}
-    .logo{background:linear-gradient(135deg,#3dd6b3,#5b82ff);padding:12px;border-radius:12px;font-weight:800;}
+/* GRID */ .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px} .card{ background:var(--card); border-radius:18px; padding:16px; border:1px solid rgba(255,255,255,0.1); transition:0.2s; } .card:hover{ transform:translateY(-4px); box-shadow:0 0 25px rgba(0,255,255,0.2); } .thumb{ height:170px;background:#0a1128;border-radius:12px; display:flex;align-items:center;justify-content:center; margin-bottom:10px;color:#6f7ea8;font-size:14px; } .pill{background:rgba(255,255,255,0.08);padding:4px 8px;border-radius:10px;font-size:11px;margin-right:5px;color:#a5b9ff} .meta{color:#9eb0ff;font-size:13px;margin:6px 0 12px}
 
-    nav a{color:var(--muted);text-decoration:none;font-size:14px;margin-left:12px}
+footer{text-align:center;color:#7b8cff;font-size:14px;margin-top:40px}
 
-    .hero{
-      margin-top:20px;
-      display:grid;grid-template-columns:1fr 350px;gap:20px;
-    }
-    .hero-card{
-      padding:20px;
-      border-radius:12px;
-      background:rgba(255,255,255,0.05);
-    }
-    .btn{
-      background:var(--accent);color:#042025;border:none;
-      padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:600
-    }
-    .btn.secondary{
-      background:transparent;border:1px solid rgba(255,255,255,0.08);
-      color:var(--muted)
-    }
+/* MODAL */ .modal-backdrop{ position:fixed;inset:0;display:none; background:rgba(0,0,0,0.7); justify-content:center;align-items:center; padding:24px; } .modal{ background:#070c1d;border-radius:16px; padding:20px;max-width:900px;width:100%; border:1px solid rgba(0,255,255,0.25); box-shadow:0 0 28px rgba(0,255,255,0.15); } pre{ background:#000814;padding:14px;border-radius:12px; max-height:400px;overflow:auto;color:#80f8ff; border:1px solid rgba(0,255,255,0.1); } </style>
 
-    .sidebar{
-      background:var(--card);padding:18px;border-radius:12px
-    }
-    .sidebar input{
-      padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.05);background:transparent;color:white;width:100%
-    }
-    .filters{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}
-    .tag{background:rgba(255,255,255,0.05);padding:6px 10px;border-radius:999px;color:var(--muted);cursor:pointer;font-size:12px}
-
-    .grid{
-      margin-top:20px;
-      display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
-    }
-    .card{
-      background:rgba(255,255,255,0.05);
-      padding:14px;border-radius:12px;
-    }
-    .thumb{height:160px;background:#081225;border-radius:8px;color:#aaa;display:flex;align-items:center;justify-content:center}
-
-    .pill{
-      background:rgba(255,255,255,0.08);
-      padding:4px 8px;border-radius:8px;font-size:11px;
-    }
-
-    footer{
-      margin-top:30px;color:var(--muted);text-align:center;font-size:13px
-    }
-
-    /* Modal */
-    .modal-backdrop{
-      position:fixed; inset:0; display:none;
-      background:rgba(0,0,0,0.6);
-      justify-content:center; align-items:center;
-      padding:20px;
-    }
-    .modal{
-      background:#0b1a2b;border-radius:12px;
-      padding:20px;max-width:800px;width:100%;
-    }
-    pre{background:#000922;padding:12px;border-radius:8px;color:#bfeaf0;max-height:400px;overflow:auto}
-  </style>
-</head>
-
-<body>
-<div class="container">
-
-  <header>
-    <div class="logo">5yB</div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#packs">Packs</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div class="hero-card">
-      <h2>Premium Editing Packs, XML Templates & Previews</h2>
-      <p>5yberbind Store — Free & Paid all editing XMLs, presets, thumbnails and packs.</p>
-
-      <div style="margin-top:12px;">
-        <button class="btn" id="cta-free">Get Free XML</button>
-        <button class="btn secondary">Browse Packs</button>
-      </div>
-    </div>
-
-    <div class="sidebar">
-      <input id="searchInput" placeholder="Search packs...">
-      <div class="filters" id="filters"></div>
-    </div>
-  </section>
-
-  <section id="packs">
-    <h3>Latest Packs</h3>
-    <div class="grid" id="packsGrid"></div>
-  </section>
-
-  <footer>
-    © <span id="year"></span> 5yberbind — All Rights Reserved
-  </footer>
-
-</div>
-
-<!-- Modal -->
-<div class="modal-backdrop" id="modal">
+</head><body>
+<div class="container"><header>
+  <div class="logo">5YB</div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#packs">Packs</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header><section class="hero">
+  <h1>Ultra Premium Editing Packs & Templates</h1>
+  <p>Glassmorphism + Neon UI store for editors. Download XML, presets, overlays and pro editing packs.</p>
+  <button class="btn" id="freeXML">Download Free XML</button>
+  <button class="btn sec">Browse Packs</button>
+</section><h2 style="margin-bottom:10px">Latest Premium Packs</h2>
+<div class="grid" id="packsGrid"></div><footer>
+  © <span id="year"></span> 5yberbind — Ultra Premium Store
+</footer></div><!-- MODAL --><div class="modal-backdrop" id="modal">
   <div class="modal">
     <h3 id="modalTitle">Preview</h3>
     <pre id="xmlPreview">Loading...</pre>
-    <div style="margin-top:12px;text-align:right">
-      <button class="btn secondary" id="closeModal">Close</button>
+    <div style="text-align:right;margin-top:12px">
+      <button class="btn sec" id="closeModal">Close</button>
     </div>
   </div>
-</div>
-
-<script>
+</div><script>
 document.getElementById("year").textContent = new Date().getFullYear();
 
-const SITE_META = {
-  packs: [
-    {
-      id: "cinematic-v1",
-      title: "Cinematic Pack v1",
-      thumb: "assets/thumb-cinematic.jpg",
-      tags: ["cinematic","color","xml"],
-      desc: "Smooth cinematic XML + filters",
-      preview: "<xml><pack>Cinematic v1</pack></xml>",
-      download: "downloads/cinematic-v1.zip"
-    },
-    {
-      id: "glitch-pack",
-      title: "Glitch Titles Pack",
-      thumb: "assets/thumb-glitch.jpg",
-      tags: ["glitch","titles","motion"],
-      desc: "Animated glitch titles",
-      preview: "<xml><pack>Glitch Titles</pack></xml>",
-      download: "downloads/glitch-pack.zip"
-    },
-    {
-      id: "mobile-filters",
-      title: "Mobile Filters Pack",
-      thumb: "assets/thumb-mobile.jpg",
-      tags: ["mobile","filters"],
-      desc: "Mobile optimized filters + XML",
-      preview: "<xml><pack>Mobile Filters</pack></xml>",
-      download: "downloads/mobile-filters.zip"
-    }
-  ],
-  tags: ["cinematic","color","xml","glitch","titles","motion","mobile","filters"]
-};
+const PACKS = [
+  {
+    id:"neon-cinematic",
+    title:"Neon Cinematic Pack",
+    thumb:"assets/thumb1.jpg",
+    desc:"Neon color grading + cinematic XML presets",
+    tags:["neon","cinematic","xml"],
+    preview:"<xml><pack>Neon Cinematic</pack></xml>",
+    download:"downloads/neon-cinematic.zip"
+  },
+  {
+    id:"premium-glitch",
+    title:"Premium Glitch Titles",
+    thumb:"assets/thumb2.jpg",
+    desc:"Insane glitch titles + motion transitions",
+    tags:["glitch","titles"],
+    preview:"<xml><pack>Glitch Titles</pack></xml>",
+    download:"downloads/premium-glitch.zip"
+  },
+  {
+    id:"mobile-pro",
+    title:"Mobile Pro Filters Pack",
+    thumb:"assets/thumb3.jpg",
+    desc:"Mobile optimized filters + overlays",
+    tags:["filters","mobile"],
+    preview:"<xml><pack>Mobile Filters</pack></xml>",
+    download:"downloads/mobile-pro.zip"
+  }
+];
 
-// TAGS
-const filters = document.getElementById("filters");
-SITE_META.tags.forEach(t=>{
-  let tag = document.createElement("div");
-  tag.className="tag";
-  tag.textContent=t;
-  tag.onclick=()=> filterTag(t);
-  filters.appendChild(tag);
+// RENDER
+const grid = document.getElementById("packsGrid");
+PACKS.forEach(p=>{
+  let div = document.createElement("div");
+  div.className="card";
+  div.innerHTML = `
+    <div class='thumb'><img src="${p.thumb}" style='max-width:100%;max-height:100%;border-radius:12px;'></div>
+    <h3>${p.title}</h3>
+    <div class='meta'>${p.desc}</div>
+    <div>${p.tags.map(t=>`<span class='pill'>${t}</span>`).join('')}</div>
+    <button class='btn' onclick="previewPack('${p.id}')" style='margin-top:10px'>Preview</button>
+    <button class='btn sec' onclick="window.location='${p.download}'" style='margin-top:6px'>Download</button>
+  `;
+  grid.appendChild(div);
 });
 
-// CARDS
-const grid = document.getElementById("packsGrid");
-function render(list){
-  grid.innerHTML="";
-  list.forEach(p=>{
-    let card = document.createElement("div");
-    card.className="card";
-    card.innerHTML=`
-      <div class="thumb"><img src="${p.thumb}" style="max-width:100%;max-height:100%;border-radius:8px;"></div>
-      <h3>${p.title}</h3>
-      <p style="color:#9aa6b2">${p.desc}</p>
-      <div style="display:flex;gap:6px;margin:8px 0">
-        ${p.tags.map(t=>`<span class='pill'>${t}</span>`).join("")}
-      </div>
-      <button class="btn" onclick="openPreview('${p.id}')">Preview</button>
-      <button class="btn secondary" onclick="window.location='${p.download}'">Download</button>
-    `;
-    grid.appendChild(card);
-  });
-}
-render(SITE_META.packs);
-
-// SEARCH
-document.getElementById("searchInput").oninput = function(){
-  const q = this.value.toLowerCase();
-  const result = SITE_META.packs.filter(p=>{
-    return (p.title+p.desc+p.tags.join(" ")).toLowerCase().includes(q);
-  });
-  render(result);
-};
-
-// TAG FILTER
-function filterTag(t){
-  render(SITE_META.packs.filter(p=>p.tags.includes(t)));
-}
-
 // MODAL
-const modal = document.getElementById("modal");
-const xmlPreview = document.getElementById("xmlPreview");
-const modalTitle = document.getElementById("modalTitle");
-
-function openPreview(id){
-  let p = SITE_META.packs.find(x=>x.id===id);
+const modal=document.getElementById("modal");
+const xmlBox=document.getElementById("xmlPreview");
+const title=document.getElementById("modalTitle");
+unction previewPack(id){
+  let p = PACKS.find(x=>x.id===id);
   modal.style.display="flex";
-  modalTitle.textContent = p.title+" — XML Preview";
-  xmlPreview.textContent = p.preview;
+  title.textContent = p.title + " — XML Preview";
+  xmlBox.textContent = p.preview;
 }
-document.getElementById("closeModal").onclick = ()=> modal.style.display="none";
-modal.onclick = (e)=>{ if(e.target===modal) modal.style.display="none" };
+document.getElementById("closeModal").onclick=()=>modal.style.display="none";
+modal.onclick=(e)=>{if(e.target===modal) modal.style.display="none"}
 
-// FREE SAMPLE
-document.getElementById("cta-free").onclick = ()=>{
-  const sample = "<xml><sample>Free XML From 5yberbind</sample></xml>";
-  const blob = new Blob([sample], {type:"application/xml"});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download="free-xml.xml";
+// FREE XML
+const sample = "<xml><sample>Free XML From 5yberbind</sample></xml>";
+document.getElementById("freeXML").onclick = ()=>{
+  let blob = new Blob([sample], {type:"application/xml"});
+  let a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download="free-5yberbind.xml";
   a.click();
-};
-</script>
-
-</body>
+}
+</script></body>
 </html>
