@@ -1,163 +1,311 @@
-<!-- FULL NEW PROFESSIONAL ULTRA-NEO DESIGN (2025 EDITION) --><!-- Fully responsive • Animated • Glass + Neon • Professional Store UI --><!doctype html>
-
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>5yberbind — Ultra Neo Editing Store</title>
+<title>5yberbind — Mega Store (Apps / Tech / Editing / XML / Templates)</title>
+<meta name="description" content="5yberbind Mega Store - Apps, Tech resources, Editing packs, XML templates, and more. 20 items per section.">
+
 <style>
-  :root{
-    --bg:#02040a;
-    --panel:rgba(255,255,255,0.06);
-    --glass:rgba(255,255,255,0.14);
-    --accent:#00d9ff;
-    --neon:#56e8ff;
-    --text:#d6e7ff;
-    --muted:#9fb4d6;
-    font-family: 'Poppins', sans-serif;
-  }*{margin:0;padding:0;box-sizing:border-box} body{ background:linear-gradient(to bottom right,#030712,#000); color:var(--text); padding:22px; display:flex;justify-content:center; } .container{width:100%;max-width:1280px}
+:root{
+  --bg:#020412;
+  --panel:rgba(255,255,255,0.04);
+  --glass:rgba(255,255,255,0.08);
+  --accent:#00eaff;
+  --muted:#9fb4d6;
+  --text:#e6f6ff;
+  font-family: Inter, Poppins, system-ui, -apple-system, sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#030821,#000);color:var(--text);padding:20px;display:flex;justify-content:center}
+.container{width:100%;max-width:1250px}
 
-/* HEADER */ header{ display:flex;justify-content:space-between;align-items:center; margin-bottom:24px; } .logo{ font-size:22px;font-weight:800; padding:12px 18px; background:linear-gradient(135deg,var(--accent),#007bff); border-radius:14px; box-shadow:0 0 16px var(--neon); } nav a{ color:var(--muted);text-decoration:none;margin-left:24px;font-size:15px; transition:0.2s; } nav a:hover{color:white;text-shadow:0 0 10px var(--neon)}
+/* header */
+header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{background:linear-gradient(135deg,var(--accent),#007bff);padding:10px 14px;border-radius:12px;font-weight:800}
+nav{display:flex;gap:12px}
+nav a{color:var(--muted);text-decoration:none;font-size:14px}
 
-/* HERO */ .hero{ padding:32px;border-radius:22px; background:var(--panel); border:1px solid rgba(255,255,255,0.15); backdrop-filter:blur(12px); margin-bottom:26px; animation:fadeIn 1s ease; } @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+/* tabs */
+.tabs{display:flex;gap:8px;margin:14px 0}
+.tab{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.02);cursor:pointer;color:var(--muted)}
+.tab.active{background:linear-gradient(90deg,var(--accent),#6fb8ff);color:#002525;box-shadow:0 6px 22px rgba(0,230,255,0.08)}
 
-.hero h1{font-size:36px;margin-bottom:8px} .hero p{color:var(--muted);margin-bottom:18px;font-size:16px}
+/* hero */
+.hero{padding:18px;border-radius:14px;background:var(--glass);border:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;gap:16px;align-items:center}
+.hero .left{}
+.hero h1{font-size:20px;margin:0}
+.hero p{color:var(--muted);margin:6px 0 0}
 
-.btn{ padding:12px 22px;border:none;border-radius:12px;font-weight:600;cursor:pointer; margin-right:12px;font-size:15px; } .btn.primary{ background:var(--accent);color:#00252a; box-shadow:0 0 15px var(--neon); } .btn.secondary{ background:transparent;color:var(--muted); border:1px solid rgba(255,255,255,0.20); }
+/* search */
+.controls{display:flex;gap:12px;align-items:center}
+.search{display:flex;gap:8px}
+.search input{padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:rgba(0,0,0,0.3);color:inherit}
 
-/* SEARCH PANEL */ .searchBox{ margin-top:18px;padding:18px;border-radius:16px; background:var(--panel); border:1px solid rgba(255,255,255,0.1); backdrop-filter:blur(10px); } .searchBox input{ width:100%;padding:12px;border-radius:12px; border:1px solid rgba(255,255,255,0.15); background:rgba(0,0,0,0.35);color:white; }
+/* grid */
+.section-title{margin:18px 0 8px;font-size:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.card{background:var(--panel);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);transition:transform .18s, box-shadow .18s}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,200,255,0.06)}
+.thumb{height:140px;border-radius:10px;background:#061229;display:flex;align-items:center;justify-content:center;margin-bottom:10px;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.card h3{font-size:15px;margin:4px 0}
+.meta{color:var(--muted);font-size:13px;margin-bottom:8px}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.tag{background:rgba(255,255,255,0.04);padding:4px 8px;border-radius:999px;font-size:12px;color:var(--muted)}
+.actions{display:flex;gap:8px;align-items:center}
+.btn{padding:8px 12px;border-radius:10px;border:none;cursor:pointer;font-weight:600}
+.btn.primary{background:var(--accent);color:#012525}
+.btn.ghost{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.04)}
 
-.tags{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap} .tag{padding:6px 12px;background:rgba(255,255,255,0.10);border-radius:12px;font-size:13px;color:var(--muted);cursor:pointer}
+/* footer */
+footer{margin-top:22px;text-align:center;color:var(--muted)}
 
-/* GRID */ .grid{ display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px;margin-top:22px; } .card{ padding:16px;border-radius:18px;background:var(--panel); border:1px solid rgba(255,255,255,0.12); transition:0.25s; } .card:hover{ transform:translateY(-6px); box-shadow:0 0 22px rgba(0,210,255,0.25); } .thumb{ height:170px;border-radius:14px;margin-bottom:12px; background:#091227; display:flex;align-items:center;justify-content:center;color:#6d7fa8; }
+/* modal */
+.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:none;align-items:center;justify-content:center;padding:18px}
+.modal{background:#071225;padding:18px;border-radius:12px;max-width:820px;width:100%;border:1px solid rgba(0,200,255,0.08)}
+pre.xml{background:#001022;padding:12px;border-radius:8px;color:#bfeaf0;max-height:420px;overflow:auto}
 
-.pill{padding:4px 10px;border-radius:12px;background:rgba(255,255,255,0.12);font-size:11px;color:var(--muted);margin-right:6px}
+/* small screens */
+@media (max-width:640px){
+  .hero{flex-direction:column;align-items:flex-start}
+  nav{display:none}
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">5YB</div>
+        <div>
+          <div style="font-weight:700">5yberbind — Mega Resource Store</div>
+          <div style="font-size:13px;color:var(--muted)">Apps • Tech • Editing • XML • Templates</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#packs">Packs</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-footer{text-align:center;color:var(--muted);margin-top:35px;font-size:14px}
+    <div class="hero">
+      <div class="left">
+        <h1>Mega Store — 5yberbind</h1>
+        <p>Har category me 20 professional items — apps, tech resources, editing files, XML templates aur bahut kuch.</p>
+      </div>
 
-/* MODAL */ .modal-backdrop{ position:fixed;inset:0;background:rgba(0,0,0,0.75); display:none;justify-content:center;align-items:center; padding:24px; } .modal{ background:#07101f;padding:22px;border-radius:16px; max-width:900px;width:100%;border:1px solid var(--neon); } pre{ background:#000821;border-radius:12px;padding:16px;max-height:420px; overflow:auto;color:#7cf3ff;border:1px solid rgba(0,255,255,0.20); } </style>
+      <div class="controls">
+        <div class="search">
+          <input id="searchInput" placeholder="Search packs, tags, titles..." />
+        </div>
+        <div style="display:flex;gap:8px">
+          <button class="btn ghost" id="resetBtn">Reset</button>
+        </div>
+      </div>
+    </div>
 
-</head><body>
-<div class="container"><header>
-  <div class="logo">5YB</div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#packs">Packs</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header><section class="hero">
-  <h1>Ultra Neo Professional Editing Store</h1>
-  <p>Download premium editing packs, overlays, XML templates, LUTs, color grading packs & mobile filters.</p>
-  <button class="btn primary" id="freeXML">Download Free XML</button>
-  <button class="btn secondary">Browse Packs</button>
-</section><section class="searchBox">
-  <input id="searchInput" placeholder="Search packs...">
-  <div class="tags" id="tagsList"></div>
-</section><h2 style="margin-top:28px">Latest Premium Packs</h2>
-<div class="grid" id="packsGrid"></div><footer>© <span id="year"></span> 5yberbind — Ultra Neo Edition</footer>
-</div><!-- MODAL --><div class="modal-backdrop" id="modal">
-  <div class="modal">
-    <h3 id="modalTitle">Preview</h3>
-    <pre id="xmlPreview">Loading...</pre>
-    <div style="text-align:right;margin-top:12px">
-      <button class="btn secondary" id="closeModal">Close</button>
+    <!-- tabs -->
+    <div class="tabs" id="tabs"></div>
+
+    <!-- sections container -->
+    <div id="sectionsContainer"></div>
+
+    <footer>© <span id="year"></span> 5yberbind — All Rights Reserved</footer>
+  </div>
+
+  <!-- modal -->
+  <div class="modal-backdrop" id="modal">
+    <div class="modal">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h3 id="modalTitle">Preview</h3>
+        <button class="btn ghost" id="closeModal">Close</button>
+      </div>
+      <pre class="xml" id="modalContent">Loading...</pre>
     </div>
   </div>
-</div><script>
-document.getElementById("year").textContent = new Date().getFullYear();
 
-const PACKS = [
-  {
-    id:"neon-pro",
-    title:"Neon Cinematic Pro",
-    thumb:"assets/thumb1.jpg",
-    desc:"Ultra neon cinematic XML + LUT filters",
-    tags:["neon","cinematic","xml"],
-    preview:"<xml><pack>Neon Cinematic Pro</pack></xml>",
-    download:"downloads/neon-pro.zip"
-  },
-  {
-    id:"prism-glitch",
-    title:"Prism Glitch FX",
-    thumb:"assets/thumb2.jpg",
-    desc:"Glitch transitions + RGB split overlays",
-    tags:["glitch","fx","rgb"],
-    preview:"<xml><pack>Prism Glitch FX</pack></xml>",
-    download:"downloads/prism-glitch.zip"
-  },
-  {
-    id:"mobile-ultra",
-    title:"Mobile Ultra Filters",
-    thumb:"assets/thumb3.jpg",
-    desc:"Professional mobile filters for CapCut/VN",
-    tags:["mobile","filters","xml"],
-    preview:"<xml><pack>Mobile Ultra Filters</pack></xml>",
-    download:"downloads/mobile-ultra.zip"
-  }
+<script>
+// ========== CONFIG: categories & auto-generate 20 items each ==========
+// Category keys and friendly names
+const CATEGORIES = [
+  {key:'apps', name:'Apps'},
+  {key:'tech', name:'Tech Related'},
+  {key:'edit', name:'Editing Files'},
+  {key:'xml', name:'XML Templates'},
+  {key:'templates', name:'Design Templates'}
 ];
 
-const TAGS = [...new Set(PACKS.flatMap(p=>p.tags))];
-const tagsList = document.getElementById("tagsList");
-TAGS.forEach(t=>{
-  let el=document.createElement("div");
-  el.className="tag";
-  el.textContent=t;
-  el.onclick=()=>filterTag(t);
-  tagsList.appendChild(el);
+// each category will have 20 items auto-generated
+// Thumb naming pattern: assets/{category}-thumb-{i}.jpg
+// Download naming pattern: downloads/{category}-{i}.zip
+// You must upload matching files in your repo under assets/ and downloads/
+function generatePacks(){
+  const packs = {};
+  CATEGORIES.forEach(cat=>{
+    packs[cat.key] = [];
+    for(let i=1;i<=20;i++){
+      const id = `${cat.key}-${i}`;
+      packs[cat.key].push({
+        id,
+        title: `${cat.name} Pack ${i}`,
+        thumb: `assets/${cat.key}-thumb-${i}.jpg`,
+        desc: `High quality ${cat.name.toLowerCase()} resource — pack ${i}.`,
+        tags: generateTags(cat.key,i),
+        preview: `<xml><pack>${cat.name} Pack ${i}</pack><author>5yberbind</author></xml>`,
+        download: `downloads/${cat.key}-${i}.zip`
+      });
+    }
+  });
+  return packs;
+}
+function generateTags(key,i){
+  const base = {apps:['app','apk','mobile'], tech:['guide','tools','drivers'], edit:['presets','luts','overlays'], xml:['xml','preset','template'], templates:['design','mockup','ui']};
+  const arr = base[key] || ['pack'];
+  // mix with index for variety
+  return [arr[i%arr.length], arr[(i+1)%arr.length]];
+}
+
+// ========== render tabs and sections ==========
+const PACKS = generatePacks();
+const tabsEl = document.getElementById('tabs');
+const sectionsContainer = document.getElementById('sectionsContainer');
+const year = document.getElementById('year'); year.textContent = new Date().getFullYear();
+
+let activeCategory = CATEGORIES[0].key;
+
+// create tabs
+CATEGORIES.forEach((c,idx)=>{
+  const t = document.createElement('div');
+  t.className = 'tab' + (idx===0 ? ' active' : '');
+  t.textContent = `${c.name} (20)`;
+  t.dataset.key = c.key;
+  t.onclick = ()=>{ setActiveTab(c.key); };
+  tabsEl.appendChild(t);
 });
 
-function render(list){
-  const grid=document.getElementById("packsGrid");
-  grid.innerHTML="";
-  list.forEach(p=>{
-    let card=document.createElement("div");
-    card.className="card";
-    card.innerHTML=`
-      <div class='thumb'><img src='${p.thumb}' style='max-width:100%;max-height:100%;border-radius:14px;'></div>
-      <h3>${p.title}</h3>
-      <div style='color:var(--muted);margin:6px 0'>${p.desc}</div>
-      <div>${p.tags.map(t=>`<span class='pill'>${t}</span>`).join('')}</div>
-      <button class='btn primary' style='margin-top:12px' onclick="previewPack('${p.id}')">Preview</button>
-      <button class='btn secondary' style='margin-top:8px' onclick="window.location='${p.download}'">Download</button>
-    `;
-    grid.appendChild(card);
+// set active tab and render that section
+function setActiveTab(key){
+  activeCategory = key;
+  // update tabs style
+  document.querySelectorAll('.tab').forEach(el=>el.classList.toggle('active', el.dataset.key===key));
+  // render sections (show only active)
+  renderSections();
+}
+
+function renderSections(){
+  sectionsContainer.innerHTML = '';
+  CATEGORIES.forEach(cat=>{
+    const section = document.createElement('div');
+    section.id = `section-${cat.key}`;
+    // only show active section; others hidden (but created)
+    section.style.display = (cat.key === activeCategory ? 'block' : 'none');
+
+    const title = document.createElement('div');
+    title.className = 'section-title';
+    title.textContent = cat.name;
+    section.appendChild(title);
+
+    const grid = document.createElement('div');
+    grid.className = 'grid';
+    grid.id = `grid-${cat.key}`;
+
+    // render items
+    PACKS[cat.key].forEach(p=>{
+      const card = document.createElement('div'); card.className = 'card';
+      card.innerHTML = `
+        <div class="thumb"><img src="${p.thumb}" alt="${p.title}" onerror="this.parentNode.innerHTML='Preview'"></div>
+        <h3>${p.title}</h3>
+        <div class="meta">${p.desc}</div>
+        <div class="tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+        <div class="actions">
+          <button class="btn primary" onclick="openPreview('${p.id}','${escapeHtml(p.preview)}')">Preview</button>
+          <button class="btn ghost" onclick="downloadPack('${p.download}')">Download</button>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+
+    section.appendChild(grid);
+    sectionsContainer.appendChild(section);
   });
 }
-render(PACKS);
+renderSections();
 
-// Search
-const searchInput=document.getElementById("searchInput");
-searchInput.oninput = ()=>{
-  const q=searchInput.value.toLowerCase();
-  const filtered = PACKS.filter(p => (p.title+p.desc+p.tags.join()).toLowerCase().includes(q));
-  render(filtered);
-};
+// ========== SEARCH & FILTER ==========
+const searchInput = document.getElementById('searchInput');
+searchInput.addEventListener('input', ()=> {
+  const q = searchInput.value.trim().toLowerCase();
+  filterAndRender(q);
+});
+document.getElementById('resetBtn').onclick = ()=> { searchInput.value=''; filterAndRender(''); };
 
-// Tag filter
-function filterTag(t){render(PACKS.filter(p=>p.tags.includes(t))) }
-
-// Modal
-const modal=document.getElementById("modal");
-const title=document.getElementById("modalTitle");
-const xml=document.getElementById("xmlPreview");
-
-function previewPack(id){
-  let p=PACKS.find(x=>x.id===id);
-  modal.style.display="flex";
-  title.textContent = p.title+" — XML Preview";
-  xml.textContent = p.preview;
+function filterAndRender(query){
+  // for each category, filter packs and re-render that grid
+  CATEGORIES.forEach(cat=>{
+    const grid = document.getElementById(`grid-${cat.key}`);
+    grid.innerHTML = '';
+    const list = PACKS[cat.key].filter(p => {
+      if(!query) return true;
+      return (p.title + ' ' + p.desc + ' ' + p.tags.join(' ')).toLowerCase().includes(query);
+    });
+    list.forEach(p=> {
+      const card = document.createElement('div'); card.className = 'card';
+      card.innerHTML = `
+        <div class="thumb"><img src="${p.thumb}" alt="${p.title}" onerror="this.parentNode.innerHTML='Preview'"></div>
+        <h3>${p.title}</h3>
+        <div class="meta">${p.desc}</div>
+        <div class="tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+        <div class="actions">
+          <button class="btn primary" onclick="openPreview('${p.id}','${escapeHtml(p.preview)}')">Preview</button>
+          <button class="btn ghost" onclick="downloadPack('${p.download}')">Download</button>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+    // if this category currently active, keep visible, else hide
+    const section = document.getElementById(`section-${cat.key}`);
+    if(cat.key === activeCategory) section.style.display = 'block';
+  });
 }
-document.getElementById("closeModal").onclick=()=>modal.style.display="none";
-modal.onclick = e=>{ if(e.target===modal) modal.style.display="none" }
 
-// Free XML download
-const freeData="<xml><free>5yberbind Ultra Neo XML</free></xml>";
-document.getElementById("freeXML").onclick=()=>{
-  let blob=new Blob([freeData],{type:"application/xml"});
-  let a=document.createElement("a");
-  a.href=URL.createObjectURL(blob);
-  a.download="5yberbind-free.xml";
-  a.click();
+// ========== PREVIEW MODAL & DOWNLOAD handler ==========
+const modal = document.getElementById('modal');
+const modalContent = document.getElementById('modalContent');
+const modalTitle = document.getElementById('modalTitle');
+
+window.openPreview = function(id, previewEscaped){
+  // find pack by id
+  const p = findPackById(id);
+  if(!p) return alert('Preview not found');
+  modalTitle.textContent = p.title + ' — Preview';
+  modalContent.textContent = unescapeHtml(previewEscaped) || p.preview || 'No preview';
+  modal.style.display = 'flex';
 };
-</script></body>
+document.getElementById('closeModal').onclick = ()=> modal.style.display='none';
+modal.onclick = (e)=> { if(e.target === modal) modal.style.display='none'; };
+
+function downloadPack(url){
+  // simple attempt to download — if file exists on server it will start
+  window.location = url;
+}
+
+// helpers
+function findPackById(id){
+  for(const k in PACKS){
+    const p = PACKS[k].find(x=>x.id===id);
+    if(p) return p;
+  }
+  return null;
+}
+function escapeHtml(s){ return s.replace(/'/g,"\\'").replace(/"/g,'\\"'); }
+function unescapeHtml(s){ return s.replace(/\\"/g,'"').replace(/\\'/g,"'"); }
+
+// initial active tab set
+setActiveTab(activeCategory);
+
+</script>
+</body>
 </html>
