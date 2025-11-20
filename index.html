@@ -1,246 +1,253 @@
-<!--
-5yberBind - Premium Editing Packs Website (Single-file HTML Template)
-How to use:
-1) Open this file in a code editor and replace placeholder text, images, and links.
-2) Files to REMOVE (old) before deploying: remove any previous index.html, /assets/css/*, /assets/js/* that conflict. Replace with this index.html and the provided /assets folder (or update paths here).
-3) Where to paste / host:
-   - GitHub Pages: create repo, push this index.html to root -> Settings > Pages -> deploy
-   - Netlify/Vercel: drag & drop the project folder or connect repo
-   - cPanel/Shared Hosting: upload index.html and assets to public_html
-4) To add more packs: duplicate a .card element in the marketplace grid and update data attributes.
-5) Analytics: replace GA_MEASUREMENT_ID below with your ID.
-6) SEO: update meta description, open graph images, JSON-LD organization data.
-
-Notes for Ashwani (5yberBind):
-- Keep download files in /downloads/ and previews in /previews/; use consistent filenames.
-- For crowded content use pagination or lazy-loading.
-- For monetization: add AdSense placeholders, affiliate banners in .sidebar.
-- For speed: compress images and use SVG icons.
---><!doctype html>
-
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>5yberBind — Editing Packs & Templates</title>
-  <meta name="description" content="Free and premium editing packs, XML templates, preview files, and apps for creators. Download and preview instantly." />
-  <meta name="keywords" content="editing packs, XML templates, preview, Free Download, 5yberBind" />
-  <!-- Open Graph -->
-  <meta property="og:title" content="5yberBind — Editing Packs & Templates" />
-  <meta property="og:description" content="Free & premium editing packs, XML templates, previews and apps." />
-  <meta property="og:image" content="/assets/og-image.png" />
-  <meta property="og:type" content="website" />  <!-- Tailwind CDN for quick styling (replace with build during production) -->  <script src="https://cdn.tailwindcss.com"></script>  <!-- Structured data -->  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "name":"5yberBind",
-    "url":"https://yourdomain.com",
-    "potentialAction":{
-      "@type":"SearchAction",
-      "target":"https://yourdomain.com/?s={search_term_string}",
-      "query-input":"required name=search_term_string"
+  <title>5yberbind — Premium Editing Packs & Templates</title>
+  <meta name="description" content="Download premium editing packs, XML templates, presets and preview files for editors and creators." />
+  <meta name="keywords" content="editing packs, xml templates, video templates, preview xml, download templates, editing presets" />
+
+  <style>
+    :root{
+      --bg:#0f1724; 
+      --card:#0b1a2b; 
+      --muted:#9aa6b2; 
+      --accent:#6ee7b7; 
+      --glass: rgba(255,255,255,0.04);
+      font-family: Inter, ui-sans-serif, system-ui;
     }
-  }
-  </script>  <!-- Google Analytics (replace with your ID) -->  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
-    gtag('config', 'GA_MEASUREMENT_ID');
-  </script> -->  <style>
-    /* Minimal custom styles for cards and modal fallback */
-    .fade-enter{opacity:0;transform:translateY(6px)}
-    .fade-enter-active{opacity:1;transform:none;transition:all .18s ease}
-    .card-img{background-size:cover;background-position:center;height:140px}
-  </style></head>
-<body class="bg-slate-900 text-slate-100 font-sans leading-relaxed">
-  <header class="bg-gradient-to-r from-slate-800 via-slate-900 to-black sticky top-0 z-50 shadow-md">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3">
-        <div class="w-10 h-10 bg-gradient-to-tr from-indigo-500 to-pink-500 rounded-lg flex items-center justify-center font-bold text-white">5B</div>
-        <div>
-          <h1 class="text-xl font-semibold">5yberBind</h1>
-          <p class="text-xs text-slate-300">Editing packs, XMLs, templates & previews</p>
-        </div>
-      </a>
-      <nav class="hidden md:flex items-center gap-4">
-        <a href="#marketplace" class="text-sm hover:underline">Marketplace</a>
-        <a href="#how-it-works" class="text-sm hover:underline">How it works</a>
-        <a href="#blog" class="text-sm hover:underline">Blog</a>
-        <a href="#contact" class="text-sm hover:underline">Contact</a>
-      </nav>
-      <div class="flex items-center gap-3">
-        <input id="search" placeholder="Search packs, templates..." class="hidden md:inline-block px-3 py-2 rounded bg-slate-800 text-sm outline-none" />
-        <a href="#subscribe" class="px-3 py-2 bg-indigo-600 rounded text-sm font-medium">Subscribe</a>
+    *{box-sizing:border-box}
+    body{
+      margin:0; background:#071827; color:#e6eef6; 
+      padding:24px;
+      display:flex; justify-content:center;
+    }
+    .container{width:100%; max-width:1200px}
+
+    header{display:flex; align-items:center; justify-content:space-between;}
+    .logo{background:linear-gradient(135deg,#3dd6b3,#5b82ff);padding:12px;border-radius:12px;font-weight:800;}
+
+    nav a{color:var(--muted);text-decoration:none;font-size:14px;margin-left:12px}
+
+    .hero{
+      margin-top:20px;
+      display:grid;grid-template-columns:1fr 350px;gap:20px;
+    }
+    .hero-card{
+      padding:20px;
+      border-radius:12px;
+      background:rgba(255,255,255,0.05);
+    }
+    .btn{
+      background:var(--accent);color:#042025;border:none;
+      padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:600
+    }
+    .btn.secondary{
+      background:transparent;border:1px solid rgba(255,255,255,0.08);
+      color:var(--muted)
+    }
+
+    .sidebar{
+      background:var(--card);padding:18px;border-radius:12px
+    }
+    .sidebar input{
+      padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.05);background:transparent;color:white;width:100%
+    }
+    .filters{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}
+    .tag{background:rgba(255,255,255,0.05);padding:6px 10px;border-radius:999px;color:var(--muted);cursor:pointer;font-size:12px}
+
+    .grid{
+      margin-top:20px;
+      display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+    }
+    .card{
+      background:rgba(255,255,255,0.05);
+      padding:14px;border-radius:12px;
+    }
+    .thumb{height:160px;background:#081225;border-radius:8px;color:#aaa;display:flex;align-items:center;justify-content:center}
+
+    .pill{
+      background:rgba(255,255,255,0.08);
+      padding:4px 8px;border-radius:8px;font-size:11px;
+    }
+
+    footer{
+      margin-top:30px;color:var(--muted);text-align:center;font-size:13px
+    }
+
+    /* Modal */
+    .modal-backdrop{
+      position:fixed; inset:0; display:none;
+      background:rgba(0,0,0,0.6);
+      justify-content:center; align-items:center;
+      padding:20px;
+    }
+    .modal{
+      background:#0b1a2b;border-radius:12px;
+      padding:20px;max-width:800px;width:100%;
+    }
+    pre{background:#000922;padding:12px;border-radius:8px;color:#bfeaf0;max-height:400px;overflow:auto}
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <header>
+    <div class="logo">5yB</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#packs">Packs</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-card">
+      <h2>Premium Editing Packs, XML Templates & Previews</h2>
+      <p>5yberbind Store — Free & Paid all editing XMLs, presets, thumbnails and packs.</p>
+
+      <div style="margin-top:12px;">
+        <button class="btn" id="cta-free">Get Free XML</button>
+        <button class="btn secondary">Browse Packs</button>
       </div>
     </div>
-  </header>  <main class="max-w-6xl mx-auto px-4 py-10">
-    <!-- Hero -->
-    <section class="grid md:grid-cols-2 gap-8 items-center mb-10">
-      <div>
-        <h2 class="text-4xl font-extrabold">Free & Premium Editing Packs for Creators</h2>
-        <p class="mt-4 text-slate-300">Download XML editing templates, app previews, project files and ready-to-use templates. Fast previews, safe downloads, and step-by-step usage guides.</p>
-        <div class="mt-6 flex gap-3">
-          <a href="#marketplace" class="px-5 py-3 bg-indigo-600 rounded font-semibold">Explore Marketplace</a>
-          <a href="#how-it-works" class="px-5 py-3 border border-slate-700 rounded">How it works</a>
-        </div>
-        <ul class="mt-6 grid grid-cols-2 gap-3 text-sm text-slate-300">
-          <li>✔️ Free downloads</li>
-          <li>✔️ Premium packs</li>
-          <li>✔️ Instant preview</li>
-          <li>✔️ Simple install guides</li>
-        </ul>
-      </div>
-      <div class="p-6 rounded-xl bg-gradient-to-t from-slate-800 to-slate-700">
-        <div class="h-64 rounded-lg overflow-hidden shadow-lg" style="background-image:url('/assets/hero-preview.jpg');background-size:cover;background-position:center"></div>
-      </div>
-    </section><!-- Marketplace grid -->
-<section id="marketplace" class="mb-12">
-  <div class="flex items-center justify-between mb-6">
-    <h3 class="text-2xl font-bold">Marketplace</h3>
-    <div class="flex items-center gap-3">
-      <select id="category" class="bg-slate-800 px-3 py-2 rounded text-sm">
-        <option value="all">All categories</option>
-        <option value="xml">XML Templates</option>
-        <option value="packs">Editing Packs</option>
-        <option value="apps">Apps & APK</option>
-      </select>
-      <button id="loadMore" class="px-3 py-2 border rounded text-sm">Load more</button>
+
+    <div class="sidebar">
+      <input id="searchInput" placeholder="Search packs...">
+      <div class="filters" id="filters"></div>
     </div>
-  </div>
+  </section>
 
-  <div id="grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    <!-- Sample card: duplicate and update data-* attributes to add more -->
-    <article class="card bg-slate-800 rounded-lg p-4 shadow" data-category="xml" data-title="Pro XML Pack 1" data-preview="/previews/pro-xml-1.jpg" data-download="/downloads/pro-xml-1.zip">
-      <div class="card-img rounded-md" style="background-image:url('/assets/card-thumb1.jpg')"></div>
-      <div class="mt-3">
-        <h4 class="font-semibold">Pro XML Pack 1</h4>
-        <p class="text-sm text-slate-400 mt-1">XML templates for smooth transitions & presets.</p>
-        <div class="mt-3 flex items-center justify-between">
-          <div class="text-sm text-slate-300">Free</div>
-          <div class="flex items-center gap-2">
-            <button class="previewBtn px-3 py-1 border rounded text-sm">Preview</button>
-            <a class="downloadBtn px-3 py-1 bg-indigo-600 rounded text-sm font-medium" href="/downloads/pro-xml-1.zip" download>Download</a>
-          </div>
-        </div>
-      </div>
-    </article>
+  <section id="packs">
+    <h3>Latest Packs</h3>
+    <div class="grid" id="packsGrid"></div>
+  </section>
 
-    <!-- add more cards here -->
-
-  </div>
-</section>
-
-<!-- How it works -->
-<section id="how-it-works" class="mb-12 bg-slate-800 p-6 rounded-lg">
-  <h3 class="text-2xl font-bold mb-3">How it works</h3>
-  <ol class="list-decimal ml-5 text-slate-300">
-    <li>Browse categories or search for templates.</li>
-    <li>Click Preview to see live demo or preview image.</li>
-    <li>Click Download to get the pack (ZIP / XML / APK).</li>
-    <li>Follow included README to install and use.</li>
-  </ol>
-</section>
-
-<!-- Blog / SEO content area -->
-<section id="blog" class="mb-12">
-  <h3 class="text-2xl font-bold mb-4">Latest Tutorials</h3>
-  <div class="grid md:grid-cols-2 gap-6">
-    <article class="bg-slate-800 p-4 rounded">
-      <h4 class="font-semibold">How to install XML packs on your editor</h4>
-      <p class="text-slate-300 text-sm mt-2">Step-by-step guide to install editing XMLs...</p>
-    </article>
-    <article class="bg-slate-800 p-4 rounded">
-      <h4 class="font-semibold">Create custom templates — beginner guide</h4>
-      <p class="text-slate-300 text-sm mt-2">Make your own templates, export, and share...</p>
-    </article>
-  </div>
-</section>
-
-<!-- Footer / Contact -->
-<section id="contact" class="mb-12 grid md:grid-cols-3 gap-6">
-  <div>
-    <h4 class="font-bold">About 5yberBind</h4>
-    <p class="text-slate-300 text-sm mt-2">Creators-first library for editing resources and templates.</p>
-  </div>
-  <div>
-    <h4 class="font-bold">Get in touch</h4>
-    <p class="text-slate-300 text-sm mt-2">Email: contact@yourdomain.com</p>
-  </div>
-  <div>
-    <h4 class="font-bold">Subscribe</h4>
-    <form id="subscribe" class="mt-2 flex gap-2">
-      <input type="email" placeholder="you@example.com" class="px-3 py-2 rounded bg-slate-800 outline-none text-sm flex-1" />
-      <button class="px-3 py-2 bg-indigo-600 rounded">Join</button>
-    </form>
-  </div>
-</section>
-
-  </main>  <!-- Modal / Preview -->  <div id="previewModal" class="fixed inset-0 hidden items-center justify-center bg-black/60 p-4 z-50">
-    <div class="bg-slate-900 rounded-lg max-w-3xl w-full overflow-hidden">
-      <div class="flex items-center justify-between p-3 border-b border-slate-800">
-        <h4 id="modalTitle" class="font-semibold">Preview</h4>
-        <button id="closeModal" class="px-2 py-1">Close</button>
-      </div>
-      <div id="modalBody" class="p-4">
-        <img id="modalImg" src="" alt="preview" class="w-full rounded" />
-        <p id="modalDesc" class="mt-3 text-slate-300 text-sm"></p>
-      </div>
-      <div class="p-3 border-t border-slate-800 flex items-center justify-end gap-3">
-        <a id="modalDownload" class="px-3 py-2 bg-indigo-600 rounded text-sm font-medium" href="#">Download</a>
-      </div>
-    </div>
-  </div>  <script>
-    // Simple JS for preview modal and category filter
-    document.addEventListener('click', function(e){
-      if(e.target.matches('.previewBtn')){
-        const card = e.target.closest('.card');
-        const title = card.dataset.title;
-        const preview = card.dataset.preview;
-        const desc = card.querySelector('p')?.innerText || '';
-        const download = card.dataset.download;
-        document.getElementById('modalTitle').innerText = title;
-        document.getElementById('modalImg').src = preview;
-        document.getElementById('modalDesc').innerText = desc;
-        document.getElementById('modalDownload').href = download;
-        document.getElementById('previewModal').classList.remove('hidden');
-      }
-      if(e.target.id === 'closeModal' || e.target.id === 'previewModal'){
-        document.getElementById('previewModal').classList.add('hidden');
-      }
-    });
-
-    document.getElementById('category').addEventListener('change', function(){
-      const val = this.value;
-      document.querySelectorAll('#grid .card').forEach(c=>{
-        if(val === 'all' || c.dataset.category === val) c.style.display = '';
-        else c.style.display = 'none';
-      });
-    });
-
-    // Load more button (simple demo: duplicates existing cards)
-    document.getElementById('loadMore').addEventListener('click', function(){
-      const grid = document.getElementById('grid');
-      const sample = grid.querySelector('.card');
-      if(!sample) return;
-      for(let i=0;i<3;i++){
-        const clone = sample.cloneNode(true);
-        // update title to avoid duplicates
-        clone.dataset.title = clone.dataset.title + ' (copy)';
-        clone.querySelector('h4').innerText = clone.dataset.title;
-        grid.appendChild(clone);
-      }
-    });
-
-    // Basic search
-    document.getElementById('search').addEventListener('input', function(){
-      const q = this.value.toLowerCase();
-      document.querySelectorAll('#grid .card').forEach(c=>{
-        const t = c.dataset.title.toLowerCase();
-        c.style.display = t.includes(q) ? '' : 'none';
-      });
-    });
-  </script>  <!-- Footer small -->  <footer class="py-6 text-center text-slate-400 text-sm">
-    © 2025 5yberBind — All rights reserved.
+  <footer>
+    © <span id="year"></span> 5yberbind — All Rights Reserved
   </footer>
+
+</div>
+
+<!-- Modal -->
+<div class="modal-backdrop" id="modal">
+  <div class="modal">
+    <h3 id="modalTitle">Preview</h3>
+    <pre id="xmlPreview">Loading...</pre>
+    <div style="margin-top:12px;text-align:right">
+      <button class="btn secondary" id="closeModal">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const SITE_META = {
+  packs: [
+    {
+      id: "cinematic-v1",
+      title: "Cinematic Pack v1",
+      thumb: "assets/thumb-cinematic.jpg",
+      tags: ["cinematic","color","xml"],
+      desc: "Smooth cinematic XML + filters",
+      preview: "<xml><pack>Cinematic v1</pack></xml>",
+      download: "downloads/cinematic-v1.zip"
+    },
+    {
+      id: "glitch-pack",
+      title: "Glitch Titles Pack",
+      thumb: "assets/thumb-glitch.jpg",
+      tags: ["glitch","titles","motion"],
+      desc: "Animated glitch titles",
+      preview: "<xml><pack>Glitch Titles</pack></xml>",
+      download: "downloads/glitch-pack.zip"
+    },
+    {
+      id: "mobile-filters",
+      title: "Mobile Filters Pack",
+      thumb: "assets/thumb-mobile.jpg",
+      tags: ["mobile","filters"],
+      desc: "Mobile optimized filters + XML",
+      preview: "<xml><pack>Mobile Filters</pack></xml>",
+      download: "downloads/mobile-filters.zip"
+    }
+  ],
+  tags: ["cinematic","color","xml","glitch","titles","motion","mobile","filters"]
+};
+
+// TAGS
+const filters = document.getElementById("filters");
+SITE_META.tags.forEach(t=>{
+  let tag = document.createElement("div");
+  tag.className="tag";
+  tag.textContent=t;
+  tag.onclick=()=> filterTag(t);
+  filters.appendChild(tag);
+});
+
+// CARDS
+const grid = document.getElementById("packsGrid");
+function render(list){
+  grid.innerHTML="";
+  list.forEach(p=>{
+    let card = document.createElement("div");
+    card.className="card";
+    card.innerHTML=`
+      <div class="thumb"><img src="${p.thumb}" style="max-width:100%;max-height:100%;border-radius:8px;"></div>
+      <h3>${p.title}</h3>
+      <p style="color:#9aa6b2">${p.desc}</p>
+      <div style="display:flex;gap:6px;margin:8px 0">
+        ${p.tags.map(t=>`<span class='pill'>${t}</span>`).join("")}
+      </div>
+      <button class="btn" onclick="openPreview('${p.id}')">Preview</button>
+      <button class="btn secondary" onclick="window.location='${p.download}'">Download</button>
+    `;
+    grid.appendChild(card);
+  });
+}
+render(SITE_META.packs);
+
+// SEARCH
+document.getElementById("searchInput").oninput = function(){
+  const q = this.value.toLowerCase();
+  const result = SITE_META.packs.filter(p=>{
+    return (p.title+p.desc+p.tags.join(" ")).toLowerCase().includes(q);
+  });
+  render(result);
+};
+
+// TAG FILTER
+function filterTag(t){
+  render(SITE_META.packs.filter(p=>p.tags.includes(t)));
+}
+
+// MODAL
+const modal = document.getElementById("modal");
+const xmlPreview = document.getElementById("xmlPreview");
+const modalTitle = document.getElementById("modalTitle");
+
+function openPreview(id){
+  let p = SITE_META.packs.find(x=>x.id===id);
+  modal.style.display="flex";
+  modalTitle.textContent = p.title+" — XML Preview";
+  xmlPreview.textContent = p.preview;
+}
+document.getElementById("closeModal").onclick = ()=> modal.style.display="none";
+modal.onclick = (e)=>{ if(e.target===modal) modal.style.display="none" };
+
+// FREE SAMPLE
+document.getElementById("cta-free").onclick = ()=>{
+  const sample = "<xml><sample>Free XML From 5yberbind</sample></xml>";
+  const blob = new Blob([sample], {type:"application/xml"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download="free-xml.xml";
+  a.click();
+};
+</script>
+
 </body>
 </html>
