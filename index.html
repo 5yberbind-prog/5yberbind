@@ -129,3 +129,129 @@ document.getElementById("freeXML").onclick = ()=>{
 }
 </script></body>
 </html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ultra Premium Store – 5yberbind</title>
+
+<style>
+  :root{
+    --glass:rgba(255,255,255,0.10);
+    --card:rgba(255,255,255,0.08);
+    --accent:#00f5ff;
+    --bg:#020412;
+    font-family: Poppins, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:radial-gradient(circle at top, #0a1137, #000);
+    color:white;
+    padding:22px;
+    display:flex;justify-content:center;
+  }
+  .container{width:100%;max-width:1280px}
+
+  header{
+    display:flex;justify-content:space-between;align-items:center;
+    margin-bottom:20px;
+  }
+  .logo{
+    font-size:22px;font-weight:800;
+    padding:12px 18px;border-radius:12px;
+    background:linear-gradient(135deg,#00eaff,#007cff);
+    box-shadow:0 0 18px #00eaff;
+  }
+  nav a{
+    color:#bcd0ff;text-decoration:none;margin-left:20px;
+    font-size:14px;
+  }
+
+  .hero{
+    background:var(--glass);
+    border:1px solid rgba(255,255,255,0.15);
+    backdrop-filter:blur(12px);
+    padding:28px;border-radius:20px;
+    margin-bottom:26px;
+  }
+  .btn{
+    background:var(--accent);color:#003438;
+    padding:10px 16px;border:none;
+    border-radius:10px;font-weight:600;cursor:pointer;
+  }
+  .btn.sec{
+    background:transparent;border:1px solid rgba(255,255,255,0.20);
+    color:#bcd0ff;
+  }
+
+  .grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:18px;margin-top:18px;
+  }
+  .card{
+    background:var(--card);
+    padding:16px;border-radius:16px;
+    border:1px solid rgba(255,255,255,0.12);
+  }
+  .thumb{
+    height:170px;border-radius:12px;
+    background:#08122e;display:flex;align-items:center;justify-content:center;
+    margin-bottom:10px;
+  }
+  .pill{
+    background:rgba(255,255,255,0.15);
+    padding:4px 8px;border-radius:10px;font-size:11px;margin-right:5px;
+  }
+  footer{text-align:center;color:#9ab0ff;margin-top:30px}
+
+  /* MODAL */
+  .modal-backdrop{
+    position:fixed;inset:0;background:rgba(0,0,0,0.7);
+    display:none;justify-content:center;align-items:center;padding:24px;
+  }
+  .modal{
+    background:#070c1d;border-radius:18px;
+    padding:20px;max-width:900px;width:100%;
+    border:1px solid rgba(0,255,255,0.25);
+  }
+  pre{
+    background:#000820;padding:14px;border-radius:12px;
+    max-height:420px;overflow:auto;color:#78f5ff;
+    border:1px solid rgba(0,255,255,0.15);
+  }
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<header>
+  <div class="logo">5YB</div>
+  <nav>
+    <a href="#packs">Packs</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1 style="margin-bottom:10px">Ultra Premium Editing Packs & Templates</h1>
+  <p style="color:#bcd0ff;margin-bottom:14px">
+    Glassmorphism + Neon UI packs. XML, presets, overlays & pro editing elements.
+  </p>
+  <button class="btn" id="freeXML">Download Free XML</button>
+  <button class="btn sec">Browse Packs</button>
+</section>
+
+<h2>Latest Premium Packs</h2>
+<div class="grid" id="packsGrid"></div>
+
+<footer>© <span id="year"></span> 5yberbind — Ultra Premium Store</footer>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal-backdrop" id="modal">
+  <div class="modal">
+    <h3 id="modalTitle">Preview</h3>
+    <pre id="xmlPreview">Loading...</pre
