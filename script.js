@@ -1,3 +1,29 @@
+const appDetails = {
+  "apps-1": {
+    title: "Instagram Pro",
+    desc: "Premium Instagram mod with extra privacy, downloader & no ads.",
+    tags: "apk, instagram, mod",
+    preview: "images/insta.png",
+    download: "downloads/insta-pro.apk"
+  },
+  "apps-2": {
+    title: "YouTube Premium Mod",
+    desc: "Background play, no ads, HDR support, AMOLED theme.",
+    tags: "apk, youtube, mod",
+    preview: "images/ytpremium.png",
+    download: "downloads/youtube-premium.apk"
+  },
+  "apps-3": {
+    title: "TikTok Lite",
+    desc: "Super fast lite app with low battery consumption.",
+    tags: "apk, tiktok, lite",
+    preview: "images/tiktok.png",
+    download: "downloads/tiktok-lite.apk"
+  },
+
+  // jitne chaho utne add kar sakte ho
+};
+
 /* Pro MAX script.js
    - Renders items per category
    - Search + Tabs filtering
@@ -24,7 +50,22 @@ function makeLabel(categoryKey, index){
   }[categoryKey] || "ITEM";
   return `${base} ${index}`;
 }
+const data = appDetails[itemId];
 
+if (data) {
+  modalTitle.textContent = data.title;
+  modalDesc.textContent = data.desc;
+  modalImage.style.backgroundImage = `url('${data.preview}')`;
+  modalImage.style.backgroundSize = "cover";
+  modalImage.style.backgroundPosition = "center";
+  modalTags.textContent = `Tags: ${data.tags}`;
+  modalDownloadBtn.onclick = () => window.location.href = data.download;
+} else {
+  modalTitle.textContent = makeLabel(cat, idx);
+  modalDesc.textContent = "Premium resource file.";
+  modalImage.textContent = makeLabel(cat, idx);
+  modalTags.textContent = "Tags: general";
+}
 /* ---------- Render items into grid ---------- */
 Object.entries(categories).forEach(([key, value])=>{
   const container = document.getElementById(value.id);
