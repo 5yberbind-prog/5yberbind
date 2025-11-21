@@ -1,15 +1,9 @@
-const btn = document.getElementById("themeToggle");
+// Theme Toggle
+const toggleBtn = document.getElementById("themeToggle");
 
-btn.onclick = () => {
+toggleBtn.onclick = () => {
     document.body.classList.toggle("dark");
-
-    if (document.body.classList.contains("dark")) {
-        document.body.style.background = "#111";
-        document.body.style.color = "#fff";
-        btn.innerText = "Dark";
-    } else {
-        document.body.style.background = "#fff";
-        document.body.style.color = "#000";
-        btn.innerText = "Light";
-    }
+    toggleBtn.innerText = document.body.classList.contains("dark")
+        ? "Dark"
+        : "Light";
 };
