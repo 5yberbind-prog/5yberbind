@@ -1,225 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>5yberBind - Download Hub</title>
-
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial;
-}
-
-body{
-  background:#f5f5f5;
-  color:#222;
-}
-
-header{
-  width:100%;
-  padding:20px;
-  background:white;
-  box-shadow:0 2px 10px rgba(0,0,0,0.1);
-  position:sticky;
-  top:0;
-  z-index:100;
-}
-
-nav{
-  max-width:900px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-nav h1{
-  font-size:24px;
-  font-weight:700;
-}
-
-nav ul{
-  display:flex;
-  gap:20px;
-}
-
-nav ul a{
-  text-decoration:none;
-  color:#222;
-  font-weight:600;
-}
-
-.section{
-  max-width:900px;
-  margin:40px auto;
-  padding:0 15px;
-}
-
-.section h2{
-  font-size:26px;
-  margin-bottom:15px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:20px;
-}
-
-.card{
-  background:white;
-  border-radius:10px;
-  box-shadow:0 4px 15px rgba(0,0,0,0.1);
-  padding:15px;
-  text-align:center;
-  cursor:pointer;
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:translateY(-5px);
-}
-
-.card img{
-  width:100%;
-  height:120px;
-  object-fit:cover;
-  border-radius:8px;
-}
-
-footer{
-  text-align:center;
-  padding:40px 0;
-  margin-top:30px;
-  background:white;
-}
-
-#popup{
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background:rgba(0,0,0,0.5);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:200;
-}
-
-.popup-box{
-  background:white;
-  padding:20px;
-  width:300px;
-  text-align:center;
-  border-radius:10px;
-}
-
-button{
-  margin-top:15px;
-  padding:10px 20px;
-  border:none;
-  background:#007bff;
-  color:white;
-  border-radius:5px;
-  cursor:pointer;
-}
-
-.close-btn{
-  background:#999;
-}
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5yberBind - Download Hub</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
-  <nav>
-    <h1>5yberBind</h1>
-    <ul>
-      <a href="#">Home</a>
-      <a href="#">Apps</a>
-      <a href="#">Blogs</a>
-      <a href="#">Templates</a>
-    </ul>
-  </nav>
+    <nav>
+        <div class="logo">5yberBind</div>
+        <ul class="menu">
+            <li><a href="#apps">Apps</a></li>
+            <li><a href="#packs">Packs</a></li>
+            <li><a href="#templates">Templates</a></li>
+            <li><a href="#blogs">Blogs</a></li>
+        </ul>
+        <button id="themeToggle">Light</button>
+    </nav>
 </header>
 
-<section class="section">
-  <h2>Dummy Apps (10)</h2>
-
-  <div class="grid">
-    <!-- 10 dummy app cards -->
-    <script>
-      for(let i=1;i<=10;i++){
-        document.write(`
-          <div class='card' onclick='openPopup(${i})'>
-            <img src='https://via.placeholder.com/300x200?text=App+${i}'>
-            <h3>Dummy App ${i}</h3>
-          </div>
-        `);
-      }
-    </script>
-  </div>
+<section class="hero">
+    <h1>The Ultimate Download Hub for Creators</h1>
+    <p>Get XML files, templates, editing packs, overlays, assets, and more at one place.</p>
+    <div class="hero-btns">
+        <a href="#apps" class="btn">Explore Apps</a>
+        <a href="#blogs" class="btn-secondary">Read Blogs</a>
+    </div>
 </section>
 
-<section class="section">
-  <h2>Latest Blogs (10)</h2>
-  <div class="grid">
-    <script>
-      for(let i=1;i<=10;i++){
-        document.write(`
-          <div class='card'>
-            <img src='https://via.placeholder.com/300x200?text=Blog+${i}'>
-            <h3>Blog Title ${i}</h3>
-          </div>
-        `);
-      }
-    </script>
-  </div>
+<section id="apps" class="section">
+    <h2>Apps Collection</h2>
+    <div class="grid">
+        <div class="card">
+            <img src="assets/app1.jpg" alt="">
+            <h3>Editing App</h3>
+            <button class="preview-btn" onclick="openPreview('assets/app1.jpg')">Preview</button>
+        </div>
+        <div class="card">
+            <img src="assets/app2.jpg" alt="">
+            <h3>Premium App</h3>
+            <button class="preview-btn" onclick="openPreview('assets/app2.jpg')">Preview</button>
+        </div>
+        <div class="card">
+            <img src="assets/app3.jpg" alt="">
+            <h3>XML Editor</h3>
+            <button class="preview-btn" onclick="openPreview('assets/app3.jpg')">Preview</button>
+        </div>
+    </div>
 </section>
 
-<section class="section">
-  <h2>Templates (10)</h2>
-  <div class="grid">
-    <script>
-      for(let i=1;i<=10;i++){
-        document.write(`
-          <div class='card'>
-            <img src='https://via.placeholder.com/300x200?text=Template+${i}'>
-            <h3>Template ${i}</h3>
-          </div>
-        `);
-      }
-    </script>
-  </div>
+<section id="packs" class="section dark">
+    <h2>Premium Packs</h2>
+    <div class="grid">
+        <div class="card">
+            <img src="assets/pack1.jpg" alt="">
+            <h3>FX Pack</h3>
+            <button class="preview-btn" onclick="openPreview('assets/pack1.jpg')">Preview</button>
+        </div>
+        <div class="card">
+            <img src="assets/pack2.jpg" alt="">
+            <h3>Overlay Pack</h3>
+            <button class="preview-btn" onclick="openPreview('assets/pack2.jpg')">Preview</button>
+        </div>
+        <div class="card">
+            <img src="assets/pack3.jpg" alt="">
+            <h3>Photo Pack</h3>
+            <button class="preview-btn" onclick="openPreview('assets/pack3.jpg')">Preview</button>
+        </div>
+    </div>
+</section>
+
+<section id="templates" class="section">
+    <h2>Templates & Assets</h2>
+    <div class="grid">
+        <div class="card">
+            <img src="assets/template1.jpg" alt="">
+            <h3>XML Template</h3>
+            <button class="preview-btn" onclick="openPreview('assets/template1.jpg')">Preview</button>
+        </div>
+        <div class="card">
+            <img src="assets/template2.jpg" alt="">
+            <h3>Thumbnail Template</h3>
+            <button class="preview-btn" onclick="openPreview('assets/template2.jpg')">Preview</button>
+        </div>
+    </div>
+</section>
+
+<section id="blogs" class="section dark">
+    <h2>Latest Blogs</h2>
+    <div class="blog-list">
+        <div class="blog-card">
+            <h3>How to Make Editing XML</h3>
+            <p>Learn the advanced process of XML creation.</p>
+        </div>
+        <div class="blog-card">
+            <h3>Thumbnail Design Tips</h3>
+            <p>Create viral-level thumbnails.</p>
+        </div>
+    </div>
 </section>
 
 <footer>
-  © 2025 5yberBind • All Rights Reserved
+    <p>© 2025 5yberBind - All Rights Reserved</p>
 </footer>
 
-<div id="popup">
-  <div class="popup-box">
-    <img id="popup-img" src="" style="width:100%;border-radius:8px;">
-    <button>Download Pack</button>
-    <button class="close-btn" onclick="closePopup()">Close</button>
-  </div>
+<div id="previewModal" class="modal">
+    <div class="modal-content">
+        <img id="previewImg" src="">
+        <button class="close-btn" onclick="closePreview()">Close</button>
+    </div>
 </div>
 
-<script>
-function openPopup(n){
-  document.getElementById("popup-img").src =
-  `https://via.placeholder.com/300x200?text=Preview+${n}`;
-  document.getElementById("popup").style.display="flex";
-}
-
-function closePopup(){
-  document.getElementById("popup").style.display="none";
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
