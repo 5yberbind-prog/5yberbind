@@ -1,173 +1,149 @@
 <!DOCTYPE html>
 <html lang="en" class="light">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5yberBind – Download Portal</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>5yberBind – Premium Download Hub</title>
 
-    <link rel="stylesheet" href="style.css" />
-
-    <!-- Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-<header class="navbar">
-    <h1 class="logo">5yberBind</h1>
+<!-- HEADER -->
+<header class="header">
+  <div class="logo">5yberBind</div>
 
-    <nav class="nav-links">
-        <a href="#blogs">Blogs</a>
-        <a href="#apps">Apps</a>
-        <a href="#templates">Templates</a>
-        <a href="#resources">Resources</a>
-    </nav>
-
-    <div class="nav-right">
-        <select id="themeSelect" class="theme-switch">
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
-            <option value="gradient">Gradient</option>
-        </select>
-
-        <button onclick="toggleMenu()" class="menu-btn">
-            <i class="ri-menu-line"></i>
-        </button>
-    </div>
-</header>
-
-<!-- MOBILE MENU -->
-<div id="mobileMenu" class="mobile-menu hidden">
+  <nav class="nav" id="navMenu">
+    <a href="#hero">Home</a>
     <a href="#blogs">Blogs</a>
     <a href="#apps">Apps</a>
     <a href="#templates">Templates</a>
     <a href="#resources">Resources</a>
+  </nav>
+
+  <div class="header-right">
+    <select id="themeSelect" class="theme-select" aria-label="Theme select">
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+      <option value="gradient">Gradient</option>
+    </select>
+    <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle menu"><i class="ri-menu-line"></i></button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="mobile-menu hidden">
+  <a href="#hero">Home</a>
+  <a href="#blogs">Blogs</a>
+  <a href="#apps">Apps</a>
+  <a href="#templates">Templates</a>
+  <a href="#resources">Resources</a>
 </div>
 
-<!-- HERO SECTION -->
-<section class="hero">
-    <div class="hero-left">
-        <h2>Professional Downloads for Creators</h2>
-        <p>Editing packs, XML files, templates and more—ready to use.</p>
+<!-- HERO -->
+<section id="hero" class="hero-section">
+  <div class="hero-content">
+    <h1>The Ultimate Download Hub for Creators</h1>
+    <p>Access XML files, templates, editing packs, overlays, assets and more — all in one place.</p>
 
-        <div class="hero-btns">
-            <a href="#apps" class="btn-primary">Browse Apps</a>
-            <a href="#templates" class="btn-outline">Templates</a>
-        </div>
+    <div class="hero-buttons">
+      <a href="#apps" class="btn-primary">Explore Apps</a>
+      <a href="#blogs" class="btn-outline">Read Blogs</a>
     </div>
+  </div>
 
-    <div class="hero-card">
-        <video src="images/video1.mp4" controls></video>
-
-        <div class="hero-preview">
-            <img src="images/p1.png" />
-            <div>
-                <h3>Editing XML Templates</h3>
-                <p>Learn how XML works in editing apps.</p>
-            </div>
-        </div>
-    </div>
+  <div class="hero-video-card">
+    <video src="images/video1.mp4" controls muted></video>
+    <div class="video-caption">Editing XML Templates – Quick Guide</div>
+  </div>
 </section>
 
-<!-- BLOGS -->
+<!-- FEATURE STRIP -->
+<section class="strip">
+  <div class="strip-box"><i class="ri-file-code-line"></i> XML Packs</div>
+  <div class="strip-box"><i class="ri-image-edit-line"></i> Templates</div>
+  <div class="strip-box"><i class="ri-magic-line"></i> FX Packs</div>
+  <div class="strip-box"><i class="ri-folder-download-line"></i> Downloads</div>
+</section>
+
+<!-- BLOG SECTION -->
 <section id="blogs" class="section">
-    <h2 class="section-title">Blogs</h2>
+  <h2 class="section-title">Latest Blogs</h2>
+  <p class="section-sub">Learn editing, XML, thumbnails, workflow &amp; more</p>
 
-    <div class="grid-3">
-        <div class="card">
-            <img src="images/blog1.jpg" class="card-img" />
-            <h3>Editing XML Templates</h3>
-            <p>How to use XML in editing apps.</p>
-            <button class="text-btn" onclick="alert('Full blog here')">Read</button>
-        </div>
-
-        <div class="card">
-            <img src="images/blog2.jpg" class="card-img" />
-            <h3>Pro Thumbnail Templates</h3>
-            <p>Download HD thumbnail packs.</p>
-            <button class="text-btn" onclick="alert('Full blog here')">Read</button>
-        </div>
-    </div>
+  <div class="grid-3" id="blogContainer"></div>
 </section>
 
-<!-- APPS -->
+<!-- PARALLAX BANNER -->
+<section class="parallax">
+  <h2>Premium Editing Packs</h2>
+  <p>Boost your editing quality instantly</p>
+</section>
+
+<!-- APPS SECTION -->
 <section id="apps" class="section">
-    <h2 class="section-title">Apps & Packs</h2>
+  <h2 class="section-title">Apps & Packs</h2>
+  <p class="section-sub">Professional packs for photos, videos, overlays &amp; more</p>
 
-    <div class="grid-3">
-
-        <div class="card">
-            <div class="flex">
-                <img src="images/app1.png" class="app-thumb" />
-                <div>
-                    <h3>Pro Photo Pack</h3>
-                    <p>40+ XML presets, overlays.</p>
-
-                    <button class="btn-outline-small" onclick="openApp()">Details</button>
-                    <button class="btn-primary-small" onclick="downloadFile('downloads/photo-pack.zip')">
-                        <i class="ri-download-line"></i> Download
-                    </button>
-                </div>
-            </div>
-        </div>
-
-    </div>
+  <div class="grid-3" id="appsContainer"></div>
 </section>
 
-<!-- APP MODAL -->
-<div id="appDetail" class="modal hidden">
-    <div class="modal-box">
-        <h3 class="modal-title">Pro Photo Pack <span class="sub">v2.3</span></h3>
-        <p class="modal-text">XML templates, overlays & more.</p>
+<!-- BIG INFO PANEL -->
+<section class="info-panel">
+  <h2>Why 5yberBind?</h2>
+  <p>Because creators deserve the fastest, cleanest and most powerful resource hub ever.</p>
+  <div class="info-features">
+    <div><i class="ri-flashlight-line"></i> Fast Downloads</div>
+    <div><i class="ri-database-2-line"></i> 100% Free Resources</div>
+    <div><i class="ri-device-line"></i> Mobile Friendly</div>
+    <div><i class="ri-layout-4-line"></i> Organized Packs</div>
+  </div>
+</section>
 
-        <div class="modal-grid">
-            <img src="images/app1.png" />
-            <img src="images/app2.png" />
-        </div>
-
-        <div class="modal-actions">
-            <button class="btn-primary" onclick="downloadFile('downloads/photo-pack.zip')">Download Pack</button>
-            <button class="btn-outline" onclick="closeApp()">Close</button>
-        </div>
-    </div>
-</div>
-
-<!-- TEMPLATES -->
+<!-- TEMPLATES SECTION -->
 <section id="templates" class="section">
-    <h2 class="section-title">Templates & Zips</h2>
+  <h2 class="section-title">Templates & Assets</h2>
+  <p class="section-sub">Choose from professionally curated packs</p>
 
-    <div class="grid-3">
-        <div class="card">
-            <h3>Thumbnail Pack</h3>
-            <p>12 MB</p>
-            <button class="btn-primary-small" onclick="downloadFile('downloads/thumbs.zip')">Download</button>
-        </div>
-    </div>
+  <div class="grid-4" id="templateContainer"></div>
 </section>
 
-<!-- RESOURCES -->
+<!-- RESOURCES SECTION -->
 <section id="resources" class="section">
-    <h2 class="section-title">Resources</h2>
+  <h2 class="section-title">Free Resources</h2>
+  <p class="section-sub">Images, videos, audio, fonts &amp; more</p>
 
-    <div class="grid-4">
-        <div class="card">
-            sample-image-1.png  
-            <button class="btn-primary-small" onclick="downloadFile('images/sample-1.png')">Download</button>
-        </div>
-
-        <div class="card">
-            sample-video-1.mp4  
-            <button class="btn-primary-small" onclick="downloadFile('downloads/sample-1.mp4')">Download</button>
-        </div>
-    </div>
+  <div class="grid-4" id="resourceContainer"></div>
 </section>
 
+<!-- FOOTER -->
 <footer class="footer">
-    © 2025 5yberBind – All Rights Reserved
+  <h3>5yberBind</h3>
+  <p>Your premium download platform</p>
+  <div class="footer-links">
+    <a href="#hero">Home</a>
+    <a href="#blogs">Blogs</a>
+    <a href="#apps">Apps</a>
+    <a href="#templates">Templates</a>
+    <a href="#resources">Resources</a>
+  </div>
+  <p class="copyright">© 2025 5yberBind • All Rights Reserved</p>
 </footer>
 
-<script src="script.js"></script>
+<!-- MODAL -->
+<div id="appModal" class="modal hidden" onclick="closeModal()">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+    <img id="modalImg" class="modal-img" alt="preview"/>
+    <div style="margin-top:12px;">
+      <button id="modalDownload" class="btn-primary" onclick="">Download Pack</button>
+      <button class="btn-outline" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+</div>
 
+<script src="script.js"></script>
 </body>
 </html>
