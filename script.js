@@ -1,13 +1,15 @@
-function openPreview(img) {
-    document.getElementById("previewImg").src = img;
-    document.getElementById("previewModal").style.display = "flex";
-}
+const btn = document.getElementById("themeToggle");
 
-function closePreview() {
-    document.getElementById("previewModal").style.display = "none";
-}
+btn.onclick = () => {
+    document.body.classList.toggle("dark");
 
-document.getElementById("themeToggle").onclick = function () {
-    document.body.classList.toggle("dark-theme");
-    this.textContent = document.body.classList.contains("dark-theme") ? "Dark" : "Light";
+    if (document.body.classList.contains("dark")) {
+        document.body.style.background = "#111";
+        document.body.style.color = "#fff";
+        btn.innerText = "Dark";
+    } else {
+        document.body.style.background = "#fff";
+        document.body.style.color = "#000";
+        btn.innerText = "Light";
+    }
 };
