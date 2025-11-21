@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5yberBind – Download Portal</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <style>
+    /* Theme Classes */
+    .light { background: #f8fafc; color: #0f172a; }
+    .dark { background: #0b1220; color: white; }
+    .gradient {
+      background: linear-gradient(135deg, #6d28d9 0%, #3b82f6 50%, #06b6d4 100%);
+      color: white;
+    }
+
+    .card { background: white; border-radius: 12px; padding: 16px; }
+    .dark .card { background: #1e293b; }
+    .gradient .card { background: rgba(255,255,255,0.1); backdrop-filter: blur(6px); }
+  </style>
+</head>
+
+<body class="min-h-screen">
+
+<!-- NAVBAR -->
+<header class="sticky top-0 z-50 card shadow flex justify-between items-center px-4 py-3">
+  <h1 class="text-2xl font-bold">5yberBind</h1>
+
+  <div class="flex items-center gap-3">
+    <select id="themeSelect" class="border px-2 py-1 rounded text-sm">
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+      <option value="gradient">Gradient</option>
+    </select>
+
+    <button onclick="toggleMenu()" class="md:hidden p-2 border rounded">
+      <i class="ri-menu-line text-xl"></i>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="hidden p-4 card md:hidden">
+  <a href="#blogs">Blogs</a><br>
+  <a href="#apps">Apps</a><br>
+  <a href="#templates">Templates</a><br>
+  <a href="#resources">Resources</a>
+</div>
+
+<!-- HERO SECTION -->
+<section class="max-w-6xl mx-auto p-6 grid md:grid-cols-2 gap-6 items-center">
+  
+  <div>
+    <h2 class="text-4xl font-extrabold leading-tight">Professional Downloads for Creators</h2>
+    <p class="mt-3 text-slate-600 dark:text-slate-300">Editing packs, XML files, templates and more for creators.</p>
+
+    <div class="mt-5 flex gap-2">
+      <a href="#apps" class="px-4 py-2 bg-slate-800 text-white rounded">Browse Apps</a>
+      <a href="#templates" class="px-4 py-2 border rounded">Templates</a>
+    </div>
+  </div>
+
+  <div class="card shadow">
+    <video src="assets/videos/blog1-preview.mp4" controls class="rounded w-full h-48 object-cover"></video>
+    <div class="flex gap-3 mt-3 items-center">
+      <img src="assets/images/blog1-preview.png" class="w-20 h-20 rounded object-cover">
+      <div>
+        <h3 class="font-semibold">Editing XML Templates</h3>
+        <p class="text-sm text-slate-500">Learn how XML works in editing apps.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- BLOGS -->
+<section id="blogs" class="max-w-6xl mx-auto p-6">
+  <h2 class="text-2xl font-bold mb-3">Blogs</h2>
+
+  <div class="grid md:grid-cols-3 gap-4">
+
+    <div class="card shadow">
+      <img src="assets/images/blog1.jpg" class="w-full h-40 rounded object-cover">
+      <h3 class="mt-3 font-semibold">Editing XML Templates</h3>
+      <p class="text-sm text-slate-500">How to use XML files in editors.</p>
+      <button class="mt-3 text-sm underline" onclick="alert('Full blog here')">Read</button>
+    </div>
+
+    <div class="card shadow">
+      <img src="assets/images/blog2.jpg" class="w-full h-40 rounded object-cover">
+      <h3 class="mt-3 font-semibold">Pro Thumbnail Templates</h3>
+      <p class="text-sm text-slate-500">Download HD thumbnail packs.</p>
+      <button class="mt-3 text-sm underline" onclick="alert('Full blog here')">Read</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- APPS -->
+<section id="apps" class="max-w-6xl mx-auto p-6">
+  <h2 class="text-2xl font-bold mb-3">Apps & Packs</h2>
+
+  <div class="grid md:grid-cols-3 gap-4">
+
+    <div class="card shadow">
+      <div class="flex gap-3">
+        <img src="assets/images/app1-1.png" class="w-24 h-24 rounded">
+        <div>
+          <h3 class="font-semibold">Pro Photo Pack</h3>
+          <p class="text-sm text-slate-500">40+ XML presets, overlays.</p>
+
+          <button onclick="openApp('photoPack')" class="mt-3 px-3 py-1 border rounded text-sm">
+            Details
+          </button>
+          <button onclick="download('assets/templates/photo-editor-pack.zip')" class="px-3 py-1 bg-slate-800 text-white rounded text-sm">
+            <i class="ri-download-line"></i> Download
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- APP DETAIL MODAL -->
+<div id="appDetail" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center p-6 z-50">
+  <div class="card w-full max-w-xl shadow">
+
+    <h3 class="text-xl font-bold">Pro Photo Pack <span class="text-sm text-slate-500">(v2.3)</span></h3>
+    <p class="text-sm mt-2 text-slate-600 dark:text-slate-300">XML templates, overlays & more.</p>
+
+    <div class="grid grid-cols-2 gap-3 mt-4">
+      <img src="assets/images/app1-1.png" class="rounded">
+      <img src="assets/images/app1-2.png" class="rounded">
+    </div>
+
+    <div class="mt-3 flex gap-2">
+      <button onclick="download('assets/templates/photo-editor-pack.zip')" class="px-4 py-2 bg-slate-800 text-white rounded">Download Pack</button>
+      <button onclick="closeApp()" class="px-3 py-2 border rounded">Close</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- TEMPLATES -->
+<section id="templates" class="max-w-6xl mx-auto p-6">
+  <h2 class="text-2xl font-bold mb-3">Templates & Zips</h2>
+
+  <div class="grid md:grid-cols-3 gap-4">
+
+    <div class="card shadow">
+      <h3 class="font-semibold">Thumbnail Pack</h3>
+      <p class="text-sm text-slate-500">12 MB</p>
+      <button onclick="download('assets/templates/thumbs.zip')" class="mt-3 px-3 py-1 bg-slate-800 text-white rounded">
+        Download
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section id="resources" class="max-w-6xl mx-auto p-6">
+  <h2 class="text-2xl font-bold mb-3">Resources</h2>
+
+  <div class="grid md:grid-cols-4 gap-4">
+
+    <div class="card shadow">
+      sample-image-1.png  
+      <button onclick="download('assets/images/sample-1.png')" class="mt-2 px-3 py-1 bg-slate-800 text-white rounded">Download</button>
+    </div>
+
+    <div class="card shadow">
+      sample-video-1.mp4  
+      <button onclick="download('assets/videos/sample-1.mp4')" class="mt-2 px-3 py-1 bg-slate-800 text-white rounded">Download</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="card mt-10 text-center py-6">
+  © 2025 5yberBind – All Rights Reserved
+</footer>
+
+
+<!-- SCRIPTS -->
+<script>
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('hidden');
+}
+
+function download(url){
+  window.open(url, '_blank');
+}
+
+function openApp(){
+  document.getElementById('appDetail').classList.remove('hidden');
+}
+
+function closeApp(){
+  document.getElementById('appDetail').classList.add('hidden');
+}
+
+document.getElementById("themeSelect").addEventListener("change", function(){
+  document.documentElement.className = this.value;
+});
+</script>
+
+</body>
+</html>
