@@ -1,149 +1,225 @@
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>5yberBind – Premium Download Hub</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5yberBind - Download Hub</title>
 
-  <link rel="stylesheet" href="style.css">
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial;
+}
+
+body{
+  background:#f5f5f5;
+  color:#222;
+}
+
+header{
+  width:100%;
+  padding:20px;
+  background:white;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+nav{
+  max-width:900px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+nav h1{
+  font-size:24px;
+  font-weight:700;
+}
+
+nav ul{
+  display:flex;
+  gap:20px;
+}
+
+nav ul a{
+  text-decoration:none;
+  color:#222;
+  font-weight:600;
+}
+
+.section{
+  max-width:900px;
+  margin:40px auto;
+  padding:0 15px;
+}
+
+.section h2{
+  font-size:26px;
+  margin-bottom:15px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:white;
+  border-radius:10px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.1);
+  padding:15px;
+  text-align:center;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+.card img{
+  width:100%;
+  height:120px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+footer{
+  text-align:center;
+  padding:40px 0;
+  margin-top:30px;
+  background:white;
+}
+
+#popup{
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.5);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:200;
+}
+
+.popup-box{
+  background:white;
+  padding:20px;
+  width:300px;
+  text-align:center;
+  border-radius:10px;
+}
+
+button{
+  margin-top:15px;
+  padding:10px 20px;
+  border:none;
+  background:#007bff;
+  color:white;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.close-btn{
+  background:#999;
+}
+</style>
+
 </head>
+
 <body>
 
-<!-- HEADER -->
-<header class="header">
-  <div class="logo">5yberBind</div>
-
-  <nav class="nav" id="navMenu">
-    <a href="#hero">Home</a>
-    <a href="#blogs">Blogs</a>
-    <a href="#apps">Apps</a>
-    <a href="#templates">Templates</a>
-    <a href="#resources">Resources</a>
+<header>
+  <nav>
+    <h1>5yberBind</h1>
+    <ul>
+      <a href="#">Home</a>
+      <a href="#">Apps</a>
+      <a href="#">Blogs</a>
+      <a href="#">Templates</a>
+    </ul>
   </nav>
-
-  <div class="header-right">
-    <select id="themeSelect" class="theme-select" aria-label="Theme select">
-      <option value="light">Light</option>
-      <option value="dark">Dark</option>
-      <option value="gradient">Gradient</option>
-    </select>
-    <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle menu"><i class="ri-menu-line"></i></button>
-  </div>
 </header>
 
-<!-- MOBILE MENU -->
-<div id="mobileMenu" class="mobile-menu hidden">
-  <a href="#hero">Home</a>
-  <a href="#blogs">Blogs</a>
-  <a href="#apps">Apps</a>
-  <a href="#templates">Templates</a>
-  <a href="#resources">Resources</a>
-</div>
+<section class="section">
+  <h2>Dummy Apps (10)</h2>
 
-<!-- HERO -->
-<section id="hero" class="hero-section">
-  <div class="hero-content">
-    <h1>The Ultimate Download Hub for Creators</h1>
-    <p>Access XML files, templates, editing packs, overlays, assets and more — all in one place.</p>
-
-    <div class="hero-buttons">
-      <a href="#apps" class="btn-primary">Explore Apps</a>
-      <a href="#blogs" class="btn-outline">Read Blogs</a>
-    </div>
-  </div>
-
-  <div class="hero-video-card">
-    <video src="images/video1.mp4" controls muted></video>
-    <div class="video-caption">Editing XML Templates – Quick Guide</div>
+  <div class="grid">
+    <!-- 10 dummy app cards -->
+    <script>
+      for(let i=1;i<=10;i++){
+        document.write(`
+          <div class='card' onclick='openPopup(${i})'>
+            <img src='https://via.placeholder.com/300x200?text=App+${i}'>
+            <h3>Dummy App ${i}</h3>
+          </div>
+        `);
+      }
+    </script>
   </div>
 </section>
 
-<!-- FEATURE STRIP -->
-<section class="strip">
-  <div class="strip-box"><i class="ri-file-code-line"></i> XML Packs</div>
-  <div class="strip-box"><i class="ri-image-edit-line"></i> Templates</div>
-  <div class="strip-box"><i class="ri-magic-line"></i> FX Packs</div>
-  <div class="strip-box"><i class="ri-folder-download-line"></i> Downloads</div>
-</section>
-
-<!-- BLOG SECTION -->
-<section id="blogs" class="section">
-  <h2 class="section-title">Latest Blogs</h2>
-  <p class="section-sub">Learn editing, XML, thumbnails, workflow &amp; more</p>
-
-  <div class="grid-3" id="blogContainer"></div>
-</section>
-
-<!-- PARALLAX BANNER -->
-<section class="parallax">
-  <h2>Premium Editing Packs</h2>
-  <p>Boost your editing quality instantly</p>
-</section>
-
-<!-- APPS SECTION -->
-<section id="apps" class="section">
-  <h2 class="section-title">Apps & Packs</h2>
-  <p class="section-sub">Professional packs for photos, videos, overlays &amp; more</p>
-
-  <div class="grid-3" id="appsContainer"></div>
-</section>
-
-<!-- BIG INFO PANEL -->
-<section class="info-panel">
-  <h2>Why 5yberBind?</h2>
-  <p>Because creators deserve the fastest, cleanest and most powerful resource hub ever.</p>
-  <div class="info-features">
-    <div><i class="ri-flashlight-line"></i> Fast Downloads</div>
-    <div><i class="ri-database-2-line"></i> 100% Free Resources</div>
-    <div><i class="ri-device-line"></i> Mobile Friendly</div>
-    <div><i class="ri-layout-4-line"></i> Organized Packs</div>
+<section class="section">
+  <h2>Latest Blogs (10)</h2>
+  <div class="grid">
+    <script>
+      for(let i=1;i<=10;i++){
+        document.write(`
+          <div class='card'>
+            <img src='https://via.placeholder.com/300x200?text=Blog+${i}'>
+            <h3>Blog Title ${i}</h3>
+          </div>
+        `);
+      }
+    </script>
   </div>
 </section>
 
-<!-- TEMPLATES SECTION -->
-<section id="templates" class="section">
-  <h2 class="section-title">Templates & Assets</h2>
-  <p class="section-sub">Choose from professionally curated packs</p>
-
-  <div class="grid-4" id="templateContainer"></div>
-</section>
-
-<!-- RESOURCES SECTION -->
-<section id="resources" class="section">
-  <h2 class="section-title">Free Resources</h2>
-  <p class="section-sub">Images, videos, audio, fonts &amp; more</p>
-
-  <div class="grid-4" id="resourceContainer"></div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <h3>5yberBind</h3>
-  <p>Your premium download platform</p>
-  <div class="footer-links">
-    <a href="#hero">Home</a>
-    <a href="#blogs">Blogs</a>
-    <a href="#apps">Apps</a>
-    <a href="#templates">Templates</a>
-    <a href="#resources">Resources</a>
+<section class="section">
+  <h2>Templates (10)</h2>
+  <div class="grid">
+    <script>
+      for(let i=1;i<=10;i++){
+        document.write(`
+          <div class='card'>
+            <img src='https://via.placeholder.com/300x200?text=Template+${i}'>
+            <h3>Template ${i}</h3>
+          </div>
+        `);
+      }
+    </script>
   </div>
-  <p class="copyright">© 2025 5yberBind • All Rights Reserved</p>
+</section>
+
+<footer>
+  © 2025 5yberBind • All Rights Reserved
 </footer>
 
-<!-- MODAL -->
-<div id="appModal" class="modal hidden" onclick="closeModal()">
-  <div class="modal-box" onclick="event.stopPropagation()">
-    <h3 id="modalTitle"></h3>
-    <p id="modalDesc"></p>
-    <img id="modalImg" class="modal-img" alt="preview"/>
-    <div style="margin-top:12px;">
-      <button id="modalDownload" class="btn-primary" onclick="">Download Pack</button>
-      <button class="btn-outline" onclick="closeModal()">Close</button>
-    </div>
+<div id="popup">
+  <div class="popup-box">
+    <img id="popup-img" src="" style="width:100%;border-radius:8px;">
+    <button>Download Pack</button>
+    <button class="close-btn" onclick="closePopup()">Close</button>
   </div>
 </div>
 
-<script src="script.js"></script>
+<script>
+function openPopup(n){
+  document.getElementById("popup-img").src =
+  `https://via.placeholder.com/300x200?text=Preview+${n}`;
+  document.getElementById("popup").style.display="flex";
+}
+
+function closePopup(){
+  document.getElementById("popup").style.display="none";
+}
+</script>
+
 </body>
 </html>
