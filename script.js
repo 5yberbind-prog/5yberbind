@@ -51,6 +51,19 @@ const posts = [
     tags: ["xml","alight motion","template"],
     content: `<p>Use this XML template to create trending reels quickly in Alight Motion.</p>`
   }
+
+{
+    id: "apps-3",
+    category: "apps",
+    title: "Alight Motion— Editing Pack",
+    date: "2025-10-21",
+    excerpt: "Download this XML file and enjoy more.",
+    hero: "images/yt-hero.jpg",
+    gallery: ["images/alightmotion-1.jpg","images/alightmotion-2.jpg"," images/alightmotion-3.jpg"],
+    download: "downloads/youtube-mod.apk",
+    tags: ["apk","alightmotion","mod"],
+    content: `<p>This YouTube mod allows background playback and removes ads. It's ideal for low-spec devices.</p>`
+  },
   // Add more posts here...
 ];
 
