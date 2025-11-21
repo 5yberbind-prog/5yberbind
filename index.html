@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5yberBind – The Ultimate Download Hub</title>
+    <title>5yberBind - Download Hub</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- Header -->
 <header>
     <div class="logo">5yberBind</div>
     <nav>
@@ -16,98 +17,106 @@
         <a href="#">Templates</a>
         <a href="#">Blogs</a>
     </nav>
-    <button id="themeToggle">Light</button>
+    <button class="theme-toggle" onclick="toggleTheme()">Light</button>
 </header>
 
+<!-- Hero -->
 <section class="hero">
     <h1>The Ultimate Download Hub for Creators</h1>
-    <p>Get XML files, templates, editing packs, overlays, assets & more in one place.</p>
+    <p>Get XML files, templates, editing packs, overlays, assets and more.</p>
 
-    <div class="hero-btns">
-        <button class="primary">Explore Apps</button>
-        <button class="outline">Read Blogs</button>
+    <div class="hero-buttons">
+        <button class="btn black">Explore Apps</button>
+        <button class="btn white">Read Blogs</button>
     </div>
 </section>
 
+<!-- Apps Collection -->
 <section class="section">
     <h2>Apps Collection</h2>
-
     <div class="grid">
         <div class="card">
-            <div class="img"></div>
+            <img src="images/app1.png">
             <h3>Editing App</h3>
-            <button class="preview">Preview</button>
+            <button class="mini-btn">Preview</button>
         </div>
 
         <div class="card">
-            <div class="img"></div>
+            <img src="images/app2.png">
             <h3>Premium App</h3>
-            <button class="preview">Preview</button>
+            <button class="mini-btn">Preview</button>
         </div>
 
         <div class="card">
-            <div class="img"></div>
+            <img src="images/app3.png">
             <h3>XML Editor</h3>
-            <button class="preview">Preview</button>
+            <button class="mini-btn">Preview</button>
         </div>
     </div>
 </section>
 
+<!-- Packs -->
 <section class="section">
     <h2>Premium Packs</h2>
-
     <div class="grid">
         <div class="card">
-            <div class="img"></div>
+            <img src="images/fx.png">
             <h3>FX Pack</h3>
-            <button class="preview">Preview</button>
+            <button class="mini-btn">Preview</button>
         </div>
 
         <div class="card">
-            <div class="img"></div>
+            <img src="images/overlay.png">
             <h3>Overlay Pack</h3>
-            <button class="preview">Preview</button>
+            <button class="mini-btn">Preview</button>
         </div>
 
         <div class="card">
-            <div class="img"></div>
+            <img src="images/photo.png">
             <h3>Photo Pack</h3>
-            <button class="preview">Preview</button>
+            <button class="mini-btn">Preview</button>
         </div>
     </div>
 </section>
 
+<!-- Templates -->
 <section class="section">
     <h2>Templates & Assets</h2>
-
     <div class="grid">
         <div class="card">
-            <div class="img"></div>
+            <img src="images/xml.png">
             <h3>XML Template</h3>
-            <button class="preview">Preview</button>
+            <button class="mini-btn">Preview</button>
         </div>
 
         <div class="card">
-            <div class="img"></div>
+            <img src="images/thumb.png">
             <h3>Thumbnail Template</h3>
-            <button class="preview">Preview</button>
+            <button class="mini-btn">Preview</button>
         </div>
     </div>
 </section>
 
-<section class="blogs section">
+<!-- Blogs -->
+<section class="section">
     <h2>Latest Blogs</h2>
 
-    <div class="blog-card">
+    <div class="blog">
         <h3>How to Make Editing XML</h3>
         <p>Learn the advanced process of XML creation.</p>
     </div>
 
-    <div class="blog-card">
-        <h3>Thumbnail Designing Tips</h3>
+    <div class="blog">
+        <h3>Thumbnail Design Tips</h3>
         <p>Create viral-level thumbnails.</p>
     </div>
 </section>
 
+<!-- Footer -->
 <footer>
-    © 2025 5yber
+    © 2025 5yberBind • All Rights Reserved
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
