@@ -3,119 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5yberBind - Download Hub</title>
+    <title>5yberBind - Ultimate Download Hub</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Header -->
-<header>
-    <div class="logo">5yberBind</div>
-    <nav>
-        <a href="#">Apps</a>
-        <a href="#">Packs</a>
-        <a href="#">Templates</a>
-        <a href="#">Blogs</a>
-    </nav>
-    <button class="theme-toggle" onclick="toggleTheme()">Light</button>
-</header>
+    <header>
+        <div class="logo">5yberBind</div>
 
-<!-- Hero -->
-<section class="hero">
-    <h1>The Ultimate Download Hub for Creators</h1>
-    <p>Get XML files, templates, editing packs, overlays, assets and more.</p>
+        <nav>
+            <a href="#apps">Apps</a>
+            <a href="#packs">Packs</a>
+            <a href="#templates">Templates</a>
+            <a href="#blogs">Blogs</a>
+        </nav>
 
-    <div class="hero-buttons">
-        <button class="btn black">Explore Apps</button>
-        <button class="btn white">Read Blogs</button>
-    </div>
-</section>
+        <button id="themeToggle">Light</button>
+    </header>
 
-<!-- Apps Collection -->
-<section class="section">
-    <h2>Apps Collection</h2>
-    <div class="grid">
-        <div class="card">
-            <img src="images/app1.png">
-            <h3>Editing App</h3>
-            <button class="mini-btn">Preview</button>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>The Ultimate Download Hub for Creators</h1>
+        <p>Get XML files, templates, editing packs, overlays, assets and more at one place.</p>
+
+        <div class="hero-btns">
+            <a href="#apps" class="btn-primary">Explore Apps</a>
+            <a href="#blogs" class="btn-secondary">Read Blogs</a>
+        </div>
+    </section>
+
+
+
+
+    <!-- Apps Section -->
+    <section id="apps">
+        <h2>Apps Collection</h2>
+
+        <div class="grid">
+            <div class="card">
+                <img src="images/app1.png">
+                <h3>Editing App</h3>
+                <button class="preview">Preview</button>
+            </div>
+
+            <div class="card">
+                <img src="images/app2.png">
+                <h3>Premium App</h3>
+                <button class="preview">Preview</button>
+            </div>
+
+            <div class="card">
+                <img src="images/app3.png">
+                <h3>XML Editor</h3>
+                <button class="preview">Preview</button>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Packs Section -->
+    <section id="packs">
+        <h2>Premium Packs</h2>
+
+        <div class="grid">
+            <div class="card">
+                <img src="images/fx.png">
+                <h3>FX Pack</h3>
+                <button class="preview">Preview</button>
+            </div>
+
+            <div class="card">
+                <img src="images/overlay.png">
+                <h3>Overlay Pack</h3>
+                <button class="preview">Preview</button>
+            </div>
+
+            <div class="card">
+                <img src="images/photo.png">
+                <h3>Photo Pack</h3>
+                <button class="preview">Preview</button>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Templates Section -->
+    <section id="templates">
+        <h2>Templates & Assets</h2>
+
+        <div class="grid">
+            <div class="card">
+                <img src="images/xml.png">
+                <h3>XML Template</h3>
+                <button class="preview">Preview</button>
+            </div>
+
+            <div class="card">
+                <img src="images/thumb.png">
+                <h3>Thumbnail Template</h3>
+                <button class="preview">Preview</button>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Blogs Section -->
+    <section id="blogs">
+        <h2>Latest Blogs</h2>
+
+        <div class="blog-box">
+            <h3>How to Make Editing XML</h3>
+            <p>Learn the advanced process of XML creation.</p>
         </div>
 
-        <div class="card">
-            <img src="images/app2.png">
-            <h3>Premium App</h3>
-            <button class="mini-btn">Preview</button>
+        <div class="blog-box">
+            <h3>Thumbnail Design Tips</h3>
+            <p>Create viral-level thumbnails for social media.</p>
         </div>
+    </section>
 
-        <div class="card">
-            <img src="images/app3.png">
-            <h3>XML Editor</h3>
-            <button class="mini-btn">Preview</button>
-        </div>
-    </div>
-</section>
 
-<!-- Packs -->
-<section class="section">
-    <h2>Premium Packs</h2>
-    <div class="grid">
-        <div class="card">
-            <img src="images/fx.png">
-            <h3>FX Pack</h3>
-            <button class="mini-btn">Preview</button>
-        </div>
 
-        <div class="card">
-            <img src="images/overlay.png">
-            <h3>Overlay Pack</h3>
-            <button class="mini-btn">Preview</button>
-        </div>
-
-        <div class="card">
-            <img src="images/photo.png">
-            <h3>Photo Pack</h3>
-            <button class="mini-btn">Preview</button>
-        </div>
-    </div>
-</section>
-
-<!-- Templates -->
-<section class="section">
-    <h2>Templates & Assets</h2>
-    <div class="grid">
-        <div class="card">
-            <img src="images/xml.png">
-            <h3>XML Template</h3>
-            <button class="mini-btn">Preview</button>
-        </div>
-
-        <div class="card">
-            <img src="images/thumb.png">
-            <h3>Thumbnail Template</h3>
-            <button class="mini-btn">Preview</button>
-        </div>
-    </div>
-</section>
-
-<!-- Blogs -->
-<section class="section">
-    <h2>Latest Blogs</h2>
-
-    <div class="blog">
-        <h3>How to Make Editing XML</h3>
-        <p>Learn the advanced process of XML creation.</p>
-    </div>
-
-    <div class="blog">
-        <h3>Thumbnail Design Tips</h3>
-        <p>Create viral-level thumbnails.</p>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer>
-    © 2025 5yberBind • All Rights Reserved
-</footer>
+    <!-- Footer -->
+    <footer>
+        © 2025 5yberBind • All Rights Reserved
+    </footer>
 
 <script src="script.js"></script>
 </body>
