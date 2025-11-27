@@ -1,1 +1,18 @@
-
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sample XML template (rename per your app) -->
+<template name="super-edit-layout">
+  <meta>
+    <author>TechBinders</author>
+    <version>1.0</version>
+    <date>2025-11-01</date>
+    <description>Sample project XML for video editing</description>
+  </meta>
+  <resources>
+    <image path="/assets/img/app1-1.jpg" usage="screenshot"/>
+    <preset path="/assets/img/lut-01.cube" usage="LUT"/>
+  </resources>
+  <layout>
+    <track id="1" type="video" start="0" length="00:00:30"/>
+    <track id="2" type="audio" start="0" length="00:00:30"/>
+  </layout>
+</template>
