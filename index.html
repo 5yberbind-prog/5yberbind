@@ -1,1 +1,35 @@
 
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>5yberBind Marketplace</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;background:#0f1724;color:#e6eef8;margin:0}
+.header{background:linear-gradient(90deg,#071024,#081b2a);padding:12px;display:flex;gap:12px;align-items:center}
+.header a{color:#7dd3fc;text-decoration:none;margin-right:10px}
+.container{max-width:980px;margin:20px auto;padding:12px}
+.card{background:rgba(255,255,255,0.03);padding:14px;border-radius:12px;margin-bottom:12px;box-shadow:0 6px 20px rgba(0,0,0,0.4)}
+.list-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.thumbnail{width:100%;height:140px;background:#123;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold}
+.btn{display:inline-block;padding:8px 12px;border-radius:8px;background:linear-gradient(90deg,#0ea5ff,#06b6d4);color:white;text-decoration:none}
+.small{color:#93c5fd;font-size:14px}
+</style>
+</head>
+<body>
+<header class="header"><div style="font-weight:bold">5yberBind</div><nav><a href="#/">Home</a><a href="#/blogs">Blogs</a><a href="#/apps">Apps</a></nav></header>
+<div class="container" id="app">Loading...</div>
+<script>
+async function fetchJSON(p){const r=await fetch(p); return r.json();}
+function el(tag,props,children){const e=document.createElement(tag); if(props) Object.assign(e,props); if(children){ if(typeof children==='string') e.innerHTML=children; else children.forEach(c=>e.appendChild(c)); } return e; }
+function home(){const c=el('div',{className:'card'}); c.appendChild(el('h1',{},'Welcome to 5yberBind Marketplace')); c.appendChild(el('p',{},'Download apps, editing packs, XMLs and templates.')); return c;}
+async function blogs(){const data=await fetchJSON('/data/blogs.json'); const wrap=el('div'); wrap.appendChild(el('h2',{},'Blogs')); const grid=el('div',{className:'list-grid'}); data.forEach(b=>{ const card=el('div',{className:'card'}); card.appendChild(el('div',{className:'thumbnail'},b.title)); card.appendChild(el('h3',{}, b.title)); card.appendChild(el('p',{className:'small'},b.excerpt)); const btns=el('div'); btns.appendChild(el('a',{className:'btn',href:'#/blogs/'+b.id},'Read')); btns.appendChild(el('a',{className:'btn',href:b.zip, style:'margin-left:8px'},'Download')); card.appendChild(btns); grid.appendChild(card); }); wrap.appendChild(grid); return wrap; }
+async function blogsDetail(id){ const data=await fetchJSON('/data/blogs.json'); const b=data.find(x=>String(x.id)===String(id)); if(!b) return el('div',{},'Not found'); const card=el('div',{className:'card'}); card.appendChild(el('h1',{},b.title)); card.appendChild(el('p',{},b.content||b.excerpt)); card.appendChild(el('a',{className:'btn',href:b.zip},'Download')); return card; }
+async function apps(){ const data=await fetchJSON('/data/apps.json'); const wrap=el('div'); wrap.appendChild(el('h2',{},'Apps')); const grid=el('div',{className:'list-grid'}); data.forEach(a=>{ const card=el('div',{className:'card'}); card.appendChild(el('div',{className:'thumbnail'},a.name)); card.appendChild(el('h3',{},a.name+' v'+a.ver)); card.appendChild(el('p',{className:'small'},a.desc)); const btns=el('div'); btns.appendChild(el('a',{className:'btn',href:'#/apps/'+a.id},'View')); btns.appendChild(el('a',{className:'btn',href:a.zip, style:'margin-left:8px'},'Download')); card.appendChild(btns); grid.appendChild(card); }); wrap.appendChild(grid); return wrap; }
+async function appDetail(id){ const data=await fetchJSON('/data/apps.json'); const a=data.find(x=>String(x.id)===String(id)); if(!a) return el('div',{},'Not found'); const card=el('div',{className:'card'}); card.appendChild(el('h1',{},a.name+' v'+a.ver)); card.appendChild(el('p',{},a.desc)); const ul=el('ul'); (a.xmls||[]).forEach(x=>ul.appendChild(el('li',{},x))); card.appendChild(ul); card.appendChild(el('a',{className:'btn',href:a.zip},'Download')); return card; }
+async function route(){ const app=document.getElementById('app'); app.innerHTML='Loading...'; const hash=location.hash.replace(/^#/,'')||'/'; if(hash==='/'||hash===''){ app.innerHTML=''; app.appendChild(home()); } else if(hash.startsWith('/blogs/')){ const id=hash.split('/')[2]; app.innerHTML=''; app.appendChild(await blogsDetail(id)); } else if(hash==='/blogs'){ app.innerHTML=''; app.appendChild(await blogs()); } else if(hash==='/apps'){ app.innerHTML=''; app.appendChild(await apps()); } else if(hash.startsWith('/apps/')){ const id=hash.split('/')[2]; app.innerHTML=''; app.appendChild(await appDetail(id)); } else { app.innerHTML='Page not found'; } }
+window.addEventListener('hashchange', route); window.addEventListener('load', route);
+</script>
+</body>
+</html>
