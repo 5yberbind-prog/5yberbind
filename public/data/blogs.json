@@ -1,10 +1,16 @@
 [
   {
     "id": 1,
-    "title": "Full Editing Pack",
-    "excerpt": "Presets + XMLs + overlays",
-    "img": "/assets/blogs/blog1.jpg",
-    "zip": "/assets/downloads/edit-pack.zip",
-    "content": "This is a full editing pack with XMLs, overlays, and more."
+    "title": "Best XML Layouts 2025",
+    "image": "/assets/blogs/blog1.jpg",
+    "excerpt": "Top XML packs you must use...",
+    "content": "Here is the full blog content about XML layouts..."
+  },
+  {
+    "id": 2,
+    "title": "Top Editing Packs",
+    "image": "/assets/blogs/blog2.jpg",
+    "excerpt": "Boost your editing...",
+    "content": "Full article discussing editing materials..."
   }
 ]
