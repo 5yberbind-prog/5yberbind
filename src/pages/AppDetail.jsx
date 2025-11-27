@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export default function AppDetail() {
   const { id } = useParams();
@@ -7,30 +8,39 @@ export default function AppDetail() {
 
   useEffect(() => {
     fetch("/data/apps.json")
-      .then(res => res.json())
-      .then(all => setApp(all.find(a => a.id === id)));
+      .then((r) => r.json())
+      .then((all) => setApp(all.find((x) => x.id === id)));
   }, [id]);
 
-  if (!app) return <p>Loading...</p>;
+  if (!app) return <p className="text-white">Loading...</p>;
 
   return (
-    <div className="bg-white p-6 rounded shadow">
-      <img src={app.thumb} className="w-full h-60 object-cover rounded" />
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="glass glow-blue p-8 rounded-2xl shadow-xl text-white"
+    >
+      <img
+        src={app.thumb}
+        className="w-full h-64 object-cover rounded-xl"
+      />
 
-      <h1 className="text-3xl font-bold mt-4">
-        {app.name} <span className="text-sm text-gray-500">v{app.ver}</span>
+      <h1 className="text-4xl font-bold mt-4">
+        {app.name} <span className="text-blue-300">v{app.ver}</span>
       </h1>
 
-      <p className="mt-2 text-gray-700">{app.desc}</p>
+      <p className="mt-3 text-blue-200">{app.desc}</p>
 
-      <h3 className="font-semibold mt-4">Included XML Files:</h3>
-      <ul className="list-disc ml-6 text-gray-600">
+      <h3 className="font-semibold mt-5 text-xl">XML Files Included:</h3>
+
+      <ul className="list-disc ml-6 mt-2 text-blue-200">
         {app.xmls.map((x, i) => <li key={i}>{x}</li>)}
       </ul>
 
-      <a href={app.zip} className="inline-block mt-4 text-blue-600">
-        Download Full ZIP
+      <a href={app.zip} className="btn-blue mt-6 inline-block">
+        Download App
       </a>
-    </div>
+    </motion.div>
   );
 }
