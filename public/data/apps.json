@@ -1,11 +1,16 @@
 [
   {
-    "id": "a1",
-    "name": "MusicEditor Pro",
-    "ver": "2.4",
-    "thumb": "/assets/apps/app1.jpg",
-    "zip": "/assets/downloads/music.zip",
-    "xmls": ["layout.xml","settings.xml"],
-    "desc": "Professional music editor with effects."
+    "id": 1,
+    "name": "Editing App Pro",
+    "image": "/assets/apps/app1.jpg",
+    "desc": "A premium editing tool.",
+    "download": "/assets/downloads/sample-pack.zip"
+  },
+  {
+    "id": 2,
+    "name": "XML Builder",
+    "image": "/assets/apps/app2.jpg",
+    "desc": "Create XML layouts fast.",
+    "download": "/assets/xmls/sample-xml.xml"
   }
 ]
