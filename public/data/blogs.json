@@ -1,1 +1,10 @@
-
+[
+  {
+    "id": 1,
+    "title": "Full Editing Pack",
+    "excerpt": "Presets + XMLs + overlays",
+    "img": "/assets/blogs/blog1.jpg",
+    "zip": "/assets/downloads/edit-pack.zip",
+    "content": "This is a full editing pack with XMLs, overlays, and more."
+  }
+]
