@@ -1,11 +1,22 @@
+import { motion } from "framer-motion";
+
 export default function Home() {
   return (
-    <div className="bg-white p-6 rounded shadow">
-      <h1 className="text-3xl font-bold">Welcome to 5yberBind Marketplace</h1>
-      <p className="mt-2 text-gray-600">
-        Download apps, editing packs, XMLs, templates and more. 
-        Explore Blogs and App Marketplace.
+    <motion.div 
+      initial={{ opacity: 0, y: 50 }} 
+      animate={{ opacity: 1, y: 0 }} 
+      transition={{ duration: 0.6 }}
+      className="glass glow-blue p-8 rounded-2xl shadow-xl text-white"
+    >
+      <h1 className="text-4xl font-bold">Welcome to 5yberBind Marketplace</h1>
+      <p className="mt-3 text-blue-200">
+        Download professional apps, editing packs, XMLs, templates & more.
       </p>
-    </div>
+
+      <div className="mt-5 flex gap-4">
+        <a href="/blogs" className="btn-blue">Explore Blogs</a>
+        <a href="/apps" className="btn-blue">Explore Apps</a>
+      </div>
+    </motion.div>
   );
 }
