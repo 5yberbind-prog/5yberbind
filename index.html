@@ -1,59 +1,77 @@
-<!doctype html>
-<html lang="hi">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>TechBinders / 5yberBind — Templates & Apps Hub</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5yberBind - Professional Templates & App Packs</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1><a href="/">5yberBind</a></h1>
-      <nav>
-        <a href="/blog/">Blog</a>
-        <a href="/apps/">Apps</a>
-        <a href="/downloads/">Downloads</a>
-        <a href="/about.html">About</a>
-      </nav>
-    </div>
-  </header>
 
-  <main class="container">
+    <!-- TOP NAVBAR -->
+    <header class="navbar">
+        <div class="container">
+            <h2 class="logo"><a href="/">5yberBind</a></h2>
+
+            <nav>
+                <a href="/blog/">Blog</a>
+                <a href="/apps/">Apps</a>
+                <a href="/downloads/">Downloads</a>
+                <a href="/about.html">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
     <section class="hero">
-      <h2>Professional templates, app packs, XML files & ready-to-use assets</h2>
-      <p>Download full working packs — blog posts, screenshots, demo videos, XML templates & app details.</p>
-      <div class="cta">
-        <a class="btn" href="/apps/">Explore Apps</a>
-        <a class="btn ghost" href="/blog/">Latest Blog</a>
-      </div>
+        <div class="container hero-box">
+            <div class="hero-text">
+                <h1>Professional templates, app packs & XML files</h1>
+                <p>Download XML templates, app previews, screenshots, demo videos & ready-to-use assets.</p>
+
+                <div class="btn-group">
+                    <a href="/apps/" class="btn">Explore Apps</a>
+                    <a href="/blog/" class="btn btn-outline">Latest Blog</a>
+                </div>
+            </div>
+
+            <div class="hero-img">
+                <img src="assets/img/hero.png" alt="Hero Image">
+            </div>
+        </div>
     </section>
 
+    <!-- FEATURES SECTION -->
     <section class="features">
-      <article>
-        <h3>Blog</h3>
-        <p>SEO-ready posts with screenshots, sample videos and downloadable content.</p>
-        <a href="/blog/">View Blog</a>
-      </article>
-      <article>
-        <h3>Apps Library</h3>
-        <p>Each app has full description, preview images, XML templates, and download links.</p>
-        <a href="/apps/">View Apps</a>
-      </article>
-      <article>
-        <h3>Templates & XML</h3>
-        <p>Multiple template formats — place them in <code>/apps/xml/</code> so users can download.</p>
-        <a href="/apps/">See Templates</a>
-      </article>
+        <div class="container features-grid">
+
+            <div class="card">
+                <h3>Blog</h3>
+                <p>SEO-ready posts with screenshots & downloadable content.</p>
+                <a href="/blog/">View Blog</a>
+            </div>
+
+            <div class="card">
+                <h3>Apps Library</h3>
+                <p>Full app details, preview images, XML templates & download links.</p>
+                <a href="/apps/">View Apps</a>
+            </div>
+
+            <div class="card">
+                <h3>Templates & XML</h3>
+                <p>Multiple XML & template packs available for download.</p>
+                <a href="/apps/">See Templates</a>
+            </div>
+
+        </div>
     </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="year"></span> 5yberBind — Built for creators. All assets by TechBinders.</p>
-    </div>
-  </footer>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2025 5yberBind — Built for creators.</p>
+    </footer>
 
-  <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
