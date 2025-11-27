@@ -1,1 +1,38 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>App Detail — 5yberBind</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header class="site-header container"><h1><a href="/">5yberBind</a></h1></header>
+  <main class="container" id="app-root"></main>
 
+  <script>
+    function getQueryParam(k){const p=new URLSearchParams(location.search);return p.get(k)}
+    const id = getQueryParam('id');
+    fetch('/apps/apps.json').then(r=>r.json()).then(data=>{
+      const app = data.find(x=>x.id===id);
+      const root = document.getElementById('app-root');
+      if(!app){root.innerHTML='<p>App not found</p>'; return;}
+      root.innerHTML = `
+        <h2>${app.title}</h2>
+        <p>${app.description}</p>
+        <p><strong>Category:</strong> ${app.category} · <strong>Author:</strong> ${app.author}</p>
+        <div>
+          ${app.images.map(i=>`<img src="${i}" alt="" style="max-width:220px;margin-right:8px">`).join('')}
+        </div>
+        ${app.preview_video ? `<video src="${app.preview_video}" controls style="max-width:420px;margin-top:12px"></video>` : ''}
+        <h3>Downloads</h3>
+        <a href="${app.download_zip}" class="btn">Download Pack (ZIP)</a>
+        <h4>XML Templates</h4>
+        <ul>${app.xml_files.map(x=>`<li><a href="/${x}">${x.split('/').pop()}</a></li>`).join('')}</ul>
+      `;
+    }).catch(e=>{
+      document.getElementById('app-root').innerHTML = '<p>Error loading app data</p>';
+      console.error(e);
+    });
+  </script>
+</body>
+</html>
