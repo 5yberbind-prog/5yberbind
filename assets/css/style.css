@@ -1,1 +1,23 @@
+/* Simple professional layout - paste into assets/css/style.css */
+:root{
+  --maxw:1100px;
+  --accent:#0b74de;
+  --muted:#6b7280;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
 
+*{box-sizing:border-box}
+body{margin:0;color:#111;background:#fff;line-height:1.55}
+.container{max-width:var(--maxw);margin:0 auto;padding:22px}
+.site-header{background:#fff;border-bottom:1px solid #eee}
+.site-header .container{display:flex;align-items:center;justify-content:space-between}
+.site-header h1{font-size:20px;margin:14px 0}
+.site-header nav a{margin-left:18px;color:var(--muted);text-decoration:none}
+.hero{padding:40px 0}
+.hero h2{font-size:28px;margin:6px 0}
+.cta .btn{display:inline-block;margin-right:10px;padding:10px 16px;border-radius:8px;text-decoration:none;background:var(--accent);color:#fff}
+.cta .btn.ghost{background:transparent;border:1px solid #ddd;color:var(--accent)}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:28px}
+.features article{padding:18px;border:1px solid #f1f1f1;border-radius:10px}
+.site-footer{border-top:1px solid #eee;padding:18px;margin-top:40px;text-align:center;color:var(--muted)}
+code{background:#f7fafc;padding:2px 6px;border-radius:4px}
