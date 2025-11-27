@@ -1,8 +1,9 @@
 5yberBind - Ready package
 
-This package includes:
- - source/: optional React source (Vite)
- - dist/: ready-to-upload static site (upload dist contents to GitHub repo root for Pages)
+dist/  -> upload contents (index.html, assets/, data/) to GitHub repo root for Pages.
+source/ -> optional React + Vite source for development.
 
-To publish: upload the CONTENTS of dist/ (index.html + assets + data) to your GitHub repo root and enable Pages.
-The dist is pre-configured to be used at https://<username>.github.io/5yberbind/
+To publish:
+1. Upload index.html, assets/, data/ to your GitHub repo root.
+2. In GitHub: Settings -> Pages -> Branch: main, Folder: / (root) -> Save.
+3. Wait 1-2 minutes and open: https://<your-username>.github.io/<repo>/
