@@ -1,1 +1,28 @@
-
+[
+  {
+    "id": "app1",
+    "title": "Super Edit Pack",
+    "short": "Video editing templates + XMLs",
+    "description": "Complete editing pack with project XMLs, transitions, LUTs, and demo videos.",
+    "images": ["assets/img/app1-1.jpg","assets/img/app1-2.jpg"],
+    "preview_video": "assets/videos/app1-demo.mp4",
+    "download_zip": "/downloads/super-edit-pack.zip",
+    "xml_files": ["apps/xml/sample-app1.xml","apps/xml/sample-template1.xml"],
+    "category": "Editing",
+    "author": "TechBinders",
+    "updated": "2025-11-01"
+  },
+  {
+    "id": "app2",
+    "title": "Template Pack 2",
+    "short": "XML templates for app UI",
+    "description": "XML layout templates, HUD images and guide.",
+    "images": ["assets/img/app2-1.jpg"],
+    "preview_video": "",
+    "download_zip": "/downloads/template-pack-2.zip",
+    "xml_files": ["apps/xml/sample-template2.xml"],
+    "category": "Templates",
+    "author": "5yberBind",
+    "updated": "2025-10-20"
+  }
+]
