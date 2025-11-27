@@ -4,4 +4,22 @@
 
 body {
   @apply bg-gray-50;
+}/* Blue Glass Premium Effects */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glow-blue {
+  box-shadow: 0 0 25px #00aaff80;
+}
+
+.btn-blue {
+  @apply px-4 py-2 rounded-lg text-white font-medium transition;
+  background: linear-gradient(90deg, #0d6efd, #00afff);
+}
+.btn-blue:hover {
+  box-shadow: 0 0 15px #00afff;
+  transform: translateY(-3px);
 }
