@@ -1,38 +1,23 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import blogs from "/public/data/blogs.json";
 
 export default function BlogDetail() {
   const { id } = useParams();
-  const [blog, setBlog] = useState(null);
-
-  useEffect(() => {
-    fetch("/data/blogs.json")
-      .then((r) => r.json())
-      .then((all) => setBlog(all.find((x) => String(x.id) === id)));
-  }, [id]);
-
-  if (!blog) return <p className="text-white">Loading...</p>;
+  const blog = blogs.find((b) => b.id == id);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="glass glow-blue p-8 rounded-2xl shadow-xl text-white"
-    >
-      <img
-        src={blog.img}
-        className="w-full h-60 object-cover rounded-xl"
-      />
+    <div className="bg-gray-800 p-6 rounded-xl">
+      <img src={blog.image} className="rounded mb-3" />
+      <h1 className="text-3xl font-bold">{blog.title}</h1>
+      <p className="mt-4 text-gray-300">{blog.content}</p>
 
-      <h1 className="text-4xl font-bold mt-4">{blog.title}</h1>
-
-      <p className="mt-3 text-blue-200">{blog.content}</p>
-
-      <a href={blog.zip} className="btn-blue mt-4 inline-block">
+      <a
+        className="bg-blue-600 px-4 py-2 block mt-4 w-max rounded"
+        href="/assets/downloads/sample-pack.zip"
+        download
+      >
         Download Pack
       </a>
-    </motion.div>
+    </div>
   );
 }
