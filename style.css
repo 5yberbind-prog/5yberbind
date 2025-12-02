@@ -154,3 +154,38 @@ body {
     font-size: 14px;
     box-shadow: 0 -2px 10px #0002;
 }
+/* NEON MOUSE EFFECT */
+.cursor {
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    background: #00eaff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: 0.08s;
+}
+
+.cursor-glow {
+    position: fixed;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, rgba(0,255,255,0.4) 0%, rgba(0,0,0,0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: 0.12s ease-out;
+    mix-blend-mode: screen;
+}
+
+/* Optional strong glow */
+.cursor-glow::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 40px #00eaff, 0 0 80px #00eaff;
+    opacity: 0.25;
+}
