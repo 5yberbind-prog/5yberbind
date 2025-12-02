@@ -36,3 +36,13 @@ function loadCards(data, containerId) {
 loadCards(apps, "apps-container");
 loadCards(templates, "templates-container");
 loadCards(blogs, "blogs-container");
+document.addEventListener("mousemove", (e) => {
+    const cursor = document.querySelector(".cursor");
+    const glow = document.querySelector(".cursor-glow");
+
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
+});
