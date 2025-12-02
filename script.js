@@ -16,6 +16,21 @@ const templates = [
 ];
 
 const blogs = [
+  { title: "Free Fire Sensitivity Complete Guide", img: "assets/blog_freefire.png", desc: "Sensitivity + HUD guide", readMore: "blogs/free-fire-sensitivity.html" },
+  { title: "XML Files Kaise Edit Karein", img: "assets/blog_xml.png", desc: "XML editing step by step", readMore: "blogs/edit-xml-files.html" },
+  { title: "Viral Shorts Kaise Banayein", img: "assets/blog_shorts.png", desc: "Viral script + editing tips", readMore: "blogs/create-viral-shorts.html" },
+  { title: "Thumbnail Design Guide", img: "assets/blog_thumbdesign.png", desc: "Click-worthy thumbnails", readMore: "blogs/thumbnail-design.html" },
+  { title: "APK Size Optimization", img: "assets/blog_optimize.png", desc: "Reduce APK size", readMore: "blogs/optimize-apk-size.html" },
+  { title: "Game HUD Designing", img: "assets/blog_hud.png", desc: "HUD tips + tips", readMore: "blogs/designing-huds.html" },
+  { title: "SoundFX Editing Tips", img: "assets/blog_sound.png", desc: "Add sound effects perfectly", readMore: "blogs/using-soundfx.html" },
+  { title: "Shop UI Design Tips", img: "assets/blog_shop.png", desc: "Clean e-commerce UI", readMore: "blogs/shop-ui-tips.html" },
+  { title: "Font Licensing Guide", img: "assets/blog_fonts.png", desc: "Legal font usage", readMore: "blogs/font-licensing.html" },
+  { title: "Full Website Kit Guide", img: "assets/blog_websitekit.png", desc: "Deploy full website", readMore: "blogs/full-website-kit.html" }
+];
+
+loadCards(blogs, "blogs-container");
+
+const blogs = [
   { title: "How to Edit XML Files", img: "assets/thumb_1.png", desc: "Step-by-step guide", readMore: "#" },
   { title: "Create Viral Shorts", img: "assets/thumb_2.png", desc: "Script + thumbnails", readMore: "#" },
   { title: "Website UI Design", img: "assets/thumb_3.png", desc: "Pro layout tips", readMore: "#" }
