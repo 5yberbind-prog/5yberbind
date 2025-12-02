@@ -1,77 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5yberBind - Professional Templates & App Packs</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5yberBind - Resource Marketplace</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-    <!-- TOP NAVBAR -->
-    <header class="navbar">
-        <div class="container">
-            <h2 class="logo"><a href="/">5yberBind</a></h2>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo">5yberBind</div>
 
-            <nav>
-                <a href="/blog/">Blog</a>
-                <a href="/apps/">Apps</a>
-                <a href="/downloads/">Downloads</a>
-                <a href="/about.html">About</a>
-            </nav>
-        </div>
+        <nav class="nav">
+            <a href="#apps">Apps</a>
+            <a href="#templates">Templates</a>
+            <a href="#blogs">Blogs</a>
+            <a href="#downloads">Downloads</a>
+        </nav>
     </header>
 
     <!-- HERO SECTION -->
     <section class="hero">
-        <div class="container hero-box">
-            <div class="hero-text">
-                <h1>Professional templates, app packs & XML files</h1>
-                <p>Download XML templates, app previews, screenshots, demo videos & ready-to-use assets.</p>
+        <h1>Launch Ready Resource Marketplace</h1>
+        <p>Download Apps, Templates, XML Files, Guides & More – All at one place</p>
 
-                <div class="btn-group">
-                    <a href="/apps/" class="btn">Explore Apps</a>
-                    <a href="/blog/" class="btn btn-outline">Latest Blog</a>
-                </div>
-            </div>
+        <button class="btn-primary">Browse Apps</button>
+        <button class="btn-outline">Read Guides</button>
+    </section>
 
-            <div class="hero-img">
-                <img src="assets/img/hero.png" alt="Hero Image">
-            </div>
+    <!-- APPS SECTION -->
+    <section id="apps" class="section">
+        <h2 class="section-title">Top Apps</h2>
+
+        <div class="grid" id="apps-container">
+            <!-- JS se generate hoga -->
         </div>
     </section>
 
-    <!-- FEATURES SECTION -->
-    <section class="features">
-        <div class="container features-grid">
+    <!-- TEMPLATES SECTION -->
+    <section id="templates" class="section">
+        <h2 class="section-title">Templates</h2>
 
-            <div class="card">
-                <h3>Blog</h3>
-                <p>SEO-ready posts with screenshots & downloadable content.</p>
-                <a href="/blog/">View Blog</a>
-            </div>
+        <div class="grid" id="templates-container">
+            <!-- JS se generate hoga -->
+        </div>
+    </section>
 
-            <div class="card">
-                <h3>Apps Library</h3>
-                <p>Full app details, preview images, XML templates & download links.</p>
-                <a href="/apps/">View Apps</a>
-            </div>
+    <!-- BLOG SECTION -->
+    <section id="blogs" class="section">
+        <h2 class="section-title">Blogs & Guides</h2>
 
-            <div class="card">
-                <h3>Templates & XML</h3>
-                <p>Multiple XML & template packs available for download.</p>
-                <a href="/apps/">See Templates</a>
-            </div>
+        <div class="grid" id="blogs-container">
+            <!-- JS se generate hoga -->
+        </div>
+    </section>
 
+    <!-- DOWNLOADS -->
+    <section id="downloads" class="section">
+        <h2 class="section-title">Direct Downloads</h2>
+
+        <div class="download-box">
+            <a href="downloads/apps_all.zip" class="download-btn">Download All Apps</a>
+            <a href="downloads/templates_pack.zip" class="download-btn">Download All Templates</a>
+            <a href="downloads/blog_assets.zip" class="download-btn">Download Blog Assets</a>
+            <a href="downloads/video_assets.zip" class="download-btn">Download Video Files</a>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="footer">
-        <p>© 2025 5yberBind — Built for creators.</p>
+        © 2025 5yberBind. All Rights Reserved.
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
