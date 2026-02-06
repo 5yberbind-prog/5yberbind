@@ -50,3 +50,7 @@ footer {
   padding: 20px;
   background: #020617;
 }
+.card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s;
+}
