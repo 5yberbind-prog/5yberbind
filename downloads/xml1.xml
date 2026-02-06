@@ -1,1 +1,490 @@
-
+<?xml version='1.0' encoding='UTF-8' ?><!--
+Created by Alight Motion (http://alightmotion.com)
+Exported: 2026-01-30 03:00 AM
+5.0.271.1002592 (1002592)
+a34a6c0 (07-Oct-2024 15:47:29)
+-->
+<scene title="New Project 1" width="2160" height="3840" exportWidth="2160" exportHeight="3840" precompose="dynamicResolution" bgcolor="#ffd8d8d8" totalTime="113299" fps="30" modifiedTime="1769722259800" amver="1002592" ffver="106" am="com.alightcreative.motion/5.0.271.1002592" amplatform="android" retime="freeze" retimeAdaptFPS="false">
+  <media uri="content://media/external/images/media/15994" type="image/png" duration="0" orientation="0" infoUpdated="1769722244840" width="0" height="0" />
+  <media uri="content://media/external/video/media/15616" filename="Video-689.mp4" title="Video-689.mp4" type="video/mp4" duration="113266000" size="2400230" fps="0.30" orientation="0" infoUpdated="1769722244840" width="720" height="1280" />
+  <bookmark t="47650" />
+  <bookmark t="2250" />
+  <bookmark t="16" />
+  <bookmark t="6550" />
+  <bookmark t="16916" />
+  <bookmark t="21750" />
+  <bookmark t="23816" />
+  <bookmark t="32550" />
+  <bookmark t="36216" />
+  <bookmark t="40316" />
+  <bookmark t="44616" />
+  <bookmark t="46650" />
+  <bookmark t="45950" />
+  <bookmark t="43983" />
+  <bookmark t="41750" />
+  <bookmark t="40083" />
+  <bookmark t="37850" />
+  <bookmark t="110316" />
+  <bookmark t="108516" />
+  <bookmark t="106216" />
+  <bookmark t="104350" />
+  <bookmark t="102450" />
+  <bookmark t="100950" />
+  <bookmark t="98516" />
+  <bookmark t="96316" />
+  <bookmark t="94550" />
+  <bookmark t="92416" />
+  <bookmark t="90450" />
+  <bookmark t="88816" />
+  <bookmark t="86916" />
+  <bookmark t="85016" />
+  <bookmark t="82650" />
+  <bookmark t="80950" />
+  <bookmark t="78550" />
+  <bookmark t="76416" />
+  <bookmark t="74416" />
+  <bookmark t="73216" />
+  <bookmark t="71216" />
+  <bookmark t="69716" />
+  <bookmark t="67416" />
+  <bookmark t="65216" />
+  <bookmark t="62916" />
+  <bookmark t="60950" />
+  <bookmark t="59416" />
+  <bookmark t="57316" />
+  <bookmark t="55150" />
+  <bookmark t="53016" />
+  <bookmark t="51616" />
+  <bookmark t="49550" />
+  <shape id="599" label="AGC_20260129_183300813.jpg" startTime="0" endTime="113299" fillType="media" blending="darken" fillImage="content://media/external/images/media/15994" mediaFillMode="fill" s=".rect">
+    <transform>
+      <location>
+        <kf t="0.418503" v="471.753784,2531.656494,-1585.973877" />
+        <kf t="0.999859" v="1703.753784,1822.656494,-1585.973877" e="cubicBezier 1.0 0.0 0.0 1.0" />
+        <kf t="0.421151" v="1700.253784,1822.656494,-1585.973877" e="cubicBezier 1.0 0.0 0.0 1.0" />
+      </location>
+      <scale value="1.105469,1.105469" />
+      <opacity value="0.917969" />
+    </transform>
+    <gradient type="radial" startColor="#fffae965" endColor="#ff000000" start="0.501536,0.560983" end="1.537584,1.484254" />
+    <property name="size" type="vec2" value="1080.000000,1920.000000" />
+  </shape>
+  <text id="601" hidden="true" startTime="0" endTime="1900" fillType="color" mediaFillMode="fill" size="32.000000" font="imported?name=Rockybilly.ttf" wrapWidth="2050" align="center">
+    <transform>
+      <location value="694.164795,991.801025,0.000000" />
+      <opacity>
+        <kf t="0.184211" v="1.000000" />
+        <kf t="0.008421" v="0.000000" />
+      </opacity>
+    </transform>
+    <fillColor value="#ff000000" />
+    <content>Government College </content>
+  </text>
+  <audio id="606" label="Video-689.mp4" startTime="0" endTime="113298" src="content://media/external/video/media/15616" outTime="113266" mediaFillMode="fill" />
+  <text id="618" startTime="0" endTime="2266" fillType="color" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="2372" align="left">
+    <transform>
+      <location value="1315.407837,983.040405,0.000000" />
+    </transform>
+    <fillColor value="#ff7f7f7f" />
+    <content>Mai Jisase Chahe Baat Karun</content>
+  </text>
+  <text id="619" startTime="2333" endTime="4599" fillType="color" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1436" align="left">
+    <transform>
+      <location value="875.446167,1246.897095,0.000000" />
+    </transform>
+    <fillColor value="#ff7f7f7f" />
+    <content>Tumhe Usase Kya Hai</content>
+  </text>
+  <text id="620" startTime="4600" endTime="6528" fillType="color" speed="1.550000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1402" align="left">
+    <transform>
+      <location value="852.489136,1245.012451,0.000000" />
+    </transform>
+    <fillColor value="#ff7f7f7f" />
+    <content>Mai Jisase Chahe Milun </content>
+  </text>
+  <text id="621" startTime="6566" endTime="8309" fillType="color" speed="1.300000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1332" align="left">
+    <transform>
+      <location value="807.800659,986.644104,0.000000" />
+    </transform>
+    <fillColor value="#ff7f7f7f" />
+    <content>Tumhe Usase Kya Hai</content>
+  </text>
+  <text id="622" startTime="8566" endTime="10379" fillType="color" speed="1.250000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1402" align="left">
+    <transform>
+      <location value="889.135254,1235.323730,0.000000" />
+    </transform>
+    <fillColor value="#ff7f7f7f" />
+    <content>Kitani Baar Kaha Hai</content>
+  </text>
+  <text id="623" startTime="10500" endTime="12766" fillType="color" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="2372" align="left">
+    <transform>
+      <location value="1367.530884,889.756226,0.000000" />
+    </transform>
+    <fillColor value="#ff7f7f7f" />
+    <content>Apani Had Me Raha Karo Tum</content>
+  </text>
+  <text id="624" startTime="13200" endTime="14393" fillType="color" speed="1.900000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1499" align="left">
+    <transform>
+      <location value="977.371338,1212.716431,0.000000" />
+    </transform>
+    <fillColor value="#ff7f7f7f" />
+    <content>Fazool Me Mere Baap</content>
+  </text>
+  <text id="625" startTime="14400" endTime="16666" fillType="color" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="2372" align="left">
+    <transform>
+      <location value="1728.271851,967.266541,0.000000" />
+    </transform>
+    <fillColor value="#ff7f7f7f" />
+    <content>Mat Bana karo Tum</content>
+  </text>
+  <text id="626" startTime="16900" endTime="18870" fillType="color" speed="1.150000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="2372" align="left">
+    <transform>
+      <location value="1308.422974,1009.251343,0.000000" />
+    </transform>
+    <fillColor value="#ff7f7f7f" />
+    <content>Apani Zindagi Me Kisi Ki</content>
+  </text>
+  <text id="627" startTime="18933" endTime="21199" fillType="color" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="2372" align="left">
+    <transform>
+      <location value="1344.538940,1038.317993,0.000000" />
+    </transform>
+    <fillColor value="#ff7f7f7f" />
+    <content>Dakhalandaazi Mujhe Pasand Nahi</content>
+  </text>
+  <text id="628" startTime="21733" endTime="23793" fillType="color" speed="1.100000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="2372" align="left">
+    <transform>
+      <location value="1331.356812,1235.323730,0.000000" />
+    </transform>
+    <fillColor value="#ff7f7f7f" />
+    <content>Mai Tumhara Kaha Manane</content>
+  </text>
+  <text id="629" startTime="23833" endTime="25452" fillType="color" speed="1.400000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="2372" align="left">
+    <transform>
+      <location value="1301.963989,1148.124512,0.000000" />
+    </transform>
+    <fillColor value="#ff7f7f7f" />
+    <content>Ki Bilkul Paband Nahi</content>
+  </text>
+  <text id="630" startTime="25500" endTime="27388" fillType="color" speed="1.200000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="2372" align="left">
+    <transform>
+      <location value="1380.576538,967.266846,0.000000" />
+    </transform>
+    <fillColor value="#ff7f7f7f" />
+    <content>Khamakha Mujhe Pane Ki</content>
+  </text>
+  <text id="631" startTime="27433" endTime="29403" fillType="color" speed="1.150000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="2372" align="left">
+    <transform>
+      <location value="1347.178101,1012.480957,0.000000" />
+    </transform>
+    <fillColor value="#ff7f7f7f" />
+    <content>Zid Par Ade Ho Tum</content>
+  </text>
+  <text id="632" startTime="29433" endTime="30806" fillType="color" speed="1.650000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1301" align="left">
+    <transform>
+      <location value="860.086548,999.562439,0.000000" />
+    </transform>
+    <fillColor value="#ff7f7f7f" />
+    <content>Yaar Hath Dho Kar Mere</content>
+  </text>
+  <text id="633" startTime="30833" endTime="32512" fillType="color" speed="1.350000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="2372" align="left">
+    <transform>
+      <location value="1389.162964,1064.154663,0.000000" />
+    </transform>
+    <fillColor value="#ff7f7f7f" />
+    <content>Piche Pade Ho Tum</content>
+  </text>
+  <text id="634" startTime="32533" endTime="33866" fillType="color" speed="1.700000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="2372" align="left">
+    <transform>
+      <location value="1276.127075,1099.680298,0.000000" />
+    </transform>
+    <fillColor value="#ff7f7f7f" />
+    <content>Tumhe Kisane Kaha Tha</content>
+  </text>
+  <text id="635" startTime="33866" endTime="36132" fillType="color" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="2372" align="left">
+    <transform>
+      <location value="1289.045288,1135.205933,0.000000" />
+    </transform>
+    <fillColor value="#ff7f7f7f" />
+    <content>Mere Saath Dil Lagane Ko</content>
+  </text>
+  <text id="636" startTime="36200" endTime="37819" fillType="color" speed="1.400000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="2372" align="left">
+    <transform>
+      <location value="1382.703735,909.133667,0.000000" />
+    </transform>
+    <fillColor value="#ff7f7f7f" />
+    <content>Tumhe Kisane Kaha Tha</content>
+  </text>
+  <text id="637" startTime="37833" endTime="40099" fillType="color" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="2372" align="left">
+    <transform>
+      <location value="1426.115112,1067.384277,0.000000" />
+    </transform>
+    <fillColor value="#ff7f7f7f" />
+    <content>Mere Itane Nazdik Aane Ko</content>
+  </text>
+  <text id="638" startTime="40300" endTime="41716" fillType="color" speed="1.600000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="2372" align="left">
+    <transform>
+      <location value="1321.341431,1099.680420,0.000000" />
+    </transform>
+    <fillColor value="#ff7f7f7f" />
+    <content>Tumhe Kisane Kaha Tha</content>
+  </text>
+  <text id="639" startTime="41733" endTime="43999" fillType="color" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="2372" align="left">
+    <transform>
+      <location value="1343.948608,847.771118,0.000000" />
+    </transform>
+    <fillColor value="#ff7f7f7f" />
+    <content>Mere Piche Khud Ko Bekar Karo</content>
+  </text>
+  <text id="640" startTime="44600" endTime="45933" fillType="color" speed="1.700000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1300" align="left">
+    <transform>
+      <location value="935.518066,1220.567017,0.000000" />
+    </transform>
+    <fillColor value="#ff7f7f7f" />
+    <content>Tumhe Maine To Nahi</content>
+  </text>
+  <text id="641" startTime="45933" endTime="46664" fillType="color" speed="3.100000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="934" align="left">
+    <transform>
+      <location value="991.318237,1299.915894,0.000000" />
+    </transform>
+    <fillColor value="#ff7f7f7f" />
+    <content>Kaha Tha Ki </content>
+  </text>
+  <text id="642" startTime="46666" endTime="47673" fillType="color" speed="2.250000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1085" align="left">
+    <transform>
+      <location value="1043.537598,1225.634888,0.000000" />
+    </transform>
+    <fillColor value="#ff7f7f7f" />
+    <content>Mujhase Pyar Karo</content>
+  </text>
+  <text id="643" startTime="47666" endTime="49567" fillType="color" speed="1.350000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1050" align="left">
+    <transform>
+      <location value="1258.571167,511.892426,0.000000" />
+    </transform>
+    <fillColor value="#ff3d4cf5" />
+    <content>Khudgarz Ho</content>
+  </text>
+  <text id="644" startTime="49566" endTime="51620" fillType="color" speed="1.250000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1460" align="left">
+    <transform>
+      <location value="1056.132446,521.581238,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>To Phir Khudgarzi Karogi</content>
+  </text>
+  <text id="645" startTime="51633" endTime="53021" fillType="color" speed="1.850000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1460" align="left">
+    <transform>
+      <location value="1091.658081,565.671875,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Mujhe Malum Hai</content>
+  </text>
+  <text id="646" startTime="53000" endTime="55139" fillType="color" speed="1.200000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1460" align="left">
+    <transform>
+      <location value="1056.132446,521.581238,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Tum Apani Marzi Karogi</content>
+  </text>
+  <text id="647" startTime="55166" endTime="57305" fillType="color" speed="1.200000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1460" align="left">
+    <transform>
+      <location value="1056.132446,521.581238,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Ehmaq Hun Jo galat bant Pe</content>
+  </text>
+  <text id="648" startTime="57333" endTime="59387" fillType="color" speed="1.250000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1460" align="left">
+    <transform>
+      <location value="1056.132446,521.581238,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Tumhe Tokata Hun Mai</content>
+  </text>
+  <text id="649" startTime="59400" endTime="60956" fillType="color" speed="1.650000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1884" align="left">
+    <transform>
+      <location value="1190.622070,615.239807,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Khud Bhi Nahi Malom Kya</content>
+  </text>
+  <text id="650" startTime="60966" endTime="62867" fillType="color" speed="1.350000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1835" align="left">
+    <transform>
+      <location value="1127.366699,612.010254,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Soch Ke Tumhe Rokta Hu Mai</content>
+  </text>
+  <text id="651" startTime="62900" endTime="65234" fillType="color" speed="1.100000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1860" align="left">
+    <transform>
+      <location value="1084.963379,676.602234,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Aisa Mat Samajhna Ki Tum Par</content>
+  </text>
+  <text id="652" startTime="65233" endTime="67372" fillType="color" speed="1.200000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1460" align="left">
+    <transform>
+      <location value="1113.136353,602.321350,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Hukam Chalata Hun Mai</content>
+  </text>
+  <text id="653" startTime="67433" endTime="69666" fillType="color" speed="1.150000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1817" align="left">
+    <transform>
+      <location value="1195.877319,589.402954,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Or Aisa Hargiz nahi Ki Tum pe</content>
+  </text>
+  <text id="654" startTime="69700" endTime="71210" fillType="color" speed="1.700000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1460" align="left">
+    <transform>
+      <location value="1353.256226,618.469482,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Haq Jatata Hu Mai</content>
+  </text>
+  <text id="655" startTime="71233" endTime="73208" fillType="color" speed="1.300000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1864" align="left">
+    <transform>
+      <location value="1219.377319,679.831787,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Kabhi To Kuch Bhi Kah</content>
+  </text>
+  <text id="656" startTime="73200" endTime="74394" fillType="color" speed="2.150000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1460" align="left">
+    <transform>
+      <location value="1236.215576,679.831970,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Deta Hu Mai Tumhe</content>
+  </text>
+  <text id="657" startTime="74433" endTime="76335" fillType="color" speed="1.350000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1460" align="left">
+    <transform>
+      <location value="1317.730469,636.232178,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>A Ke Jajbat Me</content>
+  </text>
+  <text id="658" startTime="76400" endTime="78539" fillType="color" speed="1.200000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1932" align="left">
+    <transform>
+      <location value="1062.830444,621.698914,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Kalanki Mere Liye Accha Yahi Hai</content>
+  </text>
+  <text id="659" startTime="78566" endTime="80900" fillType="color" speed="1.100000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1798" align="left">
+    <transform>
+      <location value="1108.866577,718.587097,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Ki Rahun Main Apani Aukat Mein </content>
+  </text>
+  <text id="660" startTime="80966" endTime="82677" fillType="color" speed="1.500000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1460" align="left">
+    <transform>
+      <location value="1056.132446,521.581238,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Magar Yahi Bat Hai Jo</content>
+  </text>
+  <text id="661" startTime="82666" endTime="85000" fillType="color" speed="1.100000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1780" align="left">
+    <transform>
+      <location value="1135.392334,576.484497,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Har Baar Bhul Jata Hun main</content>
+  </text>
+  <text id="662" startTime="85000" endTime="86901" fillType="color" speed="1.350000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1888" align="left">
+    <transform>
+      <location value="1208.770020,592.632507,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Tumhari Zindagi Mein Mudakhlit </content>
+  </text>
+  <text id="663" startTime="86900" endTime="88801" fillType="color" speed="1.350000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1709" align="left">
+    <transform>
+      <location value="1180.632446,576.484558,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Ki Mafi Chahta Hu Main</content>
+  </text>
+  <text id="664" startTime="88833" endTime="90437" fillType="color" speed="1.600000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1691" align="left">
+    <transform>
+      <location value="1276.594604,683.061462,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Sunne Sunane Ko Ab</content>
+  </text>
+  <text id="665" startTime="90466" endTime="92441" fillType="color" speed="1.300000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1460" align="left">
+    <transform>
+      <location value="1056.132446,521.581238,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Baki Kuch Bacha Nahi</content>
+  </text>
+  <text id="666" startTime="92433" endTime="94572" fillType="color" speed="1.200000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1796" align="left">
+    <transform>
+      <location value="1195.066040,695.979919,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Ham Mein Jo Bhi Rista Tha</content>
+  </text>
+  <text id="667" startTime="94566" endTime="96277" fillType="color" speed="1.500000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1460" align="left">
+    <transform>
+      <location value="1090.746216,670.143066,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Ajj Se Woh Raha Nahi</content>
+  </text>
+  <text id="668" startTime="96300" endTime="98532" fillType="color" speed="1.150000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1460" align="left">
+    <transform>
+      <location value="1088.428467,653.994995,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Mere Alawa Kai Aur Hai</content>
+  </text>
+  <text id="669" startTime="98533" endTime="100978" fillType="color" speed="1.050000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1460" align="left">
+    <transform>
+      <location value="1172.398315,631.387756,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Tumhe Hasane Wale</content>
+  </text>
+  <text id="670" startTime="100966" endTime="102433" fillType="color" speed="1.750000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1174" align="left">
+    <transform>
+      <location value="1187.648926,663.683716,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Mubarak Ho Tumhe </content>
+  </text>
+  <text id="671" startTime="102466" endTime="104367" fillType="color" speed="1.350000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1460" align="left">
+    <transform>
+      <location value="1056.132446,521.581238,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Tumhare Chahane Wale</content>
+  </text>
+  <text id="672" startTime="104366" endTime="106200" fillType="color" speed="1.400000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1460" align="left">
+    <transform>
+      <location value="1056.132446,521.581238,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Takey Ki Haseena Pichey</content>
+  </text>
+  <text id="673" startTime="106200" endTime="108534" fillType="color" speed="1.100000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1460" align="left">
+    <transform>
+      <location value="1056.132446,521.581238,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Khud Ko Bekar Kiya</content>
+  </text>
+  <text id="674" startTime="108500" endTime="110334" fillType="color" speed="1.400000" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1460" align="left">
+    <transform>
+      <location value="1056.132446,521.581238,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Galti Meri Hi Thi Jo Maine </content>
+  </text>
+  <text id="675" startTime="110333" endTime="112900" fillType="color" mediaFillMode="fill" size="24.000000" font="imported?name=Rockybilly.ttf" wrapWidth="1460" align="left">
+    <transform>
+      <location value="1056.132446,521.581238,0.000000" />
+    </transform>
+    <fillColor value="#ff575757" />
+    <content>Tumse Pyar Kiya</content>
+  </text>
+</scene>
