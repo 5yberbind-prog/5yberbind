@@ -14,6 +14,12 @@
   <h1>5yberBind Marketplace</h1>
   <p>Download Templates, Apps & XML</p>
 </header>
+<div style="text-align:center;">
+  <button onclick="filterCategory('all')">All</button>
+  <button onclick="filterCategory('app')">Apps</button>
+  <button onclick="filterCategory('xml')">XML</button>
+  <button onclick="filterCategory('template')">Templates</button>
+</div>
 <input type="text" id="searchBox" placeholder="Search Apps, XML, Templates..." onkeyup="searchItems()">
 
 <section class="grid">
@@ -31,6 +37,7 @@
     <p>App UI Layout</p>
     <a href="./downloads/xml1.xml" download>Download</a>
   </div>
+<div class="card" data-category="xml">
 
   <div class="card">
     <img src="./images/preview1.jpg" alt="Preview">
@@ -45,6 +52,7 @@
   <p>Offline Android App</p>
   <a href="downloads/musicplayer.apk" download>Download</a>
 </div>
+<div class="card" data-category="app">
 
 <div class="card">
   <img src="images/myapp.jpg">
@@ -58,6 +66,17 @@
 <footer>
   <p>© 2026 5yberBind</p>
 </footer>
+<script>
+function searchItems() {
+  let input = document.getElementById("searchBox").value.toLowerCase();
+  let cards = document.getElementsByClassName("card");
+
+  for (let i = 0; i < cards.length; i++) {
+    let text = cards[i].innerText.toLowerCase();
+    cards[i].style.display = text.includes(input) ? "block" : "none";
+  }
+}
+</script>
 
 </body>
 </html>
