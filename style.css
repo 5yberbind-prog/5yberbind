@@ -1,1 +1,46 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #1a1a2e;
+  color: #fff;
+}
 
+header {
+  text-align: center;
+  padding: 30px;
+  background: #0f3460;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background: #16213e;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #e94560;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #0f3460;
+}
