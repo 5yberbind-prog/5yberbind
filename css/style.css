@@ -83,3 +83,23 @@ footer {
   border: none;
   font-size: 16px;
 }
+.filter-buttons {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.filter-buttons button {
+  background: #020617;
+  color: #cbd5f5;
+  border: 1px solid #1e293b;
+  padding: 8px 16px;
+  margin: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.filter-buttons button:hover {
+  background: #22c55e;
+  color: #000;
+}
