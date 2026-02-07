@@ -143,3 +143,18 @@ body {
   pointer-events: none;
   z-index: 9998;
 }
+.download-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #000;
+  font-weight: 600;
+  border-radius: 12px;
+  text-decoration: none;
+}
+details img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
