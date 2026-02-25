@@ -2,61 +2,62 @@ body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #1a0b3d, #2a0f5f);
-    color: #fff;
+    color: white;
     text-align: center;
 }
 
-.hero {
-    padding: 90px 20px;
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 25px;
+    background: rgba(0,0,0,0.4);
+    position: sticky;
+    top: 0;
 }
 
-.hero h1 {
-    font-size: 32px;
-    margin-bottom: 10px;
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+}
+
+.hero {
+    padding: 80px 20px;
 }
 
 button {
     background: #7b4dff;
     border: none;
-    padding: 12px 22px;
+    padding: 10px 20px;
     border-radius: 8px;
-    color: #fff;
+    color: white;
     cursor: pointer;
-    font-weight: 600;
 }
 
-.features {
-    padding: 50px 20px;
+.features, .pricing, .contact {
+    padding: 40px 20px;
 }
 
-.features .card {
+.card, .price-card {
     background: rgba(255,255,255,0.1);
-    padding: 25px;
     margin: 15px auto;
+    padding: 20px;
+    border-radius: 10px;
     max-width: 280px;
-    border-radius: 12px;
-    backdrop-filter: blur(6px);
-}
-
-.pricing {
-    padding: 50px 15px;
-}
-
-.price-card {
-    background: rgba(255,255,255,0.15);
-    margin: 15px auto;
-    padding: 25px;
-    border-radius: 12px;
-    max-width: 240px;
 }
 
 .price-card.pro {
     background: #7b4dff;
-    color: #fff;
 }
 
-footer {
-    padding: 22px;
-    margin-top: 30px;
-    background: rgba(0,0,0,0.4);
-}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 300px;
+    margin: auto
