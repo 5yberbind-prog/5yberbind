@@ -3,46 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>5yberBind Landing</title>
+<title>5yberBind</title>
 
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
 </head>
+
 <body>
 
-<header class="hero">
-    <h1>Build Fast, Professional Websites</h1>
-    <p>Free Hosting & Coding based responsive web templates</p>
-    <button onclick="scrollToSection('features')">Explore</button>
+<nav class="navbar">
+    <h2 class="logo">5yberBind</h2>
+    <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<header class="hero" id="hero">
+    <h1>Build Fast Professional Websites</h1>
+    <p>Free coding templates & tech solutions</p>
+    <button onclick="scrollToSection('pricing')">Get Started</button>
 </header>
 
-<section class="features" id="features">
-    <h2>Why 5yberBind</h2>
-    <div class="card">
-        <h3>⚡ Fast</h3>
-        <p>Quick loading optimized tech</p>
-    </div>
-    <div class="card">
-        <h3>🔒 Secure</h3>
-        <p>Safe & modern practices</p>
-    </div>
-    <div class="card">
-        <h3>📱 Responsive</h3>
-        <p>Looks great on all devices</p>
-    </div>
+<section id="features" class="features">
+    <h2>Features</h2>
+    <div class="card">⚡ Fast Performance</div>
+    <div class="card">🔒 Secure Coding</div>
+    <div class="card">📱 Fully Responsive</div>
 </section>
 
-<section class="pricing">
-    <h2>Pricing Plans</h2>
-    <div class="price-card">
-        <h3>Basic</h3>
-        <p>Free</p>
-    </div>
-    <div class="price-card pro">
-        <h3>Pro</h3>
-        <p>₹299/month</p>
-    </div>
+<section id="pricing" class="pricing">
+    <h2>Pricing</h2>
+    <div class="price-card">Basic – Free</div>
+    <div class="price-card pro">Pro – ₹299/month</div>
+</section>
+
+<section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message"></textarea>
+        <button type="submit">Send</button>
+    </form>
 </section>
 
 <footer>
