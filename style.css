@@ -61,3 +61,30 @@ form {
     gap: 10px;
     max-width: 300px;
     margin: auto
+input, textarea {
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+}
+
+textarea {
+    resize: none;
+    height: 80px;
+}
+
+footer {
+    padding: 20px;
+    background: rgba(0,0,0,0.4);
+    margin-top: 30px;
+}
+
+/* Hover Effects */
+button:hover {
+    background: #9b6bff;
+    transition: 0.3s;
+}
+
+.card:hover, .price-card:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
