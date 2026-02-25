@@ -1,1 +1,62 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1a0b3d, #2a0f5f);
+    color: #fff;
+    text-align: center;
+}
 
+.hero {
+    padding: 90px 20px;
+}
+
+.hero h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+button {
+    background: #7b4dff;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.features {
+    padding: 50px 20px;
+}
+
+.features .card {
+    background: rgba(255,255,255,0.1);
+    padding: 25px;
+    margin: 15px auto;
+    max-width: 280px;
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+}
+
+.pricing {
+    padding: 50px 15px;
+}
+
+.price-card {
+    background: rgba(255,255,255,0.15);
+    margin: 15px auto;
+    padding: 25px;
+    border-radius: 12px;
+    max-width: 240px;
+}
+
+.price-card.pro {
+    background: #7b4dff;
+    color: #fff;
+}
+
+footer {
+    padding: 22px;
+    margin-top: 30px;
+    background: rgba(0,0,0,0.4);
+}
