@@ -112,3 +112,21 @@ button:hover {
     cursor: pointer;
     color: white;
 }
+.blog-section {
+    padding: 60px 20px;
+}
+
+.blog-card {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 500px;
+    border-radius: 12px;
+    text-align: left;
+}
+
+.blog-card a {
+    color: #7b4dff;
+    text-decoration: none;
+    font-weight: bold;
+}
