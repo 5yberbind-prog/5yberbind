@@ -10,11 +10,11 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 15px 25px;
-    background: rgba(0,0,0,0.4);
+    background: #140a2d;
     position: sticky;
     top: 0;
+    z-index: 1000;
 }
-
 .navbar ul {
     list-style: none;
     display: flex;
@@ -144,11 +144,12 @@ button:hover {
 }
 .news-container {
     max-width: 800px;
-    margin: 60px auto;
-    padding: 20px;
+    margin: 80px auto;
+    padding: 25px;
     text-align: left;
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
 }
-
 .news-container h1 {
     margin-bottom: 10px;
 }
@@ -161,8 +162,10 @@ button:hover {
 
 .news-image {
     width: 100%;
+    max-height: 350px;
+    object-fit: cover;
     border-radius: 12px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .news-container p {
