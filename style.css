@@ -130,3 +130,15 @@ button:hover {
     text-decoration: none;
     font-weight: bold;
 }
+.latest-news {
+    padding: 50px 20px;
+}
+
+.news-card {
+    background: rgba(255,255,255,0.12);
+    padding: 20px;
+    margin: 15px auto;
+    border-radius: 10px;
+    max-width: 550px;
+    text-align: left;
+}
